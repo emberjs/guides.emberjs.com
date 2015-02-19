@@ -1,0 +1,36 @@
+[
+  {
+    "scope": "https://api.swiftype.com:443",
+    "method": "POST",
+    "path": "/api/v1/engines/ember/document_types.json",
+    "body": {
+      "document_type": {
+        "name": "test-type1"
+      }
+    },
+    "status": 200,
+    "response": {
+      "id": "54e89e2214cc8aa151000049",
+      "name": "test-type1",
+      "slug": "test-type1",
+      "engine_id": "54e88b1814cc8ad2a3000002",
+      "updated_at": "2015-02-21T15:02:58Z",
+      "document_count": 0,
+      "field_mapping": {}
+    },
+    "headers": {
+      "server": "openresty/1.5.11.1rc1",
+      "date": "Sat, 21 Feb 2015 15:02:58 GMT",
+      "content-type": "application/json; charset=utf-8",
+      "transfer-encoding": "chunked",
+      "connection": "keep-alive",
+      "vary": "Accept-Encoding",
+      "status": "200 OK",
+      "x-ua-compatible": "IE=Edge,chrome=1",
+      "etag": "\"9fd07f728e7920eef31627a0584ce8f5\"",
+      "cache-control": "max-age=0, private, must-revalidate",
+      "x-request-id": "098f2983d46aaa85c36e6ddac5050da9",
+      "x-runtime": "0.128178"
+    }
+  }
+]

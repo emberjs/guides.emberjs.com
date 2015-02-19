@@ -5,6 +5,11 @@
   "main": "index.js",
   "dependencies": {},
   "devDependencies": {
+    "mocha": "^2.1.0",
+    "nock": "^0.59.1",
+    "nock-vcr-recorder": "^0.1.3",
+    "nopt": "^3.0.1",
+    "rsvp": "^3.0.17",
     "swiftype": "git://github.com/trek/swiftype-node"
   },
   "scripts": {

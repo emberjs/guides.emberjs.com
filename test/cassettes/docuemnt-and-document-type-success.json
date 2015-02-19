@@ -1,0 +1,94 @@
+[
+  {
+    "scope": "https://api.swiftype.com:443",
+    "method": "POST",
+    "path": "/api/v1/engines/ember/document_types.json",
+    "body": {
+      "document_type": {
+        "name": "a-new-document-type"
+      }
+    },
+    "status": 200,
+    "response": {
+      "id": "54e8b94e14cc8aba54000007",
+      "name": "a-new-document-type",
+      "slug": "a-new-document-type",
+      "engine_id": "54e88b1814cc8ad2a3000002",
+      "updated_at": "2015-02-21T16:58:54Z",
+      "document_count": 0,
+      "field_mapping": {}
+    },
+    "headers": {
+      "server": "openresty/1.5.11.1rc1",
+      "date": "Sat, 21 Feb 2015 16:58:55 GMT",
+      "content-type": "application/json; charset=utf-8",
+      "transfer-encoding": "chunked",
+      "connection": "keep-alive",
+      "vary": "Accept-Encoding",
+      "status": "200 OK",
+      "x-ua-compatible": "IE=Edge,chrome=1",
+      "etag": "\"de7f2a075103eb33555df8a2db28eba1\"",
+      "cache-control": "max-age=0, private, must-revalidate",
+      "x-request-id": "69625d48e8f4429c43ae3b96e60dc5e1",
+      "x-runtime": "0.155487"
+    }
+  },
+  {
+    "scope": "https://api.swiftype.com:443",
+    "method": "POST",
+    "path": "/api/v1/engines/ember/document_types/a-new-document-type/documents/bulk_create_or_update.json",
+    "body": {
+      "documents": [
+        {
+          "external_id": "1234",
+          "fields": [
+            {
+              "name": "name",
+              "value": "HI",
+              "type": "string"
+            },
+            {
+              "name": "description",
+              "value": "HELLO",
+              "type": "text"
+            }
+          ]
+        },
+        {
+          "external_id": "2345",
+          "fields": [
+            {
+              "name": "name",
+              "value": "BYE",
+              "type": "string"
+            },
+            {
+              "name": "description",
+              "value": "GOODBYE",
+              "type": "text"
+            }
+          ]
+        }
+      ]
+    },
+    "status": 200,
+    "response": [
+      true,
+      true
+    ],
+    "headers": {
+      "server": "openresty/1.5.11.1rc1",
+      "date": "Sat, 21 Feb 2015 16:58:55 GMT",
+      "content-type": "application/json; charset=utf-8",
+      "transfer-encoding": "chunked",
+      "connection": "keep-alive",
+      "vary": "Accept-Encoding",
+      "status": "200 OK",
+      "x-ua-compatible": "IE=Edge,chrome=1",
+      "etag": "\"bb009c6dcb5c622766ad5aa1ea1562d9\"",
+      "cache-control": "max-age=0, private, must-revalidate",
+      "x-request-id": "e2f979a82e0ab69b62a33745e0ac77dc",
+      "x-runtime": "0.128387"
+    }
+  }
+]
