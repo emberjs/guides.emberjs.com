@@ -1,0 +1,23 @@
+{
+  "name": "guides.emberjs.com",
+  "version": "1.0.0",
+  "description": "This repo is a READ-ONLY repo. It contains the built output of https://github.com/emberjs/guides. If you would like to make corrections or additions to a guide, please open a pull request at https://github.com/emberjs/guides.",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "swiftype": "git://github.com/trek/swiftype-node"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/emberjs/guides.emberjs.com.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emberjs/guides.emberjs.com/issues"
+  },
+  "homepage": "https://github.com/emberjs/guides.emberjs.com"
+}
