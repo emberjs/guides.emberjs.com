@@ -1,0 +1,86 @@
+[
+  {
+    "scope": "https://api.swiftype.com:443",
+    "method": "POST",
+    "path": "/api/v1/engines/ember/document_types/test-type1/documents/bulk_create_or_update.json",
+    "body": {
+      "documents": [
+        {
+          "external_id": "1234",
+          "fields": [
+            {
+              "name": "name",
+              "value": "HI",
+              "type": "string"
+            },
+            {
+              "name": "description",
+              "value": "HELLO",
+              "type": "text"
+            }
+          ]
+        }
+      ]
+    },
+    "status": 200,
+    "response": [
+      true
+    ],
+    "headers": {
+      "server": "openresty/1.5.11.1rc1",
+      "date": "Sat, 21 Feb 2015 17:40:31 GMT",
+      "content-type": "application/json; charset=utf-8",
+      "transfer-encoding": "chunked",
+      "connection": "keep-alive",
+      "vary": "Accept-Encoding",
+      "status": "200 OK",
+      "x-ua-compatible": "IE=Edge,chrome=1",
+      "etag": "\"b7524fe3dadd564ba8cf18bcb1287e6e\"",
+      "cache-control": "max-age=0, private, must-revalidate",
+      "x-request-id": "c12b79236f278e5a065eded41b12d403",
+      "x-runtime": "0.121647"
+    }
+  },
+  {
+    "scope": "https://api.swiftype.com:443",
+    "method": "POST",
+    "path": "/api/v1/engines/ember/document_types/test-type1/documents/bulk_create_or_update.json",
+    "body": {
+      "documents": [
+        {
+          "external_id": "2345",
+          "fields": [
+            {
+              "name": "name",
+              "value": "BYE",
+              "type": "string"
+            },
+            {
+              "name": "description",
+              "value": "GOODBYE",
+              "type": "text"
+            }
+          ]
+        }
+      ]
+    },
+    "status": 200,
+    "response": [
+      true
+    ],
+    "headers": {
+      "server": "openresty/1.5.11.1rc1",
+      "date": "Sat, 21 Feb 2015 17:40:31 GMT",
+      "content-type": "application/json; charset=utf-8",
+      "transfer-encoding": "chunked",
+      "connection": "keep-alive",
+      "vary": "Accept-Encoding",
+      "status": "200 OK",
+      "x-ua-compatible": "IE=Edge,chrome=1",
+      "etag": "\"b7524fe3dadd564ba8cf18bcb1287e6e\"",
+      "cache-control": "max-age=0, private, must-revalidate",
+      "x-request-id": "ca8e7f96a4904551176011e00f0a9cd9",
+      "x-runtime": "0.153367"
+    }
+  }
+]
