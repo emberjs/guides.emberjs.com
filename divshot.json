@@ -1,5 +1,5 @@
 {
-  "name": "guides.emberjs.com",
+  "name": "guides-guides",
   "root": "./artifacts",
   "clean_urls": true,
   "error_page": "404.html"
