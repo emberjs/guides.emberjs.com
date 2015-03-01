@@ -41,7 +41,7 @@ var PublishSearch = require('./lib/publish-search');
 var engine = options.engine || 'emberapi';
 
 // swiftype really doesn't like dots.
-var documentType = options.revision.replace(/\./g,'');
+var documentType = 'guides-' + options.revision.replace(/\./g,'-');
 var searchJSONfile = path.join(__dirname, '..', siteRoot, options.revision, 'search.json');
 
 var documents = JSON.parse(fs.readFileSync(searchJSONfile, 'utf-8')).documents;
