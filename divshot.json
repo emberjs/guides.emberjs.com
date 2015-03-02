@@ -1,6 +1,6 @@
 {
   "name": "ember-guides",
-  "root": "./artifacts",
+  "root": "./snapshots",
   "clean_urls": true,
   "error_page": "404.html"
 }
