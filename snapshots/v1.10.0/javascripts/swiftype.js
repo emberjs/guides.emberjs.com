@@ -1,0 +1,1 @@
+$(function(){var e=function(e,i){return console.log(i,i.highlight),'<p class="title">'+i.title+"</p>"};$("#st-search-input").swiftype({engineKey:"ha9YM1kgBdihxrq_8ZHK",searchFields:{"guides-v1-10-0":["body","title","url"]},fetchFields:{"guides-v1-10-0":["title","body","url"]},documentTypes:["guides-v1-10-0"],renderFunction:e})});
