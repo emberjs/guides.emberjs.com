@@ -58,3 +58,11 @@ npm deploy:search --revision <revision number>
 # e.g.
 npm deploy:search --revision v1.1.1 --environment staging --api-key SUPERSECRETBROCOMMON --engine ember
 ```
+
+### Versions
+
+To update the list of versions run the following:
+
+```shell
+node tasks/update-versions.js
+```
