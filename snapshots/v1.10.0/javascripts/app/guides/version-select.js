@@ -1,0 +1,1 @@
+var currentRevision="v1.10.0";$.ajax("/versions.json").done(function(e){var n=$(".version-select");n.select2({data:e}),n.select2("val",currentRevision),n.on("change",function(){var e=this.selectedOptions[0].value;window.location="/"+e+"/"})});
