@@ -113,14 +113,14 @@ materialized into an Ember Data record.</p>
 the store to find the record (<code>store.find(Person, 1)</code>).</p>
 
 <figure>
-  <img src="/images/ember-data-guide/step1.png">
+  <img src="../images/ember-data-guide/step1.png">
 </figure>
 
 <p>If the adapter has not already loaded the record into the store, the
 store will ask the adapter to fetch it.</p>
 
 <figure>
-  <img src="/images/ember-data-guide/step2.png">
+  <img src="../images/ember-data-guide/step2.png">
 </figure>
 
 <p>Since the adapter&#39;s request is asynchronous, the store will return a new
@@ -128,13 +128,13 @@ store will ask the adapter to fetch it.</p>
 data.</p>
 
 <figure>
-  <img src="/images/ember-data-guide/step3.png">
+  <img src="../images/ember-data-guide/step3.png">
 </figure>
 <h2 class='anchorable-toc' id='toc_step-2-adapter-loads-data-into-the-store'>Step 2: Adapter Loads Data Into the Store</h2>
 <p>At some point later, the server will return some data to the adapter.</p>
 
 <figure>
-  <img src="/images/ember-data-guide/step5.png">
+  <img src="../images/ember-data-guide/step5.png">
 </figure>
 
 <p>Once the adapter receives the data hash, it loads it into the store.
@@ -145,7 +145,7 @@ notify the record that the data hash is available.</p>
 (<code>DS.hasMany</code> and <code>DS.belongsTo</code>).</p>
 
 <figure>
-  <img src="/images/ember-data-guide/step6.png">
+  <img src="../images/ember-data-guide/step6.png">
 </figure>
 <h2 class='anchorable-toc' id='toc_step-3-getting-an-attribute'>Step 3: Getting an Attribute</h2>
 <p>In response to the notification, the app will typically request some
@@ -165,14 +165,14 @@ data hash loads in from the server, the registered observer will call
 <code>person.get(&#39;firstName&#39;)</code>.</p>
 
 <figure>
-  <img src="/images/ember-data-guide/step7.png">
+  <img src="../images/ember-data-guide/step7.png">
 </figure>
 <h2 class='anchorable-toc' id='toc_step-4-materialization'>Step 4: Materialization</h2>
 <p>Because this is the first time the record needs its backend-provided
 data, it will ask the store to load it in using <code>materializeData</code>.</p>
 
 <figure>
-  <img src="/images/ember-data-guide/step8.png">
+  <img src="../images/ember-data-guide/step8.png">
 </figure>
 
 <p>The store will, in turn, ask the adapter to materialize the data. This
@@ -180,7 +180,7 @@ allows the adapter to apply adapter-specific mappings to the
 backend-provided data hash.</p>
 
 <figure>
-  <img src="/images/ember-data-guide/step9.png">
+  <img src="../images/ember-data-guide/step9.png">
 </figure>
 
 <p>Finally, the adapter asks its serializer object to perform the
@@ -190,7 +190,7 @@ backend-provided data hashes into records, and serializing records into
 JSON hashes for the backend.</p>
 
 <figure>
-  <img src="/images/ember-data-guide/step10.png">
+  <img src="../images/ember-data-guide/step10.png">
 </figure>
 
 <p>The serializer is now responsible for extracting the information from
@@ -198,19 +198,19 @@ the backend-provided data hash and hydrating the record object. First,
 it populates the record&#39;s <code>id</code>.</p>
 
 <figure>
-  <img src="/images/ember-data-guide/step11.png">
+  <img src="../images/ember-data-guide/step11.png">
 </figure>
 
 <p>Next, it populates the record&#39;s attributes.</p>
 
 <figure>
-  <img src="/images/ember-data-guide/step12.png">
+  <img src="../images/ember-data-guide/step12.png">
 </figure>
 
 <p>Finally, it populates the <code>belongsTo</code> association.</p>
 
 <figure>
-  <img src="/images/ember-data-guide/step13.png">
+  <img src="../images/ember-data-guide/step13.png">
 </figure>
 
 <p>Once the adapter finishes materializing the record, it returns the
@@ -245,7 +245,7 @@ template would look something like this:</p>
   <td class="code"><pre><span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">if</span> <span class="attribute-name">isLoaded</span><span class="inline-delimiter">}}</span></span>
   <span class="tag">&lt;p&gt;</span><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">name</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/p&gt;</span>
 <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">else</span><span class="inline-delimiter">}}</span></span>
-  <span class="tag">&lt;img</span> <span class="attribute-name">src</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">/images/spinner.gif</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+  <span class="tag">&lt;img</span> <span class="attribute-name">src</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">../images/spinner.gif</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
 <span class="inline"><span class="inline-delimiter">{{/</span><span class="attribute-name">if</span><span class="inline-delimiter">}}</span></span>
 </pre></td>
 </tr></table>

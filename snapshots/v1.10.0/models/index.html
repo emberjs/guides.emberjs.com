@@ -84,7 +84,7 @@
 implementing a route&#39;s <code>model</code> hook, by passing the model as an argument
 to <code>{{link-to}}</code>, or by calling a route&#39;s <code>transitionTo()</code> method.</p>
 
-<p>See <a href="/guides/routing/specifying-a-routes-model">Specifying a Route&#39;s
+<p>See <a href="../../routing/specifying-a-routes-model">Specifying a Route&#39;s
 Model</a> for more information
 on setting a route&#39;s model.</p>
 
@@ -293,11 +293,11 @@ adapter. Your adapter will go and retrieve the record from your
 persistence layer; typically, this will be a JSON representation of the
 record served from an HTTP server.</p>
 
-<p><img src="/images/guides/models/finding-unloaded-record-step1-diagram.png" alt="Diagram showing process for finding an unloaded record"></p>
+<p><img src="../images/guides/models/finding-unloaded-record-step1-diagram.png" alt="Diagram showing process for finding an unloaded record"></p>
 
-<p>As illustrated in the diagram above, the adapter cannot always return the 
-requested record immediately. In this case, the adapter must make an 
-<em>asynchronous</em> request to the server, and only when that request finishes 
+<p>As illustrated in the diagram above, the adapter cannot always return the
+requested record immediately. In this case, the adapter must make an
+<em>asynchronous</em> request to the server, and only when that request finishes
 loading can the record be created with its backing data.</p>
 
 <p>Because of this asynchronicity, the store immediately returns a
@@ -312,12 +312,12 @@ store with the JSON.</p>
 JSON data, and resolves the promise returned to your application
 with the newly-loaded record.</p>
 
-<p><img src="/images/guides/models/finding-unloaded-record-step2-diagram.png" alt="Diagram showing process for finding an unloaded record after the payload has returned from the server"></p>
+<p><img src="../images/guides/models/finding-unloaded-record-step2-diagram.png" alt="Diagram showing process for finding an unloaded record after the payload has returned from the server"></p>
 
 <p>Let&#39;s look at what happens if you request a record that the store
-already has in its cache. </p>
+already has in its cache.</p>
 
-<p><img src="/images/guides/models/finding-loaded-record-diagram.png" alt="Diagram showing process for finding an unloaded record after the payload has returned from the server"></p>
+<p><img src="../images/guides/models/finding-loaded-record-diagram.png" alt="Diagram showing process for finding an unloaded record after the payload has returned from the server"></p>
 
 <p>In this case, because the store already knew about the record, it
 returns a promise that it resolves with the record immediately. It does

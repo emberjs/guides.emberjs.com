@@ -140,7 +140,7 @@ objects that represent eventual values. For example, if you use jQuery&#39;s
 eventually returned over the network. Ember uses this promise object to
 know when it has enough data to continue rendering.</p>
 
-<p>For more about promises, see <a href="/guides/routing/asynchronous-routing/#toc_a-word-on-promises">A Word on
+<p>For more about promises, see <a href="../../routing/asynchronous-routing/#toc_a-word-on-promises">A Word on
 Promises</a>
 in the Asynchronous Routing guide.</p>
 
@@ -213,7 +213,7 @@ look at their associated controller&#39;s <code>model</code> property. For examp
 <code>photos</code> template will render whatever the <code>App.PhotosController</code>&#39;s
 <code>model</code> property is set to.)</p>
 
-<p>See the <a href="/guides/routing/setting-up-a-controller">Setting Up a Controller guide</a> to learn how to change this
+<p>See the <a href="../setting-up-a-controller">Setting Up a Controller guide</a> to learn how to change this
 default behavior. Note that if you override the default behavior and do
 not set the <code>model</code> property on a controller, your template will not
 have any data to render!</p>
@@ -255,13 +255,13 @@ When the user goes to the <code>photo</code> route to display a particular photo
 model (usually via the <code>{{link-to}}</code> helper), that model&#39;s ID will be
 placed into the URL automatically.</p>
 
-<p>See <a href="/guides/templates/links">Links</a> for more information about linking
+<p>See <a href="../../templates/links">Links</a> for more information about linking
 to a route with a model using the <code>{{link-to}}</code> helper.</p>
 
 <p>For example, if you transitioned to the <code>photo</code> route with a model whose
 <code>id</code> property was <code>47</code>, the URL in the user&#39;s browser would be updated
 to:</p>
-<div class="highlight  "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+<div class="highlight shell "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
   <td class="line-numbers"><pre>1
 </pre></td>
   <td class="code"><pre>/photos/47
@@ -309,7 +309,7 @@ return a promise for the JSON model data.</p>
 
 <p>Note: A route with a dynamic segment will only have its <code>model</code> hook called
 when it is entered via the URL. If the route is entered through a transition
-(e.g. when using the <a href="/guides/templates/links">link-to</a> Handlebars helper), then a model context is
+(e.g. when using the <a href="../../templates/links">link-to</a> Handlebars helper), then a model context is
 already provided and the hook is not executed. Routes without dynamic segments
 will always execute the model hook.</p>
 <h3 class='anchorable-toc' id='toc_refreshing-your-model'>Refreshing your model</h3>
@@ -330,7 +330,7 @@ significantly improving the performance of your application.</p>
 
 <p>One popular model library built for Ember is Ember Data. To learn more
 about using Ember Data to manage your models, see the
-<a href="/guides/models">Models</a> guide.</p>
+<a href="../../models">Models</a> guide.</p>
 
 
 

@@ -82,8 +82,8 @@
           <p>During a route transition, the Ember Router passes a transition
 object to the various hooks on the routes involved in the transition.
 Any hook that has access to this transition object has the ability
-to immediately abort the transition by calling <code>transition.abort()</code>, 
-and if the transition object is stored, it can be re-attempted at a 
+to immediately abort the transition by calling <code>transition.abort()</code>,
+and if the transition object is stored, it can be re-attempted at a
 later time by calling <code>transition.retry()</code>.</p>
 <h3 class='anchorable-toc' id='toc_preventing-transitions-via-code-willtransition-code'>Preventing Transitions via <code>willTransition</code></h3>
 <p>When a transition is attempted, whether via <code>{{link-to}}</code>, <code>transitionTo</code>,
@@ -130,16 +130,16 @@ made on the form, which can make for a pretty frustrating user experience.</p>
 </pre></td>
 </tr></table>
 </div></div>
-<p>When the user clicks on a <code>{{link-to}}</code> helper, or when the app initiates a 
+<p>When the user clicks on a <code>{{link-to}}</code> helper, or when the app initiates a
 transition by using <code>transitionTo</code>, the transition will be aborted and the URL
-will remain unchanged. However, if the browser back button is used to 
-navigate away from <code>FormRoute</code>, or if the user manually changes the URL, the 
-new URL will be navigated to before the <code>willTransition</code> action is 
-called. This will result in the browser displaying the new URL, even if 
+will remain unchanged. However, if the browser back button is used to
+navigate away from <code>FormRoute</code>, or if the user manually changes the URL, the
+new URL will be navigated to before the <code>willTransition</code> action is
+called. This will result in the browser displaying the new URL, even if
 <code>willTransition</code> calls <code>transition.abort()</code>.</p>
 <h3 class='anchorable-toc' id='toc_aborting-transitions-within-code-model-code-code-beforemodel-code-code-aftermodel-code'>Aborting Transitions Within <code>model</code>, <code>beforeModel</code>, <code>afterModel</code></h3>
 <p>The <code>model</code>, <code>beforeModel</code>, and <code>afterModel</code> hooks described in
-<a href="/guides/routing/asynchronous-routing">Asynchronous Routing</a>
+<a href="../asynchronous-routing">Asynchronous Routing</a>
 each get called with a transition object. This makes it possible for
 destination routes to abort attempted transitions.</p>
 <div class="highlight js "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
@@ -166,7 +166,7 @@ destination routes to abort attempted transitions.</p>
 <p>Aborted transitions can be retried at a later time. A common use case
 for this is having an authenticated route redirect the user to a login
 page, and then redirecting them back to the authenticated route once
-they&#39;ve logged in. </p>
+they&#39;ve logged in.</p>
 <div class="highlight js "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
   <td class="line-numbers"><pre>1
 2

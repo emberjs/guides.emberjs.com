@@ -80,7 +80,7 @@
           <hr>
 
           <h2 class='anchorable-toc' id='toc_controllers'>Controllers</h2>
-<p>In Ember.js, controllers allow you to decorate your models with 
+<p>In Ember.js, controllers allow you to decorate your models with
 display logic. In general, your models will have properties that
 are saved to the server, while controllers will have properties
 that your app does not need to save to the server.</p>
@@ -97,7 +97,7 @@ that your app does not need to save to the server.</p>
 <li><code>author</code></li>
 </ul>
 
-<p>Your template would bind to these properties in the <code>blog_post</code> 
+<p>Your template would bind to these properties in the <code>blog_post</code>
 template:</p>
 <div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
   <td class="line-numbers"><pre>1
@@ -129,9 +129,9 @@ or actions just yet. For now, our controller just acts as a
 pass-through (or &quot;proxy&quot;) for the model properties. (Remember that
 a controller gets the model it represents from its route handler.)</p>
 
-<p>Let&#39;s say we wanted to add a feature that would allow the user to 
+<p>Let&#39;s say we wanted to add a feature that would allow the user to
 toggle the display of the body section. To implement this, we would
-first modify our template to show the body only if the value of a 
+first modify our template to show the body only if the value of a
 new <code>isExpanded</code> property is true.</p>
 <div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
   <td class="line-numbers"><pre>1
@@ -170,7 +170,7 @@ new <code>isExpanded</code> property is true.</p>
 </pre></td>
 </tr></table>
 </div></div>
-<p>You might think you should put this property on the model, but 
+<p>You might think you should put this property on the model, but
 whether the  body is expanded or not is strictly a display concern.</p>
 
 <p>Putting this property on the controller cleanly separates logic
@@ -188,7 +188,7 @@ nothing about which (if any) controllers are decorating it, and
 controller does not know which views are presenting its properties.</p>
 
 <figure>
-<img src="/images/controller-guide/objects.png">
+<img src="../images/controller-guide/objects.png">
 </figure>
 
 <p>This also means that as far as a template is concerned, all of its
@@ -206,20 +206,20 @@ the <code>PostController</code> will change its model from <code>Post.find(1)</c
 properties on the model, as well as any computed properties on the
 controller that depend on the model.</p>
 
-<p>This makes it easy to test a template in isolation by rendering it 
+<p>This makes it easy to test a template in isolation by rendering it
 with a controller object that contains the properties the template
 expects. From the template&#39;s perspective, a <strong>controller</strong> is simply
 an object that provides its data.</p>
 <h3 class='anchorable-toc' id='toc_representing-models'>Representing Models</h3>
-<p>Templates are always connected to controllers, not models. This 
-makes it easy to separate display-specific properties from model 
+<p>Templates are always connected to controllers, not models. This
+makes it easy to separate display-specific properties from model
 specific properties, and to swap out the controller&#39;s model as the
 user navigates around the page.</p>
 
-<p>For convenience, Ember.js provides controllers that <em>proxy</em> 
+<p>For convenience, Ember.js provides controllers that <em>proxy</em>
 properties from their models so that you can say <code>{{name}}</code> in your
-template rather than <code>{{model.name}}</code>. An <code>Ember.ArrayController</code> 
-proxies properties from an Array, and an <code>Ember.ObjectController</code> 
+template rather than <code>{{model.name}}</code>. An <code>Ember.ArrayController</code>
+proxies properties from an Array, and an <code>Ember.ObjectController</code>
 proxies properties from an object.</p>
 
 <p>If your controller is an <code>ArrayController</code>, you can iterate directly
@@ -227,7 +227,7 @@ over the controller using <code>{{#each item in controller}}</code>. This keeps 
 template from having to know about how the controller is implemented
 and makes isolation testing and refactoring easier.</p>
 <h3 class='anchorable-toc' id='toc_storing-application-properties'>Storing Application Properties</h3>
-<p>Not all properties in your application need to be saved to the 
+<p>Not all properties in your application need to be saved to the
 server. Any time you need to store information only for the lifetime
 of this application run, you should store it on a controller.</p>
 
@@ -280,7 +280,7 @@ application</code> template to that property, like this:</p>
 </pre></td>
 </tr></table>
 </div></div>
-<p>The <code>application</code> template stores its properties and sends its 
+<p>The <code>application</code> template stores its properties and sends its
 actions to the <code>ApplicationController</code>. In this case, when the user
 hits enter, the application will transition to the <code>search</code> route,
 passing the query as a parameter.</p>

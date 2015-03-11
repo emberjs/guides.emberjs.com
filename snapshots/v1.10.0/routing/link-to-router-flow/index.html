@@ -108,7 +108,7 @@ with the following router.</p>
 <p>This would mean there are currently three nested active routes in this
 application. The <code>ApplicationRoute</code>, <code>AboutRoute</code> and the <code>AboutFaqRoute</code>.</p>
 
-<p><img src="/images/guides/routing/active-route.png" alt="Active route" class="highlight"></p>
+<p><img src="../images/guides/routing/active-route.png" alt="Active route" class="highlight"></p>
 
 <p>Lets assume a user clicks on a <code>link-to</code> for the <code>UserProfileRoute</code> like
 the one below.</p>
@@ -133,7 +133,7 @@ the transition by calling <code>transition.abort()</code>.</p>
 active routes starting with the leaf-most route (in this example the
 <code>AboutFaqRoute</code>).</p>
 
-<p><img src="/images/guides/routing/willtransition-event.png" alt="Active route" class="highlight"></p>
+<p><img src="../images/guides/routing/willtransition-event.png" alt="Active route" class="highlight"></p>
 
 <p>The argument for the <code>willTransition</code> action is the transition
 object. This gives each active route, the opportunity to decide
@@ -187,7 +187,7 @@ as well as allow for any of the
 hooks to reject elsewhere. If any of these hooks return a promise, the
 transition will pause until the promise resolves/rejects.</p>
 
-<p><img src="/images/guides/routing/route-model-validation.png" alt="Active route" class="highlight"></p>
+<p><img src="../images/guides/routing/route-model-validation.png" alt="Active route" class="highlight"></p>
 
 <p>If the promise rejects, and <code>error</code> action is triggered from the
 erroring route and upwards with the rejected/thrown error. Calling
@@ -203,7 +203,7 @@ routes and
 <a href="/api/classes/Ember.Route.html#method_setup">setup</a>
 on the newly entered routes.</p>
 
-<p><img src="/images/guides/routing/sync-phase.png" alt="Active route" class="highlight"></p>
+<p><img src="../images/guides/routing/sync-phase.png" alt="Active route" class="highlight"></p>
 
 <p>If any errors are thrown, the transition promise will be rejected and
 the <code>error</code> action will be triggered from the erroring route and
@@ -213,7 +213,7 @@ upwards with the rejected/thrown error.</p>
 resolved and the user is now on the profile page.</p>
 <h3 class='anchorable-toc' id='toc_more-resources'>More Resources</h3>
 <ul>
-<li><a href="/guides/routing/preventing-and-retrying-transitions">Preventing and retrying transitions</a></li>
+<li><a href="./preventing-and-retrying-transitions">Preventing and retrying transitions</a></li>
 <li><a href="https://www.youtube.com/watch?v=EwkaMRJ2tMo">Ember.js: Transition promises, redirects</a></li>
 </ul>
 

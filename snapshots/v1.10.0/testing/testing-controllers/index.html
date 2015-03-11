@@ -79,13 +79,13 @@
       
           <hr>
 
-          <p><em>Unit testing methods and computed properties follows previous patterns shown 
+          <p><em>Unit testing methods and computed properties follows previous patterns shown
 in <a href="/guides/testing/unit-testing-basics">Unit Testing Basics</a> because Ember.Controller extends Ember.Object.</em></p>
 
-<p>Unit testing controllers is very simple using the unit test helper 
-<a href="/guides/testing/unit">moduleFor</a> which is part of the ember-qunit framework.</p>
+<p>Unit testing controllers is very simple using the unit test helper which is part
+of the ember-qunit framework.</p>
 <h3 class='anchorable-toc' id='toc_testing-controller-actions'>Testing Controller Actions</h3>
-<p>Here we have a controller <code>PostsController</code> with some computed properties and an 
+<p>Here we have a controller <code>PostsController</code> with some computed properties and an
 action <code>setProps</code>.</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
   <td class="line-numbers"><pre>1
@@ -125,7 +125,7 @@ action <code>setProps</code>.</p>
 </tr></table>
 </div></div>
 <p><code>setProps</code> sets a property on the controller and also calls a method. To write a
-test for this action, we would use the <code>moduleFor</code> helper to setup a test 
+test for this action, we would use the <code>moduleFor</code> helper to setup a test
 container:</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
   <td class="line-numbers"><pre>1
@@ -134,9 +134,9 @@ container:</p>
 </pre></td>
 </tr></table>
 </div></div>
-<p>Next we use <code>this.subject()</code> to get an instance of the <code>PostsController</code> and 
-write a test to check the action. <code>this.subject()</code> is a helper method from the 
-<code>ember-qunit</code> library that returns a singleton instance of the module set up 
+<p>Next we use <code>this.subject()</code> to get an instance of the <code>PostsController</code> and
+write a test to check the action. <code>this.subject()</code> is a helper method from the
+<code>ember-qunit</code> library that returns a singleton instance of the module set up
 using <code>moduleFor</code>.</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
   <td class="line-numbers"><pre>1
@@ -169,11 +169,11 @@ using <code>moduleFor</code>.</p>
   equal(ctrl.get(<span class="string"><span class="delimiter">'</span><span class="content">propA</span><span class="delimiter">'</span></span>), <span class="string"><span class="delimiter">'</span><span class="content">You need to write tests</span><span class="delimiter">'</span></span>);
   equal(ctrl.get(<span class="string"><span class="delimiter">'</span><span class="content">propB</span><span class="delimiter">'</span></span>), <span class="string"><span class="delimiter">'</span><span class="content">And write one for me too</span><span class="delimiter">'</span></span>);
 
-  <span class="comment">// trigger the action on the controller by using the `send` method, </span>
+  <span class="comment">// trigger the action on the controller by using the `send` method,</span>
   <span class="comment">// passing in any params that our action may be expecting</span>
   ctrl.send(<span class="string"><span class="delimiter">'</span><span class="content">setProps</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">Testing Rocks!</span><span class="delimiter">'</span></span>);
 
-  <span class="comment">// finally we assert that our values have been updated </span>
+  <span class="comment">// finally we assert that our values have been updated</span>
   <span class="comment">// by triggering our action.</span>
   equal(ctrl.get(<span class="string"><span class="delimiter">'</span><span class="content">propA</span><span class="delimiter">'</span></span>), <span class="string"><span class="delimiter">'</span><span class="content">Testing is cool</span><span class="delimiter">'</span></span>);
   equal(ctrl.get(<span class="string"><span class="delimiter">'</span><span class="content">propB</span><span class="delimiter">'</span></span>), <span class="string"><span class="delimiter">'</span><span class="content">Testing Rocks!</span><span class="delimiter">'</span></span>);
@@ -184,7 +184,7 @@ using <code>moduleFor</code>.</p>
 <p><a class="jsbin-embed" href="http://jsbin.com/pulenamuwu/1/embed?output">Unit Testing
 Controllers &quot;Actions&quot;</a></p>
 <h3 class='anchorable-toc' id='toc_testing-controller-needs'>Testing Controller Needs</h3>
-<p>Sometimes controllers have dependencies on other controllers. This is 
+<p>Sometimes controllers have dependencies on other controllers. This is
 accomplished by using <a href="/guides/controllers/dependencies-between-controllers">needs</a>. For example, here are two simple controllers. The
 <code>PostController</code> is a dependency of the <code>CommentsController</code>:</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
@@ -221,7 +221,7 @@ our third argument that has the controller&#39;s <code>needs</code>.</p>
 </pre></td>
 </tr></table>
 </div></div>
-<p>Now let&#39;s write a test that sets a property on our <code>post</code> model in the 
+<p>Now let&#39;s write a test that sets a property on our <code>post</code> model in the
 <code>PostController</code> that would be available on the <code>CommentsController</code>.</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
   <td class="line-numbers"><pre>1
