@@ -138,10 +138,10 @@ via strings:</p>
 globals from a template.</p>
 <h5 class='anchorable-toc' id='toc_new-usage-of-ember-select'>New usage of Ember.Select</h5>
 <p>Most of Ember&#39;s provided views are already accessed via helpers. For example,
-the <a href="/api/classes/Ember.TextField.html">Ember.TextField</a> view is used via the
-<a href="/api/classes/Ember.Handlebars.helpers.html#method_input">input helper</a>.</p>
+the <a href="http://emberjs.com/api/classes/Ember.TextField.html">Ember.TextField</a> view is used via the
+<a href="http://emberjs.com/api/classes/Ember.Handlebars.helpers.html#method_input">input helper</a>.</p>
 
-<p>The <a href="/api/classes/Ember.Select.html">Ember.Select</a> view has not been upgraded to
+<p>The <a href="http://emberjs.com/api/classes/Ember.Select.html">Ember.Select</a> view has not been upgraded to
 have a helper. Instead, it was suggested that you call it via the global
 class name:</p>
 <div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
@@ -160,7 +160,7 @@ on an application as <code>select</code>. The new usage is:</p>
 </pre></td>
 </tr></table>
 </div></div>
-<p>See the updated <a href="/api/classes/Ember.Select.html">Ember.Select</a> documentation
+<p>See the updated <a href="http://emberjs.com/api/classes/Ember.Select.html">Ember.Select</a> documentation
 and the <a href="../../views/built-in-views">built-in views guide</a> for more details
 and examples.</p>
 <h5 class='anchorable-toc' id='toc_ember-js-libraries-and-plugins'>Ember.js libraries and plugins</h5>
@@ -199,7 +199,7 @@ Ember.Application.initializer({
 </tr></table>
 </div></div>
 <p>More details on how to register an Ember.js framework component are available
-in the <a href="/api/classes/Ember.Application.html#toc_initializers">initializer API documentation</a>
+in the <a href="http://emberjs.com/api/classes/Ember.Application.html#toc_initializers">initializer API documentation</a>
 and the <a href="../../understanding-ember/dependency-injection-and-service-lookup">dependency injection guide</a>.</p>
 <h4 class='anchorable-toc' id='toc_deprecate-location-hash-paths-that-don-t-include-a-forward-slash-e-g-foo-not-foo'>Deprecate location: &#39;hash&#39; paths that don&#39;t include a forward slash. e.g. #/foo NOT #foo</h4>
 <p>Prior to this release, if you were using <code>location: &#39;hash&#39;</code> (which is the default), you were able to link to a route with a <code>location.hash</code> that didn&#39;t contain the expected leading forward slash. e.g. <code>#foo</code> instead of the correct <code>#/foo</code>. Very few, if any, should be impacted by this since the router always produces the correct form.</p>

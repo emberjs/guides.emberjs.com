@@ -80,7 +80,7 @@
           <hr>
 
           <p>By default, your store will use
-<a href="/api/data/classes/DS.RESTAdapter.html">DS.RESTAdapter</a> to load and
+<a href="http://emberjs.com/api/data/classes/DS.RESTAdapter.html">DS.RESTAdapter</a> to load and
 save records. The RESTAdapter assumes that the URLs and JSON
 associated with each model are conventional; this means that, if you
 follow the rules, you will not need to configure the adapter or write
@@ -146,7 +146,7 @@ property on the adapter:</p>
 </pre></td>
 </tr></table>
 </div></div>
-<p>Requests for <code>App.Person</code> would now target <code>/api/1/people/1</code>.</p>
+<p>Requests for <code>App.Person</code> would now target <code>http://emberjs.com/api/1/people/1</code>.</p>
 <h4 class='anchorable-toc' id='toc_host-customization'>Host Customization</h4>
 <p>An adapter can target other hosts by setting the <code>host</code> property.</p>
 <div class="highlight js "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
@@ -189,7 +189,7 @@ be nested inside a property called <code>person</code>:</p>
 <p><em>Note: Although after <code>destroyRecord</code> or <code>deleteRecord</code>/<code>save</code> the adapter expects an empty object e.g. <code>{}</code> to be returned from the server after destroying a record.</em></p>
 
 <p>If you don&#39;t have the option to change the data that the server responds with, you can override the 
-<a href="/api/data/classes/DS.JSONSerializer.html#method_extractDeleteRecord">DS.JSONSerializer#extractDeleteRecord</a>, like so:</p>
+<a href="http://emberjs.com/api/data/classes/DS.JSONSerializer.html#method_extractDeleteRecord">DS.JSONSerializer#extractDeleteRecord</a>, like so:</p>
 <div class="highlight js "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
   <td class="line-numbers"><pre>1
 2
