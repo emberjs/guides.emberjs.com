@@ -98,7 +98,7 @@ are unnecessary for getting started with Ember.</p>
 <p>Here is a simple example, representing one main app view, a collection nested inside of it, and individual items nested inside of the collection.</p>
 
 <figure>
-  <img src="/images/view-guide/view-hierarchy-simple.png">
+  <img src="../../images/view-guide/view-hierarchy-simple.png">
 </figure>
 
 <p>This system works well at first glance, but imagine that we want to open Joe&#39;s Lamprey Shack at 8am instead of 9am. In this situation, we will want to re-render the App View. Because the developer needed to build up the references to the children on an ad-hoc basis, this re-rendering process has several problems.</p>
@@ -108,7 +108,7 @@ are unnecessary for getting started with Ember.</p>
 <p>In order to avoid these problems, Ember&#39;s view hierarchy has the concept of child views baked in.</p>
 
 <figure>
-  <img src="/images/view-guide/view-hierarchy-ember.png">
+  <img src="../../images/view-guide/view-hierarchy-ember.png">
 </figure>
 
 <p>When the App View re-renders, Ember is responsible for re-rendering and inserting the child views, not application code. This also means that Ember can perform any memory management for you, such as cleaning up observers and bindings.</p>
@@ -120,13 +120,13 @@ are unnecessary for getting started with Ember.</p>
 <p>However, this approach often does not scale when dealing with large numbers of interactive elements. For example, imagine a <code>&lt;ul&gt;</code> with 100 <code>&lt;li&gt;</code>s in it, with a delete button next to each item. Since the behavior is the same for all of these items, it would be inefficient to create 100 event listeners, one for each delete button.</p>
 
 <figure>
-  <img src="/images/view-guide/undelegated.png">
+  <img src="../../images/view-guide/undelegated.png">
 </figure>
 
 <p>To solve this problem, developers discovered a technique called &quot;event delegation&quot;. Instead of registering a listener on each element in question, you can register a single listener for the containing element and use <code>event.target</code> to identify which element the user clicked on.</p>
 
 <figure>
-  <img src="/images/view-guide/delegated.png">
+  <img src="../../images/view-guide/delegated.png">
 </figure>
 
 <p>Implementing this is a bit tricky, because some events (like <code>focus</code>, <code>blur</code> and <code>change</code>) don&#39;t bubble. Fortunately, jQuery has solved this problem thoroughly; using jQuery&#39;s <code>on</code> method reliably works for all native browser events.</p>
@@ -148,7 +148,7 @@ are unnecessary for getting started with Ember.</p>
 <p>This is the approximate lifecycle of an Ember view:</p>
 
 <figure>
-  <img src="/images/view-guide/view-lifecycle-ember.png">
+  <img src="../../images/view-guide/view-lifecycle-ember.png">
 </figure>
 <h5 class='anchorable-toc' id='toc_1-template-compilation'>1. Template Compilation</h5>
 <p>The application&#39;s templates are loaded over the network or as part of the application payload in string form. When the application loads, it sends the template string to Handlebars to be compiled into a function. Once compiled, the template function is saved, and can be used by multiple views repeatedly, each time they need to re-render.</p>
@@ -168,7 +168,7 @@ are unnecessary for getting started with Ember.</p>
 <p>Here is a simple example:</p>
 
 <figure>
-  <img src="/images/view-guide/render-buffer.png">
+  <img src="../../images/view-guide/render-buffer.png">
 </figure>
 
 <p>In addition to children (Strings and other <code>RenderBuffer</code>s), a <code>RenderBuffer</code> also encapsulates the element&#39;s tag name, id, classes, style, and other attributes. This makes it possible for the render process to modify one of these properties (style, for example), even after its child Strings have rendered. Because many of these properties are controlled via bindings (e.g. using <code>bind-attr</code>), this makes the process robust and transparent.</p>
@@ -197,7 +197,7 @@ are unnecessary for getting started with Ember.</p>
 <p>The process looks something like:</p>
 
 <figure>
-  <img src="/images/view-guide/re-render.png">
+  <img src="../../images/view-guide/re-render.png">
 </figure>
 <h3 class='anchorable-toc' id='toc_the-view-hierarchy'>The View Hierarchy</h3><h4 class='anchorable-toc' id='toc_parent-and-child-views'>Parent and Child Views</h4>
 <p>As Ember renders a templated view, it will generate a view hierarchy. Let&#39;s assume we have a template <code>form</code>.</p>
@@ -227,7 +227,7 @@ are unnecessary for getting started with Ember.</p>
 <p>This will create a small view hierarchy that looks like this:</p>
 
 <figure>
-  <img src="/images/view-guide/simple-view-hierarchy.png">
+  <img src="../../images/view-guide/simple-view-hierarchy.png">
 </figure>
 
 <p>You can move around in the view hierarchy using the <code>parentView</code> and <code>childViews</code> properties.</p>
@@ -322,14 +322,14 @@ please use the form below to submit a complaint to the FDA.
 <p>Rendering this template would create a hierarchy like this:</p>
 
 <figure>
-  <img src="/images/view-guide/public-view-hierarchy.png">
+  <img src="../../images/view-guide/public-view-hierarchy.png">
 </figure>
 
 <p>Behind the scenes, Ember tracks additional virtual views for the
 Handlebars expressions:</p>
 
 <figure>
-  <img src="/images/view-guide/virtual-view-hierarchy.png">
+  <img src="../../images/view-guide/virtual-view-hierarchy.png">
 </figure>
 
 <p>From inside of the <code>TextArea</code>, the <code>parentView</code> would point to the
@@ -602,7 +602,7 @@ buffer.</li>
 </ol>
 
 <figure>
-  <img src="/images/view-guide/template-appendChild-interaction.png">
+  <img src="../../images/view-guide/template-appendChild-interaction.png">
 </figure>
 
 <p>You may not call <code>appendChild</code> on a view after it has left the rendering
@@ -724,7 +724,7 @@ is automatically instantiated, if necessary, and added to the
 <code>childViews</code> array.</p>
 
 <figure>
-  <img src="/images/view-guide/container-view-shorthand.png">
+  <img src="../../images/view-guide/container-view-shorthand.png">
 </figure>
 <h3 class='anchorable-toc' id='toc_template-scopes'>Template Scopes</h3>
 <p>Standard Handlebars templates have the concept of a <em>context</em>--the
