@@ -1,1 +1,1 @@
-var currentRevision="v1.11.0";$.ajax("/versions.json").done(function(e){var n=$(".version-select");n.select2({data:e}),n.select2("val",currentRevision),n.on("change",function(){var e=this.selectedOptions[0].value;window.location="/"+e+"/"})});
+var currentRevision="v1.11.0";$.ajax("/versions.json").done(function(n){var e=$(".version-select");e.select2({data:n}),e.select2("val",currentRevision),e.on("change",function(){var n=this.value;window.location="/"+n+"/"})});
