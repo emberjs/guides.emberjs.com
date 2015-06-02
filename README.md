@@ -12,7 +12,7 @@ https://github.com/emberjs/guides.
 These instructions are for publishing a new version of the site at http://guides.emberjs.com.
 
 You should already have followed the directions at https://github.com/emberjs/guides for building
-a new version of the guides and have moved the output of this process into `./artifacts`
+a new version of the guides and have moved the output of this process into `./snapshots`
 
 This section is intended for members of the Ember.js release team or those contributors wishing to augment or
 change or publication process. If you want to publish your own version of the guides, see ### General Contributors
@@ -51,12 +51,12 @@ divshot promote development production
 Publish the searchable content of the revison you are publshing:
 
 ```shell
-npm deploy:search --revision <revision number>
+node tasks/publish-search --revision <revision number>
                   --environment <staging|production>
                   --api-key <API_KEY>
                   --engine <engine name>
 # e.g.
-npm deploy:search --revision v1.1.1 --environment staging --api-key SUPERSECRETBROCOMMON --engine ember
+node tasks/publish-search --revision v1.1.1 --environment staging --api-key SUPERSECRETBROCOMMON --engine ember
 ```
 
 ### Versions
