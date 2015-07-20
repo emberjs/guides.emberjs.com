@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Ember.js - Templates: Rendering with Helpers</title>
+    <meta property="st:title" content="Templates: Rendering with Helpers" />
+    <link href="../../images/favicon.png" rel="icon" type="image/png" />
+    <!--[if lte IE 7 ]><link href="../../stylesheets/fonts/fontello-ie7.css" rel="stylesheet" type="text/css" /><![endif]-->
+    <link href="../../stylesheets/site.css" rel="stylesheet" type="text/css" />
+    <link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" title="Ember.js - Blog" />
+    
+  </head>
+
+  <body class="guides templates templates_rendering-with-helpers templates_rendering-with-helpers_index">
+
+    <!--[if lt IE 9]>
+      <script src="../../javascripts/common-old-ie.js" type="text/javascript"></script>
+    <![endif]-->
+    <!--[if gte IE 9]><!-->
+      <script src="../../javascripts/common-modern.js" type="text/javascript"></script>
+    <!--<![endif]-->
+
+    <div id="header">
+      <div id="wrapper">
+        <a id="logo" href="http://emberjs.com/">&nbsp;</a>
+        <ul id="nav">
+          <li>
+            <a href="http://emberjs.com/">about</a>
+          </li>
+          <li class="active">
+            <a href="/">guides</a>
+          </li>
+          <li>
+            <a href="http://emberjs.com/api">api</a>
+          </li>
+          <li>
+            <a href="http://emberjs.com/community">community</a>
+          </li>
+          <li>
+            <a href="http://emberjs.com/blog">blog</a>
+          </li>
+          <li>
+            <a href="http://emberjs.com/builds">builds</a>
+          </li>
+
+          <li id="search">
+            <form>
+              <input type="text" id="st-search-input" class="st-search-input" placeholder="Search the guides"/>
+            </form>
+            <div id="st-results-container"></div>
+          </li>
+        </ul>
+
+        <div id="github">
+          <a href="https://github.com/emberjs/ember.js"><i class="icon-fork"></i>Fork Us!</a>
+        </div>
+      </div>
+    </div>
+
+    
+
+    <div id="content-wrapper">
+      <div id="sidebar-wrapper">
+        <select class="version-select" style="width: 100%"></select>
+        <div id="sidebar">
+
+          <ol id='toc-list'><li class='level-1 '><a href="../../getting-started/">Getting Started</a><ol class=''><li class='level-3 '><a href="../../getting-started/">Installing Ember</a></li><li class='level-3 '><a href="../../getting-started/glossary/">Glossary</a></li></ol></li><li class='level-1 '><a href="../../concepts/core-concepts/">Concepts</a><ol class=''><li class='level-3 '><a href="../../concepts/core-concepts/">Core Concepts</a></li><li class='level-3 '><a href="../../concepts/naming-conventions/">Naming Conventions</a></li></ol></li><li class='level-1 '><a href="../../object-model/classes-and-instances/">The Object Model</a><ol class=''><li class='level-3 '><a href="../../object-model/classes-and-instances/">Classes and Instances</a></li><li class='level-3 '><a href="../../object-model/reopening-classes-and-instances/">Reopening Classes and Instances</a></li><li class='level-3 '><a href="../../object-model/computed-properties/">Computed Properties</a></li><li class='level-3 '><a href="../../object-model/computed-properties-and-aggregate-data/">Computed Properties and Aggregate Data with @each</a></li><li class='level-3 '><a href="../../object-model/observers/">Observers</a></li><li class='level-3 '><a href="../../object-model/bindings/">Bindings</a></li><li class='level-3 '><a href="../../object-model/what-do-i-use-when/">Bindings, Observers, Computed Properties: What Do I Use When?</a></li></ol></li><li class='level-1 '><a href="../../application/">Application</a><ol class=''><li class='level-3 '><a href="../../application/">Introduction</a></li></ol></li><li class='level-1 selected'><a href="../handlebars-basics/">Templates</a><ol class='selected'><li class='level-3 '><a href="../handlebars-basics/">Handlebars Basics</a></li><li class='level-3 '><a href="../the-application-template/">The Application Template</a></li><li class='level-3 '><a href="../conditionals/">Conditionals</a></li><li class='level-3 '><a href="../displaying-a-list-of-items/">Displaying a List of Items</a></li><li class='level-3 '><a href="../binding-element-attributes/">Binding Element Attributes</a></li><li class='level-3 '><a href="../binding-element-class-names/">Binding Element Class Names</a></li><li class='level-3 '><a href="../links/">Links</a></li><li class='level-3 '><a href="../actions/">Actions</a></li><li class='level-3 '><a href="../input-helpers/">Input Helpers</a></li><li class='level-3 '><a href="../development-helpers/">Development Helpers</a></li><li class='level-3  sub-selected'><a href="./">Rendering with Helpers</a></li><li class='level-3 '><a href="../writing-helpers/">Writing Helpers</a></li></ol></li><li class='level-1 '><a href="../../routing/">Routing</a><ol class=''><li class='level-3 '><a href="../../routing/">Introduction</a></li><li class='level-3 '><a href="../../routing/defining-your-routes/">Defining Your Routes</a></li><li class='level-3 '><a href="../../routing/generated-objects/">Generated Objects</a></li><li class='level-3 '><a href="../../routing/specifying-a-routes-model/">Specifying a Route's Model</a></li><li class='level-3 '><a href="../../routing/setting-up-a-controller/">Setting Up a Controller</a></li><li class='level-3 '><a href="../../routing/rendering-a-template/">Rendering a Template</a></li><li class='level-3 '><a href="../../routing/redirection/">Redirecting</a></li><li class='level-3 '><a href="../../routing/specifying-the-location-api/">Specifying the URL Type</a></li><li class='level-3 '><a href="../../routing/query-params/">Query Parameters</a></li><li class='level-3 '><a href="../../routing/asynchronous-routing/">Asynchronous Routing</a></li><li class='level-3 '><a href="../../routing/loading-and-error-substates/">Loading / Error Substates</a></li><li class='level-3 '><a href="../../routing/preventing-and-retrying-transitions/">Preventing and Retrying Transitions</a></li></ol></li><li class='level-1 '><a href="../../components/">Components</a><ol class=''><li class='level-3 '><a href="../../components/">Introduction</a></li><li class='level-3 '><a href="../../components/defining-a-component/">Defining a Component</a></li><li class='level-3 '><a href="../../components/passing-properties-to-a-component/">Passing Properties to a Component</a></li><li class='level-3 '><a href="../../components/wrapping-content-in-a-component/">Wrapping Content in a Component</a></li><li class='level-3 '><a href="../../components/customizing-a-components-element/">Customizing a Component's Element</a></li><li class='level-3 '><a href="../../components/handling-user-interaction-with-actions/">Handling User Interaction with Actions</a></li><li class='level-3 '><a href="../../components/sending-actions-from-components-to-your-application/">Sending Actions from Components to Your Application</a></li></ol></li><li class='level-1 '><a href="../../controllers/">Controllers</a><ol class=''><li class='level-3 '><a href="../../controllers/">Introduction</a></li><li class='level-3 '><a href="../../controllers/representing-multiple-models-with-arraycontroller/">Representing Multiple Models with ArrayController</a></li><li class='level-3 '><a href="../../controllers/dependencies-between-controllers/">Managing Dependencies Between Controllers</a></li></ol></li><li class='level-1 '><a href="../../models/">Models</a><ol class=''><li class='level-3 '><a href="../../models/">Introduction</a></li><li class='level-3 '><a href="../../models/defining-models/">Defining Models</a></li><li class='level-3 '><a href="../../models/creating-and-deleting-records/">Creating and Deleting Records</a></li><li class='level-3 '><a href="../../models/pushing-records-into-the-store/">Pushing Records into the Store</a></li><li class='level-3 '><a href="../../models/persisting-records/">Persisting Records</a></li><li class='level-3 '><a href="../../models/finding-records/">Finding Records</a></li><li class='level-3 '><a href="../../models/working-with-records/">Working with Records</a></li><li class='level-3 '><a href="../../models/the-rest-adapter/">The Rest Adapter</a></li><li class='level-3 '><a href="../../models/connecting-to-an-http-server/">Connecting to an HTTP Server</a></li><li class='level-3 '><a href="../../models/handling-metadata/">Handling Metadata</a></li><li class='level-3 '><a href="../../models/customizing-adapters/">Customizing Adapters</a></li><li class='level-3 '><a href="../../models/frequently-asked-questions/">Frequently Asked Questions</a></li></ol></li><li class='level-1 '><a href="../../enumerables/">Enumerables</a><ol class=''><li class='level-3 '><a href="../../enumerables/">Introduction</a></li></ol></li><li class='level-1 '><a href="../../testing/">Testing</a><ol class=''><li class='level-3 '><a href="../../testing/">Introduction</a></li><li class='level-3 '><a href="../../testing/acceptance/">Acceptance Tests</a></li><li class='level-3 '><a href="../../testing/test-helpers/">Test Helpers</a></li><li class='level-3 '><a href="../../testing/testing-user-interaction/">Testing User Interaction</a></li><li class='level-3 '><a href="../../testing/unit-testing-basics/">Unit Testing Basics</a></li><li class='level-3 '><a href="../../testing/unit-test-helpers/">Unit Test Helpers</a></li><li class='level-3 '><a href="../../testing/testing-components/">Testing Components</a></li><li class='level-3 '><a href="../../testing/testing-controllers/">Testing Controllers</a></li><li class='level-3 '><a href="../../testing/testing-routes/">Testing Routes</a></li><li class='level-3 '><a href="../../testing/testing-models/">Testing Models</a></li></ol></li><li class='level-1 '><a href="../../configuring-ember/disabling-prototype-extensions/">Configuring Ember.js</a><ol class=''><li class='level-3 '><a href="../../configuring-ember/disabling-prototype-extensions/">Disabling Prototype Extensions</a></li><li class='level-3 '><a href="../../configuring-ember/embedding-applications/">Embedding Applications</a></li><li class='level-3 '><a href="../../configuring-ember/feature-flags/">Feature Flags</a></li></ol></li><li class='level-1 '><a href="../../ember-inspector/installation/">Ember Inspector</a><ol class=''><li class='level-3 '><a href="../../ember-inspector/installation/">Installing the Inspector</a></li><li class='level-3 '><a href="../../ember-inspector/object-inspector/">Object Inspector</a></li><li class='level-3 '><a href="../../ember-inspector/view-tree/">The View Tree</a></li><li class='level-3 '><a href="../../ember-inspector/routes/">Inspecting Routes</a></li><li class='level-3 '><a href="../../ember-inspector/data/">Data Tab</a></li><li class='level-3 '><a href="../../ember-inspector/deprecations/">Tackling Deprecations</a></li><li class='level-3 '><a href="../../ember-inspector/info/">Library Info</a></li><li class='level-3 '><a href="../../ember-inspector/promises/">Debugging Promises</a></li><li class='level-3 '><a href="../../ember-inspector/container/">Inspecting the Container</a></li><li class='level-3 '><a href="../../ember-inspector/render-performance/">Rendering Performance</a></li><li class='level-3 '><a href="../../ember-inspector/troubleshooting/">Troubleshooting</a></li></ol></li><li class='level-1 '><a href="../../cookbook/">Cookbook</a><ol class=''><li class='level-3 '><a href="../../cookbook/">Introduction</a></li><li class='level-3 '><a href="../../cookbook/contributing/">Contributing</a></li><li class='level-3 '><a href="../../cookbook/user_interface_and_interaction/">User Interface and Interaction</a></li><li class='level-3 '><a href="../../cookbook/event_handling_and_data_binding/">Event Handling & Data Binding</a></li><li class='level-3 '><a href="../../cookbook/helpers_and_components/">Helpers & Components</a></li><li class='level-3 '><a href="../../cookbook/working_with_objects/">Working with Objects</a></li></ol></li><li class='level-1 '><a href="../../understanding-ember/debugging/">Understanding Ember.js</a><ol class=''><li class='level-3 '><a href="../../understanding-ember/debugging/">Debugging</a></li><li class='level-3 '><a href="../../understanding-ember/run-loop/">The Run Loop</a></li><li class='level-3 '><a href="../../understanding-ember/dependency-injection-and-service-lookup/">Dependency Injection & Service Lookup</a></li></ol></li><li class='level-1 '><a href="../../contributing/adding-new-features/">Contributing to Ember.js</a><ol class=''><li class='level-3 '><a href="../../contributing/adding-new-features/">Adding New Features</a></li><li class='level-3 '><a href="../../contributing/repositories/">Repositories</a></li></ol></li></ol>
+          <div id="back-to-top"><a id="back-top-top" href="#">&#11014; Back to Top</a></div>
+        </div>
+      </div>
+      <div id="content" class="has-sidebar">
+        <div class="chapter">
+          
+        <h1>
+          Rendering with Helpers
+          <a href="https://github.com/emberjs/guides/edit/master/source/templates/rendering-with-helpers.md" target="_blank" class="edit-page icon-pencil">Edit Page</a>
+        </h1>
+      
+          <hr>
+
+          <p>Ember.js provides several helpers that allow you to render templates in different ways.</p>
+<h3 class='anchorable-toc' id='toc_the-code-partial-code-helper'>The <code>{{partial}}</code> Helper</h3>
+<p><code>{{partial}}</code> takes the template to be rendered as an argument, and renders that template in place.</p>
+
+<p><code>{{partial}}</code> does not change context or scope.  It simply drops the given template into place with the current scope.</p>
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/templates/author.hbs</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre>Written by <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">author.firstName</span><span class="inline-delimiter">}}</span></span> <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">author.lastName</span><span class="inline-delimiter">}}</span></span>
+</pre></td>
+</tr></table>
+</div></div><div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/templates/post.hbs</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+</pre></td>
+  <td class="code"><pre><span class="tag">&lt;h1&gt;</span><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">title</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/h1&gt;</span>
+<span class="tag">&lt;div&gt;</span><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">body</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/div&gt;</span>
+<span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">partial</span> <span class="error">&quot;</span><span class="attribute-name">author</span><span class="error">&quot;</span><span class="inline-delimiter">}}</span></span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>Output:</p>
+<div class="highlight html "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+</pre></td>
+  <td class="code"><pre><span class="tag">&lt;div&gt;</span>
+  <span class="tag">&lt;h1&gt;</span>Why You Should Use Ember.js<span class="tag">&lt;/h1&gt;</span>
+  <span class="tag">&lt;div&gt;</span>Because it's awesome!<span class="tag">&lt;/div&gt;</span>
+  Written by Yehuda Katz
+<span class="tag">&lt;/div&gt;</span>
+</pre></td>
+</tr></table>
+</div></div><h3 class='anchorable-toc' id='toc_the-code-render-code-helper'>The <code>{{render}}</code> Helper</h3>
+<p><code>{{render}}</code> takes two parameters:</p>
+
+<ul>
+<li>The first parameter describes the context to be setup</li>
+<li>The optional second parameter is a model, which will be passed to the controller if provided</li>
+</ul>
+
+<p><code>{{render}}</code> does several things:</p>
+
+<ul>
+<li>When no model is provided it gets the singleton instance of the corresponding controller</li>
+<li>When a model is provided it gets a unique instance of the corresponding controller</li>
+<li>Renders the named template using this controller</li>
+<li>Sets the model of the corresponding controller</li>
+</ul>
+
+<p>Modifying the post / author example slightly:</p>
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/templates/author.hbs</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre>Written by <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">firstName</span><span class="inline-delimiter">}}</span></span> <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">lastName</span><span class="inline-delimiter">}}</span></span>.
+Total Posts: <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">postCount</span><span class="inline-delimiter">}}</span></span>
+</pre></td>
+</tr></table>
+</div></div><div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/templates/post.hbs</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+</pre></td>
+  <td class="code"><pre><span class="tag">&lt;h1&gt;</span><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">title</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/h1&gt;</span>
+<span class="tag">&lt;div&gt;</span><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">body</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/div&gt;</span>
+<span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">render</span> <span class="error">&quot;</span><span class="attribute-name">author</span><span class="error">&quot;</span> <span class="attribute-name">author</span><span class="inline-delimiter">}}</span></span>
+</pre></td>
+</tr></table>
+</div></div><div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/controllers/author.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+</pre></td>
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> Ember.Controller.extend({
+  <span class="function">postCount</span>: <span class="keyword">function</span>() {
+    <span class="keyword">return</span> <span class="local-variable">this</span>.get(<span class="string"><span class="delimiter">&quot;</span><span class="content">model.posts.length</span><span class="delimiter">&quot;</span></span>);
+  }.property(<span class="string"><span class="delimiter">&quot;</span><span class="content">model.posts.[]</span><span class="delimiter">&quot;</span></span>)
+})
+</pre></td>
+</tr></table>
+</div></div>
+<p>In this example, render will:</p>
+
+<ul>
+<li>Use the corresponding template (in this case the default of &quot;author&quot;)</li>
+<li>Get (or generate) the singleton instance of AuthorController</li>
+<li>Set the AuthorController&#39;s model to the 2nd argument passed to render, here the author field on the post</li>
+<li>Render the template in place, with the context created in the previous steps.</li>
+</ul>
+
+<p><code>{{render}}</code> does not require the presence of a matching route.</p>
+
+<p><code>{{render}}</code> is similar to <code>{{outlet}}</code>. Both tell Ember.js to devote this portion of the page to something.</p>
+
+<p><code>{{outlet}}</code>: The router determines the route and sets up the appropriate controllers/views/models.
+<code>{{render}}</code>: You specify (directly and indirectly) the appropriate controllers/views/models.</p>
+
+<p>Note: <code>{{render}}</code> cannot be called multiple times for the same route when not specifying a model.</p>
+<h3 class='anchorable-toc' id='toc_comparison-table'>Comparison Table</h3><h4 class='anchorable-toc' id='toc_general'>General</h4>
+<table>
+  <thead>
+  <tr>
+    <th>Helper</th>
+    <th>Template</th>
+    <th>Model</th>
+    <th>Controller</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><code>{{partial}}</code></td>
+    <td>Specified Template</td>
+    <td>Current Model</td>
+    <td>Current Controller</td>
+  </tr>
+  <tr>
+    <td><code>{{render}}</code></td>
+    <td>Template</td>
+    <td>Specified Model</td>
+    <td>Specified View</td>
+    <td>Specified Controller</td>
+  </tr>
+  </tbody>
+</table>
+<h4 class='anchorable-toc' id='toc_specific'>Specific</h4>
+<table class='specific'>
+  <thead>
+  <tr>
+    <th>Helper</th>
+    <th>Template</th>
+    <th>Model</th>
+    <th>Controller</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><code>{{partial "author"}}</code></td>
+    <td><code>templates/author.hbs</code></td>
+    <td><code>models/post.js</code></td>
+    <td><code>controllers/post.js</code></td>
+  </tr>
+  <tr>
+    <td><code>{{render "author" author}}</code></td>
+    <td><code>templates/author.hbs</code></td>
+    <td><code>models/author.js</code></td>
+    <td><code>views/author.js</code></td>
+    <td><code>controllers/author.js</code></td>
+  </tr>
+  </tbody>
+</table>
+
+
+
+          
+      <footer>
+        <a class="previous-guide" href="../development-helpers/"> ← Development Helpers</a> <a class="next-guide" href="../writing-helpers/">Writing Helpers →</a>
+      </footer>
+      
+        </div>
+      </div>
+    </div>
+
+    <div id="footer">
+      <div id="footer-wrapper">
+        <div class="info">
+          Copyright 2015 <a href="http://tilde.io">Tilde Inc.</a><br>
+          <a href="http://emberjs.com/team">Core Team</a> | <a href="http://emberjs.com/sponsors">Sponsors</a> | <a href="http://emberjs.com/legal">Legal</a></br>
+          <a href="http://emberjs.com/guidelines">Community Guidelines</a>
+        </div>
+        <div class="statement">Ember.js is free, open source and always will be.</div>
+        <div class="links">
+          <a class="twitter" href="http://twitter.com/emberjs">
+            <i class="icon-twitter"></i><span>Twitter</span>
+          </a>
+          <a class="github" href="https://github.com/emberjs/ember.js">
+            <i class="icon-github"></i><span>GitHub</span>
+          </a>
+          <a class="googleplus" href="https://plus.google.com/communities/106387049790387471205">
+            <i class="icon-gplus"></i><span>Google+</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    
+
+    <script src="../../javascripts/guides.js" type="text/javascript"></script>
+    <script src="http://static.jsbin.com/js/embed.js"></script>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+      _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+      _gaq.push(['_setAccount', 'UA-27675533-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
+</html>

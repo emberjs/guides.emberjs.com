@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Ember.js - Concepts: Naming Conventions</title>
+    <meta property="st:title" content="Concepts: Naming Conventions" />
+    <link href="../../images/favicon.png" rel="icon" type="image/png" />
+    <!--[if lte IE 7 ]><link href="../../stylesheets/fonts/fontello-ie7.css" rel="stylesheet" type="text/css" /><![endif]-->
+    <link href="../../stylesheets/site.css" rel="stylesheet" type="text/css" />
+    <link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" title="Ember.js - Blog" />
+    
+  </head>
+
+  <body class="guides concepts concepts_naming-conventions concepts_naming-conventions_index">
+
+    <!--[if lt IE 9]>
+      <script src="../../javascripts/common-old-ie.js" type="text/javascript"></script>
+    <![endif]-->
+    <!--[if gte IE 9]><!-->
+      <script src="../../javascripts/common-modern.js" type="text/javascript"></script>
+    <!--<![endif]-->
+
+    <div id="header">
+      <div id="wrapper">
+        <a id="logo" href="http://emberjs.com/">&nbsp;</a>
+        <ul id="nav">
+          <li>
+            <a href="http://emberjs.com/">about</a>
+          </li>
+          <li class="active">
+            <a href="/">guides</a>
+          </li>
+          <li>
+            <a href="http://emberjs.com/api">api</a>
+          </li>
+          <li>
+            <a href="http://emberjs.com/community">community</a>
+          </li>
+          <li>
+            <a href="http://emberjs.com/blog">blog</a>
+          </li>
+          <li>
+            <a href="http://emberjs.com/builds">builds</a>
+          </li>
+
+          <li id="search">
+            <form>
+              <input type="text" id="st-search-input" class="st-search-input" placeholder="Search the guides"/>
+            </form>
+            <div id="st-results-container"></div>
+          </li>
+        </ul>
+
+        <div id="github">
+          <a href="https://github.com/emberjs/ember.js"><i class="icon-fork"></i>Fork Us!</a>
+        </div>
+      </div>
+    </div>
+
+    
+
+    <div id="content-wrapper">
+      <div id="sidebar-wrapper">
+        <select class="version-select" style="width: 100%"></select>
+        <div id="sidebar">
+
+          <ol id='toc-list'><li class='level-1 '><a href="../../getting-started/">Getting Started</a><ol class=''><li class='level-3 '><a href="../../getting-started/">Installing Ember</a></li><li class='level-3 '><a href="../../getting-started/glossary/">Glossary</a></li></ol></li><li class='level-1 selected'><a href="../core-concepts/">Concepts</a><ol class='selected'><li class='level-3 '><a href="../core-concepts/">Core Concepts</a></li><li class='level-3  sub-selected'><a href="./">Naming Conventions</a></li></ol></li><li class='level-1 '><a href="../../object-model/classes-and-instances/">The Object Model</a><ol class=''><li class='level-3 '><a href="../../object-model/classes-and-instances/">Classes and Instances</a></li><li class='level-3 '><a href="../../object-model/reopening-classes-and-instances/">Reopening Classes and Instances</a></li><li class='level-3 '><a href="../../object-model/computed-properties/">Computed Properties</a></li><li class='level-3 '><a href="../../object-model/computed-properties-and-aggregate-data/">Computed Properties and Aggregate Data with @each</a></li><li class='level-3 '><a href="../../object-model/observers/">Observers</a></li><li class='level-3 '><a href="../../object-model/bindings/">Bindings</a></li><li class='level-3 '><a href="../../object-model/what-do-i-use-when/">Bindings, Observers, Computed Properties: What Do I Use When?</a></li></ol></li><li class='level-1 '><a href="../../application/">Application</a><ol class=''><li class='level-3 '><a href="../../application/">Introduction</a></li></ol></li><li class='level-1 '><a href="../../templates/handlebars-basics/">Templates</a><ol class=''><li class='level-3 '><a href="../../templates/handlebars-basics/">Handlebars Basics</a></li><li class='level-3 '><a href="../../templates/the-application-template/">The Application Template</a></li><li class='level-3 '><a href="../../templates/conditionals/">Conditionals</a></li><li class='level-3 '><a href="../../templates/displaying-a-list-of-items/">Displaying a List of Items</a></li><li class='level-3 '><a href="../../templates/binding-element-attributes/">Binding Element Attributes</a></li><li class='level-3 '><a href="../../templates/binding-element-class-names/">Binding Element Class Names</a></li><li class='level-3 '><a href="../../templates/links/">Links</a></li><li class='level-3 '><a href="../../templates/actions/">Actions</a></li><li class='level-3 '><a href="../../templates/input-helpers/">Input Helpers</a></li><li class='level-3 '><a href="../../templates/development-helpers/">Development Helpers</a></li><li class='level-3 '><a href="../../templates/rendering-with-helpers/">Rendering with Helpers</a></li><li class='level-3 '><a href="../../templates/writing-helpers/">Writing Helpers</a></li></ol></li><li class='level-1 '><a href="../../routing/">Routing</a><ol class=''><li class='level-3 '><a href="../../routing/">Introduction</a></li><li class='level-3 '><a href="../../routing/defining-your-routes/">Defining Your Routes</a></li><li class='level-3 '><a href="../../routing/generated-objects/">Generated Objects</a></li><li class='level-3 '><a href="../../routing/specifying-a-routes-model/">Specifying a Route's Model</a></li><li class='level-3 '><a href="../../routing/setting-up-a-controller/">Setting Up a Controller</a></li><li class='level-3 '><a href="../../routing/rendering-a-template/">Rendering a Template</a></li><li class='level-3 '><a href="../../routing/redirection/">Redirecting</a></li><li class='level-3 '><a href="../../routing/specifying-the-location-api/">Specifying the URL Type</a></li><li class='level-3 '><a href="../../routing/query-params/">Query Parameters</a></li><li class='level-3 '><a href="../../routing/asynchronous-routing/">Asynchronous Routing</a></li><li class='level-3 '><a href="../../routing/loading-and-error-substates/">Loading / Error Substates</a></li><li class='level-3 '><a href="../../routing/preventing-and-retrying-transitions/">Preventing and Retrying Transitions</a></li></ol></li><li class='level-1 '><a href="../../components/">Components</a><ol class=''><li class='level-3 '><a href="../../components/">Introduction</a></li><li class='level-3 '><a href="../../components/defining-a-component/">Defining a Component</a></li><li class='level-3 '><a href="../../components/passing-properties-to-a-component/">Passing Properties to a Component</a></li><li class='level-3 '><a href="../../components/wrapping-content-in-a-component/">Wrapping Content in a Component</a></li><li class='level-3 '><a href="../../components/customizing-a-components-element/">Customizing a Component's Element</a></li><li class='level-3 '><a href="../../components/handling-user-interaction-with-actions/">Handling User Interaction with Actions</a></li><li class='level-3 '><a href="../../components/sending-actions-from-components-to-your-application/">Sending Actions from Components to Your Application</a></li></ol></li><li class='level-1 '><a href="../../controllers/">Controllers</a><ol class=''><li class='level-3 '><a href="../../controllers/">Introduction</a></li><li class='level-3 '><a href="../../controllers/representing-multiple-models-with-arraycontroller/">Representing Multiple Models with ArrayController</a></li><li class='level-3 '><a href="../../controllers/dependencies-between-controllers/">Managing Dependencies Between Controllers</a></li></ol></li><li class='level-1 '><a href="../../models/">Models</a><ol class=''><li class='level-3 '><a href="../../models/">Introduction</a></li><li class='level-3 '><a href="../../models/defining-models/">Defining Models</a></li><li class='level-3 '><a href="../../models/creating-and-deleting-records/">Creating and Deleting Records</a></li><li class='level-3 '><a href="../../models/pushing-records-into-the-store/">Pushing Records into the Store</a></li><li class='level-3 '><a href="../../models/persisting-records/">Persisting Records</a></li><li class='level-3 '><a href="../../models/finding-records/">Finding Records</a></li><li class='level-3 '><a href="../../models/working-with-records/">Working with Records</a></li><li class='level-3 '><a href="../../models/the-rest-adapter/">The Rest Adapter</a></li><li class='level-3 '><a href="../../models/connecting-to-an-http-server/">Connecting to an HTTP Server</a></li><li class='level-3 '><a href="../../models/handling-metadata/">Handling Metadata</a></li><li class='level-3 '><a href="../../models/customizing-adapters/">Customizing Adapters</a></li><li class='level-3 '><a href="../../models/frequently-asked-questions/">Frequently Asked Questions</a></li></ol></li><li class='level-1 '><a href="../../enumerables/">Enumerables</a><ol class=''><li class='level-3 '><a href="../../enumerables/">Introduction</a></li></ol></li><li class='level-1 '><a href="../../testing/">Testing</a><ol class=''><li class='level-3 '><a href="../../testing/">Introduction</a></li><li class='level-3 '><a href="../../testing/acceptance/">Acceptance Tests</a></li><li class='level-3 '><a href="../../testing/test-helpers/">Test Helpers</a></li><li class='level-3 '><a href="../../testing/testing-user-interaction/">Testing User Interaction</a></li><li class='level-3 '><a href="../../testing/unit-testing-basics/">Unit Testing Basics</a></li><li class='level-3 '><a href="../../testing/unit-test-helpers/">Unit Test Helpers</a></li><li class='level-3 '><a href="../../testing/testing-components/">Testing Components</a></li><li class='level-3 '><a href="../../testing/testing-controllers/">Testing Controllers</a></li><li class='level-3 '><a href="../../testing/testing-routes/">Testing Routes</a></li><li class='level-3 '><a href="../../testing/testing-models/">Testing Models</a></li></ol></li><li class='level-1 '><a href="../../configuring-ember/disabling-prototype-extensions/">Configuring Ember.js</a><ol class=''><li class='level-3 '><a href="../../configuring-ember/disabling-prototype-extensions/">Disabling Prototype Extensions</a></li><li class='level-3 '><a href="../../configuring-ember/embedding-applications/">Embedding Applications</a></li><li class='level-3 '><a href="../../configuring-ember/feature-flags/">Feature Flags</a></li></ol></li><li class='level-1 '><a href="../../ember-inspector/installation/">Ember Inspector</a><ol class=''><li class='level-3 '><a href="../../ember-inspector/installation/">Installing the Inspector</a></li><li class='level-3 '><a href="../../ember-inspector/object-inspector/">Object Inspector</a></li><li class='level-3 '><a href="../../ember-inspector/view-tree/">The View Tree</a></li><li class='level-3 '><a href="../../ember-inspector/routes/">Inspecting Routes</a></li><li class='level-3 '><a href="../../ember-inspector/data/">Data Tab</a></li><li class='level-3 '><a href="../../ember-inspector/deprecations/">Tackling Deprecations</a></li><li class='level-3 '><a href="../../ember-inspector/info/">Library Info</a></li><li class='level-3 '><a href="../../ember-inspector/promises/">Debugging Promises</a></li><li class='level-3 '><a href="../../ember-inspector/container/">Inspecting the Container</a></li><li class='level-3 '><a href="../../ember-inspector/render-performance/">Rendering Performance</a></li><li class='level-3 '><a href="../../ember-inspector/troubleshooting/">Troubleshooting</a></li></ol></li><li class='level-1 '><a href="../../cookbook/">Cookbook</a><ol class=''><li class='level-3 '><a href="../../cookbook/">Introduction</a></li><li class='level-3 '><a href="../../cookbook/contributing/">Contributing</a></li><li class='level-3 '><a href="../../cookbook/user_interface_and_interaction/">User Interface and Interaction</a></li><li class='level-3 '><a href="../../cookbook/event_handling_and_data_binding/">Event Handling & Data Binding</a></li><li class='level-3 '><a href="../../cookbook/helpers_and_components/">Helpers & Components</a></li><li class='level-3 '><a href="../../cookbook/working_with_objects/">Working with Objects</a></li></ol></li><li class='level-1 '><a href="../../understanding-ember/debugging/">Understanding Ember.js</a><ol class=''><li class='level-3 '><a href="../../understanding-ember/debugging/">Debugging</a></li><li class='level-3 '><a href="../../understanding-ember/run-loop/">The Run Loop</a></li><li class='level-3 '><a href="../../understanding-ember/dependency-injection-and-service-lookup/">Dependency Injection & Service Lookup</a></li></ol></li><li class='level-1 '><a href="../../contributing/adding-new-features/">Contributing to Ember.js</a><ol class=''><li class='level-3 '><a href="../../contributing/adding-new-features/">Adding New Features</a></li><li class='level-3 '><a href="../../contributing/repositories/">Repositories</a></li></ol></li></ol>
+          <div id="back-to-top"><a id="back-top-top" href="#">&#11014; Back to Top</a></div>
+        </div>
+      </div>
+      <div id="content" class="has-sidebar">
+        <div class="chapter">
+          
+        <h1>
+          Naming Conventions
+          <a href="https://github.com/emberjs/guides/edit/master/source/concepts/naming-conventions.md" target="_blank" class="edit-page icon-pencil">Edit Page</a>
+        </h1>
+      
+          <hr>
+
+          <p>Ember.js uses a runtime resolver to wire up your objects without a
+lot of boilerplate. As a developer, this resolver will work automatically
+if you place code in conventional locations within your project.</p>
+
+<p>You can usually guess the names and locations, but this guide outlines, in one place,
+all of the naming conventions.</p>
+<h2 class='anchorable-toc' id='toc_the-application'>The Application</h2>
+<p>When your application boots, Ember will look for the objects exported
+by these modules in your project:</p>
+
+<ul>
+<li><code>app/app.js</code></li>
+<li><code>app/controllers/application.js</code></li>
+<li><code>app/templates/application.hbs</code></li>
+</ul>
+
+<p>Ember.js will render the <code>application</code> template as the main template.
+If <code>controller:application</code> is provided, Ember.js will set an
+instance of <code>controller:application</code> as the controller for the
+template. This means that the template will get its properties from
+the controller.</p>
+
+<p>If your app provides a route at <code>app/routes/application.js</code> Ember.js will invoke
+<a href="../../routing/specifying-a-routes-model">the</a> <a href="../../routing/setting-up-a-controller">router&#39;s</a> <a href="../../routing/rendering-a-template">hooks</a> first, before rendering the
+<code>application</code> template. Hooks are implemented as methods and provide
+you access points within an Ember object&#39;s lifecycle to intercept and
+execute code to modify the default behavior at these points to meet
+your needs. Ember provides several hooks for you to utilize for various
+purposes (e.g. <code>model</code>, <code>setupController</code>, etc). In the example below
+<code>route:application</code> Route, which is an <code>Ember.Route</code> object, implements
+the <code>setupController</code> hook.</p>
+
+<p>Here&#39;s a simple example that uses a route, controller, and template:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/routes/application.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+</pre></td>
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> Ember.Route.extend({
+  <span class="function">setupController</span>: <span class="keyword">function</span>(controller) {
+    <span class="comment">// `controller` is the instance of ApplicationController</span>
+    controller.set(<span class="string"><span class="delimiter">'</span><span class="content">title</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">Hello world!</span><span class="delimiter">&quot;</span></span>);
+  }
+});
+</pre></td>
+</tr></table>
+</div></div><div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/controllers/application.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+</pre></td>
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> Ember.Controller.extend({
+  <span class="key">appName</span>: <span class="string"><span class="delimiter">'</span><span class="content">My First Example</span><span class="delimiter">'</span></span>
+});
+</pre></td>
+</tr></table>
+</div></div><div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/templates/application.hbs</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre><span class="tag">&lt;h1&gt;</span><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">appName</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/h1&gt;</span>
+<span class="tag">&lt;h2&gt;</span><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">title</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/h2&gt;</span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>In Ember.js applications, you will always provide your objects
+as <strong>classes</strong>, and the framework is responsible for instantiating
+them and providing them to your templates at runtime through the resolver.</p>
+<h2 class='anchorable-toc' id='toc_simple-routes'>Simple Routes</h2>
+<p>Each of your routes will have a controller, and a template with the
+same name as the route.</p>
+
+<p>Let&#39;s start with a simple router:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/router.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+</pre></td>
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> Ember.Router.extend().map(<span class="keyword">function</span>(){
+  <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">'</span><span class="content">favorites</span><span class="delimiter">'</span></span>);
+});
+</pre></td>
+</tr></table>
+</div></div>
+<p>If your user navigates to <code>/favorites</code>, Ember.js will look for these
+classes in your project:</p>
+
+<ul>
+<li><code>app/routes/favorites.js</code></li>
+<li><code>app/controllers/favorites.js</code></li>
+<li><code>app/templates/favorites.hbs</code></li>
+</ul>
+
+<p>Ember.js will render the <code>favorites</code> template into the <code>{{outlet}}</code>
+in the <code>application</code> template. It will set an instance of the
+<code>controller:favorites</code> as the controller for the template.</p>
+
+<p>If your app provides a <code>route:favorites</code>, the framework will
+invoke it before rendering the template. Yes, this is a bit
+repetitive.</p>
+
+<p>For a route like <code>route:favorites</code>, you will probably implement
+the <code>model</code> hook to specify what model your controller will present
+to the template.</p>
+
+<p>Here&#39;s an example:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/routes/favorites.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td>
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> Ember.Route.extend({
+  <span class="function">model</span>: <span class="keyword">function</span>() {
+    <span class="comment">// the model is an Array of all of the posts</span>
+    <span class="comment">// fetched from this url</span>
+    <span class="keyword">return</span> <span class="predefined">$</span>.ajax(<span class="string"><span class="delimiter">'</span><span class="content">/a/service/url/where/posts/live</span><span class="delimiter">'</span></span>);
+  }
+});
+</pre></td>
+</tr></table>
+</div></div>
+<p>In this example, we didn&#39;t provide a <code>controller:favorites</code>. Because
+the model is an Array, Ember.js will automatically supply an instance
+of <code>Ember.ArrayController</code>, which will present the backing Array as
+its model.</p>
+
+<p>You can treat the <code>Ember.ArrayController</code> as if it was the model itself.
+The benefit of this is that you can replace the controller&#39;s model at
+any time without having to directly notify templates and components of
+the change.</p>
+
+<p>The template can iterate over the elements of the controller:</p>
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+</pre></td>
+  <td class="code"><pre><span class="tag">&lt;ul&gt;</span>
+<span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">each</span> <span class="attribute-name">controller</span> <span class="attribute-name">as</span> <span class="error">|</span><span class="attribute-name">item</span><span class="error">|</span><span class="inline-delimiter">}}</span></span>
+  <span class="tag">&lt;li&gt;</span><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">item.title</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/li&gt;</span>
+<span class="inline"><span class="inline-delimiter">{{/</span><span class="attribute-name">each</span><span class="inline-delimiter">}}</span></span>
+<span class="tag">&lt;/ul&gt;</span>
+</pre></td>
+</tr></table>
+</div></div><h2 class='anchorable-toc' id='toc_dynamic-segments'>Dynamic Segments</h2>
+<p>If a route uses a dynamic segment (a URL that includes a parameter), the route&#39;s model will be based
+on the value of that segment provided by the user.</p>
+
+<p>Consider this router definition:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+</pre></td>
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> Ember.Router.extend().map(<span class="keyword">function</span>(){
+  <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">'</span><span class="content">post</span><span class="delimiter">'</span></span>, { <span class="key">path</span>: <span class="string"><span class="delimiter">'</span><span class="content">/posts/:post_id</span><span class="delimiter">'</span></span> });
+});
+</pre></td>
+</tr></table>
+</div></div>
+<p>In this case, the route&#39;s name is <code>post</code>, so Ember.js will look for
+these objects:</p>
+
+<ul>
+<li><code>app/routes/post.js</code></li>
+<li><code>app/controllers/post.js</code></li>
+<li><code>app/templates/post.hbs</code></li>
+</ul>
+
+<p>Your route handler&#39;s <code>model</code> hook converts the dynamic <code>:post_id</code>
+parameter into a model. The <code>serialize</code> hook converts a model object
+back into the URL parameters for this route (for example, when
+generating a link for a model object).</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/routes/post.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td>
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> Ember.Route.extend({
+  <span class="function">model</span>: <span class="keyword">function</span>(params) {
+    <span class="keyword">return</span> <span class="predefined">$</span>.ajax(<span class="string"><span class="delimiter">'</span><span class="content">/my-service/posts/</span><span class="delimiter">'</span></span> + params.post_id);
+  },
+
+  <span class="function">serialize</span>: <span class="keyword">function</span>(post) {
+    <span class="keyword">return</span> { <span class="key">post_id</span>: Ember.get(post, <span class="string"><span class="delimiter">'</span><span class="content">id</span><span class="delimiter">'</span></span>) };
+  }
+});
+</pre></td>
+</tr></table>
+</div></div>
+<p>Because this pattern is so common, it is the default for route
+handlers.</p>
+
+<ul>
+<li>If your dynamic segment ends in <code>_id</code>, the default <code>model</code>
+hook will convert the first part into a model class on the
+application&#39;s namespace (<code>post</code> looks for <code>app/models/post.js</code>). It will
+then call <code>find</code> on that class with the value of the dynamic
+segment.</li>
+<li>The default behaviour of the <code>serialize</code> hook is to replace
+the route&#39;s dynamic segment with the value of the model
+object&#39;s <code>id</code> property.</li>
+</ul>
+<h2 class='anchorable-toc' id='toc_route-controller-and-template-defaults'>Route, Controller and Template Defaults</h2>
+<p>If you don&#39;t specify a route handler for the <code>post</code> route
+(<code>app/routes/post.js</code>), Ember.js  will still render the <code>app/templates/post.hbs</code>
+template with the app&#39;s instance of <code>app/controllers/post.js</code>.</p>
+
+<p>If you don&#39;t specify the controller (<code>app/controllers/post.js</code>),
+Ember will automatically make one for you based on the return value
+of the route&#39;s <code>model</code> hook. If the model is an Array, you get an
+<code>ArrayController</code>. Otherwise, you get an <code>ObjectController</code>. As of 1.11,
+<code>ObjectController</code>s are deprecated and if you try to use its proxy feature you
+will get a warning. Please, take a look at the <a href="http://emberjs.com/deprecations/v1.x/">deprecations guide</a> for more
+detailed information.</p>
+
+<p>If you don&#39;t specify a <code>post</code> template, Ember.js won&#39;t render
+anything!</p>
+<h2 class='anchorable-toc' id='toc_nesting'>Nesting</h2>
+<p>You can nest routes:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+</pre></td>
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> Ember.Router.extend().map(<span class="keyword">function</span>(){
+  <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">'</span><span class="content">posts</span><span class="delimiter">'</span></span>, <span class="keyword">function</span>() {    <span class="comment">// the `posts` route</span>
+    <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">'</span><span class="content">favorites</span><span class="delimiter">'</span></span>);          <span class="comment">// the `posts.favorites` route</span>
+    <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">'</span><span class="content">post</span><span class="delimiter">'</span></span>);               <span class="comment">// the `posts.post` route</span>
+  });
+});
+</pre></td>
+</tr></table>
+</div></div>
+<p>Here are the naming conventions for each of the routes defined in
+this router:</p>
+
+<table>
+  <thead>
+  <tr>
+    <th>Route Name</th>
+    <th>Controller</th>
+    <th>Route</th>
+    <th>Template</th>
+  </tr>
+  </thead>
+  <tr>
+    <td><code>posts</code></td>
+    <td><code>app/controllers/posts.js</code></td>
+    <td><code>app/routes/posts.js</code></td>
+    <td><code>app/templates/posts.hbs</code></td>
+  </tr>
+  <tr>
+    <td><code>posts.favorites</code></td>
+    <td><code>app/controllers/posts/favorites.js</code></td>
+    <td><code>app/routes/posts/favorites.js</code></td>
+    <td><code>app/templates/posts/favorites.hbs</code></td>
+  </tr>
+  <tr>
+    <td><code>posts.post</code></td>
+    <td><code>app/controllers/posts/post.js</code></td>
+    <td><code>app/routes/posts/post.js</code></td>
+    <td><code>app/templates/posts/post.hbs</code></td>
+  </tr>
+</table>
+<h2 class='anchorable-toc' id='toc_the-index-route'>The Index Route</h2>
+<p>At every level of nesting (including the top level), Ember.js
+automatically provides a route for the <code>/</code> path named <code>index</code>.</p>
+
+<p>For example, if you write a simple router like this:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/router.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+</pre></td>
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> Ember.Router.extend().map(<span class="keyword">function</span>(){
+  <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">'</span><span class="content">favorites</span><span class="delimiter">'</span></span>);
+});
+</pre></td>
+</tr></table>
+</div></div>
+<p>It is the equivalent of:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/router.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+</pre></td>
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> Ember.Router.extend().map(<span class="keyword">function</span>(){
+  <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">'</span><span class="content">index</span><span class="delimiter">'</span></span>, { <span class="key">path</span>: <span class="string"><span class="delimiter">'</span><span class="content">/</span><span class="delimiter">'</span></span> });
+  <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">'</span><span class="content">favorites</span><span class="delimiter">'</span></span>);
+});
+</pre></td>
+</tr></table>
+</div></div>
+<p>If the user visits <code>/</code>, Ember.js will look for these objects:</p>
+
+<ul>
+<li><code>app/routes/index.js</code></li>
+<li><code>app/controllers/index.js</code></li>
+<li><code>app/templates/index.hbs</code></li>
+</ul>
+
+<p>The <code>index</code> template will be rendered into the <code>{{outlet}}</code> in the
+<code>application</code> template. If the user navigates to <code>/favorites</code>,
+Ember.js will replace the <code>index</code> template with the <code>favorites</code>
+template.</p>
+
+<p>A nested router like this:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/router.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+</pre></td>
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> Ember.Router.extend().map(<span class="keyword">function</span>(){
+  <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">'</span><span class="content">posts</span><span class="delimiter">'</span></span>, <span class="keyword">function</span>() {
+    <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">'</span><span class="content">favorites</span><span class="delimiter">'</span></span>);
+  });
+});
+</pre></td>
+</tr></table>
+</div></div>
+<p>Is the equivalent of:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/router.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td>
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> Ember.Router.extend().map(<span class="keyword">function</span>(){
+  <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">'</span><span class="content">index</span><span class="delimiter">'</span></span>, { <span class="key">path</span>: <span class="string"><span class="delimiter">'</span><span class="content">/</span><span class="delimiter">'</span></span> });
+  <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">'</span><span class="content">posts</span><span class="delimiter">'</span></span>, <span class="keyword">function</span>() {
+    <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">'</span><span class="content">index</span><span class="delimiter">'</span></span>, { <span class="key">path</span>: <span class="string"><span class="delimiter">'</span><span class="content">/</span><span class="delimiter">'</span></span> });
+    <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">'</span><span class="content">favorites</span><span class="delimiter">'</span></span>);
+  });
+});
+</pre></td>
+</tr></table>
+</div></div>
+<p>If the user navigates to <code>/posts</code>, the current route will be
+<code>posts.index</code>. Ember.js will look for objects named:</p>
+
+<ul>
+<li><code>app/routes/posts/index.js</code></li>
+<li><code>app/controllers/posts/index.js</code></li>
+<li><code>app/templates/posts/index.hbs</code></li>
+</ul>
+
+<p>First, the <code>posts</code> template will be rendered into the <code>{{outlet}}</code>
+in the <code>application</code> template. Then, the <code>posts/index</code> template
+will be rendered into the <code>{{outlet}}</code> in the <code>posts</code> template.</p>
+
+<p>If the user then navigates to <code>/posts/favorites</code>, Ember.js will
+replace the <code>{{outlet}}</code> in the <code>posts</code> template with the
+<code>posts/favorites</code> template.</p>
+
+
+
+          
+      <footer>
+        <a class="previous-guide" href="../core-concepts/"> ← Core Concepts</a> <a class="next-guide" href="../../object-model/classes-and-instances/">We're done with Concepts. Next up: The Object Model - Classes and Instances →</a>
+      </footer>
+      
+        </div>
+      </div>
+    </div>
+
+    <div id="footer">
+      <div id="footer-wrapper">
+        <div class="info">
+          Copyright 2015 <a href="http://tilde.io">Tilde Inc.</a><br>
+          <a href="http://emberjs.com/team">Core Team</a> | <a href="http://emberjs.com/sponsors">Sponsors</a> | <a href="http://emberjs.com/legal">Legal</a></br>
+          <a href="http://emberjs.com/guidelines">Community Guidelines</a>
+        </div>
+        <div class="statement">Ember.js is free, open source and always will be.</div>
+        <div class="links">
+          <a class="twitter" href="http://twitter.com/emberjs">
+            <i class="icon-twitter"></i><span>Twitter</span>
+          </a>
+          <a class="github" href="https://github.com/emberjs/ember.js">
+            <i class="icon-github"></i><span>GitHub</span>
+          </a>
+          <a class="googleplus" href="https://plus.google.com/communities/106387049790387471205">
+            <i class="icon-gplus"></i><span>Google+</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    
+
+    <script src="../../javascripts/guides.js" type="text/javascript"></script>
+    <script src="http://static.jsbin.com/js/embed.js"></script>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+      _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+      _gaq.push(['_setAccount', 'UA-27675533-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
+</html>

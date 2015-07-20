@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Ember.js - Ember Inspector: Installing the Inspector</title>
+    <meta property="st:title" content="Ember Inspector: Installing the Inspector" />
+    <link href="../../images/favicon.png" rel="icon" type="image/png" />
+    <!--[if lte IE 7 ]><link href="../../stylesheets/fonts/fontello-ie7.css" rel="stylesheet" type="text/css" /><![endif]-->
+    <link href="../../stylesheets/site.css" rel="stylesheet" type="text/css" />
+    <link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" title="Ember.js - Blog" />
+    
+  </head>
+
+  <body class="guides ember-inspector ember-inspector_installation ember-inspector_installation_index">
+
+    <!--[if lt IE 9]>
+      <script src="../../javascripts/common-old-ie.js" type="text/javascript"></script>
+    <![endif]-->
+    <!--[if gte IE 9]><!-->
+      <script src="../../javascripts/common-modern.js" type="text/javascript"></script>
+    <!--<![endif]-->
+
+    <div id="header">
+      <div id="wrapper">
+        <a id="logo" href="http://emberjs.com/">&nbsp;</a>
+        <ul id="nav">
+          <li>
+            <a href="http://emberjs.com/">about</a>
+          </li>
+          <li class="active">
+            <a href="/">guides</a>
+          </li>
+          <li>
+            <a href="http://emberjs.com/api">api</a>
+          </li>
+          <li>
+            <a href="http://emberjs.com/community">community</a>
+          </li>
+          <li>
+            <a href="http://emberjs.com/blog">blog</a>
+          </li>
+          <li>
+            <a href="http://emberjs.com/builds">builds</a>
+          </li>
+
+          <li id="search">
+            <form>
+              <input type="text" id="st-search-input" class="st-search-input" placeholder="Search the guides"/>
+            </form>
+            <div id="st-results-container"></div>
+          </li>
+        </ul>
+
+        <div id="github">
+          <a href="https://github.com/emberjs/ember.js"><i class="icon-fork"></i>Fork Us!</a>
+        </div>
+      </div>
+    </div>
+
+    
+
+    <div id="content-wrapper">
+      <div id="sidebar-wrapper">
+        <select class="version-select" style="width: 100%"></select>
+        <div id="sidebar">
+
+          <ol id='toc-list'><li class='level-1 '><a href="../../getting-started/">Getting Started</a><ol class=''><li class='level-3 '><a href="../../getting-started/">Installing Ember</a></li><li class='level-3 '><a href="../../getting-started/glossary/">Glossary</a></li></ol></li><li class='level-1 '><a href="../../concepts/core-concepts/">Concepts</a><ol class=''><li class='level-3 '><a href="../../concepts/core-concepts/">Core Concepts</a></li><li class='level-3 '><a href="../../concepts/naming-conventions/">Naming Conventions</a></li></ol></li><li class='level-1 '><a href="../../object-model/classes-and-instances/">The Object Model</a><ol class=''><li class='level-3 '><a href="../../object-model/classes-and-instances/">Classes and Instances</a></li><li class='level-3 '><a href="../../object-model/reopening-classes-and-instances/">Reopening Classes and Instances</a></li><li class='level-3 '><a href="../../object-model/computed-properties/">Computed Properties</a></li><li class='level-3 '><a href="../../object-model/computed-properties-and-aggregate-data/">Computed Properties and Aggregate Data with @each</a></li><li class='level-3 '><a href="../../object-model/observers/">Observers</a></li><li class='level-3 '><a href="../../object-model/bindings/">Bindings</a></li><li class='level-3 '><a href="../../object-model/what-do-i-use-when/">Bindings, Observers, Computed Properties: What Do I Use When?</a></li></ol></li><li class='level-1 '><a href="../../application/">Application</a><ol class=''><li class='level-3 '><a href="../../application/">Introduction</a></li></ol></li><li class='level-1 '><a href="../../templates/handlebars-basics/">Templates</a><ol class=''><li class='level-3 '><a href="../../templates/handlebars-basics/">Handlebars Basics</a></li><li class='level-3 '><a href="../../templates/the-application-template/">The Application Template</a></li><li class='level-3 '><a href="../../templates/conditionals/">Conditionals</a></li><li class='level-3 '><a href="../../templates/displaying-a-list-of-items/">Displaying a List of Items</a></li><li class='level-3 '><a href="../../templates/binding-element-attributes/">Binding Element Attributes</a></li><li class='level-3 '><a href="../../templates/binding-element-class-names/">Binding Element Class Names</a></li><li class='level-3 '><a href="../../templates/links/">Links</a></li><li class='level-3 '><a href="../../templates/actions/">Actions</a></li><li class='level-3 '><a href="../../templates/input-helpers/">Input Helpers</a></li><li class='level-3 '><a href="../../templates/development-helpers/">Development Helpers</a></li><li class='level-3 '><a href="../../templates/rendering-with-helpers/">Rendering with Helpers</a></li><li class='level-3 '><a href="../../templates/writing-helpers/">Writing Helpers</a></li></ol></li><li class='level-1 '><a href="../../routing/">Routing</a><ol class=''><li class='level-3 '><a href="../../routing/">Introduction</a></li><li class='level-3 '><a href="../../routing/defining-your-routes/">Defining Your Routes</a></li><li class='level-3 '><a href="../../routing/generated-objects/">Generated Objects</a></li><li class='level-3 '><a href="../../routing/specifying-a-routes-model/">Specifying a Route's Model</a></li><li class='level-3 '><a href="../../routing/setting-up-a-controller/">Setting Up a Controller</a></li><li class='level-3 '><a href="../../routing/rendering-a-template/">Rendering a Template</a></li><li class='level-3 '><a href="../../routing/redirection/">Redirecting</a></li><li class='level-3 '><a href="../../routing/specifying-the-location-api/">Specifying the URL Type</a></li><li class='level-3 '><a href="../../routing/query-params/">Query Parameters</a></li><li class='level-3 '><a href="../../routing/asynchronous-routing/">Asynchronous Routing</a></li><li class='level-3 '><a href="../../routing/loading-and-error-substates/">Loading / Error Substates</a></li><li class='level-3 '><a href="../../routing/preventing-and-retrying-transitions/">Preventing and Retrying Transitions</a></li></ol></li><li class='level-1 '><a href="../../components/">Components</a><ol class=''><li class='level-3 '><a href="../../components/">Introduction</a></li><li class='level-3 '><a href="../../components/defining-a-component/">Defining a Component</a></li><li class='level-3 '><a href="../../components/passing-properties-to-a-component/">Passing Properties to a Component</a></li><li class='level-3 '><a href="../../components/wrapping-content-in-a-component/">Wrapping Content in a Component</a></li><li class='level-3 '><a href="../../components/customizing-a-components-element/">Customizing a Component's Element</a></li><li class='level-3 '><a href="../../components/handling-user-interaction-with-actions/">Handling User Interaction with Actions</a></li><li class='level-3 '><a href="../../components/sending-actions-from-components-to-your-application/">Sending Actions from Components to Your Application</a></li></ol></li><li class='level-1 '><a href="../../controllers/">Controllers</a><ol class=''><li class='level-3 '><a href="../../controllers/">Introduction</a></li><li class='level-3 '><a href="../../controllers/representing-multiple-models-with-arraycontroller/">Representing Multiple Models with ArrayController</a></li><li class='level-3 '><a href="../../controllers/dependencies-between-controllers/">Managing Dependencies Between Controllers</a></li></ol></li><li class='level-1 '><a href="../../models/">Models</a><ol class=''><li class='level-3 '><a href="../../models/">Introduction</a></li><li class='level-3 '><a href="../../models/defining-models/">Defining Models</a></li><li class='level-3 '><a href="../../models/creating-and-deleting-records/">Creating and Deleting Records</a></li><li class='level-3 '><a href="../../models/pushing-records-into-the-store/">Pushing Records into the Store</a></li><li class='level-3 '><a href="../../models/persisting-records/">Persisting Records</a></li><li class='level-3 '><a href="../../models/finding-records/">Finding Records</a></li><li class='level-3 '><a href="../../models/working-with-records/">Working with Records</a></li><li class='level-3 '><a href="../../models/the-rest-adapter/">The Rest Adapter</a></li><li class='level-3 '><a href="../../models/connecting-to-an-http-server/">Connecting to an HTTP Server</a></li><li class='level-3 '><a href="../../models/handling-metadata/">Handling Metadata</a></li><li class='level-3 '><a href="../../models/customizing-adapters/">Customizing Adapters</a></li><li class='level-3 '><a href="../../models/frequently-asked-questions/">Frequently Asked Questions</a></li></ol></li><li class='level-1 '><a href="../../enumerables/">Enumerables</a><ol class=''><li class='level-3 '><a href="../../enumerables/">Introduction</a></li></ol></li><li class='level-1 '><a href="../../testing/">Testing</a><ol class=''><li class='level-3 '><a href="../../testing/">Introduction</a></li><li class='level-3 '><a href="../../testing/acceptance/">Acceptance Tests</a></li><li class='level-3 '><a href="../../testing/test-helpers/">Test Helpers</a></li><li class='level-3 '><a href="../../testing/testing-user-interaction/">Testing User Interaction</a></li><li class='level-3 '><a href="../../testing/unit-testing-basics/">Unit Testing Basics</a></li><li class='level-3 '><a href="../../testing/unit-test-helpers/">Unit Test Helpers</a></li><li class='level-3 '><a href="../../testing/testing-components/">Testing Components</a></li><li class='level-3 '><a href="../../testing/testing-controllers/">Testing Controllers</a></li><li class='level-3 '><a href="../../testing/testing-routes/">Testing Routes</a></li><li class='level-3 '><a href="../../testing/testing-models/">Testing Models</a></li></ol></li><li class='level-1 '><a href="../../configuring-ember/disabling-prototype-extensions/">Configuring Ember.js</a><ol class=''><li class='level-3 '><a href="../../configuring-ember/disabling-prototype-extensions/">Disabling Prototype Extensions</a></li><li class='level-3 '><a href="../../configuring-ember/embedding-applications/">Embedding Applications</a></li><li class='level-3 '><a href="../../configuring-ember/feature-flags/">Feature Flags</a></li></ol></li><li class='level-1 selected'><a href="./">Ember Inspector</a><ol class='selected'><li class='level-3  sub-selected'><a href="./">Installing the Inspector</a></li><li class='level-3 '><a href="../object-inspector/">Object Inspector</a></li><li class='level-3 '><a href="../view-tree/">The View Tree</a></li><li class='level-3 '><a href="../routes/">Inspecting Routes</a></li><li class='level-3 '><a href="../data/">Data Tab</a></li><li class='level-3 '><a href="../deprecations/">Tackling Deprecations</a></li><li class='level-3 '><a href="../info/">Library Info</a></li><li class='level-3 '><a href="../promises/">Debugging Promises</a></li><li class='level-3 '><a href="../container/">Inspecting the Container</a></li><li class='level-3 '><a href="../render-performance/">Rendering Performance</a></li><li class='level-3 '><a href="../troubleshooting/">Troubleshooting</a></li></ol></li><li class='level-1 '><a href="../../cookbook/">Cookbook</a><ol class=''><li class='level-3 '><a href="../../cookbook/">Introduction</a></li><li class='level-3 '><a href="../../cookbook/contributing/">Contributing</a></li><li class='level-3 '><a href="../../cookbook/user_interface_and_interaction/">User Interface and Interaction</a></li><li class='level-3 '><a href="../../cookbook/event_handling_and_data_binding/">Event Handling & Data Binding</a></li><li class='level-3 '><a href="../../cookbook/helpers_and_components/">Helpers & Components</a></li><li class='level-3 '><a href="../../cookbook/working_with_objects/">Working with Objects</a></li></ol></li><li class='level-1 '><a href="../../understanding-ember/debugging/">Understanding Ember.js</a><ol class=''><li class='level-3 '><a href="../../understanding-ember/debugging/">Debugging</a></li><li class='level-3 '><a href="../../understanding-ember/run-loop/">The Run Loop</a></li><li class='level-3 '><a href="../../understanding-ember/dependency-injection-and-service-lookup/">Dependency Injection & Service Lookup</a></li></ol></li><li class='level-1 '><a href="../../contributing/adding-new-features/">Contributing to Ember.js</a><ol class=''><li class='level-3 '><a href="../../contributing/adding-new-features/">Adding New Features</a></li><li class='level-3 '><a href="../../contributing/repositories/">Repositories</a></li></ol></li></ol>
+          <div id="back-to-top"><a id="back-top-top" href="#">&#11014; Back to Top</a></div>
+        </div>
+      </div>
+      <div id="content" class="has-sidebar">
+        <div class="chapter">
+          
+        <h1>
+          Installing the Inspector
+          <a href="https://github.com/emberjs/guides/edit/master/source/ember-inspector/installation.md" target="_blank" class="edit-page icon-pencil">Edit Page</a>
+        </h1>
+      
+          <hr>
+
+          <p>The Ember Inspector extends browsers&#39; developer tools to make understanding and debugging your Ember.js applications easier.</p>
+
+<p>Steps to install the inspector for Google Chrome, Firefox, other
+browsers (Bookmarklet), and apps running on mobile devices are explained
+below.</p>
+<h3 class='anchorable-toc' id='toc_google-chrome'>Google Chrome</h3>
+<p>You can install the Ember Inspector on Google Chrome as a new developer
+tool panel.</p>
+
+<p>Visit the extension page on the <a href="https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi">Chrome Web Store</a>.</p>
+
+<p>Click on &quot;Add To Chrome&quot;:</p>
+
+<p><img src="../../images/guides/ember-inspector/installation-chrome-store.png" width="680" /></p>
+
+<p>Once installed, go to an Ember.js application, open the developer tools,
+and click on the <code>Ember</code> tab next to the rest of the devtools panels.</p>
+
+<p><img src="../../images/guides/ember-inspector/installation-chrome-panel.png" width="680"></p>
+<h4 class='anchorable-toc' id='toc_file-protocol'>File:// protocol</h4>
+<p>If you need to use the inspector with the <code>file://</code> protocol.</p>
+
+<p>Visit the URL: <code>chrome://extensions</code> and check the &quot;Allow access to file URLs&quot; checkbox:</p>
+
+<p><img src="../../images/guides/ember-inspector/installation-chrome-file-urls.png" width="400"></p>
+<h4 class='anchorable-toc' id='toc_enable-tomster'>Enable Tomster</h4>
+<p>You can configure a tomster icon to show up in Chrome&#39;s url bar whenever you are visiting a site that uses Ember.js.</p>
+
+<p>Visit <code>chrome://extensions</code>.</p>
+
+<p>Click on <code>Options</code>.</p>
+
+<p><img src="../../images/guides/ember-inspector/installation-chrome-tomster.png" width="400"></p>
+
+<p>Make sure the &quot;Display the Tomster&quot; checkbox is checked.</p>
+
+<p><img src="../../images/guides/ember-inspector/installation-chrome-tomster-checkbox.png" width="400"></p>
+<h3 class='anchorable-toc' id='toc_firefox'>Firefox</h3>
+<p>Visit the addon page on the <a href="https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/">Mozilla Addons
+site</a>.</p>
+
+<p>Click on &quot;Add to Firefox&quot;.</p>
+
+<p><img src="../../images/guides/ember-inspector/installation-firefox-store.png" width="680"></p>
+
+<p>Once installed, go to an Ember.js application, open the developer tools,
+and click on the <code>Ember</code> tab.</p>
+
+<p><img src="../../images/guides/ember-inspector/installation-firefox-panel.png" width="680"></p>
+<h4 class='anchorable-toc' id='toc_enable-tomster'>Enable Tomster</h4>
+<p>To enable the tomster to show up in the url bar whenever you are
+visiting a site that uses Ember.js Ember.js visit <code>about:addons</code>.</p>
+
+<p>Click on <code>Extensions</code> -&gt; <code>Preferences</code>.</p>
+
+<p><img src="../../images/guides/ember-inspector/installation-firefox-preferences.png" width="600"></p>
+
+<p>Make sure the &quot;Display the Tomster icon when a site runs Ember.js&quot; checkbox is checked.</p>
+
+<p><img src="../../images/guides/ember-inspector/installation-firefox-tomster-checkbox.png" width="400"></p>
+<h3 class='anchorable-toc' id='toc_bookmarklet'>Bookmarklet</h3>
+<p>If you are using any browser other than Chrome or Firefox, you can use the
+bookmarklet option to use the inspector.</p>
+
+<p>Add the following bookmark:</p>
+
+<p><a href="javascript: (function() { var s = document.createElement('script'); s.src = '//ember-extension.s3.amazonaws.com/dist_bookmarklet/load_inspector.js'; document.body.appendChild(s); }());">Bookmark Me</a></p>
+
+<p>To open the inspector, just click on the bookmark.</p>
+
+<p>Internet Explorer will open an iframe instead of a popup due to the lack of support for cross-origin messaging.</p>
+
+<p>Safari blocks popups by default, so you&#39;ll need to enable popups before
+using this option.</p>
+<h3 class='anchorable-toc' id='toc_mobile-development'>Mobile Development</h3>
+<p>If you want to run the inspector with apps running on mobile devices,
+you can use the <a href="https://github.com/joostdevries/ember-cli-remote-inspector">Ember Cli Remote Inspector</a> addon.</p>
+
+
+
+          
+      <footer>
+        <a class="previous-guide" href="../../configuring-ember/feature-flags/"> ← Feature Flags</a> <a class="next-guide" href="../object-inspector/">Object Inspector →</a>
+      </footer>
+      
+        </div>
+      </div>
+    </div>
+
+    <div id="footer">
+      <div id="footer-wrapper">
+        <div class="info">
+          Copyright 2015 <a href="http://tilde.io">Tilde Inc.</a><br>
+          <a href="http://emberjs.com/team">Core Team</a> | <a href="http://emberjs.com/sponsors">Sponsors</a> | <a href="http://emberjs.com/legal">Legal</a></br>
+          <a href="http://emberjs.com/guidelines">Community Guidelines</a>
+        </div>
+        <div class="statement">Ember.js is free, open source and always will be.</div>
+        <div class="links">
+          <a class="twitter" href="http://twitter.com/emberjs">
+            <i class="icon-twitter"></i><span>Twitter</span>
+          </a>
+          <a class="github" href="https://github.com/emberjs/ember.js">
+            <i class="icon-github"></i><span>GitHub</span>
+          </a>
+          <a class="googleplus" href="https://plus.google.com/communities/106387049790387471205">
+            <i class="icon-gplus"></i><span>Google+</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    
+
+    <script src="../../javascripts/guides.js" type="text/javascript"></script>
+    <script src="http://static.jsbin.com/js/embed.js"></script>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+      _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+      _gaq.push(['_setAccount', 'UA-27675533-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
+</html>
