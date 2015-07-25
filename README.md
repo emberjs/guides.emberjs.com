@@ -11,14 +11,14 @@ These instructions are for publishing a new version of the site at http://guides
 
 ### Build the guides
 
-First, in the [main guides repo](https://github.com/emberjs/guides), make sure your latest content is pushed and tagged with a version number:
+First, in the [main guides repo](https://github.com/emberjs/guides), make sure your latest content is pushed, and update `data/search.yml` with the current version number. Tag the final commit with the version number:
 
 ```shell
-git tag <revision number>
+git tag <version number>
 git push --tags
 ```
 
-For `<revision number>` we use the following format `v<major version>.<minor version>.<patch>`, so
+For `<version number>` we use the following format `v<major version>.<minor version>.<patch>`, so
 `v1.10.0` is correct but `1.9.1` is not.
 
 Next, build a new snapshot and move it to the guides _site_ repo (this repo). This should be run from the main guides repo (not this one):
@@ -30,11 +30,13 @@ mv ./build <path to guides site repo>/snapshots/<revision number>
 
 ### Add the version to the site
 
-Now, change directories into the guides site repo (this repo). Add the version number to `snapshots/versions.json`, and set the default version in `divshot.json`. Then update the list of versions:
+Now, change directories into the guides site repo (this repo). Update the list of versions:
 
 ```shell
 node tasks/update-versions.js
 ```
+
+Then set the default version in `divshot.json`.
 
 Finally, commit and push this repo:
 
