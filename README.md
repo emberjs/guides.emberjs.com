@@ -11,11 +11,11 @@ These instructions are for publishing a new version of the site at http://guides
 
 ### Build the guides
 
-First, in the [main guides repo](https://github.com/emberjs/guides), make sure your latest content is pushed, and update `data/search.yml` with the current version number. Tag the final commit with the version number:
+First, in the [main guides repo](https://github.com/emberjs/guides), make sure your latest content is pushed, and update `data/search.yml` with the current version number. Make a branch with the version number:
 
 ```shell
-git tag <version number>
-git push --tags
+git checkout -b <version number>
+git push
 ```
 
 For `<version number>` we use the following format `v<major version>.<minor version>.<patch>`, so
