@@ -18,3 +18,7 @@ for (var index = 0, length = entries.length; index < length; index++) {
 }
 
 fs.writeFileSync('snapshots/versions.json', JSON.stringify(versions), { encoding: 'utf8' });
+
+var divshot = require('../divshot.json');
+divshot['redirects']['/']['url'] = '/' + versions[versions.length - 1];
+fs.writeFileSync('divshot.json', JSON.stringify(divshot, null, 2), { encoding: 'utf8' });
