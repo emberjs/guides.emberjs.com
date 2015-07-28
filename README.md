@@ -36,9 +36,7 @@ Now, change directories into the guides site repo (this repo). Update the list o
 node tasks/update-versions.js
 ```
 
-Then set the default version in `divshot.json`.
-
-Finally, commit and push this repo:
+Then commit and push this repo:
 
 ```shell
 git add --all
@@ -50,7 +48,7 @@ git push
 
 The site is hosted on Divshot. If you don't have divshot-cli installed, do so with `npm install divshot-cli -g`.
 
-Publish this repo to Divshot's staging environment (our site host):
+Publish this repo to Divshot's development environment:
 
 ```shell
 divshot push
