@@ -11,7 +11,7 @@ These instructions are for publishing a new version of the site at http://guides
 
 ### Build the guides
 
-First, in the [main guides repo](https://github.com/emberjs/guides), make sure your latest content is pushed, and update `data/search.yml` with the current version number. Make a branch with the version number:
+First, in the [main guides repo](https://github.com/emberjs/guides), make a branch with the version number:
 
 ```shell
 git checkout -b <version number>
