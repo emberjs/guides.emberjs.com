@@ -61,7 +61,7 @@ Verify that the content looks good at http://development.ember-guides.divshot.io
 If there are no obvious defects, you're ready to publish the site content and search content:
 
 ```shell
-npm publish # runs `divshot promote staging production` && `npm swiftype`
+divshot promote development production
 ```
 
 ### Update search
