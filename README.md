@@ -56,7 +56,7 @@ Publish this repo to Divshot's staging environment (our site host):
 divshot push
 ```
 
-Verify that the content looks good at http://development.ember-guides.divshot.io/<revision number>. 
+Verify that the content looks good at http://development.ember-guides.divshot.io/.
 
 If there are no obvious defects, you're ready to publish the site content and search content:
 
