@@ -33,7 +33,7 @@ mv ./build <path to guides site repo>/snapshots/<revision number>
 Now, change directories into the guides site repo (this repo). Update the list of versions:
 
 ```shell
-node tasks/update-versions.js
+node tasks/update-versions
 ```
 
 Then commit and push this repo:
@@ -42,6 +42,14 @@ Then commit and push this repo:
 git add --all
 git commit -m "Add snapshot for Ember.js revision <revision number>"
 git push
+```
+
+### Update search
+
+Publish the searchable content with the new revision:
+
+```shell
+node tasks/publish-search --engine ember-guides --environment production --revision <revision number> --api-key <api key>
 ```
 
 ### Publish
@@ -56,21 +64,8 @@ divshot push
 
 Verify that the content looks good at http://development.ember-guides.divshot.io/.
 
-If there are no obvious defects, you're ready to publish the site content and search content:
+If there are no obvious defects, you're ready to publish the site content:
 
 ```shell
 divshot promote development production
-```
-
-### Update search
-
-Publish the searchable content of the revison you are publshing:
-
-```shell
-node tasks/publish-search --revision <revision number>
-                  --environment <staging|production>
-                  --api-key <API_KEY>
-                  --engine <engine name>
-# e.g.
-node tasks/publish-search --revision v1.1.1 --environment staging --api-key SUPERSECRETBROCOMMON --engine ember
 ```
