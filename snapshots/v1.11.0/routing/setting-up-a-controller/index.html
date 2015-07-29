@@ -103,23 +103,29 @@ display-specific properties.</p>
   <td class="line-numbers"><pre>1
 2
 3
+</pre></td>
+  <td class="code"><pre>Router.map(<span class="keyword">function</span>() {
+  <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">'</span><span class="content">post</span><span class="delimiter">'</span></span>, { <span class="key">path</span>: <span class="string"><span class="delimiter">'</span><span class="content">/posts/:post_id</span><span class="delimiter">'</span></span> });
+});
+</pre></td>
+</tr></table>
+</div></div><div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/routes/post.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
 4
 5
 6
 7
 8
-9
-<strong>10</strong>
-11
-12
-13
 </pre></td>
-  <td class="code"><pre>Router.map(<span class="keyword">function</span>() {
-  <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">'</span><span class="content">post</span><span class="delimiter">'</span></span>, { <span class="key">path</span>: <span class="string"><span class="delimiter">'</span><span class="content">/posts/:post_id</span><span class="delimiter">'</span></span> });
-});
-
-<span class="error">`</span><span class="error">`</span><span class="error">`</span> app/routes/post.js
-<span class="reserved">export</span> <span class="keyword">default</span> Ember.Route.extend({
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> Ember.Route.extend({
   <span class="comment">// The code below is the default behavior, so if this is all you</span>
   <span class="comment">// need, you do not need to provide a setupController implementation</span>
   <span class="comment">// at all.</span>
@@ -155,7 +161,7 @@ controller as its first argument. In this case, the <code>PostRoute</code>&#39;s
 </tr></table>
 </div></div>
 <p>As a second argument, it receives the route handler&#39;s model. For more
-information, see [Specifying a Route&#39;s Model][../specifying-a-routes-model/].</p>
+information, see <a href="../specifying-a-routes-model/">Specifying a Route&#39;s Model</a>.</p>
 
 <p>The default <code>setupController</code> hook sets the <code>model</code> property of the
 associated controller to the route handler&#39;s model.</p>
@@ -198,8 +204,8 @@ associated with the route handler, use the <code>controllerFor</code> method:</p
       <div id="footer-wrapper">
         <div class="info">
           Copyright 2015 <a href="http://tilde.io">Tilde Inc.</a><br>
-          <a href="http:emberjs.com/team">Core Team</a> | <a href="http:emberjs.com/sponsors">Sponsors</a> | <a href="http:emberjs.com/legal">Legal</a></br>
-          <a href="http:emberjs.com/guidelines">Community Guidelines</a>
+          <a href="http://emberjs.com/team">Core Team</a> | <a href="http://emberjs.com/sponsors">Sponsors</a> | <a href="http://emberjs.com/legal">Legal</a></br>
+          <a href="http://emberjs.com/guidelines">Community Guidelines</a>
         </div>
         <div class="statement">Ember.js is free, open source and always will be.</div>
         <div class="links">
