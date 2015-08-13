@@ -56,8 +56,10 @@ new PublishSearch(engine, options['api-key'])
     process.exit(1);
   });
 
-var searchJsFile = path.join(__dirname, '..', siteRoot, options.revision, 'javascripts/swiftype.js');
-fs.readFile(searchJsFile, 'utf8', function(err, data) {
-  var newJs = data.replace(/CURRENT_REVISION_WILL_APPEAR_HERE_WHEN_DEPLOYED/g, options.revision);
-  fs.writeFile(searchJsFile, newJs, 'utf8');
+['common-modern.js', 'common-old-ie.js', 'common-all.js'].forEach(function(javascript) {
+  var searchJsFile = path.join(__dirname, '..', siteRoot, options.revision, 'javascripts/' + javascript);
+  fs.readFile(searchJsFile, 'utf8', function(err, data) {
+    var newJs = data.replace(/CURRENT_REVISION_WILL_APPEAR_HERE_WHEN_DEPLOYED/g, options.revision);
+    fs.writeFile(searchJsFile, newJs, 'utf8');
+  });
 });
