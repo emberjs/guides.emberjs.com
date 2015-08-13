@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Ember.js - Testing: Testing Components</title>
+    <meta property="st:title" content="Testing: Testing Components" />
+    <link href="../../images/favicon.png" rel="icon" type="image/png" />
+    <!--[if lte IE 7 ]><link href="../../stylesheets/fonts/fontello-ie7.css" rel="stylesheet" type="text/css" /><![endif]-->
+    <link href="../../stylesheets/site.css" rel="stylesheet" type="text/css" />
+    <link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" title="Ember.js - Blog" />
+    
+  </head>
+
+  <body class="guides testing testing_testing-components testing_testing-components_index">
+
+    <!--[if lt IE 9]>
+      <script src="../../javascripts/common-old-ie.js" type="text/javascript"></script>
+    <![endif]-->
+    <!--[if gte IE 9]><!-->
+      <script src="../../javascripts/common-modern.js" type="text/javascript"></script>
+    <!--<![endif]-->
+
+    <div id="header">
+      <div id="wrapper">
+        <a id="logo" href="http://emberjs.com/">&nbsp;</a>
+        <ul id="nav">
+          <li>
+            <a href="http://emberjs.com/">about</a>
+          </li>
+          <li class="active">
+            <a href="/">guides</a>
+          </li>
+          <li>
+            <a href="http://emberjs.com/api">api</a>
+          </li>
+          <li>
+            <a href="http://emberjs.com/community">community</a>
+          </li>
+          <li>
+            <a href="http://emberjs.com/blog">blog</a>
+          </li>
+          <li>
+            <a href="http://emberjs.com/builds">builds</a>
+          </li>
+
+          <li id="search">
+            <form>
+              <input type="text" id="st-search-input" class="st-search-input" placeholder="Search the guides"/>
+            </form>
+            <div id="st-results-container"></div>
+          </li>
+        </ul>
+
+        <div id="github">
+          <a href="https://github.com/emberjs/ember.js"><i class="icon-fork"></i>Fork Us!</a>
+        </div>
+      </div>
+    </div>
+
+    
+
+    <div id="content-wrapper">
+      <div id="sidebar-wrapper">
+        <select class="version-select" style="width: 100%"></select>
+        <div id="sidebar">
+
+          <ol class='toc-level-0 selected'><li class='toc-level-0 '><a href="#">Getting Started</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../getting-started/">Installing Ember</a></li><li class='toc-level-1 '><a href="../../getting-started/first-app/">Your first Ember app</a></li><li class='toc-level-1 '><a href="../../getting-started/core-concepts/">Core Concepts</a></li></ol></li><li class='toc-level-0 '><a href="#">The Object Model</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../object-model/">Objects in Ember</a></li><li class='toc-level-1 '><a href="../../object-model/classes-and-instances/">Classes and Instances</a></li><li class='toc-level-1 '><a href="../../object-model/reopening-classes-and-instances/">Reopening Classes and Instances</a></li><li class='toc-level-1 '><a href="../../object-model/computed-properties/">Computed Properties</a></li><li class='toc-level-1 '><a href="../../object-model/computed-properties-and-aggregate-data/">Computed Properties and Aggregate Data</a></li><li class='toc-level-1 '><a href="../../object-model/observers/">Observers</a></li><li class='toc-level-1 '><a href="../../object-model/bindings/">Bindings</a></li><li class='toc-level-1 '><a href="../../object-model/enumerables/">Enumerables</a></li></ol></li><li class='toc-level-0 '><a href="#">Templates</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../templates/handlebars-basics/">Handlebars Basics</a></li><li class='toc-level-1 '><a href="../../templates/the-application-template/">The Application Template</a></li><li class='toc-level-1 '><a href="../../templates/conditionals/">Conditionals</a></li><li class='toc-level-1 '><a href="../../templates/displaying-a-list-of-items/">Displaying a List of Items</a></li><li class='toc-level-1 '><a href="../../templates/displaying-the-keys-in-an-object/">Displaying the Keys in an Object</a></li><li class='toc-level-1 '><a href="../../templates/binding-element-attributes/">Binding Element Attributes</a></li><li class='toc-level-1 '><a href="../../templates/links/">Links</a></li><li class='toc-level-1 '><a href="../../templates/actions/">Actions</a></li><li class='toc-level-1 '><a href="../../templates/input-helpers/">Input Helpers</a></li><li class='toc-level-1 '><a href="../../templates/the-get-helper/">The Get Helper</a></li><li class='toc-level-1 '><a href="../../templates/development-helpers/">Development Helpers</a></li><li class='toc-level-1 '><a href="../../templates/writing-helpers/">Writing Helpers</a></li></ol></li><li class='toc-level-0 '><a href="#">Routing</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../routing/">Introduction</a></li><li class='toc-level-1 '><a href="../../routing/defining-your-routes/">Defining Your Routes</a></li><li class='toc-level-1 '><a href="../../routing/generated-objects/">Generated Objects</a></li><li class='toc-level-1 '><a href="../../routing/specifying-a-routes-model/">Specifying a Route's Model</a></li><li class='toc-level-1 '><a href="../../routing/setting-up-a-controller/">Setting Up a Controller</a></li><li class='toc-level-1 '><a href="../../routing/rendering-a-template/">Rendering a Template</a></li><li class='toc-level-1 '><a href="../../routing/redirection/">Redirecting</a></li><li class='toc-level-1 '><a href="../../routing/specifying-the-location-api/">Specifying the URL Type</a></li><li class='toc-level-1 '><a href="../../routing/query-params/">Query Parameters</a></li><li class='toc-level-1 '><a href="../../routing/asynchronous-routing/">Asynchronous Routing</a></li><li class='toc-level-1 '><a href="../../routing/loading-and-error-substates/">Loading / Error Substates</a></li><li class='toc-level-1 '><a href="../../routing/preventing-and-retrying-transitions/">Preventing and Retrying Transitions</a></li></ol></li><li class='toc-level-0 '><a href="#">Components</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../components/">Introduction</a></li><li class='toc-level-1 '><a href="../../components/defining-a-component/">Defining a Component</a></li><li class='toc-level-1 '><a href="../../components/passing-properties-to-a-component/">Passing Properties to a Component</a></li><li class='toc-level-1 '><a href="../../components/wrapping-content-in-a-component/">Wrapping Content in a Component</a></li><li class='toc-level-1 '><a href="../../components/customizing-a-components-element/">Customizing a Component's Element</a></li><li class='toc-level-1 '><a href="../../components/handling-user-interaction-with-actions/">Handling User Interaction with Actions</a></li><li class='toc-level-1 '><a href="../../components/sending-actions-from-components-to-your-application/">Sending Actions from Components to Your Application</a></li><li class='toc-level-1 '><a href="../../components/composing-components/">Composing Components</a></li><li class='toc-level-1 '><a href="../../components/run-loop/">The Run Loop</a></li></ol></li><li class='toc-level-0 '><a href="#">Controllers</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../controllers/">Introduction</a></li><li class='toc-level-1 '><a href="../../controllers/representing-multiple-models/">Representing Multiple Models</a></li><li class='toc-level-1 '><a href="../../controllers/dependencies-between-controllers/">Managing Dependencies Between Controllers</a></li></ol></li><li class='toc-level-0 '><a href="#">Models</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../models/">Introduction</a></li><li class='toc-level-1 '><a href="../../models/defining-models/">Defining Models</a></li><li class='toc-level-1 '><a href="../../models/creating-and-deleting-records/">Creating and Deleting Records</a></li><li class='toc-level-1 '><a href="../../models/pushing-records-into-the-store/">Pushing Records into the Store</a></li><li class='toc-level-1 '><a href="../../models/persisting-records/">Persisting Records</a></li><li class='toc-level-1 '><a href="../../models/finding-records/">Finding Records</a></li><li class='toc-level-1 '><a href="../../models/working-with-records/">Working with Records</a></li><li class='toc-level-1 '><a href="../../models/the-rest-adapter/">The Rest Adapter</a></li><li class='toc-level-1 '><a href="../../models/connecting-to-an-http-server/">Connecting to an HTTP Server</a></li><li class='toc-level-1 '><a href="../../models/handling-metadata/">Handling Metadata</a></li><li class='toc-level-1 '><a href="../../models/customizing-adapters/">Customizing Adapters</a></li><li class='toc-level-1 '><a href="../../models/frequently-asked-questions/">Frequently Asked Questions</a></li></ol></li><li class='toc-level-0 '><a href="#">Services</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../services/">Using Services</a></li></ol></li><li class='toc-level-0 selected'><a href="#">Testing</a><ol class='toc-level-1 selected'><li class='toc-level-1 '><a href="../">Introduction</a></li><li class='toc-level-1 '><a href="../acceptance/">Acceptance Tests</a></li><li class='toc-level-1 '><a href="../test-helpers/">Test Helpers</a></li><li class='toc-level-1 '><a href="../testing-user-interaction/">Testing User Interaction</a></li><li class='toc-level-1 '><a href="../unit-testing-basics/">Unit Testing Basics</a></li><li class='toc-level-1 '><a href="../unit-test-helpers/">Unit Test Helpers</a></li><li class='toc-level-1 selected'><a href="./">Testing Components</a></li><li class='toc-level-1 '><a href="../testing-controllers/">Testing Controllers</a></li><li class='toc-level-1 '><a href="../testing-routes/">Testing Routes</a></li><li class='toc-level-1 '><a href="../testing-models/">Testing Models</a></li></ol></li><li class='toc-level-0 '><a href="#">Ember Inspector</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../ember-inspector/installation/">Installing the Inspector</a></li><li class='toc-level-1 '><a href="../../ember-inspector/object-inspector/">Object Inspector</a></li><li class='toc-level-1 '><a href="../../ember-inspector/view-tree/">The View Tree</a></li><li class='toc-level-1 '><a href="../../ember-inspector/routes/">Inspecting Routes</a></li><li class='toc-level-1 '><a href="../../ember-inspector/data/">Data Tab</a></li><li class='toc-level-1 '><a href="../../ember-inspector/deprecations/">Tackling Deprecations</a></li><li class='toc-level-1 '><a href="../../ember-inspector/info/">Library Info</a></li><li class='toc-level-1 '><a href="../../ember-inspector/promises/">Debugging Promises</a></li><li class='toc-level-1 '><a href="../../ember-inspector/container/">Inspecting the Container</a></li><li class='toc-level-1 '><a href="../../ember-inspector/render-performance/">Rendering Performance</a></li><li class='toc-level-1 '><a href="../../ember-inspector/troubleshooting/">Troubleshooting</a></li></ol></li><li class='toc-level-0 '><a href="#">Addons and Dependencies</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../addons-and-dependencies/managing-dependencies/">Managing Dependencies</a></li></ol></li><li class='toc-level-0 '><a href="#">Configuring Ember.js</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../configuring-ember/configuring-your-app/">Configuring Your App</a></li><li class='toc-level-1 '><a href="../../configuring-ember/configuring-ember-cli/">Configuring Ember CLI</a></li><li class='toc-level-1 '><a href="../../configuring-ember/disabling-prototype-extensions/">Disabling Prototype Extensions</a></li><li class='toc-level-1 '><a href="../../configuring-ember/embedding-applications/">Embedding Applications</a></li><li class='toc-level-1 '><a href="../../configuring-ember/feature-flags/">Feature Flags</a></li><li class='toc-level-1 '><a href="../../configuring-ember/debugging/">Debugging</a></li></ol></li><li class='toc-level-0 '><a href="#">Contributing to Ember.js</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../contributing/adding-new-features/">Adding New Features</a></li><li class='toc-level-1 '><a href="../../contributing/repositories/">Repositories</a></li></ol></li></ol>
+          <div id="back-to-top"><a id="back-top-top" href="#">&#11014; Back to Top</a></div>
+        </div>
+      </div>
+      <div id="content" class="has-sidebar">
+        <div class="chapter">
+          <h1>
+            Testing Components
+            <a href="https://github.com/emberjs/guides/edit/master/source/testing/testing-components.md"
+               target="_blank" class="edit-page icon-pencil">Edit Page</a>
+          </h1>
+          <hr>
+
+          <p><em>Unit testing methods and computed properties follows previous patterns shown
+in <a href="../unit-testing-basics">Unit Testing Basics</a> because Ember.Component extends Ember.Object.</em></p>
+
+<p>Components can be tested using the <code>moduleForComponent</code> helper.</p>
+
+<p>Let&#39;s assume we have a component with a <code>style</code> property that is updated
+whenever the value for its <code>name</code> property changes. The <code>style</code> attribute of the
+component is bound to its <code>style</code> property.</p>
+
+<blockquote>
+<p>You can follow along by generating your own component with <code>ember generate
+component pretty-color</code>.</p>
+</blockquote>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/components/pretty-color.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td>
+  <td class="code"><pre><span class="reserved">import</span> Ember from <span class="string"><span class="delimiter">'</span><span class="content">ember</span><span class="delimiter">'</span></span>;
+
+<span class="reserved">export</span> <span class="keyword">default</span> Ember.Component.extend({
+  <span class="key">attributeBindings</span>: [<span class="string"><span class="delimiter">'</span><span class="content">style</span><span class="delimiter">'</span></span>],
+
+  <span class="key">style</span>: Ember.computed(<span class="string"><span class="delimiter">'</span><span class="content">name</span><span class="delimiter">'</span></span>, <span class="keyword">function</span>() {
+    <span class="keyword">return</span> <span class="string"><span class="delimiter">'</span><span class="content">color: </span><span class="delimiter">'</span></span> + <span class="local-variable">this</span>.get(<span class="string"><span class="delimiter">'</span><span class="content">name</span><span class="delimiter">'</span></span>) + <span class="string"><span class="delimiter">'</span><span class="content">;</span><span class="delimiter">'</span></span>;
+  })
+});
+</pre></td>
+</tr></table>
+</div></div><div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/templates/components/pretty-color.hbs</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre>Pretty Color: <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">name</span><span class="inline-delimiter">}}</span></span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>The <code>moduleForComponent</code> helper will find the component by name (<code>pretty-color</code>)
+and its template (if available).</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">tests/unit/components/pretty-color-test.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+</pre></td>
+  <td class="code"><pre>moduleForComponent(<span class="string"><span class="delimiter">'</span><span class="content">pretty-color</span><span class="delimiter">'</span></span>, {
+  <span class="comment">// specify the other units that are required for this test</span>
+  <span class="comment">// needs: ['component:foo', 'helper:bar']</span>
+});
+</pre></td>
+</tr></table>
+</div></div>
+<p>Each test following the <code>moduleForComponent</code> call has access to the <code>subject()</code>
+function, which lets us create a new instance of the component, as well as
+provide any initial values we want it to have.</p>
+
+<p>We can test that changing the component&#39;s <code>name</code> property updates the
+component&#39;s <code>style</code> attribute and is reflected in the  rendered HTML:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">tests/unit/components/pretty-color-test.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+11
+12
+13
+14
+15
+16
+17
+18
+19
+<strong>20</strong>
+21
+</pre></td>
+  <td class="code"><pre>test(<span class="string"><span class="delimiter">'</span><span class="content">changing colors</span><span class="delimiter">'</span></span>, <span class="keyword">function</span>(assert) {
+  assert.expect(<span class="integer">2</span>);
+
+  <span class="comment">// this.subject() is available because we used moduleForComponent</span>
+  <span class="keyword">var</span> component = <span class="local-variable">this</span>.subject({ <span class="key">name</span>: <span class="string"><span class="delimiter">'</span><span class="content">red</span><span class="delimiter">'</span></span> });
+
+  <span class="comment">// Renders the component to the page</span>
+  <span class="local-variable">this</span>.render();
+
+  <span class="comment">// Assert the initial style</span>
+  assert.equal(<span class="local-variable">this</span>.<span class="predefined">$</span>().attr(<span class="string"><span class="delimiter">'</span><span class="content">style</span><span class="delimiter">'</span></span>), <span class="string"><span class="delimiter">'</span><span class="content">color: red;</span><span class="delimiter">'</span></span>);
+
+  <span class="comment">// We wrap this with Ember.run because this.set is an async function</span>
+  Ember.run(<span class="keyword">function</span>() {
+    <span class="comment">// Change the name</span>
+    component.set(<span class="string"><span class="delimiter">'</span><span class="content">name</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">green</span><span class="delimiter">'</span></span>);
+  });
+
+  <span class="comment">// Assert the style has changed</span>
+  assert.equal(<span class="local-variable">this</span>.<span class="predefined">$</span>().attr(<span class="string"><span class="delimiter">'</span><span class="content">style</span><span class="delimiter">'</span></span>), <span class="string"><span class="delimiter">'</span><span class="content">color: green;</span><span class="delimiter">'</span></span>);
+});
+</pre></td>
+</tr></table>
+</div></div>
+<p>We might also test this component to ensure that the content of its template is
+being rendered properly:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">tests/unit/components/pretty-color-test.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+11
+12
+13
+14
+15
+16
+17
+18
+19
+<strong>20</strong>
+21
+22
+</pre></td>
+  <td class="code"><pre>test(<span class="string"><span class="delimiter">'</span><span class="content">template is rendered with the color name</span><span class="delimiter">'</span></span>, <span class="keyword">function</span>(assert) {
+  assert.expect(<span class="integer">2</span>);
+
+  <span class="comment">// this.subject() is available because we used moduleForComponent</span>
+  <span class="keyword">var</span> component = <span class="local-variable">this</span>.subject();
+
+  <span class="comment">// Renders the component to the page</span>
+  <span class="local-variable">this</span>.render();
+
+  <span class="comment">// Assert initial content of the component</span>
+  <span class="keyword">var</span> initialContent = <span class="predefined">$</span>.trim(<span class="local-variable">this</span>.<span class="predefined">$</span>().text());
+  assert.equal(initialContent, <span class="string"><span class="delimiter">'</span><span class="content">Pretty Color:</span><span class="delimiter">'</span></span>);
+
+  <span class="comment">// we wrap this with Ember.run because it is an async function</span>
+  Ember.run(<span class="keyword">function</span>() {
+    component.set(<span class="string"><span class="delimiter">'</span><span class="content">name</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">green</span><span class="delimiter">'</span></span>);
+  });
+
+  <span class="comment">// Assert content of the component has changed</span>
+  <span class="keyword">var</span> finalContent = <span class="predefined">$</span>.trim(<span class="local-variable">this</span>.<span class="predefined">$</span>().text());
+  assert.equal(finalContent, <span class="string"><span class="delimiter">'</span><span class="content">Pretty Color: green</span><span class="delimiter">'</span></span>);
+});
+</pre></td>
+</tr></table>
+</div></div><h3 class='anchorable-toc' id='toc_testing-user-interaction'>Testing User Interaction</h3>
+<p>Components are a great way to create powerful, interactive, and self-contained
+custom HTML elements. It is important to test the component&#39;s methods <em>and</em> the
+user&#39;s interaction with the component.</p>
+
+<p>Imagine you have the following component that changes its title when a button is
+clicked on:</p>
+
+<blockquote>
+<p>You can follow along by generating your own component with <code>ember generate
+component magic-title</code>.</p>
+</blockquote>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/components/magic-title.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+11
+</pre></td>
+  <td class="code"><pre><span class="reserved">import</span> Ember from <span class="string"><span class="delimiter">'</span><span class="content">ember</span><span class="delimiter">'</span></span>;
+
+<span class="reserved">export</span> <span class="keyword">default</span> Ember.Component.extend({
+  <span class="key">title</span>: <span class="string"><span class="delimiter">'</span><span class="content">Hello World</span><span class="delimiter">'</span></span>,
+
+  <span class="key">actions</span>: {
+    updateTitle() {
+      <span class="local-variable">this</span>.set(<span class="string"><span class="delimiter">'</span><span class="content">title</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">This is Magic</span><span class="delimiter">'</span></span>);
+    }
+  }
+});
+</pre></td>
+</tr></table>
+</div></div><div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/templates/components/magic-title.hbs</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+</pre></td>
+  <td class="code"><pre><span class="tag">&lt;h2&gt;</span><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">title</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/h2&gt;</span>
+
+<span class="tag">&lt;button</span> <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">action</span> <span class="error">&quot;</span><span class="attribute-name">updateTitle</span><span class="error">&quot;</span><span class="inline-delimiter">}}</span></span><span class="tag">&gt;</span>
+  Update Title
+<span class="tag">&lt;/button&gt;</span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>jQuery triggers can be used to simulate user interaction and test that the title
+is updated when the button is clicked on:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">tests/unit/components/magic-title-test.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+11
+12
+13
+14
+15
+16
+17
+</pre></td>
+  <td class="code"><pre>test(<span class="string"><span class="delimiter">'</span><span class="content">clicking the button updates the title</span><span class="delimiter">'</span></span>, <span class="keyword">function</span>(assert) {
+  assert.expect(<span class="integer">2</span>);
+
+  <span class="comment">// Create the component instance</span>
+  <span class="keyword">var</span> component = <span class="local-variable">this</span>.subject();
+
+  <span class="comment">// Assert the initial title</span>
+  <span class="keyword">var</span> initialTitle = <span class="local-variable">this</span>.<span class="predefined">$</span>().find(<span class="string"><span class="delimiter">'</span><span class="content">h2</span><span class="delimiter">'</span></span>).text();
+  assert.equal(initialTitle, <span class="string"><span class="delimiter">'</span><span class="content">Hello World</span><span class="delimiter">'</span></span>);
+
+  <span class="comment">// Click on the button</span>
+  <span class="local-variable">this</span>.<span class="predefined">$</span>().find(<span class="string"><span class="delimiter">'</span><span class="content">button</span><span class="delimiter">'</span></span>).click();
+
+  <span class="comment">// Assert that the title has changed</span>
+  <span class="keyword">var</span> finalTitle = <span class="local-variable">this</span>.<span class="predefined">$</span>().find(<span class="string"><span class="delimiter">'</span><span class="content">h2</span><span class="delimiter">'</span></span>).text();
+  assert.equal(finalTitle, <span class="string"><span class="delimiter">'</span><span class="content">Hello Ember World</span><span class="delimiter">'</span></span>);
+});
+</pre></td>
+</tr></table>
+</div></div><h3 class='anchorable-toc' id='toc_testing-actions'>Testing Actions</h3>
+<p>Components often utilize the <code>sendAction()</code> method to send actions to other
+objects in your application.</p>
+
+<p>For example, imagine you have a comment form component that sends a specified
+<code>submit</code> action when the form is submitted, passing along the form&#39;s data:</p>
+
+<blockquote>
+<p>You can follow along by generating your own component with <code>ember generate
+component comment-form</code>.</p>
+</blockquote>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/components/comment-form.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+11
+12
+13
+</pre></td>
+  <td class="code"><pre><span class="reserved">import</span> Ember from <span class="string"><span class="delimiter">'</span><span class="content">ember</span><span class="delimiter">'</span></span>;
+
+<span class="reserved">export</span> <span class="keyword">default</span> Ember.Component.extend({
+  <span class="key">body</span>: <span class="predefined-constant">null</span>,
+
+  <span class="key">actions</span>: {
+    submit() {
+      <span class="keyword">var</span> body = <span class="local-variable">this</span>.get(<span class="string"><span class="delimiter">'</span><span class="content">body</span><span class="delimiter">'</span></span>);
+
+      <span class="local-variable">this</span>.sendAction(<span class="string"><span class="delimiter">'</span><span class="content">submit</span><span class="delimiter">'</span></span>, { <span class="key">body</span>: body });
+    }
+  }
+});
+</pre></td>
+</tr></table>
+</div></div><div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/templates/components/comment-form.hbs</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+</pre></td>
+  <td class="code"><pre><span class="tag">&lt;form</span> <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">action</span> <span class="error">&quot;</span><span class="attribute-name">submit</span><span class="error">&quot;</span> <span class="attribute-name">on</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">submit</span><span class="delimiter">&quot;</span></span><span class="inline-delimiter">}}</span></span><span class="tag">&gt;</span>
+  <span class="tag">&lt;label&gt;</span>Comment:<span class="tag">&lt;/label&gt;</span>
+  <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">textarea</span> <span class="attribute-name">value</span>=<span class="attribute-value">body</span><span class="inline-delimiter">}}</span></span>
+
+  <span class="tag">&lt;input</span> <span class="attribute-name">type</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">submit</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">Submit</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+<span class="tag">&lt;/form&gt;</span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>You might use this component in your application like this:</p>
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">comment-form</span> <span class="attribute-name">submit</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">createComment</span><span class="delimiter">&quot;</span></span><span class="inline-delimiter">}}</span></span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>Here&#39;s an example test that asserts that the specified <code>externalAction</code> action
+is sent when the component&#39;s internal <code>submit</code> action is triggered by making use
+of a test double (dummy object):</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">tests/unit/components/comment-form-test.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+11
+12
+13
+14
+15
+16
+17
+18
+19
+<strong>20</strong>
+21
+22
+23
+24
+25
+26
+27
+28
+29
+<strong>30</strong>
+31
+32
+</pre></td>
+  <td class="code"><pre>test(<span class="string"><span class="delimiter">'</span><span class="content">external action is triggered when form is submitted</span><span class="delimiter">'</span></span>, <span class="keyword">function</span>(assert) {
+  <span class="comment">// This is important to make sure that the test fails if</span>
+  <span class="comment">// our assertion is never called</span>
+  assert.expect(<span class="integer">1</span>);
+
+  <span class="comment">// Create our test double</span>
+  <span class="keyword">var</span> targetObject = {
+    externalAction(attributes) {
+      <span class="comment">// This assertion will be called when the action is triggered</span>
+      assert.deepEqual(attributes, { <span class="key">body</span>: <span class="string"><span class="delimiter">'</span><span class="content">You are not a wizard!</span><span class="delimiter">'</span></span> });
+    }
+  };
+
+  <span class="comment">// Creates the component</span>
+  <span class="keyword">var</span> component = <span class="local-variable">this</span>.subject({
+    <span class="comment">// Sets sample data</span>
+    <span class="key">body</span>: <span class="string"><span class="delimiter">'</span><span class="content">You are not a wizard!</span><span class="delimiter">'</span></span>,
+
+    <span class="comment">// Sets the targetObject to our test double</span>
+    <span class="comment">// (this is where sendAction will send its action)</span>
+    <span class="key">targetObject</span>: targetObject,
+
+    <span class="comment">// Specifies which action to send to targetObject on submit</span>
+    <span class="key">submit</span>: <span class="string"><span class="delimiter">'</span><span class="content">externalAction</span><span class="delimiter">'</span></span>,
+  });
+
+  <span class="comment">// Renders the component to the page</span>
+  <span class="local-variable">this</span>.render();
+
+  <span class="comment">// Submits the form</span>
+  <span class="local-variable">this</span>.<span class="predefined">$</span>().find(<span class="string"><span class="delimiter">'</span><span class="content">input[type=&quot;submit&quot;]</span><span class="delimiter">'</span></span>).click();
+});
+</pre></td>
+</tr></table>
+</div></div>
+<!---
+### Components Using Other Components
+
+Sometimes components are easier to maintain if they're broken up into parent and child
+components. Here is a simple example:
+
+```app/components/my-album.js
+import layout from '../templates/components/my-kittens';
+
+export default Ember.Component.extend({
+  layout: layout,
+  tagName: 'img',
+  attributeBindings: ['width', 'height', 'src'],
+  src: Ember.computed('width', 'height', function() {
+    return 'http://placekitten.com/' + this.get('width') + '/' + this.get('height');
+  })
+});
+```
+
+```app/templates/components/my-album.hbs
+<h3>{{title}}</h3>
+{{yield}}
+```
+
+```app/components/my-kitten.js
+import layout from '../templates/components/my-kitten';
+
+export default Ember.Component.extend({
+  layout: layout,
+  tagName: 'img',
+  attributeBindings: ['width', 'height', 'src'],
+  src: Ember.computed('width', 'height', function() {
+    return 'http://placekitten.com/' + this.get('width') + '/' + this.get('height');
+  })
+});
+```
+
+Usage of this component might look something like this:
+
+```handlebars
+{{#my-album title="Cats"}}
+  {{my-kitten width="200" height="300"}}
+  {{my-kitten width="100" height="100"}}
+  {{my-kitten width="50" height="50"}}
+{{/my-album}}
+```
+
+Using the `needs` callback greatly simplifies testing components
+with a parent-child relationship.
+
+```tests/unit/components/my-album-test.js
+moduleForComponent('my-album', {
+  // specify the other units that are required for this test
+  needs: ['component:my-kitten']
+});
+
+
+test('renders kittens', function(assert) {
+  assert.expect(2);
+
+  // component instance
+  var component = this.subject({
+    title: 'Cats',
+    template: Ember.Handlebars.compile(
+      '{{my-kitten width="200" height="300"}}' +
+      '{{my-kitten width="100" height="100"}}' +
+      '{{my-kitten width="50" height="50"}}'
+    )
+  });
+
+  // Render the component
+  this.$();
+
+  // perform assertions
+  assert.equal(this.$().find('h3:contains("Cats")').length, 1);
+  assert.equal(this.$().find('img').length, 3);
+});
+```
+-->
+
+
+
+          
+      <footer>
+        <a class="previous-guide" href="../unit-test-helpers/"> ← Unit Test Helpers</a> <a class="next-guide" href="../testing-controllers/">Testing Controllers →</a>
+      </footer>
+      
+        </div>
+      </div>
+    </div>
+
+    <div id="footer">
+      <div id="footer-wrapper">
+        <div class="info">
+          Copyright 2015 <a href="http://tilde.io">Tilde Inc.</a><br>
+          <a href="http://emberjs.com/team">Core Team</a> | <a href="http://emberjs.com/sponsors">Sponsors</a> | <a href="http://emberjs.com/legal">Legal</a></br>
+          <a href="http://emberjs.com/guidelines">Community Guidelines</a>
+        </div>
+        <div class="statement">Ember.js is free, open source and always will be.</div>
+        <div class="links">
+          <a class="twitter" href="http://twitter.com/emberjs">
+            <i class="icon-twitter"></i><span>Twitter</span>
+          </a>
+          <a class="github" href="https://github.com/emberjs/ember.js">
+            <i class="icon-github"></i><span>GitHub</span>
+          </a>
+          <a class="googleplus" href="https://plus.google.com/communities/106387049790387471205">
+            <i class="icon-gplus"></i><span>Google+</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    
+
+    <script src="../../javascripts/guides.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+      _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+      _gaq.push(['_setAccount', 'UA-27675533-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
+</html>
