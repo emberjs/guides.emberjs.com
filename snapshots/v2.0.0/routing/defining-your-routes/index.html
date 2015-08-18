@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Ember.js - Routing: Defining Your Routes</title>
+    <meta property="st:title" content="Routing: Defining Your Routes" />
+    <link href="../../images/favicon.png" rel="icon" type="image/png" />
+    <!--[if lte IE 7 ]><link href="../../stylesheets/fonts/fontello-ie7.css" rel="stylesheet" type="text/css" /><![endif]-->
+    <link href="../../stylesheets/site.css" rel="stylesheet" type="text/css" />
+    <link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" title="Ember.js - Blog" />
+    
+  </head>
+
+  <body class="guides routing routing_defining-your-routes routing_defining-your-routes_index">
+
+    <!--[if lt IE 9]>
+      <script src="../../javascripts/common-old-ie.js" type="text/javascript"></script>
+    <![endif]-->
+    <!--[if gte IE 9]><!-->
+      <script src="../../javascripts/common-modern.js" type="text/javascript"></script>
+    <!--<![endif]-->
+
+    <div id="header">
+      <div id="wrapper">
+        <a id="logo" href="http://emberjs.com/">&nbsp;</a>
+        <ul id="nav">
+          <li>
+            <a href="http://emberjs.com/">about</a>
+          </li>
+          <li class="active">
+            <a href="/">guides</a>
+          </li>
+          <li>
+            <a href="http://emberjs.com/api">api</a>
+          </li>
+          <li>
+            <a href="http://emberjs.com/community">community</a>
+          </li>
+          <li>
+            <a href="http://emberjs.com/blog">blog</a>
+          </li>
+          <li>
+            <a href="http://emberjs.com/builds">builds</a>
+          </li>
+
+          <li id="search">
+            <form>
+              <input type="text" id="st-search-input" class="st-search-input" placeholder="Search the guides"/>
+            </form>
+            <div id="st-results-container"></div>
+          </li>
+        </ul>
+
+        <div id="github">
+          <a href="https://github.com/emberjs/ember.js"><i class="icon-fork"></i>Fork Us!</a>
+        </div>
+      </div>
+    </div>
+
+    
+
+    <div id="content-wrapper">
+      <div id="sidebar-wrapper">
+        <select class="version-select" style="width: 100%"></select>
+        <div id="sidebar">
+
+          <ol class='toc-level-0 selected'><li class='toc-level-0 '><a href="#">Getting Started</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../getting-started/">Installing Ember</a></li><li class='toc-level-1 '><a href="../../getting-started/first-app/">Your first Ember app</a></li><li class='toc-level-1 '><a href="../../getting-started/core-concepts/">Core Concepts</a></li></ol></li><li class='toc-level-0 '><a href="#">The Object Model</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../object-model/">Objects in Ember</a></li><li class='toc-level-1 '><a href="../../object-model/classes-and-instances/">Classes and Instances</a></li><li class='toc-level-1 '><a href="../../object-model/reopening-classes-and-instances/">Reopening Classes and Instances</a></li><li class='toc-level-1 '><a href="../../object-model/computed-properties/">Computed Properties</a></li><li class='toc-level-1 '><a href="../../object-model/computed-properties-and-aggregate-data/">Computed Properties and Aggregate Data</a></li><li class='toc-level-1 '><a href="../../object-model/observers/">Observers</a></li><li class='toc-level-1 '><a href="../../object-model/bindings/">Bindings</a></li><li class='toc-level-1 '><a href="../../object-model/enumerables/">Enumerables</a></li></ol></li><li class='toc-level-0 '><a href="#">Templates</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../templates/handlebars-basics/">Handlebars Basics</a></li><li class='toc-level-1 '><a href="../../templates/the-application-template/">The Application Template</a></li><li class='toc-level-1 '><a href="../../templates/conditionals/">Conditionals</a></li><li class='toc-level-1 '><a href="../../templates/displaying-a-list-of-items/">Displaying a List of Items</a></li><li class='toc-level-1 '><a href="../../templates/displaying-the-keys-in-an-object/">Displaying the Keys in an Object</a></li><li class='toc-level-1 '><a href="../../templates/binding-element-attributes/">Binding Element Attributes</a></li><li class='toc-level-1 '><a href="../../templates/links/">Links</a></li><li class='toc-level-1 '><a href="../../templates/actions/">Actions</a></li><li class='toc-level-1 '><a href="../../templates/input-helpers/">Input Helpers</a></li><li class='toc-level-1 '><a href="../../templates/the-get-helper/">The Get Helper</a></li><li class='toc-level-1 '><a href="../../templates/development-helpers/">Development Helpers</a></li><li class='toc-level-1 '><a href="../../templates/writing-helpers/">Writing Helpers</a></li></ol></li><li class='toc-level-0 selected'><a href="#">Routing</a><ol class='toc-level-1 selected'><li class='toc-level-1 '><a href="../">Introduction</a></li><li class='toc-level-1 selected'><a href="./">Defining Your Routes</a></li><li class='toc-level-1 '><a href="../generated-objects/">Generated Objects</a></li><li class='toc-level-1 '><a href="../specifying-a-routes-model/">Specifying a Route's Model</a></li><li class='toc-level-1 '><a href="../setting-up-a-controller/">Setting Up a Controller</a></li><li class='toc-level-1 '><a href="../rendering-a-template/">Rendering a Template</a></li><li class='toc-level-1 '><a href="../redirection/">Redirecting</a></li><li class='toc-level-1 '><a href="../specifying-the-location-api/">Specifying the URL Type</a></li><li class='toc-level-1 '><a href="../query-params/">Query Parameters</a></li><li class='toc-level-1 '><a href="../asynchronous-routing/">Asynchronous Routing</a></li><li class='toc-level-1 '><a href="../loading-and-error-substates/">Loading / Error Substates</a></li><li class='toc-level-1 '><a href="../preventing-and-retrying-transitions/">Preventing and Retrying Transitions</a></li></ol></li><li class='toc-level-0 '><a href="#">Components</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../components/">Introduction</a></li><li class='toc-level-1 '><a href="../../components/defining-a-component/">Defining a Component</a></li><li class='toc-level-1 '><a href="../../components/passing-properties-to-a-component/">Passing Properties to a Component</a></li><li class='toc-level-1 '><a href="../../components/wrapping-content-in-a-component/">Wrapping Content in a Component</a></li><li class='toc-level-1 '><a href="../../components/customizing-a-components-element/">Customizing a Component's Element</a></li><li class='toc-level-1 '><a href="../../components/handling-user-interaction-with-actions/">Handling User Interaction with Actions</a></li><li class='toc-level-1 '><a href="../../components/sending-actions-from-components-to-your-application/">Sending Actions from Components to Your Application</a></li><li class='toc-level-1 '><a href="../../components/composing-components/">Composing Components</a></li><li class='toc-level-1 '><a href="../../components/run-loop/">The Run Loop</a></li></ol></li><li class='toc-level-0 '><a href="#">Controllers</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../controllers/">Introduction</a></li><li class='toc-level-1 '><a href="../../controllers/representing-multiple-models/">Representing Multiple Models</a></li><li class='toc-level-1 '><a href="../../controllers/dependencies-between-controllers/">Managing Dependencies Between Controllers</a></li></ol></li><li class='toc-level-0 '><a href="#">Models</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../models/">Introduction</a></li><li class='toc-level-1 '><a href="../../models/defining-models/">Defining Models</a></li><li class='toc-level-1 '><a href="../../models/creating-and-deleting-records/">Creating and Deleting Records</a></li><li class='toc-level-1 '><a href="../../models/pushing-records-into-the-store/">Pushing Records into the Store</a></li><li class='toc-level-1 '><a href="../../models/persisting-records/">Persisting Records</a></li><li class='toc-level-1 '><a href="../../models/finding-records/">Finding Records</a></li><li class='toc-level-1 '><a href="../../models/working-with-records/">Working with Records</a></li><li class='toc-level-1 '><a href="../../models/the-rest-adapter/">The Rest Adapter</a></li><li class='toc-level-1 '><a href="../../models/connecting-to-an-http-server/">Connecting to an HTTP Server</a></li><li class='toc-level-1 '><a href="../../models/handling-metadata/">Handling Metadata</a></li><li class='toc-level-1 '><a href="../../models/customizing-adapters/">Customizing Adapters</a></li><li class='toc-level-1 '><a href="../../models/frequently-asked-questions/">Frequently Asked Questions</a></li></ol></li><li class='toc-level-0 '><a href="#">Services</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../services/">Using Services</a></li></ol></li><li class='toc-level-0 '><a href="#">Testing</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../testing/">Introduction</a></li><li class='toc-level-1 '><a href="../../testing/acceptance/">Acceptance Tests</a></li><li class='toc-level-1 '><a href="../../testing/test-helpers/">Test Helpers</a></li><li class='toc-level-1 '><a href="../../testing/testing-user-interaction/">Testing User Interaction</a></li><li class='toc-level-1 '><a href="../../testing/unit-testing-basics/">Unit Testing Basics</a></li><li class='toc-level-1 '><a href="../../testing/unit-test-helpers/">Unit Test Helpers</a></li><li class='toc-level-1 '><a href="../../testing/testing-components/">Testing Components</a></li><li class='toc-level-1 '><a href="../../testing/testing-controllers/">Testing Controllers</a></li><li class='toc-level-1 '><a href="../../testing/testing-routes/">Testing Routes</a></li><li class='toc-level-1 '><a href="../../testing/testing-models/">Testing Models</a></li></ol></li><li class='toc-level-0 '><a href="#">Ember Inspector</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../ember-inspector/installation/">Installing the Inspector</a></li><li class='toc-level-1 '><a href="../../ember-inspector/object-inspector/">Object Inspector</a></li><li class='toc-level-1 '><a href="../../ember-inspector/view-tree/">The View Tree</a></li><li class='toc-level-1 '><a href="../../ember-inspector/routes/">Inspecting Routes</a></li><li class='toc-level-1 '><a href="../../ember-inspector/data/">Data Tab</a></li><li class='toc-level-1 '><a href="../../ember-inspector/deprecations/">Tackling Deprecations</a></li><li class='toc-level-1 '><a href="../../ember-inspector/info/">Library Info</a></li><li class='toc-level-1 '><a href="../../ember-inspector/promises/">Debugging Promises</a></li><li class='toc-level-1 '><a href="../../ember-inspector/container/">Inspecting the Container</a></li><li class='toc-level-1 '><a href="../../ember-inspector/render-performance/">Rendering Performance</a></li><li class='toc-level-1 '><a href="../../ember-inspector/troubleshooting/">Troubleshooting</a></li></ol></li><li class='toc-level-0 '><a href="#">Addons and Dependencies</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../addons-and-dependencies/managing-dependencies/">Managing Dependencies</a></li></ol></li><li class='toc-level-0 '><a href="#">Configuring Ember.js</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../configuring-ember/configuring-your-app/">Configuring Your App</a></li><li class='toc-level-1 '><a href="../../configuring-ember/configuring-ember-cli/">Configuring Ember CLI</a></li><li class='toc-level-1 '><a href="../../configuring-ember/disabling-prototype-extensions/">Disabling Prototype Extensions</a></li><li class='toc-level-1 '><a href="../../configuring-ember/embedding-applications/">Embedding Applications</a></li><li class='toc-level-1 '><a href="../../configuring-ember/feature-flags/">Feature Flags</a></li><li class='toc-level-1 '><a href="../../configuring-ember/debugging/">Debugging</a></li></ol></li><li class='toc-level-0 '><a href="#">Contributing to Ember.js</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../contributing/adding-new-features/">Adding New Features</a></li><li class='toc-level-1 '><a href="../../contributing/repositories/">Repositories</a></li></ol></li></ol>
+          <div id="back-to-top"><a id="back-top-top" href="#">&#11014; Back to Top</a></div>
+        </div>
+      </div>
+      <div id="content" class="has-sidebar">
+        <div class="chapter">
+          <h1>
+            Defining Your Routes
+            <a href="https://github.com/emberjs/guides/edit/master/source/routing/defining-your-routes.md"
+               target="_blank" class="edit-page icon-pencil">Edit Page</a>
+          </h1>
+          <hr>
+
+          <p>When your application starts, the router is responsible for displaying
+templates, loading data, and otherwise setting up application state.
+It does so by matching the current URL to the <em>routes</em> that you&#39;ve
+defined.</p>
+
+<p>The <a href="http://emberjs.com/api/classes/Ember.Router.html#method_map">map</a> method
+of your Ember application&#39;s router can be invoked to define URL mappings. When
+calling <code>map</code>, you should pass a function that will be invoked with the value
+<code>this</code> set to an object which you can use to create
+<a href="../defining-your-routes/">routes</a>.</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/router.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+</pre></td>
+  <td class="code"><pre>Router.map(<span class="keyword">function</span>() {
+  <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">'</span><span class="content">about</span><span class="delimiter">'</span></span>, { <span class="key">path</span>: <span class="string"><span class="delimiter">'</span><span class="content">/about</span><span class="delimiter">'</span></span> });
+  <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">'</span><span class="content">favorites</span><span class="delimiter">'</span></span>, { <span class="key">path</span>: <span class="string"><span class="delimiter">'</span><span class="content">/favs</span><span class="delimiter">'</span></span> });
+});
+</pre></td>
+</tr></table>
+</div></div>
+<p>Now, when the user visits <code>/about</code>, Ember.js will render the <code>about</code>
+template. Visiting <code>/favs</code> will render the <code>favorites</code> template.</p>
+
+<p>You can leave off the path if it is the same as the route
+name. In this case, the following is equivalent to the above example:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/router.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+</pre></td>
+  <td class="code"><pre>Router.map(<span class="keyword">function</span>() {
+  <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">'</span><span class="content">about</span><span class="delimiter">'</span></span>);
+  <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">'</span><span class="content">favorites</span><span class="delimiter">'</span></span>, { <span class="key">path</span>: <span class="string"><span class="delimiter">'</span><span class="content">/favs</span><span class="delimiter">'</span></span> });
+});
+</pre></td>
+</tr></table>
+</div></div>
+<p>Inside your templates, you can use <code>{{link-to}}</code> to navigate between
+routes, using the name that you provided to the <code>route</code> method (or, in
+the case of <code>/</code>, the name <code>index</code>).</p>
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+</pre></td>
+  <td class="code"><pre><span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">link-to</span> <span class="error">'</span><span class="attribute-name">index</span><span class="error">'</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;img</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">logo</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span><span class="inline"><span class="inline-delimiter">{{/</span><span class="attribute-name">link-to</span><span class="inline-delimiter">}}</span></span>
+
+<span class="tag">&lt;nav&gt;</span>
+  <span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">link-to</span> <span class="error">'</span><span class="attribute-name">about</span><span class="error">'</span><span class="inline-delimiter">}}</span></span>About<span class="inline"><span class="inline-delimiter">{{/</span><span class="attribute-name">link-to</span><span class="inline-delimiter">}}</span></span>
+  <span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">link-to</span> <span class="error">'</span><span class="attribute-name">favorites</span><span class="error">'</span><span class="inline-delimiter">}}</span></span>Favorites<span class="inline"><span class="inline-delimiter">{{/</span><span class="attribute-name">link-to</span><span class="inline-delimiter">}}</span></span>
+<span class="tag">&lt;/nav&gt;</span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>The <code>{{link-to}}</code> helper will also add an <code>active</code> class to the link that
+points to the currently active route.</p>
+
+<p>You can customize the behavior of a route by creating an <code>Ember.Route</code>
+subclass. For example, to customize what happens when your user visits
+<code>/</code>, create an <code>route:index</code>:</p>
+<div class="highlight bash "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre>ember generate route index
+</pre></td>
+</tr></table>
+</div></div><div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/routes/index.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+</pre></td>
+  <td class="code"><pre>Ember.Route.extend({
+  setupController(controller) {
+    <span class="comment">// Set the IndexController's `title`</span>
+    controller.set(<span class="string"><span class="delimiter">'</span><span class="content">title</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">My App</span><span class="delimiter">'</span></span>);
+  }
+});
+</pre></td>
+</tr></table>
+</div></div>
+<p><code>controller:index</code> is the starting context for the <code>index</code> template.
+Now that you&#39;ve set <code>title</code>, you can use it in the template:</p>
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre><span class="comment">&lt;!-- get the title from the IndexController --&gt;</span>
+<span class="tag">&lt;h1&gt;</span><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">title</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/h1&gt;</span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>(If you don&#39;t explicitly define an <code>controller:index</code>, Ember.js will
+automatically generate one for you.)</p>
+
+<p>Ember.js automatically figures out the names of the routes and controllers based on
+the name you pass to <code>this.route</code>.</p>
+
+<table>
+  <thead>
+  <tr>
+    <th>URL</th>
+    <th>Route Name</th>
+    <th>
+      Controller<br/>
+      <code>app/controllers/</code>
+    </th>
+    <th>
+      Route<br/>
+      <code>app/routes/</code>
+    </th>
+    <th>
+      Template<br/>
+      <code>app/templates/</code>
+    </th>
+  </tr>
+  </thead>
+  <tr>
+    <td><code>/</code></td>
+    <td><code>index</code></td>
+    <td>↳<code>index.js</code></td>
+    <td>↳<code>index.js</code></td>
+    <td>↳<code>index.hbs</code></td>
+  </tr>
+  <tr>
+    <td><code>/about</code></td>
+    <td><code>about</code></td>
+    <td>↳<code>about.js</code></td>
+    <td>↳<code>about.js</code></td>
+    <td>↳<code>about.hbs</code></td>
+  </tr>
+  <tr>
+    <td><code>/favs</code></td>
+    <td><code>favorites</code></td>
+    <td>↳<code>favorites.js</code></td>
+    <td>↳<code>favorites.js</code></td>
+    <td>↳<code>favorites.hbs</code></td>
+  </tr>
+</table>
+<h3 class='anchorable-toc' id='toc_nested-routes'>Nested Routes</h3>
+<p>You can define nested routes by passing a callback to <code>this.route</code>:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/router.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+</pre></td>
+  <td class="code"><pre>Router.map(<span class="keyword">function</span>() {
+  <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">'</span><span class="content">posts</span><span class="delimiter">'</span></span>, { <span class="key">path</span>: <span class="string"><span class="delimiter">'</span><span class="content">/posts</span><span class="delimiter">'</span></span> }, <span class="keyword">function</span>() {
+    <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">'</span><span class="content">new</span><span class="delimiter">'</span></span>);
+  });
+});
+</pre></td>
+</tr></table>
+</div></div>
+<p>This router creates these routes:</p>
+
+<table>
+  <thead>
+  <tr>
+   <th>URL</th>
+   <th>Route Name</th>
+   <th>
+     Controller<br/>
+     <code>app/controllers/</code>
+   </th>
+   <th>
+     Route<br/>
+     <code>app/routes/</code>
+   </th>
+   <th>
+     Template<br/>
+     <code>app/templates/</code>
+   </th>
+  </tr>
+  </thead>
+  <tr>
+    <td><code>/</code></td>
+    <td><code>index</code></td>
+    <td>↳<code>index.js</code></td>
+    <td>↳<code>index.js</code></td>
+    <td>↳<code>index.hbs</code></td>
+  </tr>
+  <tr>
+    <td>N/A</td>
+    <td><code>posts</code></td>
+    <td>↳<code>posts.js</code></td>
+    <td>↳<code>posts.js</code></td>
+    <td>↳<code>posts.hbs</code></td>
+  </tr>
+  <tr>
+    <td><code>/posts</code></td>
+    <td><code>posts.index</code></code></td>
+    <td>↳<code>posts.js</code><br>↳<code>posts/index.js</code></td>
+    <td>↳<code>posts.js</code><br>↳<code>posts/index.js</code></td>
+    <td>↳<code>posts.hbs</code><br>↳<code>posts/index.hbs</code></td>
+  </tr>
+  <tr>
+    <td><code>/posts/new</code></td>
+    <td><code>posts.new</code></td>
+    <td>↳<code>posts.js</code><br>↳<code>posts/new.js</code></td>
+    <td>↳<code>posts.js</code><br>↳<code>posts/new.js</code></td>
+    <td>↳<code>posts.hbs</code><br>↳<code>posts/new.hbs</code></td>
+  </tr>
+</table>
+
+<p>A nested route&#39;s names includes the names of its ancestors.
+If you want to transition to a route (either
+via <code>transitionTo</code> or <code>{{#link-to}}</code>), make sure to use the full route
+name (<code>posts.new</code>, not <code>new</code>).</p>
+
+<p>That said, transitioning to <code>posts</code> or creating a link to <code>posts</code> is equivalent
+to transitioning to <code>posts.index</code> or linking to <code>posts.index</code>.</p>
+
+<p>Visiting <code>/</code> renders the <code>index</code> template, as you would expect.</p>
+
+<p>Visiting <code>/posts</code> is slightly different. It will first render the
+<code>posts</code> template. Then, it will render the <code>posts/index</code> template into the
+<code>posts</code> template&#39;s outlet.</p>
+
+<p>Finally, visiting <code>/posts/new</code> will first render the <code>posts</code> template,
+then render the <code>posts/new</code> template into its outlet.</p>
+<h4 class='anchorable-toc' id='toc_resetting-nested-route-namespace'>Resetting Nested Route Namespace</h4>
+<p>When nesting routes, it may be beneficial for a child route to not inherit its ancestors name. This allows you to reference and reuse a given route in multiple route trees as well as keep the class name short. This is equivalent to the behavior of the now deprecated <code>this.resource()</code> function.</p>
+
+<p>You can reset the current &quot;namespace&quot; with the aptly named <code>resetNamespace: true</code> option.</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/router.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+</pre></td>
+  <td class="code"><pre>Router.map(<span class="keyword">function</span>() {
+  <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">'</span><span class="content">post</span><span class="delimiter">'</span></span>, { <span class="key">path</span>: <span class="string"><span class="delimiter">'</span><span class="content">/post/:post_id</span><span class="delimiter">'</span></span> }, <span class="keyword">function</span>() {
+    <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">'</span><span class="content">edit</span><span class="delimiter">'</span></span>);
+    <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">'</span><span class="content">comments</span><span class="delimiter">'</span></span>, { <span class="key">resetNamespace</span>: <span class="predefined-constant">true</span> }, <span class="keyword">function</span>() {
+      <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">'</span><span class="content">new</span><span class="delimiter">'</span></span>);
+    });
+  });
+});
+</pre></td>
+</tr></table>
+</div></div>
+<p>This router creates five routes:</p>
+
+<div style="overflow: auto">
+  <table>
+    <thead>
+    <tr>
+      <th>URL</th>
+      <th>Route Name</th>
+      <th>Controller</th>
+      <th>Route</th>
+      <th>Template</th>
+    </tr>
+    </thead>
+    <tr>
+      <td><code>/</code></td>
+      <td><code>index</code></td>
+      <td><code>app/controllers/index</code></td>
+      <td><code>app/routes/index</code></td>
+      <td><code>app/templates/index</code></td>
+    </tr>
+    <tr>
+      <td>N/A</td>
+      <td><code>post</code></td>
+      <td><code>app/controllers/post</code></td>
+      <td><code>app/routes/post</code></td>
+      <td><code>app/templates/post</code></td>
+    </tr>
+    <tr>
+      <td><code>/post/:post_id<sup>2</sup></code></td>
+      <td><code>post.index</code></td>
+      <td><code>app/controllers/post/index</code></td>
+      <td><code>app/routes/post/index</code></td>
+      <td><code>app/templates/post/index</code></td>
+    </tr>
+    <tr>
+      <td><code>/post/:post_id/edit</code></td>
+      <td><code>post.edit</code></td>
+      <td><code>app/controllers/post/edit</code></td>
+      <td><code>app/routes/post/edit</code></td>
+      <td><code>app/templates/post/edit</code></td>
+    </tr>
+    <tr>
+      <td>N/A</td>
+      <td><code>comments</code></td>
+      <td><code>app/controllers/comments</code></td>
+      <td><code>app/routes/comments</code></td>
+      <td><code>app/templates/comments</code></td>
+    </tr>
+    <tr>
+      <td><code>/post/:post_id/comments</code></td>
+      <td><code>comments.index</code></td>
+      <td><code>app/controllers/comments/index</code></td>
+      <td><code>app/routes/comments/index</code></td>
+      <td><code>app/templates/comments/index</code></td>
+    </tr>
+    <tr>
+      <td><code>/post/:post_id/comments/new</code></td>
+      <td><code>comments.new</code></td>
+      <td><code>app/controllers/comments/new</code></td>
+      <td><code>app/routes/comments/new</code></td>
+      <td><code>app/templates/comments/new</code></td>
+    </tr>
+  </table>
+</div>
+
+<p><small><sup>2</sup> <code>:post_id</code> is the post&#39;s id.  For a post with id = 1, the route will be:
+<code>/post/1</code></small></p>
+
+<p>The <code>comments</code> template will be rendered in the <code>post</code> outlet.
+All templates under <code>comments</code> (<code>comments/index</code> and <code>comments/new</code>) will be rendered in the <code>comments</code> outlet.</p>
+
+<p>The route, controller, and view class names for the comments resource are not prefixed with <code>Post</code>.</p>
+<h3 class='anchorable-toc' id='toc_multi-word-model-names'>Multi-word Model Names</h3>
+<p>For multi-word models all the names are camel cased except for the dynamic segment. For example, a model named <code>BigMac</code> would have a path of <code>/bigMacs/:big_mac_id</code>, route named <code>bigMac</code>, template named <code>bigMac</code>.</p>
+<h3 class='anchorable-toc' id='toc_dynamic-segments'>Dynamic Segments</h3>
+<p>One of the responsibilities of a route handler is to convert a URL
+into a model.</p>
+
+<p>For example, if we have the route <code>this.route(&#39;posts&#39;);</code>, our
+route handler might look like this:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/routes/posts.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+</pre></td>
+  <td class="code"><pre>Ember.Route.extend({
+  model() {
+    <span class="keyword">return</span> <span class="predefined">$</span>.getJSON(<span class="string"><span class="delimiter">&quot;</span><span class="content">/url/to/some/posts.json</span><span class="delimiter">&quot;</span></span>);
+  }
+});
+</pre></td>
+</tr></table>
+</div></div>
+<p>The <code>posts</code> template will then receive a list of all available posts as
+its context.</p>
+
+<p>Because <code>/posts</code> represents a fixed model, we don&#39;t need any
+additional information to know what to retrieve.  However, if we want a route
+to represent a single post, we would not want to have to hardcode every
+possible post into the router.</p>
+
+<p>Enter <em>dynamic segments</em>.</p>
+
+<p>A dynamic segment is a portion of a URL that starts with a <code>:</code> and is
+followed by an identifier.</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/router.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+</pre></td>
+  <td class="code"><pre>Router.map(<span class="keyword">function</span>() {
+  <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">'</span><span class="content">posts</span><span class="delimiter">'</span></span>);
+  <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">'</span><span class="content">post</span><span class="delimiter">'</span></span>, { <span class="key">path</span>: <span class="string"><span class="delimiter">'</span><span class="content">/post/:post_id</span><span class="delimiter">'</span></span> });
+});
+</pre></td>
+</tr></table>
+</div></div><div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/routes/post.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+</pre></td>
+  <td class="code"><pre>Ember.Route.extend({
+  model(params) {
+    <span class="keyword">return</span> <span class="predefined">$</span>.getJSON(<span class="string"><span class="delimiter">&quot;</span><span class="content">/url/to/some/posts/</span><span class="delimiter">&quot;</span></span> + params.post_id + <span class="string"><span class="delimiter">&quot;</span><span class="content">.json</span><span class="delimiter">&quot;</span></span>);
+  }
+});
+</pre></td>
+</tr></table>
+</div></div>
+<p>If your model does not use the <code>id</code> property in the URL, you should
+define a serialize method on your route:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/router.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+</pre></td>
+  <td class="code"><pre>Router.map(<span class="keyword">function</span>() {
+  <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">'</span><span class="content">post</span><span class="delimiter">'</span></span>, { <span class="key">path</span>: <span class="string"><span class="delimiter">'</span><span class="content">/posts/:post_slug</span><span class="delimiter">'</span></span> });
+});
+</pre></td>
+</tr></table>
+</div></div><div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/routes/post.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+11
+</pre></td>
+  <td class="code"><pre>Ember.Route.extend({
+  model(params) {
+    <span class="comment">// the server returns `{ slug: 'foo-post' }`</span>
+    <span class="keyword">return</span> Ember.<span class="predefined">$</span>.getJSON(<span class="string"><span class="delimiter">'</span><span class="content">/posts/</span><span class="delimiter">'</span></span> + params.post_slug);
+  },
+
+  serialize(model) {
+    <span class="comment">// this will make the URL `/posts/foo-post`</span>
+    <span class="keyword">return</span> { <span class="key">post_slug</span>: model.get(<span class="string"><span class="delimiter">'</span><span class="content">slug</span><span class="delimiter">'</span></span>) };
+  }
+});
+</pre></td>
+</tr></table>
+</div></div>
+<p>The default <code>serialize</code> method inserts the model&#39;s <code>id</code> into the route&#39;s
+dynamic segment (in this case, <code>:post_id</code>).</p>
+<h3 class='anchorable-toc' id='toc_the-application-route'>The application route</h3>
+<p><code>route:application</code> is entered when your app first boots up. Just like any
+other route, it will load an <code>application</code> template by default, and you can
+provide an <code>application</code> controller and route. All other routes will render
+their templates into the <code>application.hbs</code> templates&#39;s <code>{{outlet}}</code>.</p>
+
+<p>This routes is part of every application, so you don&#39;t need to
+specify it in your <code>app/router.js</code>.</p>
+<h3 class='anchorable-toc' id='toc_the-index-route'>The Index Route</h3>
+<p>At every level of nesting (including the top level), Ember.js
+automatically provides a route for the <code>/</code> path named <code>index</code>.</p>
+
+<p>For example, if you write a simple router like this:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/router.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+</pre></td>
+  <td class="code"><pre>Router.map(<span class="keyword">function</span>(){
+  <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">'</span><span class="content">favorites</span><span class="delimiter">'</span></span>);
+});
+</pre></td>
+</tr></table>
+</div></div>
+<p>It is the equivalent of:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/router.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+</pre></td>
+  <td class="code"><pre>Router.map(<span class="keyword">function</span>(){
+  <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">'</span><span class="content">index</span><span class="delimiter">'</span></span>, { <span class="key">path</span>: <span class="string"><span class="delimiter">'</span><span class="content">/</span><span class="delimiter">'</span></span> });
+  <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">'</span><span class="content">favorites</span><span class="delimiter">'</span></span>);
+});
+</pre></td>
+</tr></table>
+</div></div>
+<p>If the user visits <code>/</code>, Ember.js will look for these objects:</p>
+
+<ul>
+<li><code>app/routes/index.js</code></li>
+<li><code>app/controllers/index.js</code></li>
+<li><code>app/templates/index.hbs</code></li>
+</ul>
+
+<p>The <code>index</code> template will be rendered into the <code>{{outlet}}</code> in the
+<code>application</code> template. If the user navigates to <code>/favorites</code>,
+Ember.js will replace the <code>index</code> template with the <code>favorites</code>
+template.</p>
+
+<p>A nested router like this:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/router.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+</pre></td>
+  <td class="code"><pre>Router.map(<span class="keyword">function</span>(){
+  <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">'</span><span class="content">posts</span><span class="delimiter">'</span></span>, <span class="keyword">function</span>() {
+    <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">'</span><span class="content">favorites</span><span class="delimiter">'</span></span>);
+  });
+});
+</pre></td>
+</tr></table>
+</div></div>
+<p>Is the equivalent of:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/router.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td>
+  <td class="code"><pre>Router.map(<span class="keyword">function</span>(){
+  <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">'</span><span class="content">index</span><span class="delimiter">'</span></span>, { <span class="key">path</span>: <span class="string"><span class="delimiter">'</span><span class="content">/</span><span class="delimiter">'</span></span> });
+  <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">'</span><span class="content">posts</span><span class="delimiter">'</span></span>, <span class="keyword">function</span>() {
+    <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">'</span><span class="content">index</span><span class="delimiter">'</span></span>, { <span class="key">path</span>: <span class="string"><span class="delimiter">'</span><span class="content">/</span><span class="delimiter">'</span></span> });
+    <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">'</span><span class="content">favorites</span><span class="delimiter">'</span></span>);
+  });
+});
+</pre></td>
+</tr></table>
+</div></div>
+<p>If the user navigates to <code>/posts</code>, the current route will be
+<code>posts.index</code>. Ember.js will look for objects named:</p>
+
+<ul>
+<li><code>app/routes/posts/index.js</code></li>
+<li><code>app/controllers/posts/index.js</code></li>
+<li><code>app/templates/posts/index.hbs</code></li>
+</ul>
+
+<p>First, the <code>posts</code> template will be rendered into the <code>{{outlet}}</code>
+in the <code>application</code> template. Then, the <code>posts/index</code> template
+will be rendered into the <code>{{outlet}}</code> in the <code>posts</code> template.</p>
+
+<p>If the user then navigates to <code>/posts/favorites</code>, Ember.js will
+replace the <code>{{outlet}}</code> in the <code>posts</code> template with the
+<code>posts/favorites</code> template.</p>
+<h3 class='anchorable-toc' id='toc_wildcard-globbing-routes'>Wildcard / globbing routes</h3>
+<p>You can define wildcard routes that will match multiple URL segments. This could be used, for example,
+if you&#39;d like a catch-all route which is useful when the user enters an incorrect URL not managed
+by your app.</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/router.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+</pre></td>
+  <td class="code"><pre>Router.map(<span class="keyword">function</span>() {
+  <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">'</span><span class="content">catchall</span><span class="delimiter">'</span></span>, { <span class="key">path</span>: <span class="string"><span class="delimiter">'</span><span class="content">/*wildcard</span><span class="delimiter">'</span></span> });
+});
+</pre></td>
+</tr></table>
+</div></div>
+<p>Like all routes with a dynamic segment, you must provide a context when using a <code>{{link-to}}</code>
+or <code>transitionTo</code> to programatically enter this route.</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/routes/application.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td>
+  <td class="code"><pre>Ember.Route.extend({
+  <span class="key">actions</span>: {
+    error() {
+      <span class="local-variable">this</span>.transitionTo(<span class="string"><span class="delimiter">'</span><span class="content">catchall</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">application-error</span><span class="delimiter">'</span></span>);
+    }
+  }
+});
+</pre></td>
+</tr></table>
+</div></div>
+<p>With this code, if an error bubbles up to the Application route, your application will enter
+the <code>catchall</code> route and display <code>/application-error</code> in the URL.</p>
+
+
+
+          
+      <footer>
+        <a class="previous-guide" href="../"> ← Introduction</a> <a class="next-guide" href="../generated-objects/">Generated Objects →</a>
+      </footer>
+      
+        </div>
+      </div>
+    </div>
+
+    <div id="footer">
+      <div id="footer-wrapper">
+        <div class="info">
+          Copyright 2015 <a href="http://tilde.io">Tilde Inc.</a><br>
+          <a href="http://emberjs.com/team">Core Team</a> | <a href="http://emberjs.com/sponsors">Sponsors</a> | <a href="http://emberjs.com/legal">Legal</a></br>
+          <a href="http://emberjs.com/guidelines">Community Guidelines</a>
+        </div>
+        <div class="statement">Ember.js is free, open source and always will be.</div>
+        <div class="links">
+          <a class="twitter" href="http://twitter.com/emberjs">
+            <i class="icon-twitter"></i><span>Twitter</span>
+          </a>
+          <a class="github" href="https://github.com/emberjs/ember.js">
+            <i class="icon-github"></i><span>GitHub</span>
+          </a>
+          <a class="googleplus" href="https://plus.google.com/communities/106387049790387471205">
+            <i class="icon-gplus"></i><span>Google+</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    
+
+    <script src="../../javascripts/guides.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+      _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+      _gaq.push(['_setAccount', 'UA-27675533-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
+</html>
