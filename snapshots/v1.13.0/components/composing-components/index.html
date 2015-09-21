@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Ember.js - Components: Composing Components</title>
+    <meta property="st:title" content="Components: Composing Components" />
+    <link href="../../images/favicon.png" rel="icon" type="image/png" />
+    <!--[if lte IE 7 ]><link href="../../stylesheets/fonts/fontello-ie7.css" rel="stylesheet" type="text/css" /><![endif]-->
+    <link href="../../stylesheets/site.css" rel="stylesheet" type="text/css" />
+    <link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" title="Ember.js - Blog" />
+    
+  </head>
+
+  <body class="guides components components_composing-components components_composing-components_index">
+
+    <!--[if lt IE 9]>
+      <script src="../../javascripts/common-old-ie.js" type="text/javascript"></script>
+    <![endif]-->
+    <!--[if gte IE 9]><!-->
+      <script src="../../javascripts/common-modern.js" type="text/javascript"></script>
+    <!--<![endif]-->
+
+    <div id="header">
+      <div id="wrapper">
+        <a id="logo" href="http://emberjs.com/">&nbsp;</a>
+        <ul id="nav">
+          <li>
+            <a href="http://emberjs.com/">about</a>
+          </li>
+          <li class="active">
+            <a href="/">guides</a>
+          </li>
+          <li>
+            <a href="http://emberjs.com/api">api</a>
+          </li>
+          <li>
+            <a href="http://emberjs.com/community">community</a>
+          </li>
+          <li>
+            <a href="http://emberjs.com/blog">blog</a>
+          </li>
+          <li>
+            <a href="http://emberjs.com/builds">builds</a>
+          </li>
+
+          <li id="search">
+            <form>
+              <input type="text" id="st-search-input" class="st-search-input" placeholder="Search the guides"/>
+            </form>
+            <div id="st-results-container"></div>
+          </li>
+        </ul>
+
+        <div id="github">
+          <a href="https://github.com/emberjs/ember.js"><i class="icon-fork"></i>Fork Us!</a>
+        </div>
+      </div>
+    </div>
+
+    
+
+    <div id="content-wrapper">
+      <div id="sidebar-wrapper">
+        <select class="version-select" style="width: 100%"></select>
+        <div id="sidebar">
+
+          <ol class='toc-level-0 selected'><li class='toc-level-0 '><a href="#">Getting Started</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../getting-started/">Installing Ember</a></li><li class='toc-level-1 '><a href="../../getting-started/core-concepts/">Core Concepts</a></li><li class='toc-level-1 '><a href="../../getting-started/naming-conventions/">Naming Conventions</a></li></ol></li><li class='toc-level-0 '><a href="#">The Object Model</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../object-model/classes-and-instances/">Classes and Instances</a></li><li class='toc-level-1 '><a href="../../object-model/reopening-classes-and-instances/">Reopening Classes and Instances</a></li><li class='toc-level-1 '><a href="../../object-model/computed-properties/">Computed Properties</a></li><li class='toc-level-1 '><a href="../../object-model/computed-properties-and-aggregate-data/">Computed Properties and Aggregate Data with @each</a></li><li class='toc-level-1 '><a href="../../object-model/observers/">Observers</a></li><li class='toc-level-1 '><a href="../../object-model/bindings/">Bindings</a></li><li class='toc-level-1 '><a href="../../object-model/what-do-i-use-when/">Bindings, Observers, Computed Properties: What Do I Use When?</a></li><li class='toc-level-1 '><a href="../../object-model/enumerables/">Enumerables</a></li></ol></li><li class='toc-level-0 '><a href="#">Templates</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../templates/handlebars-basics/">Handlebars Basics</a></li><li class='toc-level-1 '><a href="../../templates/the-application-template/">The Application Template</a></li><li class='toc-level-1 '><a href="../../templates/conditionals/">Conditionals</a></li><li class='toc-level-1 '><a href="../../templates/displaying-a-list-of-items/">Displaying a List of Items</a></li><li class='toc-level-1 '><a href="../../templates/binding-element-attributes/">Binding Element Attributes</a></li><li class='toc-level-1 '><a href="../../templates/binding-element-class-names/">Binding Element Class Names</a></li><li class='toc-level-1 '><a href="../../templates/links/">Links</a></li><li class='toc-level-1 '><a href="../../templates/actions/">Actions</a></li><li class='toc-level-1 '><a href="../../templates/input-helpers/">Input Helpers</a></li><li class='toc-level-1 '><a href="../../templates/development-helpers/">Development Helpers</a></li><li class='toc-level-1 '><a href="../../templates/rendering-with-helpers/">Rendering with Helpers</a></li><li class='toc-level-1 '><a href="../../templates/writing-helpers/">Writing Helpers</a></li></ol></li><li class='toc-level-0 '><a href="#">Routing</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../routing/">Introduction</a></li><li class='toc-level-1 '><a href="../../routing/defining-your-routes/">Defining Your Routes</a></li><li class='toc-level-1 '><a href="../../routing/generated-objects/">Generated Objects</a></li><li class='toc-level-1 '><a href="../../routing/specifying-a-routes-model/">Specifying a Route's Model</a></li><li class='toc-level-1 '><a href="../../routing/setting-up-a-controller/">Setting Up a Controller</a></li><li class='toc-level-1 '><a href="../../routing/rendering-a-template/">Rendering a Template</a></li><li class='toc-level-1 '><a href="../../routing/redirection/">Redirecting</a></li><li class='toc-level-1 '><a href="../../routing/specifying-the-location-api/">Specifying the URL Type</a></li><li class='toc-level-1 '><a href="../../routing/query-params/">Query Parameters</a></li><li class='toc-level-1 '><a href="../../routing/asynchronous-routing/">Asynchronous Routing</a></li><li class='toc-level-1 '><a href="../../routing/loading-and-error-substates/">Loading / Error Substates</a></li><li class='toc-level-1 '><a href="../../routing/preventing-and-retrying-transitions/">Preventing and Retrying Transitions</a></li></ol></li><li class='toc-level-0 selected'><a href="#">Components</a><ol class='toc-level-1 selected'><li class='toc-level-1 '><a href="../">Introduction</a></li><li class='toc-level-1 '><a href="../defining-a-component/">Defining a Component</a></li><li class='toc-level-1 '><a href="../passing-properties-to-a-component/">Passing Properties to a Component</a></li><li class='toc-level-1 '><a href="../wrapping-content-in-a-component/">Wrapping Content in a Component</a></li><li class='toc-level-1 '><a href="../customizing-a-components-element/">Customizing a Component's Element</a></li><li class='toc-level-1 '><a href="../handling-user-interaction-with-actions/">Handling User Interaction with Actions</a></li><li class='toc-level-1 '><a href="../sending-actions-from-components-to-your-application/">Sending Actions from Components to Your Application</a></li><li class='toc-level-1 selected'><a href="./">Composing Components</a></li></ol></li><li class='toc-level-0 '><a href="#">Controllers</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../controllers/">Introduction</a></li><li class='toc-level-1 '><a href="../../controllers/representing-multiple-models/">Representing Multiple Models</a></li><li class='toc-level-1 '><a href="../../controllers/dependencies-between-controllers/">Managing Dependencies Between Controllers</a></li></ol></li><li class='toc-level-0 '><a href="#">Models</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../models/">Introduction</a></li><li class='toc-level-1 '><a href="../../models/defining-models/">Defining Models</a></li><li class='toc-level-1 '><a href="../../models/creating-and-deleting-records/">Creating and Deleting Records</a></li><li class='toc-level-1 '><a href="../../models/pushing-records-into-the-store/">Pushing Records into the Store</a></li><li class='toc-level-1 '><a href="../../models/persisting-records/">Persisting Records</a></li><li class='toc-level-1 '><a href="../../models/finding-records/">Finding Records</a></li><li class='toc-level-1 '><a href="../../models/working-with-records/">Working with Records</a></li><li class='toc-level-1 '><a href="../../models/the-rest-adapter/">The Rest Adapter</a></li><li class='toc-level-1 '><a href="../../models/connecting-to-an-http-server/">Connecting to an HTTP Server</a></li><li class='toc-level-1 '><a href="../../models/handling-metadata/">Handling Metadata</a></li><li class='toc-level-1 '><a href="../../models/customizing-adapters/">Customizing Adapters</a></li><li class='toc-level-1 '><a href="../../models/frequently-asked-questions/">Frequently Asked Questions</a></li></ol></li><li class='toc-level-0 '><a href="#">Testing</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../testing/">Introduction</a></li><li class='toc-level-1 '><a href="../../testing/acceptance/">Acceptance Tests</a></li><li class='toc-level-1 '><a href="../../testing/test-helpers/">Test Helpers</a></li><li class='toc-level-1 '><a href="../../testing/testing-user-interaction/">Testing User Interaction</a></li><li class='toc-level-1 '><a href="../../testing/unit-testing-basics/">Unit Testing Basics</a></li><li class='toc-level-1 '><a href="../../testing/unit-test-helpers/">Unit Test Helpers</a></li><li class='toc-level-1 '><a href="../../testing/testing-components/">Testing Components</a></li><li class='toc-level-1 '><a href="../../testing/testing-controllers/">Testing Controllers</a></li><li class='toc-level-1 '><a href="../../testing/testing-routes/">Testing Routes</a></li><li class='toc-level-1 '><a href="../../testing/testing-models/">Testing Models</a></li></ol></li><li class='toc-level-0 '><a href="#">Ember Inspector</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../ember-inspector/installation/">Installing the Inspector</a></li><li class='toc-level-1 '><a href="../../ember-inspector/object-inspector/">Object Inspector</a></li><li class='toc-level-1 '><a href="../../ember-inspector/view-tree/">The View Tree</a></li><li class='toc-level-1 '><a href="../../ember-inspector/routes/">Inspecting Routes</a></li><li class='toc-level-1 '><a href="../../ember-inspector/data/">Data Tab</a></li><li class='toc-level-1 '><a href="../../ember-inspector/deprecations/">Tackling Deprecations</a></li><li class='toc-level-1 '><a href="../../ember-inspector/info/">Library Info</a></li><li class='toc-level-1 '><a href="../../ember-inspector/promises/">Debugging Promises</a></li><li class='toc-level-1 '><a href="../../ember-inspector/container/">Inspecting the Container</a></li><li class='toc-level-1 '><a href="../../ember-inspector/render-performance/">Rendering Performance</a></li><li class='toc-level-1 '><a href="../../ember-inspector/troubleshooting/">Troubleshooting</a></li></ol></li><li class='toc-level-0 '><a href="#">Configuring Ember.js</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../configuring-ember/disabling-prototype-extensions/">Disabling Prototype Extensions</a></li><li class='toc-level-1 '><a href="../../configuring-ember/embedding-applications/">Embedding Applications</a></li><li class='toc-level-1 '><a href="../../configuring-ember/feature-flags/">Feature Flags</a></li></ol></li><li class='toc-level-0 '><a href="#">Understanding Ember.js</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../understanding-ember/debugging/">Debugging</a></li><li class='toc-level-1 '><a href="../../understanding-ember/run-loop/">The Run Loop</a></li><li class='toc-level-1 '><a href="../../understanding-ember/dependency-injection-and-service-lookup/">Dependency Injection & Service Lookup</a></li></ol></li><li class='toc-level-0 '><a href="#">Contributing to Ember.js</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../contributing/adding-new-features/">Adding New Features</a></li><li class='toc-level-1 '><a href="../../contributing/repositories/">Repositories</a></li></ol></li></ol>
+          <div id="back-to-top"><a id="back-top-top" href="#">&#11014; Back to Top</a></div>
+        </div>
+      </div>
+      <div id="content" class="has-sidebar">
+        <div class="chapter">
+          <h1>
+            Composing Components
+            <a href="https://github.com/emberjs/guides/edit/master/source/components/composing-components.md"
+               target="_blank" class="edit-page icon-pencil">Edit Page</a>
+          </h1>
+          <hr>
+
+          <p>Components really shine when you use them to their full potential, that is, by composing them with one another.
+Take for example the <code>&lt;ul&gt;</code> element, and the fact that only <code>&lt;li&gt;</code> elements are appropriate as children.
+If we want the same type of behavior, then we have to compose our components.</p>
+
+<p>Just like we compose regular HTML elements, we can do the same with components.</p>
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/templates/application.hbs</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+</pre></td>
+  <td class="code"><pre><span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">user-list</span> <span class="attribute-name">users</span>=<span class="attribute-value">activeUsers</span> <span class="attribute-name">sortBy</span>=<span class="string"><span class="delimiter">'</span><span class="content">name</span><span class="delimiter">'</span></span> <span class="attribute-name">as</span> <span class="error">|</span><span class="attribute-name">user</span><span class="error">|</span><span class="inline-delimiter">}}</span></span>
+  <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">user-card</span> <span class="attribute-name">user</span>=<span class="attribute-value">user</span><span class="inline-delimiter">}}</span></span>
+<span class="inline"><span class="inline-delimiter">{{/</span><span class="attribute-name">user-list</span><span class="inline-delimiter">}}</span></span>
+</pre></td>
+</tr></table>
+</div></div><h3 class='anchorable-toc' id='toc_component-blocks'>Component Blocks</h3>
+<p>Components can be used in two forms, just like regular HTML elements.</p>
+
+<p><strong>Inline Form</strong></p>
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/templates/application.hbs</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">user-list</span> <span class="attribute-name">users</span>=<span class="attribute-value">activeUsers</span><span class="inline-delimiter">}}</span></span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>This is the basic blockless form of a component, which doesn&#39;t give the
+consumer the ability to insert their own content into the given component.
+It&#39;s even possible that a component can only be used in this form.
+Make sure to consult a component&#39;s documentation for its available uses
+and forms.</p>
+
+<p><strong>Block Form</strong></p>
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/templates/application.hbs</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+</pre></td>
+  <td class="code"><pre><span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">user-list</span> <span class="attribute-name">users</span>=<span class="attribute-value">activeUsers</span><span class="inline-delimiter">}}</span></span>
+  <span class="comment">{{!-- custom template here --}}</span>
+<span class="inline"><span class="inline-delimiter">{{/</span><span class="attribute-name">user-list</span><span class="inline-delimiter">}}</span></span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>To compose components, we must use the block form, but we must also
+be able to distinguish from within our component which form is being used.
+This can be done with the <code>hasBlock</code> property from within our component.</p>
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/templates/components/user-list.hbs</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+</pre></td>
+  <td class="code"><pre><span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">if</span> <span class="attribute-name">hasBlock</span><span class="inline-delimiter">}}</span></span>
+  <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">yield</span><span class="inline-delimiter">}}</span></span>
+<span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">else</span><span class="inline-delimiter">}}</span></span>
+  <span class="tag">&lt;p&gt;</span>No Block Specified<span class="tag">&lt;/p&gt;</span>
+<span class="inline"><span class="inline-delimiter">{{/</span><span class="attribute-name">if</span><span class="inline-delimiter">}}</span></span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>Once we know that the component is being used in block form, we can yield
+whatever the user has placed inside the block wherever we want via the <code>{{yield}}</code> helper.</p>
+
+<p>This <code>{{yield}}</code> helper can be used in the component&#39;s template definition multiple times,
+allowing us to create a component that works like a list, where we output a headline and yielded body for each post.</p>
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/templates/components/post-list.hbs</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+</pre></td>
+  <td class="code"><pre><span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">each</span> <span class="attribute-name">posts</span> <span class="attribute-name">as</span> <span class="error">|</span><span class="attribute-name">post</span><span class="error">|</span><span class="inline-delimiter">}}</span></span>
+  <span class="tag">&lt;h3&gt;</span><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">post.title</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/h3&gt;</span>
+  <span class="tag">&lt;p&gt;</span><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">yield</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/p&gt;</span>
+<span class="inline"><span class="inline-delimiter">{{/</span><span class="attribute-name">each</span><span class="inline-delimiter">}}</span></span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>Which can be used like so:</p>
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/templates/posts.hbs</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+</pre></td>
+  <td class="code"><pre><span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">post-list</span> <span class="attribute-name">posts</span>=<span class="attribute-value">headlinePosts</span><span class="inline-delimiter">}}</span></span>
+  Greatest post ever!
+<span class="inline"><span class="inline-delimiter">{{/</span><span class="attribute-name">post-list</span><span class="inline-delimiter">}}</span></span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>And will result in the following HTML:</p>
+<div class="highlight html "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+</pre></td>
+  <td class="code"><pre><span class="tag">&lt;div</span> <span class="attribute-name">id</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">ember123</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">ember-view</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+  <span class="tag">&lt;h3&gt;</span>Tomster goes to town<span class="tag">&lt;/h3&gt;</span>
+  <span class="tag">&lt;p&gt;</span>Greatest post ever!<span class="tag">&lt;/p&gt;</span>
+  <span class="tag">&lt;h3&gt;</span>Tomster on vacation<span class="tag">&lt;/h3&gt;</span>
+  <span class="tag">&lt;p&gt;</span>Greatest post ever!<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;/div&gt;</span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>But what use is it to just output the same thing over and over? Don&#39;t we want to customize our posts,
+and display the right content? Sure we do. Lets explore the <code>{{yield}}</code> helper a bit.</p>
+<h3 class='anchorable-toc' id='toc_data-down'>Data Down</h3>
+<p>To accomplish composability beyond simple templates, we need to pass data to those templates. This can be done with the <code>{{yield}}</code> helper that was introduced above.</p>
+
+<p>The <code>{{yield}}</code> defines where the content we defined inside our component block will yield in the component&#39;s layout,
+as we saw in the previous section. Apart from that, the yield helper also allows us to send data down by yielding params back to the scope the component was invoked in.</p>
+<div class="highlight hbs "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+</pre></td>
+  <td class="code"><pre>{{yield}}
+{{yield &quot;post&quot;}}
+{{yield item}}
+{{yield this &quot;footer&quot;}}
+</pre></td>
+</tr></table>
+</div></div>
+<p>By default yield does not send any data, but you can provide an arbitrary number of parameters. Also, the yielded values are ordered sequentially by how they are defined, so you access them in the same order as the component exposes them.
+Sending data down allows the consumer of our component to utilize that data.
+For the consumer to get access to the data, she needs to know what data a component exposes,
+this is where documentation is so crucial, and from there the yielded data can be accessed
+with the <code>as</code> operator. Let&#39;s take the following template as an example:</p>
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/components/user-list/template.hbs</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+</pre></td>
+  <td class="code"><pre><span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">each</span> <span class="attribute-name">users</span> <span class="attribute-name">as</span> <span class="error">|</span><span class="attribute-name">user</span><span class="error">|</span><span class="inline-delimiter">}}</span></span>
+  <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">yield</span> <span class="attribute-name">user</span><span class="inline-delimiter">}}</span></span>
+<span class="inline"><span class="inline-delimiter">{{/</span><span class="attribute-name">each</span><span class="inline-delimiter">}}</span></span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>This <code>{{user-list}}</code> component will yield as many times as there are users.
+We can consume it in the following way:</p>
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/users/template.hbs</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+</pre></td>
+  <td class="code"><pre><span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">user-list</span> <span class="attribute-name">users</span>=<span class="attribute-value">users</span> <span class="attribute-name">as</span> <span class="error">|</span><span class="attribute-name">user</span><span class="error">|</span><span class="inline-delimiter">}}</span></span>
+  <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">user-card</span> <span class="attribute-name">user</span>=<span class="attribute-value">user</span><span class="inline-delimiter">}}</span></span>
+<span class="inline"><span class="inline-delimiter">{{/</span><span class="attribute-name">user-list</span><span class="inline-delimiter">}}</span></span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>Now <code>{{user-card}}</code> has access to the current user, which changes as the <code>{{user-list}}</code> iterates over each user
+since the <code>{{yield user}}</code> is inside the <code>{{each}}</code> block. Although this is nice, what if we used our component
+without a block, i.e. <code>{{user-list users=users}}</code>? This would make the component pretty useless since nothing is yielding,
+but the users are still being iterated. Let&#39;s mix in the <code>hasBlock</code> attribute and see if we can make it more useful.</p>
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/components/user-list/template.hbs</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+11
+12
+</pre></td>
+  <td class="code"><pre><span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">if</span> <span class="attribute-name">hasBlock</span><span class="inline-delimiter">}}</span></span>
+  <span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">each</span> <span class="attribute-name">users</span> <span class="attribute-name">as</span> <span class="error">|</span><span class="attribute-name">user</span><span class="error">|</span><span class="inline-delimiter">}}</span></span>
+    <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">yield</span> <span class="attribute-name">user</span><span class="inline-delimiter">}}</span></span>
+  <span class="inline"><span class="inline-delimiter">{{/</span><span class="attribute-name">each</span><span class="inline-delimiter">}}</span></span>
+<span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">else</span><span class="inline-delimiter">}}</span></span>
+  <span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">each</span> <span class="attribute-name">users</span> <span class="attribute-name">as</span> <span class="error">|</span><span class="attribute-name">user</span><span class="error">|</span><span class="inline-delimiter">}}</span></span>
+    <span class="tag">&lt;section</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">user-info</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+      <span class="tag">&lt;h3&gt;</span><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">user.name</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/h3&gt;</span>
+      <span class="tag">&lt;p&gt;</span><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">user.bio</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/p&gt;</span>
+    <span class="tag">&lt;/section&gt;</span>
+  <span class="inline"><span class="inline-delimiter">{{/</span><span class="attribute-name">each</span><span class="inline-delimiter">}}</span></span>
+<span class="inline"><span class="inline-delimiter">{{/</span><span class="attribute-name">if</span><span class="inline-delimiter">}}</span></span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>This makes our component more useful due too it having sane defaults, but it also allows us to override those defaults. By using the <code>{{yield}}</code> helper we can pass
+down our params for the consumer to utilize. This makes the concept of passing
+data down very useful.</p>
+<h4 class='anchorable-toc' id='toc_code-component-code-helper'><code>{{component}}</code> Helper</h4>
+<p>To understand the <code>{{component}}</code> helper, we will add the following new features to the <code>{{user-list}}</code> component:</p>
+
+<ul>
+<li>For each type of user, we want to use different layout.</li>
+<li>The list can also be toggled between basic and detailed mode.</li>
+</ul>
+
+<p>Let&#39;s add a new type of user, a superuser, which will have different behavior in our application. How would the consumer use this new data to show a different
+UI for each type of user? This is where the <code>{{component}}</code> helper comes into play. This helper allows us to render a component chosen at runtime.</p>
+
+<p>Since we have two user types, &#39;public&#39; and &#39;superuser&#39;, and we want to render
+a component for each type plus for the simple and detailed modes. We want to have the following component names:</p>
+
+<ul>
+<li><code>basic-card-public</code></li>
+<li><code>basic-card-superuser</code></li>
+<li><code>detailed-card-public</code></li>
+<li><code>detailed-card-superuser</code></li>
+</ul>
+
+<p>We can create these names by using the <code>{{concat}}</code> helper in nested form.</p>
+<div class="highlight hbs "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre>{{component (concat 'basic-card-' user.type)}}
+</pre></td>
+</tr></table>
+</div></div>
+<p>Now that our component names are valid due to the use of dashed, we can put together the full template with the two modes.</p>
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/users/template.hbs</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td>
+  <td class="code"><pre><span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">user-list</span> <span class="attribute-name">users</span>=<span class="attribute-value">users</span> <span class="attribute-name">as</span> <span class="error">|</span><span class="attribute-name">user</span> <span class="attribute-name">basicMode</span><span class="error">|</span><span class="inline-delimiter">}}</span></span>
+  <span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">if</span> <span class="attribute-name">basicMode</span><span class="inline-delimiter">}}</span></span>
+    <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">component</span> <span class="error">(</span><span class="attribute-name">concat</span> <span class="error">'</span><span class="attribute-name">basic-card-</span><span class="error">'</span> <span class="attribute-name">user.type</span><span class="error">)</span> <span class="attribute-name">user</span>=<span class="attribute-value">user</span><span class="inline-delimiter">}}</span></span>
+  <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">else</span><span class="inline-delimiter">}}</span></span>
+    <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">component</span> <span class="error">(</span><span class="attribute-name">concat</span> <span class="error">'</span><span class="attribute-name">detailed-card-</span><span class="error">'</span> <span class="attribute-name">user.type</span><span class="error">)</span> <span class="attribute-name">user</span>=<span class="attribute-value">user</span><span class="inline-delimiter">}}</span></span>
+  <span class="inline"><span class="inline-delimiter">{{/</span><span class="attribute-name">if</span><span class="inline-delimiter">}}</span></span>
+<span class="inline"><span class="inline-delimiter">{{/</span><span class="attribute-name">user-list</span><span class="inline-delimiter">}}</span></span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>Now we have <code>{{basic-card-superuser}}</code> and <code>{{detailed-card-public}}</code> rendering in their respective places
+based on the <code>user.type</code> equaling &#39;superuser&#39; and &#39;public&#39; respectively. The use of the &#39;concat&#39; helper in nested form allowed us to accomplish that. Nested helpers are evaluated before the parent helper
+and then that helper can use the value returned by the nested helper. In this case it&#39;s just a concatenation of two values. You can
+also experiment with other helpers in nested form, like the <code>if</code> helper.</p>
+
+<p>Apart from the use of <code>{{component}}</code>, we also have the second yielded value for our basic/detailed mode feature,
+which we&#39;ve added to our yield, i.e. <code>{{yield user basic}}</code>.</p>
+
+<p>The consumer can decide how to name the yielded values. We could have named our yields like so:</p>
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/users/template.hbs</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+</pre></td>
+  <td class="code"><pre><span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">user-list</span> <span class="attribute-name">users</span>=<span class="attribute-value">users</span> <span class="attribute-name">as</span> <span class="error">|</span><span class="attribute-name">userModel</span> <span class="attribute-name">isBasic</span><span class="error">|</span><span class="inline-delimiter">}}</span></span>
+  <span class="comment">{{! something creative here }}</span>
+<span class="inline"><span class="inline-delimiter">{{/</span><span class="attribute-name">user-list</span><span class="inline-delimiter">}}</span></span>
+</pre></td>
+</tr></table>
+</div></div><h3 class='anchorable-toc' id='toc_actions-up'>Actions Up</h3>
+<p>Now that we know how to send data down, we probably want to manipulate that data via some user interaction,
+like changing a user&#39;s avatar. We can accomplish this by using actions.</p>
+
+<p>We&#39;ll be looking at a <code>{{user-profile}}</code> component that implements a save action. By yielding the action as a parameter, we allow the consumer to use this component without having to know how to save, but still be able to trigger a save.</p>
+
+<p>Here&#39;s our component&#39;s definition:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/components/user-profile/component.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+11
+12
+13
+14
+15
+16
+17
+</pre></td>
+  <td class="code"><pre><span class="reserved">import</span> Ember from <span class="string"><span class="delimiter">'</span><span class="content">ember</span><span class="delimiter">'</span></span>;
+
+<span class="reserved">export</span> <span class="keyword">default</span> Ember.Component.extend({
+  <span class="key">actions</span>: {
+    saveUser() {
+      <span class="keyword">var</span> user = <span class="local-variable">this</span>.get(<span class="string"><span class="delimiter">'</span><span class="content">user</span><span class="delimiter">'</span></span>);
+
+      user.save()
+        .then(() =&gt; {
+          <span class="local-variable">this</span>.set(<span class="string"><span class="delimiter">'</span><span class="content">saved</span><span class="delimiter">'</span></span>, <span class="predefined-constant">true</span>);
+        })
+        .<span class="keyword">catch</span>(error =&gt; {
+          <span class="local-variable">this</span>.set(<span class="string"><span class="delimiter">'</span><span class="content">saveError</span><span class="delimiter">'</span></span>, error);
+        });
+    }
+  }
+});
+</pre></td>
+</tr></table>
+</div></div><div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/components/user-profile/template.hbs</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre><span class="comment">{{! most likely we have some markup here }}</span>
+<span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">yield</span> <span class="attribute-name">profile</span> <span class="error">(</span><span class="attribute-name">action</span> <span class="error">&quot;</span><span class="attribute-name">saveUser</span><span class="error">&quot;</span><span class="error">)</span><span class="inline-delimiter">}}</span></span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>So now the consumer will have access to our data and the
+action that we have defined. Lets see how this component could be consumed
+in block form.</p>
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/templates/user/profile.hbs</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+</pre></td>
+  <td class="code"><pre><span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">user-profile</span> <span class="attribute-name">user</span>=<span class="attribute-value">user</span> <span class="attribute-name">as</span> <span class="error">|</span><span class="attribute-name">profile</span> <span class="attribute-name">saveUser</span><span class="error">|</span><span class="inline-delimiter">}}</span></span>
+  <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">user-avatar</span> <span class="attribute-name">url</span>=<span class="attribute-value">profile.imageUrl</span> <span class="attribute-name">onchange</span>=<span class="attribute-value">saveUser</span><span class="inline-delimiter">}}</span></span>
+<span class="inline"><span class="inline-delimiter">{{/</span><span class="attribute-name">user-profile</span><span class="inline-delimiter">}}</span></span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>As you can see from this example, the consumer was able to hook into the
+<code>{{user-profile}}</code> component&#39;s <code>saveUser</code> action, which we passed down
+with the <code>(action &quot;saveUser&quot;)</code> nested helper.  This helper reads a property off the actions hash of the current context, then creates a closure over that function and any arguments you pass.</p>
+
+<p>We could also leverage this format to place actions on native HTML elements
+like an input button:</p>
+<div class="highlight hbs "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+</pre></td>
+  <td class="code"><pre>{{#user-profile user=user as |profile saveUser|}}
+  &lt;button type=&quot;button&quot; onclick={{action saveUser}}&gt;Save&lt;/button&gt;
+{{/user-profile}}
+</pre></td>
+</tr></table>
+</div></div>
+<p>This is very useful since we are reusing the existing event hooks that
+are provided on these elements. This makes components much more reusable due to how we can compose
+small components that do one thing well.</p>
+<h3 class='anchorable-toc' id='toc_wrapping-up'>Wrapping Up</h3>
+<p>Composing components is all about isolating functionality into reusable
+chunks that are easy to reason about and easy to combine together so that they work well together.
+This also has the added benefit of easier testing since we try to stay away from
+monolithic components that do everything, and can isolate small parts of functionality.</p>
+
+
+
+          
+      <footer>
+        <a class="previous-guide" href="../sending-actions-from-components-to-your-application/"> ← Sending Actions from Components to Your Application</a> <a class="next-guide" href="../../controllers/">We're done with Components. Next up: Controllers - Introduction →</a>
+      </footer>
+      
+        </div>
+      </div>
+    </div>
+
+    <div id="footer">
+      <div id="footer-wrapper">
+        <div class="info">
+          Copyright 2015 <a href="http://tilde.io">Tilde Inc.</a><br>
+          <a href="http://emberjs.com/team">Core Team</a> | <a href="http://emberjs.com/sponsors">Sponsors</a> | <a href="http://emberjs.com/legal">Legal</a></br>
+          <a href="http://emberjs.com/guidelines">Community Guidelines</a>
+        </div>
+        <div class="statement">Ember.js is free, open source and always will be.</div>
+        <div class="links">
+          <a class="twitter" href="http://twitter.com/emberjs">
+            <i class="icon-twitter"></i><span>Twitter</span>
+          </a>
+          <a class="github" href="https://github.com/emberjs/ember.js">
+            <i class="icon-github"></i><span>GitHub</span>
+          </a>
+          <a class="googleplus" href="https://plus.google.com/communities/106387049790387471205">
+            <i class="icon-gplus"></i><span>Google+</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    
+
+    <script src="../../javascripts/guides.js" type="text/javascript"></script>
+    <script src="http://static.jsbin.com/js/embed.js"></script>
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+      _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+      _gaq.push(['_setAccount', 'UA-27675533-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
+</html>

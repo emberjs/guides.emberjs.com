@@ -1,16 +1,16 @@
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 div.st-lb_overlay {
   background-color: rgba(0, 0, 0, 0.3); }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 .st-modal-overflow .swiftype {
   margin-bottom: 20px; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 .swiftype-widget .autocomplete ul li {
   padding-left: 31px; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 #st-launcher-tab {
   position: fixed;
   right: 60px;
@@ -34,11 +34,11 @@ div.st-lb_overlay {
   cursor: pointer;
   overflow: hidden; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 #st-launcher-tab:hover {
   color: #fff; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 div.swiftype {
   font-family: "Lucida Grande",sans-serif;
   overflow: auto;
@@ -57,21 +57,21 @@ div.swiftype {
   -o-border-radius: 5px;
   border-radius: 5px; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 div.swiftype.with-results .st-result-wrapper {
   background-image: none; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 div.swiftype .clearfix {
   *zoom: 1; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 div.swiftype .clearfix:after {
   content: "";
   display: table;
   clear: both; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 div.swiftype a.close {
   text-align: center;
   font-weight: bold;
@@ -104,7 +104,7 @@ div.swiftype a.close {
   box-shadow: 0 1px 0 #fff, 1px 1px 4px rgba(0, 0, 0, 0.4) inset;
   text-shadow: 0 0 2px rgba(0, 0, 0, 0.9); }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 div.swiftype a.close:hover {
   opacity: 0.3;
   -moz-opacity: 0.3;
@@ -113,7 +113,7 @@ div.swiftype a.close:hover {
   filter: alpha(opacity=30);
   zoom: 1; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 div.swiftype div.st-search-bar {
   height: 56px;
   width: 100%;
@@ -124,13 +124,13 @@ div.swiftype div.st-search-bar {
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 div.swiftype div.st-search-bar * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 div.swiftype div.st-search-bar .st-input-wrapper {
   margin-left: 15px;
   margin-right: 60px;
@@ -152,7 +152,7 @@ div.swiftype div.st-search-bar .st-input-wrapper {
   -moz-box-shadow: 0 1px 0 #fff, 1px 1px 2px rgba(0, 0, 0, 0.1) inset;
   box-shadow: 0 1px 0 #fff, 1px 1px 2px rgba(0, 0, 0, 0.1) inset; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 div.swiftype div.st-search-bar .st-input-wrapper .st-input-inner {
   float: left;
   position: relative;
@@ -161,7 +161,7 @@ div.swiftype div.st-search-bar .st-input-wrapper .st-input-inner {
   padding-right: 135px;
   width: 100%; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 div.swiftype div.st-search-bar .st-input-wrapper .st-input-inner .st-input-powered-by {
   float: left;
   position: relative;
@@ -177,7 +177,7 @@ div.swiftype div.st-search-bar .st-input-wrapper .st-input-inner .st-input-power
   filter: alpha(opacity=60);
   zoom: 1; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 div.swiftype div.st-search-bar .st-input-wrapper .st-input-inner .st-input-powered-by:hover {
   opacity: 1;
   -moz-opacity: 1;
@@ -186,7 +186,7 @@ div.swiftype div.st-search-bar .st-input-wrapper .st-input-inner .st-input-power
   filter: alpha(opacity=100);
   zoom: 1; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 div.swiftype div.st-search-bar .st-input-wrapper .st-input-inner .st-input-icon {
   float: left;
   position: relative;
@@ -198,7 +198,7 @@ div.swiftype div.st-search-bar .st-input-wrapper .st-input-inner .st-input-icon 
   margin-left: -100%;
   background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6%2BR8AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAM1JREFUeNpi%2BP%2F%2FPwMIA4E9EO8C4ldAfAOI5wCxKEweGcM0FAExiPEEqngdEP%2BEGqCLoQkkCMR%2FgHgjEHMiSRgA8QcgPo9NUwvUVFEskjAXaCGLMwEFVID4BZDzmgETXIPSisiCIE2PgFiakZFRFIsmYyj9FF1CF%2BoEkOd50Pz0FqufoAqqoRqfA%2FF8IN4CDZz%2FUP%2F6YWhCiqcD0BC7B8SLoJphGgMxNGGNRAYGNqizYRpDCGpC0rga2akENWHROIEoTVCNzGBbgAYABBgAuBMPKvUg1p8AAAAASUVORK5CYII%3D) no-repeat center center; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 div.swiftype div.st-search-bar input[type='text'] {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
@@ -233,7 +233,7 @@ div.swiftype div.st-search-bar input[type='text'] {
   border: 0;
   font-size: 14px; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 div.swiftype div.st-search-bar input[type='submit'] {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
@@ -285,7 +285,7 @@ div.swiftype div.st-search-bar input[type='submit'] {
   padding: 2px 10px;
   vertical-align: top; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 div.swiftype div.st-search-bar input[type='submit']:hover {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e8e8e8), color-stop(100%, #ececec));
   background-image: -webkit-linear-gradient(#e8e8e8, #ececec);
@@ -293,13 +293,13 @@ div.swiftype div.st-search-bar input[type='submit']:hover {
   background-image: -o-linear-gradient(#e8e8e8, #ececec);
   background-image: linear-gradient(#e8e8e8, #ececec); }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 div.swiftype .st-result-wrapper {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADaCAYAAABQDiUUAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAC4VJREFUeNrs3f9100gXxvHBh%2F%2FtDmIqiKkg3gowFdhUgKmAUAGhAkQFhApQKsCuAKeCVdLAru%2FJ1SK8SbBjSffOzPc5Rwc45903ysgf3fkhj57f3t6GzHPW%2BPtoe0zu%2Bd%2Bstke18%2B%2BbQEgLeZ4RtIkimz6C7dBs9Fg1%2FgQoOSjPEqyEQ4VWHxODc6gxlnpc81EjqSM83R4LQ3T7VMxLBfmNjx1JBWENb7Y9xhGdd6Ugi%2B1xxUeQxIZwqOiWTiveUypkoQddVhC6zsn2OFeAo0SvRUF1zDODCPB91oqxSBhg0N9Pxozfw%2B%2FLJgSELvDllCkYQWg95vuYKb6HMH7VmxIBYed5q%2FiWXJbfMtN2ea83KZJYPEzMyFJDEdKY7ew6dQ%2BByRsqYWuRu%2FsKgHtnrF3Uj1RFKuGxkTHOJfioisSmEs6pfq1Wxfc0BQgPyWcd%2F41o%2BtZyHu5mUOmegvDRyAfkR2DZoavMtCqe0hQgvC%2BndD97yUQhssAPwv8BLENc33KIOSNt7zlNAcKgd%2BSS8Z9JCiCCcA5AIBI7hHP9ABAgEgOEpwAEIrFDWE%2FCECASA4SnjAGjgMg6YqIIh4GnYGJJCcQ0EQpAFuLjyEivF4%2B4JYRQHh6e0YxRZRKYPHOVY77KVC%2FGpxbZF3TV%2BPc4pPnEj%2Bxg8AkC8SKU7swm4nHgRm8g9Z8Cb73Hf3eiICc7R8xVcQ2DOBHKTmDTyKpbvQ29HG1utFu%2F%2B2IW4tsXdaMQeYFNZAhlQ6aLSH6%2Ferv5Pt%2F%2F8EoxLiJpI7mW76AQD8ITHS95vttXCu8i2G4tP9Rx1zKC6iiVnG0yIkH4NfidDa0U3oWz7lUMGKVb%2BgIONjlkieKVY4D1plEfHI5vbvS8xuFuKwqPkXNjr5oIKuHP4G%2BqfhPi23HM6z6rlZ4Tb4dyWgnfOwRYf5BjG8vIksBLh1Vx5LhSZ18Jva0JVjq%2B%2BpJA%2B59pV9rTWJG1Q4eVcOkM4DQRgEGruPQwVo7O6QIWvhDWM3sestIPbGp36Ru9sVw6OZ9pYMc2Vwi9VMGVfjhSfbJDfq%2FXwc%2BD1bwZy8mY0MtYMHWAu5FdyhcOzkN6HcyUGlfCGQBN8sZJ1%2FQcHvaV0HpdMOd1K%2BmFlMF2LbHS68%2FD3UaV8CzYrwtOM%2B4O3WhPpDI8h1HgC9umCK3HJDIxkPta1bUDBEzQGCEcGl98GQ%2Fxje%2B7XBmPzaQ7zMZQBggtJ2SqwOvTdiMPf1su5nM9jBBadn%2BYCPAFgXFhRgjLkM7jaG1HxseF0c8e0yXtF%2BErw3M553L8sZdgNVtKNewRoVVjy2QM2ys8HummX4Awvewu1lst0PP1mf1i%2BSjhiPF695XwxAhgCcAoquGU5u8eoVUj8%2F21w1KAMF2EFs8pStfqG5fhoFwHmwe8eelPoggvuQTRtBuVsKM0J2b%2BMbq7Mh58Wv4O%2FU%2FQcL06rIQWi7EbLuhRKQ1%2B5phm7w6hxZQ3XdH42o9xYYcILfr7Jc0fXfuBMLFKCMLjIrOkfT%2FGNqLZu0PY9x1OxoM8fRHfjYxK2CHCYICQHJ%2B%2Bv2dIJUyoEtIV5WZGjMeEFU0fLUJ2506kO7qi6amExBYhaSfskA1CQkgbCIc0AyH5VUImZghpILRYNGe9iRDGhISAkBBiiJDuaDthU14QPjk8CBzvzWxDs3eDsO8nWMY0fbQ3Mx4Q6AhhBcIoQzuC8MmZ0vRRVkKe%2BU2oOyphUiG%2BmxkPWSRUCamGx8fiK0VUwsQqIQjja78NzZ4WQl63FV%2F7UQk7RHhjdJd7xSV4UuQNWhMQpoWQakgV3Kcryg55CSJcBL7P%2BJQsqYJpIiwz%2BkDFHJkVHRv83JKm7ya7r8u2eDOTdHNecCn2zvdgMzPKG5l6qIRWdzu5q8%2B5FHtXQQuAFQD7Q2j1pqRzLoXrdqIrmnglrKvhWy6HyypoeXPOckwo%2BWk08K%2F05zINfn9%2BBLvvYY64Lv1VQsu7nlzogktyb94bArwEYP8ILSHIIjRP0fweeTrGchmHrqhBd9SyS0q31Fc3lK6oUSWUXBhfdO6%2Bd%2FloDLAAoB1C67HZVD%2BAOWce7J8mYoxuiPDGwQVYhnwX8U8dtP9me1xBxA6hl7tgkSFEAVg6OI9zeNgjvHLyYcgJYg3QenPkinG5D4SSCyfnmQNELwDr686ETE95aImiGcvlit0stseXBK%2FDmVYeDwBZInJWCesPvpdIRfyc2DWYO6qAVEGnCL2MDZs3BflO3UnkbT%2FUG0rh6JwqR0MQEO7k3Nl5T8PddguxPuJ2pue%2FcHZeS6qgX4RXwd%2FCbf1kzdeIqqJUv4%2Fasxg7O7dVouNt99lnYqbOiV4oj%2B8WrLtRnsczcz0%2Fr%2B9mnAYW511XQsl18LuAO9Jz24S7r%2F0MneH7qT0JrwALAMZRCetYP9V%2FSGUsgs379IY63lsG%2F68vY0kiQoSeFpX3SakYu%2F5yqsCbNY5YIuf6DQpxIZS8DXFOZa8UY6l%2FPxblmfYKZiHOF9zINXzXUpdbwsROjwglX0P829hv9CgbSKsHxpyTxgTGKIIu%2BT43pGkLN6J5%2BDVzvgBivwiHeiHHNGN0qRTgukWAAYhPy%2BCI%2F%2FYm8EKXWLPsCGAIeX79zAxh0Au5oBmjGwd%2B6QggEA0Q1oNxnjeMIzIp9a5jgEA0QBj0whY0p%2Bu08azq%2FMDrDMQeEdbjDN5h5xfgNBw3E3ooQCAaILwJv77dQPyk0gpoARCIPSMEok%2BAcj3WhgCB2DNCIAIQiA4QAtHHGHDiDCAQe0ZYQ3wZmDW1ACg3wGuHAIHYM8I6bwLriH2lCHazoEB0jFAi64iLcP%2FD0aSdnOsNLwaAQGzkmAe4nxL5LqI8tTHGTGuplyCO%2FU5g3wCbkfPP9qHvQc8%2Fb60TBmyx3t74bxI5wOwr4sDgZ0p36XW4e8KG7ulx3U%2BZ%2BLqOHGD2EPvuju7mpDGZQPavfotw%2FFeRPAHMums6MP75chf%2Fi6p4cPVLFWCWFXHg5Dw%2BhbvJmgJn96bU9vnQ0v%2Ff3HlbZwVx4OhcZKz4RicaStz91%2FWcam%2FhOhOA2UEcODyntX7ophlj3OjYSLqebW7KGwvArCAOHJ%2FbVYYYS8X3IrQ%2FOREbwGwgWs%2BOHpITnZiQzaVGiV2HInS7FX2sAJtZhERnTWNCWKfe6XoZ4t77U7qc9Vb9Xe4MngLApCHGiHC3Os704kwigXepKNY9%2FLyUACYLMXaEuyCn4deW9F66rPW2%2B%2FJnny%2BnSRFgkhBTQribU62OAnIc%2BnkqZ9U4yp6q3UOJ4e1ZQEwc4UMwRw2QTZj7IC3v%2BftKu5lrZ7%2FrUM8RiCAkQATiYxnwOU06Oez1U4TI1xFBCEQggpAAMW%2BIIAQiEEFIgJg3RBACEYggJEDMGyIIgQhEEBIg5g0RhASIICRAzBsiCAkQQUiAmDdEEBIggpAAMW%2BIICRABCEBYt4QQUiAaAwRhASIxhBBSIBoDBGEBIjGEEFIgGgMEYQEiMYQQUiAaAwRhASIxhBBSIBoDBGEBIjGEEFIgGgMEYQEiMYQQUiAaAwRhASIxhBBSIBoDBGEBIjGEEFIgGgMEYQEiMYQQUiAaAwRhASIxhBBSIBoDBGEBIjGEEFIgGgMEYQEiMYQQUiAaAwRhASIxhBBSIBoDBGEBIjGEEFIgGgMEYQEiMYQn93e3nLJidcMt0e5PSYJ%2F44LEBIg2qaiO0romhoClN8NhASIhgC3xxqEBIiGAOUfICRANAQIQgJEY4AgJEA0BghCAkRjgCAkQDQGCEICRGOAICRANAYIQgJEY4AgJEA0BghCAkRjgCAkQDQGCEICRGOAICRANAYIQgJEY4AgJEA0BghCAkRjgCAkQDQGCEICRGOAICRANAYIQgLE%2FSB2BhCEBIh%2FhtgpQBAS8jjEzgGCkJCHIfYCEISE3A%2BxN4AS3kVByO%2BRd1%2BM%2BwIo%2BVeAAQC1yJUXfK99EQAAAABJRU5ErkJggg%3D%3D);
   background-repeat: no-repeat;
   background-position: center center; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 div.swiftype div.st-result-listing {
   margin: 0 auto;
   max-width: 600px;
@@ -307,14 +307,14 @@ div.swiftype div.st-result-listing {
   overflow-x: hidden;
   padding-top: 20px; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 div.swiftype div.st-result-listing div.st-search-summary {
   border-bottom: 1px solid #f1f1f1;
   margin: 0 auto 10px;
   padding: 10px 0 5px;
   max-width: 600px; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 div.swiftype div.st-result-listing div.st-search-summary h2 {
   letter-spacing: 0;
   line-height: 18px;
@@ -323,43 +323,43 @@ div.swiftype div.st-result-listing div.st-search-summary h2 {
   font-weight: normal;
   color: #999; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 div.swiftype div.st-result-listing div.st-search-summary h2 strong {
   letter-spacing: 0; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 div.swiftype div.st-result-listing div.st-search-summary h2 .st-query {
   font-style: italic;
   color: #666; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 div.swiftype div.st-result-listing div.st-search-summary h2 .st-spelling-suggestion a {
   font-style: italic; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 div.swiftype div.st-result-listing .st-results {
   max-width: 600px;
   margin: 0 auto;
   font-size: 12px; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 div.swiftype div.st-result-listing .st-results div.st-result {
   border-bottom: 1px solid #f1f1f1;
   padding-bottom: 10px;
   margin-bottom: 10px; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 div.swiftype div.st-result-listing .st-results div.st-result .st-result-text {
   max-width: 600px;
   overflow: hidden; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 div.swiftype div.st-result-listing .st-results div.st-result .st-result-text h3 {
   letter-spacing: 0;
   line-height: 18px;
   margin: 0; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 div.swiftype div.st-result-listing .st-results div.st-result .st-result-text h3 a {
   font-size: 12px;
   font-weight: bold;
@@ -368,51 +368,51 @@ div.swiftype div.st-result-listing .st-results div.st-result .st-result-text h3 
   margin: 0;
   padding: 0; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 div.swiftype div.st-result-listing .st-results div.st-result .st-result-text .st-metadata {
   text-align: left; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 div.swiftype div.st-result-listing .st-results div.st-result .st-result-text .st-metadata .st-snippet {
   font-size: 11px;
   color: #555; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 div.swiftype div.st-result-listing .st-results div.st-result .st-result-image {
   overflow: hidden;
   margin-right: 10px;
   float: left; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 div.swiftype div.st-result-listing .st-results div.st-result.with_image .st-result-text {
   margin-left: 100px;
   max-width: 450px; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 div.swiftype div.st-result-listing .st-pagination {
   padding: 5px 0 25px;
   font-size: 11px;
   max-width: 600px;
   margin: 5px auto 20px; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 div.swiftype div.st-result-listing .st-pagination a {
   text-decoration: none;
   color: #999; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 div.swiftype div.st-result-listing .st-pagination .st-prev {
   float: left; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 div.swiftype div.st-result-listing .st-pagination .st-next {
   float: right; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 div.swiftype div.st-result-listing .st-logo-footer {
   display: none; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 div.swiftype div.st-result-listing .st-logo-footer a {
   display: block;
   margin: 0 auto 10px;
@@ -423,11 +423,11 @@ div.swiftype div.st-result-listing .st-logo-footer a {
   text-indent: -9999px; }
 
 @media only screen and (-webkit-device-pixel-ratio: 2) {
-  /* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+  /* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
   div.swiftype div.st-result-listing .st-logo-footer a {
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPIAAAAeCAYAAAAW7kNdAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAEP1JREFUeNrsXQl0lNUVvrOE7CEKIiiVIOoB1ygFESoET7F1Y7FV29oKuB5aUdKqPaAVqLa1iyLValsXovUUpSqhqK2KiooVlSW4sSlGFGWRMEBCJplkpvdmvkduXt4%2FmcGAiWcu557JvP%2F9%2F3v%2F%2B99373fve%2F%2Fgi8VilJaOLQ3nj0p0uDvr8awjWAew9mI9iDWDdTfrDtZNrO%2Bzvsz6LmttW20G%2FT56ZU%2BErtpWQwX8dyeTIOvBrH7WCMah%2Fus8R4JpmHRayWW9hHU862DWZNAWZn2R9XZ8fh3lItYLWPtgfu9h3cr6LOvfWaNpIKelo8hRrHezfifF87JYz2Ydxno16yOd6J67sk5kzWYVGhlg%2FTfrO6qOGLX7wEZchu9vaY%2Bclo4iRayPsg5MqnaEmWVGhgsUs1k3sr7i6fKZUnegwKsH6x%2BtObtNAVmAfY0DxNWsXVhXwADY4sM5EY%2FjaSCnpd1FvNG9yYGY52cDz81ehxNt5%2FkeZUbpa8G%2BJYa8jnUZ6OdekcCyNhqj8pp6yvJ1mPi4EbF9viqrtwxckXXOIoBfxm2NKu%2FN%2Bj18Hg7qPTWZ3EEayGlpD7mc9btJgbh6F%2FlLRhEd0oOi5fOIMrNcFc9i7Q9v1cJFNcYYyNX1Hckr%2BxzzNcMyTPbx11mfc1zrVNY71ffVrDelqXVaDhS1%2FFnb053n%2B%2B5d5BtwPPkum0TRW27kMj9wEHM9%2F2%2FZQBZZUx%2Bl7I5FrTezXgyabIC91AK6TR8yPa7V3UG%2FY2kgp%2BVAiCSpjmqzVm0N0aG9KHD9zRRbu5piH6wjyslJNE9PY%2F1zC1vg99MfQjUUZq%2Bc3XGoNd8YzU9wvMFxk40edbtZ32MJ6qaBnJZ2kwxQ6kBCT1xXxz4ohwKl0zj6O4Ki99yRzKLU4fpLgL3wvN1h2tDQSJmtQXwk6ygVi%2B6i%2BPr0ctbPKL60kw9PaEBVa8fguI9s1JNzQhYIxesWoMwHjylLZ7I%2BngXNRWy7FfV7ILzXkgfNUdeQRF9fBw4Oofh6cwD1YmgjqsBe5UH5D1KMIIJ7%2FgbGIgfXeRkxvZSdwVoM4%2FEGxROOdW2wsZMovk9A7vVjhA2f7r0BHx7WggUL5OFMoPjGApFKaXzMmDFlpjLqFCWaFVx%2FsV3G503hj0J5YHz8TsfxCQmuW6n7YJ0n51yLQRGpkGK7D1xvBv5c7Dhm2k7UTgl%2FlHj1j7Wczw1xPbnHKV79VmPc1NfRo0eXJwnknqyDEtaQ7DR7UP9PS8l3yiCKvb2SYqvf5cfepa1r52MiNxh7sLkhSqHGGHUL%2BHT8eQvrjwEw25vtZF3C%2BgPE8b8CGAKYwBdadPcvFF866wIDcCbFM9BGbkYYEQYwfohxfh2gCALMkqBia0W3sk52UGnpy0Vo53rWT1gfdFDrEwCoGIymLO29yfowwBYFSC9BAk3LODCaAPol%2FVnI%2Bgyem4lpjgej%2Bj3rcSoMkOu%2FwDqJdYN1bVkL%2FyUSc92UIZfryUaf%2B%2FBcaoJqMs9xPOQJfGw8T8iR5jvr9CSSEvbknaW%2BC5gqrHPGJwCKnCNgHSlgscBp90WuMYWPlXHdiapc11vs0baUl3l0oaSN%2B57FbUr%2FKvizqwEz%2F11pGY7pCsh9U%2FDIvWHh3RJtbPLG%2FksnkX%2FU2fEn%2Ffqr7IPYweTnt3XtLANkP6N4I8fGb9Y1Ul7zbq4CjMt5CZ53IcAg8gG84EH4fjq84E58P5HiGzYKlLfpo4BcCHAU4vsGeKA8xxiYid0P92FLNtRQc2EUh3kwnl7WeSvhoY9U5aMdQD7PYjUvwXDkqmScGALJno%2Bklll3cw9iyO5H8rFOjdNc1mM9xvxggFzamOqHF5mlPNo4NGi8RQk8qi2LPdSWax3AoQTebaZSc71i5emM4THAKnf0eYLywu0tun%2FlavJdq46HbAMCr25APJMBXplCmwPJvcmhyQtTTTX5x15A%2FgsuRlpoE%2FlfWcQzJEa%2BcJh1T3wpqg3DK9j9oL6RXgtHKKvZHF9ogVi8wXt4Nqsx2UX%2BBbAITdyo6hdYsf0Ih1cfqv42FNLIa6CQGYY1aBOGzxDabpUxYP0C%2FVkParuNWu%2FuakC9raDPYji2wFOS1fdc9V0MyzD1fSk8e8Bqww8jkI8%2BueLxkciDmJBgjgViCQ2ehKfX1xbmcmIQIDHWr1R5kMU8%2BVbi%2BBhqma4n5aXbkrHKSBTje2kCGj3D8samDyO0B1RUeZw2Llx%2FPtoQg9HuYE7QvyIcF4pdigchRnACKPYsZazuTLHZYzyPsNf1lYwi%2FxVX83SJh4hVa9fQ1kgj5fbrT926dacY0%2BtA1XYKVn7IU6xVmN2o49MMBrCsHceaQW5v9H5OTbgu8GTidVehTDzvu%2FCSxrsNRhydDZpoy3CVcBttsbrXFBjIwyMLLZ3H%2BjhAYES83DRQ7hC8rIBTNtScquq9A2dQjWsa9rCA9TLV9tGsQxTAT1f3aYxZzKOvn4NWPwMGchu13g8wFgm9H7Geosp3ILx4DmMzE%2Fflx72d48fE0hRxLLy0TMqTWX0pgNamxGNV7GuobhHKk5WQ%2FoRnM4ZntqN%2BKazbxP2dgcI4mb68rMBeBsNlxnSKiuNLdYiQpPRyg3gX%2BQaeSoHJNzA5jjvsaDRKCys%2FpZfOPJ%2BqrplKO2%2BYTjumTKOG3keQL%2BL0yvUOT6e9tU1ZD8O9RBHDfoRYcpWq84J1jUEqnDjZ0c6xoPeZoJdGqijBzjMF%2BHp4VNvTVkO3w2A1wuvaGz8i8MDbcdzQ21etuDUb4DWG5dsKtHL%2Bs67wElKG%2Bboe9Px6JAvtmJgQemh5BteO4R7nop9GjgsKxZOYErSv2KT4uawC9Gm2iwbycdd6xkzLY40x9BfxY4Xy8K5ETyGAqmPTEgu0JQow5Q6PWWkZJy3T%2BfrTvyR4X1JfTfKv3OFlSxEvFVoMonwfmj24VUkdU%2BbjTqLA1F8zUe26t%2FjDDRsoMyuLhpcMoTwur%2FcHKH%2Few5Tz4rMUzXQuq%2B5JsPQSxeS2E0P%2FAY18GfPlI6vO8wBDpsp2m8RQpvJQAcTIveHZcq04eBXoezIScAAo4FHP7zAIrrq78Gyvs%2BZkNrLRw1W5GJw1Cfpnj%2FHrqD9Ylck1D3UY7hASZ5kwWgfB%2BBjp7sfkn4hB1pPMxKUfISbdF281QVEUkYdUDFvoOK0Yk9%2BoAd1EVzb8K5ISpUWqbKwje28nz%2FaVJXRzuqMTiim2bUs8Q%2F32irhWV9PQoUMpLyeH6phGZy96mvLmP0qxjOBe6m3JzjbanuMAcw9Q4NvBPO62kkifwvPorHtPMCUj97A%2BpTLnJ%2BO4psavdoDn%2FYwFQonhjwD17acM3gJKvBZtD37YMa5iUA5xsCDJvq9FCCCG7b%2BWwcsIWt6tXNHXMQCiAG4Ol5VbE7WtFUo9sUO4Zsg6XuZIdj1kJRdKQE8Xw9vqzHWRzRZgIIoVmBIxBuNhS1KIkX1WW7MwTtLHcos2lypjVpZigqsFU2lVkplF0YVPsD98LD4DwrUU6XsMdZ12K0XZI9dxXJy5fCnlP3J%2FE4BjGV3iibHWsrWNtgVMsqx0o8c4FSDh8k3MmS3w8i9hycUA%2F1IV64tXkTevzkG5yGmWMYjA83%2FVshw6WD2LIVZC7mNybwVNVeqp%2BSWOFk%2BbvHepNWXkgzz5ZmHiV%2FBEK1UAkMSRoU6kYrxkRWer53scL0uU7AJQPsLgTUDyqlxR1RLHNaarDPd%2B3ZaExNZDyuAV68w9juuHva%2BS7RkiBoJNAPXxv7ohwyhSeDD5%2FD7KXL%2BWCu%2B%2Fi%2Fy1YYplZ3uBmJCYap4xPuceMInp3oIXOhfj3h9U0MipOPYAPJTMnckK7KXKIC3FeKxFXT%2By43rRW4693wGALPT6RYsCT4bnNLKQWq6DJxsK2Nn7KjAkn4MV3WuNt%2Fb0m%2F0KEFMcFHqE5S2TpdVFCvhl1HLJxgCvGPUSAkUljfqoGHixSiQVq3aLlQcs399PGIZmvCMxd2BEdm%2Bwt%2FVFo9TYoyeFBw1r2gAS2PI5Fdw3m%2FxfbKMYe2dK%2FCsw7xiL18DV1kSiXtv9dsLL%2FgKgHekAml5PXQ%2FvbCZtd2reSTgfiZvVKq7saeUChAnsPkAj2Zgg4UdgBrovA0GvDa1%2BLMk2tBxDLdeoRdYhQx12sJ63YBxtlWeyOghwaQo9HaAtUjFgGZJibSW7CA%2FYJLlC1sYMO3Y2XjaRVKrEko41V6LPK5FECynqFyLvJa4vC16v%2By53bHRpL0m8ob8hQvUDTqBInyPJv2M7db3vrqalplheXltn7jZMQSx6VWOUZoVqm954UnIZvM%2FzYEdVmPRyr5uo5VrnTgvIK6wsNCEuXKISXmuo9aYHs9tpf7zI4HPEqzkASzXCgC0WmOQ%2B3gOltkXuZVkS7XaxQqWfW0mtBhgEeSayA%2B1odUxCkKnwyiGVAJXQRZYHn%2FTD652sPGWRSuSEEFemmqQZ6%2BUV0Z4pH5%2FEtT62gQyv3Fd7dwVi8dYjv0Q8mqpUYIzG7cc2vD29eNtgBu0548wmD9217K%2BUWfEWxXJyk4HBKoBp7wxXa8iELLIA%2BXdI%2BixBdvZp1v9ZMXOYWi4V1SK2JEe2tkJ5s1WOOptsyt%2BO0kCt934PQPjwGmj0udZxAfizHtd7gpL7PbCJGLd5aONy67hsHX0Tf99vHZPk12%2FAUp7HOL%2BKBJu8fnmlz%2BFxSpQ3raAOLjq5hTg%2FRJ1Ekv3hw4bzR3km5Hx1YYoccyx9MeNPVDB3DuU%2BOZdBnOOVobZlpmFEAWSXSjbtaprpmBj9Ad5uSVxLkmG%2Ftcoks%2F0ktVzauRxxtJHhAEmWFXOOs%2BhoMViYV5tDABCdT7gDoYAt0wAMSgDO71tlp2As9PU%2FAwNdZ9UdgnvonuRUkA0qk5TBluGXnyW6IsnzVwQdk2lxqhPtK5ZQJ%2BxzqvKJd%2BQVpZpR51DOkhcod%2BHjPM2ykwXxblL7huXlmX%2FsClMdj1%2Bw%2Ba2nnWBPw5CjsJNuEYDrQXL%2FHtYSeNajQJPF%2Bz9l1XkbQOhHzbvMnnfElI141n7UyaSWGzsaQPvNW1NBh%2BfVyaOTEAJmWiGM2RhCjn6%2BYRlUyVR%2FmOQzrIXnzlB9fR8gfszy6jEk1GQzykUwqFmOJNwGjPH89GuMnUMELD9p5Y3D7I2P7k8%2BjpFlmSkW4DkeDLaV3DIiMehSbQD7ZQQoAGrta45hr0QSS7yyrF32Rrwnk30tchheGVuZrOdT8%2F7kPSoBpg3xONSJQTc6rrUOBsVYmSAouJH3EC8GqPnH%2BTZ79Otz5GeOQ9IpD4ZtI%2B7lcw9KvkwBuQFUOdn3mGX3213UvA%2B7Bv3z%2Bnkh2VBzG8LHXggtu8N4fgb9wtxjGsidQxYhTstrUSo%2FqheNUh7Tad%2BePfFXFpMDcQ3i3haZ2kGZgaZZZs3MKBjBJyq2TUU2tFOdOkq8HCWAWJ1Cv2oBzGVJ1peE2NmWYVmUQnubYWxSlc3QlYkq%2BdMY6RSynpp3xzXzL%2Fa%2BwU0fk39HVTLvHWu5SSVWmpGS%2Fr8KEskVoLg6jk8lH5OxPzuX9sidQ8JI6sjrfn1VtoxNcSDVa%2F2a3C%2BbpKW1yFhLRluSdhcrxyfx7D87UkfTHrnziNDKS5B02ReRZTzZDjmdOvkPzR1Akd2Hkpy7ygprHtiH57BfdxmmPXLnEslQngVASrwmyZqCBPVDiMtkk728%2BvZheghTkhUOAMo7xzOSwFWuVRZIAzktWiRbKb9RJbt8ZFtjP2hXTBazTCNxtezEkkRJVXrY9kmWU%2FMvi8gymvwXNbK9tK0fspfE4C1gPuY%2F0ntzf3b0%2FwIMAMzueRjRzYtvAAAAAElFTkSuQmCC); } }
 @media only screen and (max-width: 480px), only screen and (max-device-width: 480px) {
-  /* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+  /* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
   div.swiftype {
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
@@ -435,30 +435,30 @@ div.swiftype div.st-result-listing .st-logo-footer a {
     -o-border-radius: 0;
     border-radius: 0; }
 
-  /* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+  /* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
   div.swiftype .st-input-inner {
     padding-right: 0 !important; }
 
-  /* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+  /* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
   div.swiftype .st-input-powered-by {
     display: none !important; }
 
-  /* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+  /* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
   div.swiftype .st-result-listing {
     margin-left: 15px !important;
     margin-right: 15px !important; }
 
-  /* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+  /* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
   div.swiftype .st-result-wrapper .st-result-listing .st-logo-footer {
     display: block; }
 
-  /* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+  /* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
   #st-launcher-tab {
     right: 20px;
     width: 0;
     padding-left: 13px;
     text-indent: -99999px; } }
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 .swiftype-widget .autocomplete {
   font-family: "Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
   background-color: #fff;
@@ -477,7 +477,7 @@ div.swiftype div.st-result-listing .st-logo-footer a {
   border-radius: 3px;
   text-align: left; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 .swiftype-widget .autocomplete ul {
   font-family: "Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
   background-color: #fff;
@@ -492,7 +492,7 @@ div.swiftype div.st-result-listing .st-logo-footer a {
   border-radius: 3px;
   text-align: left; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 .swiftype-widget .autocomplete li {
   border-top: 1px solid #e5e5e5;
   border-bottom: 1px solid #fff;
@@ -503,7 +503,7 @@ div.swiftype div.st-result-listing .st-logo-footer a {
   background-image: none;
   margin: 0; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 .swiftype-widget .autocomplete li:first-child {
   border-top: 1px solid #fff;
   -webkit-border-radius: 3px 3px 0 0;
@@ -512,7 +512,7 @@ div.swiftype div.st-result-listing .st-logo-footer a {
   -o-border-radius: 3px 3px 0 0;
   border-radius: 3px 3px 0 0; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 .swiftype-widget .autocomplete li:last-child {
   -webkit-border-radius: 0 0 3px 3px;
   -moz-border-radius: 0 0 3px 3px;
@@ -520,7 +520,7 @@ div.swiftype div.st-result-listing .st-logo-footer a {
   -o-border-radius: 0 0 3px 3px;
   border-radius: 0 0 3px 3px; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 .swiftype-widget .autocomplete li.active {
   border-top: 1px solid #145a93;
   border-bottom: 1px solid #086aa8;
@@ -534,7 +534,7 @@ div.swiftype div.st-result-listing .st-logo-footer a {
   -moz-box-shadow: 0 1px 0 #69bdf3 inset;
   box-shadow: 0 1px 0 #69bdf3 inset; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 .swiftype-widget .autocomplete li p {
   font-size: 13px;
   line-height: 16px;
@@ -542,52 +542,52 @@ div.swiftype div.st-result-listing .st-logo-footer a {
   padding: 0;
   overflow: hidden; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 .swiftype-widget .autocomplete li p.title {
   font-weight: bold;
   color: #1c6cb5; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 .swiftype-widget .autocomplete li p.title em {
   color: #0b2644;
   font-style: normal;
   font-weight: bold; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 .swiftype-widget .autocomplete li.active p.title {
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
   color: #fff; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 .swiftype-widget .autocomplete li.active p.title em {
   color: #fff;
   font-style: normal; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 .swiftype-widget .autocomplete li .sections {
   color: #999;
   font-size: 11px; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 .swiftype-widget .autocomplete li .sections em {
   color: #666;
   font-style: normal; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 .swiftype-widget .autocomplete li .sections .section {
   display: inline; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 .swiftype-widget .autocomplete li.active .sections {
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
   color: #a9d7f1; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 .swiftype-widget .autocomplete li.active .sections em {
   color: #a9d7f1;
   font-style: normal; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 form input.st-search-input {
   font-size: 12px;
   padding: 4px 9px 4px 27px;
@@ -607,11 +607,11 @@ form input.st-search-input {
   background: #fcfcfc url(//s.swiftypecdn.com/assets/embed_mag-115e233edebef5dbcde4c557157b625c.png) no-repeat 7px 7px; }
 
 @media only screen and (-webkit-device-pixel-ratio: 2) {
-  /* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+  /* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
   form input.st-search-input {
     background-image: url(//s.swiftypecdn.com/assets/embed_mag@2x-10529ef3133384cb5a2b1bbdad37b0c4.png);
     background-size: 15px 15px; } }
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 .st-modal-open {
   overflow: hidden;
   position: fixed;
@@ -620,7 +620,7 @@ form input.st-search-input {
   bottom: 0;
   left: 0; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 .st-modal-scrollable {
   position: fixed;
   top: 0;
@@ -630,7 +630,7 @@ form input.st-search-input {
   overflow: auto;
   -webkit-overflow-scrolling: touch; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 .st-modal {
   left: 50%;
   top: 50%;
@@ -642,7 +642,7 @@ form input.st-search-input {
   margin-top: 0;
   overflow: visible; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 .st-modal.fullscreen {
   position: absolute;
   top: 0;
@@ -652,12 +652,12 @@ form input.st-search-input {
   margin-left: 0;
   width: 100%; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 .st-modal-body {
   max-height: none;
   overflow: visible; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 .st-modal-backdrop {
   position: fixed;
   top: 0;
@@ -671,7 +671,7 @@ form input.st-search-input {
   background-image: -o-radial-gradient(50% 50%, ellipse cover, rgba(0, 0, 0, 0.3) 5%, rgba(0, 0, 0, 0.7) 100%);
   background-image: radial-gradient(ellipse cover at 50% 50%, rgba(0, 0, 0, 0.3) 5%, rgba(0, 0, 0, 0.7) 100%); }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 .st-modal-backdrop.fade {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
@@ -680,25 +680,25 @@ form input.st-search-input {
   -o-transition: opacity 0.3s;
   transition: opacity 0.3s; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 .st-modal-backdrop.fade.in {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 .st-modal-overflow.st-modal {
   top: 20px; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 .st-modal-overflow.st-modal.fullscreen {
   top: 0; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 .st-modal-overflow .st-modal-body {
   overflow: auto;
   -webkit-overflow-scrolling: touch; }
 
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 .st-animate {
   -webkit-animation-duration: 0.3s;
   -moz-animation-duration: 0.3s;
@@ -811,7 +811,7 @@ form input.st-search-input {
     -ms-transform: scale(1);
     -o-transform: scale(1);
     transform: scale(1); } }
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 .modalEnter {
   -webkit-animation-name: modalEnter;
   -moz-animation-name: modalEnter;
@@ -920,14 +920,14 @@ form input.st-search-input {
     -ms-transform: scale(0.4);
     -o-transform: scale(0.4);
     transform: scale(0.4); } }
-/* line 2, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 2, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 .modalExit {
   -webkit-animation-name: modalExit;
   -moz-animation-name: modalExit;
   -o-animation-name: modalExit;
   animation-name: modalExit; }
 
-/* line 4, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 4, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 form input.st-search-input {
   font-size: 12px;
   padding: 5px 9px 5px 27px;
@@ -938,7 +938,7 @@ form input.st-search-input {
   outline: none;
   background: #fcfcfc url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAUFJREFUeNqU0j0oRWEcx/Hj3ifvlMHL7C1lY7mDwUBKkoksBjKJxWIQu7xlOybDLVGukhhMZDFbxGBS8nIjKR3E96nf0dPjuuVfn+6tc35P//P8/yYMw8CpbgygGQlcYw8H+Ai8MvotxQImgt81hk1M4cEPF2IV43jCGo7wjk5MYhhlGMKbG+7BKO4wiGPn8DO1vIN+jGA9fpjQaUksecG4zjGPL3VQ5IZb9OAw+LtO1FkjatxwUuEoTzjSbRu9/xO+0W97nnArqvXuoxve1/9p1OUIlmNGU7EX9+KGt3GKNuyiC5WoQAe2NJFP3PpzzmoR0khpxle6h3pnkeKJPCPjbtglerVFfWhSVxfqJtK4qrChTMY4XdjVm9O21aIA92LrFcv6HHtAsclxQVnxa0WfsqgDUib4X9muStCA2W8BBgDJ0EeGeFZ8WAAAAABJRU5ErkJggg==) no-repeat 7px 7px; }
 
-/* line 15, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 15, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 .swiftype-widget .autocomplete {
   font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   background-color: #fff;
@@ -957,7 +957,7 @@ form input.st-search-input {
   border-radius: 3px;
   text-align: left; }
 
-/* line 34, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 34, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 .swiftype-widget .autocomplete ul {
   font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   background-color: #fff;
@@ -972,7 +972,7 @@ form input.st-search-input {
   border-radius: 3px;
   text-align: left; }
 
-/* line 49, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 49, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 .swiftype-widget .autocomplete li {
   border-top: 1px solid #e5e5e5;
   border-bottom: 1px solid #fff;
@@ -983,7 +983,7 @@ form input.st-search-input {
   background-image: none;
   margin: 0; }
 
-/* line 60, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 60, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 .swiftype-widget .autocomplete li:first-child {
   border-top: 1px solid #fff;
   -webkit-border-radius: 3px 3px 0 0;
@@ -992,7 +992,7 @@ form input.st-search-input {
   -o-border-radius: 3px 3px 0 0;
   border-radius: 3px 3px 0 0; }
 
-/* line 69, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 69, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 .swiftype-widget .autocomplete li:last-child {
   -webkit-border-radius: 0 0 3px 3px;
   -moz-border-radius: 0 0 3px 3px;
@@ -1000,7 +1000,7 @@ form input.st-search-input {
   -o-border-radius: 0 0 3px 3px;
   border-radius: 0 0 3px 3px; }
 
-/* line 77, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 77, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 .swiftype-widget .autocomplete li.active {
   border-top: 1px solid #145A93;
   border-bottom: 1px solid #086aa8;
@@ -1014,54 +1014,54 @@ form input.st-search-input {
   -moz-box-shadow: 0 1px 0 #69bdf3 inset;
   box-shadow: 0 1px 0 #69bdf3 inset; }
 
-/* line 91, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 91, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 .swiftype-widget .autocomplete li p {
   font-size: 13px;
   line-height: 16px;
   margin: 0;
   padding: 0; }
 
-/* line 98, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 98, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 .swiftype-widget .autocomplete li p.title {
   font-weight: bold;
   color: #1c6cb5; }
 
-/* line 103, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 103, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 .swiftype-widget .autocomplete li p.title em {
   color: #0b2644;
   font-style: normal;
   font-weight: bold; }
 
-/* line 109, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 109, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 .swiftype-widget .autocomplete li.active p.title {
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
   color: #fff; }
 
-/* line 114, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 114, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 .swiftype-widget .autocomplete li.active p.title em {
   color: #fff;
   font-style: normal; }
 
-/* line 119, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 119, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 .swiftype-widget .autocomplete li .sections {
   color: #999;
   font-size: 11px; }
 
-/* line 124, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 124, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 .swiftype-widget .autocomplete li .sections em {
   color: #666;
   font-style: normal; }
 
-/* line 129, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 129, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 .swiftype-widget .autocomplete li .sections .section {
   display: inline; }
 
-/* line 133, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 133, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 .swiftype-widget .autocomplete li.active .sections {
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
   color: #a9d7f1; }
 
-/* line 138, /Users/trek/Development/ember/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
+/* line 138, /Users/michael/Code/guides/source/stylesheets/vendor/swiftype.autocomplete.scss */
 .swiftype-widget .autocomplete li.active .sections em {
   color: #a9d7f1;
   font-style: normal; }
