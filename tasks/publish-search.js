@@ -55,9 +55,3 @@ new PublishSearch(engine, options['api-key'])
     console.error(err);
     process.exit(1);
   });
-
-var searchJsFile = path.join(__dirname, '..', siteRoot, options.revision, 'javascripts/swiftype.js');
-fs.readFile(searchJsFile, 'utf8', function(err, data) {
-  var newJs = data.replace(/CURRENT_REVISION_WILL_APPEAR_HERE_WHEN_DEPLOYED/g, options.revision);
-  fs.writeFile(searchJsFile, newJs, 'utf8');
-});
