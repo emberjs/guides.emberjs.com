@@ -49,7 +49,7 @@ var documents = JSON.parse(fs.readFileSync(searchJSONfile, 'utf-8')).documents;
 new PublishSearch(engine, options['api-key'])
   .create(documentType, documents)
   .then(function(res){
-    console.log(documents.length + " docuemnts added to the search for Ember.js guides for " + options.revision);
+    console.log(documents.length + " documents added to the search for Ember.js guides for " + options.revision);
   })
   .catch(function(err){
     console.error(err);
