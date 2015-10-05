@@ -1,0 +1,1 @@
+$(function(){$(".toc-level-0 .toc-level-0 > a").click(function(){return $(this).parent().find("> ol").slideToggle(),!1}),$(function(){$(".anchorable-toc").each(function(){var c=$(this),n=c.attr("id"),t="#"+n,e='<a class="toc-anchor" href="'+t+'"></a>';c.prepend(e)})})});
