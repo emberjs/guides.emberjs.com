@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Ember.js - Templates: Actions</title>
+    <meta property="st:title" content="Templates: Actions" />
+    <link href="../../images/favicon.png" rel="icon" type="image/png" />
+    <!--[if lte IE 7 ]><link href="../../stylesheets/fonts/fontello-ie7.css" rel="stylesheet" type="text/css" /><![endif]-->
+    <link href="../../stylesheets/site.css" rel="stylesheet" type="text/css" />
+    <link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" title="Ember.js - Blog" />
+    
+  </head>
+
+  <body class="guides templates templates_actions templates_actions_index">
+
+    <!--[if lt IE 9]>
+      <script src="../../javascripts/common-old-ie.js" type="text/javascript"></script>
+    <![endif]-->
+    <!--[if gte IE 9]><!-->
+      <script src="../../javascripts/common-modern.js" type="text/javascript"></script>
+    <!--<![endif]-->
+
+    <div id="header">
+      <div id="wrapper">
+        <a id="logo" href="http://emberjs.com/">&nbsp;</a>
+        <ul id="nav">
+          <li>
+            <a href="http://emberjs.com/">about</a>
+          </li>
+          <li class="active">
+            <a href="/">guides</a>
+          </li>
+          <li>
+            <a href="http://emberjs.com/api">api</a>
+          </li>
+          <li>
+            <a href="http://emberjs.com/community">community</a>
+          </li>
+          <li>
+            <a href="http://emberjs.com/blog">blog</a>
+          </li>
+          <li>
+            <a href="http://emberjs.com/builds">builds</a>
+          </li>
+
+          <li id="search">
+            <form>
+              <input type="text" id="st-search-input" class="st-search-input" placeholder="Search the guides"/>
+            </form>
+            <div id="st-results-container"></div>
+          </li>
+        </ul>
+
+        <div id="github">
+          <a href="https://github.com/emberjs/ember.js"><i class="icon-fork"></i>Fork Us!</a>
+        </div>
+      </div>
+    </div>
+
+    
+
+    <div id="content-wrapper">
+      <div id="sidebar-wrapper">
+        <select class="version-select" style="width: 100%"></select>
+        <div id="sidebar">
+
+          <ol class='toc-level-0 selected'><li class='toc-level-0 '><a href="#">Getting Started</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../getting-started/">Installing Ember</a></li><li class='toc-level-1 '><a href="../../getting-started/first-app/">Your First Ember App</a></li><li class='toc-level-1 '><a href="../../getting-started/core-concepts/">Core Concepts</a></li></ol></li><li class='toc-level-0 '><a href="#">The Object Model</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../object-model/">Objects in Ember</a></li><li class='toc-level-1 '><a href="../../object-model/classes-and-instances/">Classes and Instances</a></li><li class='toc-level-1 '><a href="../../object-model/reopening-classes-and-instances/">Reopening Classes and Instances</a></li><li class='toc-level-1 '><a href="../../object-model/computed-properties/">Computed Properties</a></li><li class='toc-level-1 '><a href="../../object-model/computed-properties-and-aggregate-data/">Computed Properties and Aggregate Data</a></li><li class='toc-level-1 '><a href="../../object-model/observers/">Observers</a></li><li class='toc-level-1 '><a href="../../object-model/bindings/">Bindings</a></li><li class='toc-level-1 '><a href="../../object-model/enumerables/">Enumerables</a></li></ol></li><li class='toc-level-0 '><a href="#">Routing</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../routing/">Introduction</a></li><li class='toc-level-1 '><a href="../../routing/defining-your-routes/">Defining Your Routes</a></li><li class='toc-level-1 '><a href="../../routing/specifying-a-routes-model/">Specifying a Route's Model</a></li><li class='toc-level-1 '><a href="../../routing/rendering-a-template/">Rendering a Template</a></li><li class='toc-level-1 '><a href="../../routing/redirection/">Redirecting</a></li><li class='toc-level-1 '><a href="../../routing/preventing-and-retrying-transitions/">Preventing and Retrying Transitions</a></li><li class='toc-level-1 '><a href="../../routing/loading-and-error-substates/">Loading / Error Substates</a></li><li class='toc-level-1 '><a href="../../routing/query-params/">Query Parameters</a></li><li class='toc-level-1 '><a href="../../routing/asynchronous-routing/">Asynchronous Routing</a></li></ol></li><li class='toc-level-0 selected'><a href="#">Templates</a><ol class='toc-level-1 selected'><li class='toc-level-1 '><a href="../handlebars-basics/">Handlebars Basics</a></li><li class='toc-level-1 '><a href="../conditionals/">Conditionals</a></li><li class='toc-level-1 '><a href="../displaying-a-list-of-items/">Displaying a List of Items</a></li><li class='toc-level-1 '><a href="../displaying-the-keys-in-an-object/">Displaying the Keys in an Object</a></li><li class='toc-level-1 '><a href="../binding-element-attributes/">Binding Element Attributes</a></li><li class='toc-level-1 '><a href="../links/">Links</a></li><li class='toc-level-1 selected'><a href="./">Actions</a></li><li class='toc-level-1 '><a href="../input-helpers/">Input Helpers</a></li><li class='toc-level-1 '><a href="../development-helpers/">Development Helpers</a></li><li class='toc-level-1 '><a href="../writing-helpers/">Writing Helpers</a></li></ol></li><li class='toc-level-0 '><a href="#">Components</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../components/defining-a-component/">Defining a Component</a></li><li class='toc-level-1 '><a href="../../components/the-component-lifecycle/">The Component Lifecycle</a></li><li class='toc-level-1 '><a href="../../components/passing-properties-to-a-component/">Passing Properties to a Component</a></li><li class='toc-level-1 '><a href="../../components/wrapping-content-in-a-component/">Wrapping Content in a Component</a></li><li class='toc-level-1 '><a href="../../components/customizing-a-components-element/">Customizing a Component's Element</a></li><li class='toc-level-1 '><a href="../../components/handling-events/">Handling Events</a></li><li class='toc-level-1 '><a href="../../components/triggering-changes-with-actions/">Triggering Changes with Actions</a></li></ol></li><li class='toc-level-0 '><a href="#">Controllers</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../controllers/">Introduction</a></li><li class='toc-level-1 '><a href="../../controllers/dependencies-between-controllers/">Managing Dependencies Between Controllers</a></li></ol></li><li class='toc-level-0 '><a href="#">Models</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../models/">Introduction</a></li><li class='toc-level-1 '><a href="../../models/defining-models/">Defining Models</a></li><li class='toc-level-1 '><a href="../../models/finding-records/">Finding Records</a></li><li class='toc-level-1 '><a href="../../models/creating-updating-and-deleting-records/">Creating, Updating and Deleting</a></li><li class='toc-level-1 '><a href="../../models/pushing-records-into-the-store/">Pushing Records into the Store</a></li><li class='toc-level-1 '><a href="../../models/working-with-relationships/">Working with Relationships</a></li><li class='toc-level-1 '><a href="../../models/handling-metadata/">Handling Metadata</a></li><li class='toc-level-1 '><a href="../../models/customizing-adapters/">Customizing Adapters</a></li><li class='toc-level-1 '><a href="../../models/customizing-serializers/">Customizing Serializers</a></li></ol></li><li class='toc-level-0 '><a href="#">Application Concerns</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../applications/applications-and-instances/">Applications and Instances</a></li><li class='toc-level-1 '><a href="../../applications/dependency-injection/">Dependency Injection</a></li><li class='toc-level-1 '><a href="../../applications/initializers/">Initializers</a></li><li class='toc-level-1 '><a href="../../applications/services/">Services</a></li><li class='toc-level-1 '><a href="../../applications/run-loop/">The Run Loop</a></li></ol></li><li class='toc-level-0 '><a href="#">Testing</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../testing/">Introduction</a></li><li class='toc-level-1 '><a href="../../testing/acceptance/">Acceptance Tests</a></li><li class='toc-level-1 '><a href="../../testing/unit-testing-basics/">Unit Testing Basics</a></li><li class='toc-level-1 '><a href="../../testing/testing-components/">Testing Components</a></li><li class='toc-level-1 '><a href="../../testing/testing-controllers/">Testing Controllers</a></li><li class='toc-level-1 '><a href="../../testing/testing-routes/">Testing Routes</a></li><li class='toc-level-1 '><a href="../../testing/testing-models/">Testing Models</a></li></ol></li><li class='toc-level-0 '><a href="#">Ember Inspector</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../ember-inspector/installation/">Installing the Inspector</a></li><li class='toc-level-1 '><a href="../../ember-inspector/object-inspector/">Object Inspector</a></li><li class='toc-level-1 '><a href="../../ember-inspector/view-tree/">The View Tree</a></li><li class='toc-level-1 '><a href="../../ember-inspector/routes/">Inspecting Routes</a></li><li class='toc-level-1 '><a href="../../ember-inspector/data/">Data Tab</a></li><li class='toc-level-1 '><a href="../../ember-inspector/deprecations/">Tackling Deprecations</a></li><li class='toc-level-1 '><a href="../../ember-inspector/info/">Library Info</a></li><li class='toc-level-1 '><a href="../../ember-inspector/promises/">Debugging Promises</a></li><li class='toc-level-1 '><a href="../../ember-inspector/container/">Inspecting Objects via the Container</a></li><li class='toc-level-1 '><a href="../../ember-inspector/render-performance/">Rendering Performance</a></li><li class='toc-level-1 '><a href="../../ember-inspector/troubleshooting/">Troubleshooting</a></li></ol></li><li class='toc-level-0 '><a href="#">Addons and Dependencies</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../addons-and-dependencies/managing-dependencies/">Managing Dependencies</a></li></ol></li><li class='toc-level-0 '><a href="#">Configuring Ember.js</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../configuring-ember/configuring-your-app/">Configuring Your App</a></li><li class='toc-level-1 '><a href="../../configuring-ember/configuring-ember-cli/">Configuring Ember CLI</a></li><li class='toc-level-1 '><a href="../../configuring-ember/handling-deprecations/">Handling Deprecations</a></li><li class='toc-level-1 '><a href="../../configuring-ember/disabling-prototype-extensions/">Disabling Prototype Extensions</a></li><li class='toc-level-1 '><a href="../../configuring-ember/specifying-url-type/">Specifying the URL Type</a></li><li class='toc-level-1 '><a href="../../configuring-ember/embedding-applications/">Embedding Applications</a></li><li class='toc-level-1 '><a href="../../configuring-ember/feature-flags/">Feature Flags</a></li><li class='toc-level-1 '><a href="../../configuring-ember/debugging/">Debugging</a></li></ol></li><li class='toc-level-0 '><a href="#">Contributing to Ember.js</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../contributing/adding-new-features/">Adding New Features</a></li><li class='toc-level-1 '><a href="../../contributing/repositories/">Repositories</a></li></ol></li></ol>
+          <div id="back-to-top"><a id="back-top-top" href="#">&#11014; Back to Top</a></div>
+        </div>
+      </div>
+      <div id="content" class="has-sidebar">
+        <div class="chapter">
+          <h1>
+            Actions
+            <a href="https://github.com/emberjs/guides/edit/master/source/templates/actions.md"
+               target="_blank" class="edit-page icon-pencil">Edit Page</a>
+          </h1>
+          <hr>
+
+          <p>Your app will often need a way to let users interact with controls that
+change application state. For example, imagine that you have a template
+that shows a blog title, and supports expanding the post to show the body.</p>
+
+<p>If you add the
+<a href="http://emberjs.com/api/classes/Ember.Templates.helpers.html#method_action"><code>{{action}}</code></a>
+helper to an HTML element, when a user clicks the element, the named event
+will be sent to the template&#39;s corresponding component or controller.</p>
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/templates/components/single-post.hbs</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+</pre></td>
+  <td class="code"><pre><span class="tag">&lt;h3</span> <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">action</span> <span class="error">&quot;</span><span class="attribute-name">toggleBody</span><span class="error">&quot;</span><span class="inline-delimiter">}}</span></span><span class="tag">&gt;</span><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">title</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/h3&gt;</span>
+<span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">if</span> <span class="attribute-name">isShowingBody</span><span class="inline-delimiter">}}</span></span>
+  <span class="tag">&lt;p&gt;</span><span class="inline"><span class="inline-delimiter">{{{</span><span class="attribute-name">body</span><span class="inline-delimiter">}}}</span></span><span class="tag">&lt;/p&gt;</span>
+<span class="inline"><span class="inline-delimiter">{{/</span><span class="attribute-name">if</span><span class="inline-delimiter">}}</span></span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>In the component or controller, you can then define what the action does within
+the <code>actions</code> hook:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/components/single-post.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td>
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> Ember.Component.extend({
+  <span class="key">actions</span>: {
+    toggleBody() {
+      <span class="local-variable">this</span>.toggleProperty(<span class="string"><span class="delimiter">'</span><span class="content">isShowingBody</span><span class="delimiter">'</span></span>);
+    }
+  }
+});
+</pre></td>
+</tr></table>
+</div></div><h2 class='anchorable-toc' id='toc_action-parameters'>Action Parameters</h2>
+<p>You can optionally pass arguments to the action handler. Any values
+passed to the <code>{{action}}</code> helper after the action name will be passed to
+the handler as arguments.</p>
+
+<p>For example, if the <code>post</code> argument was passed:</p>
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="tag">&lt;p&gt;</span><span class="tag">&lt;button</span> <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">action</span> <span class="error">&quot;</span><span class="attribute-name">select</span><span class="error">&quot;</span> <span class="attribute-name">post</span><span class="inline-delimiter">}}</span></span><span class="tag">&gt;</span>✓<span class="tag">&lt;/button&gt;</span> <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">post.title</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/p&gt;</span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>The <code>select</code> action handler would be called with a single argument
+containing the post model:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/components/single-post.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td>
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> Ember.Component.extend({
+  <span class="key">actions</span>: {
+    select(post) {
+      console.log(post.get(<span class="string"><span class="delimiter">'</span><span class="content">title</span><span class="delimiter">'</span></span>));
+    }
+  }
+});
+</pre></td>
+</tr></table>
+</div></div><h2 class='anchorable-toc' id='toc_specifying-the-type-of-event'>Specifying the Type of Event</h2>
+<p>By default, the
+<a href="http://emberjs.com/api/classes/Ember.Templates.helpers.html#method_action"><code>{{action}}</code></a>
+helper listens for click events and triggers the action when the user clicks
+on the element.</p>
+
+<p>You can specify an alternative event by using the <code>on</code> option.</p>
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+</pre></td>
+  <td class="code"><pre><span class="tag">&lt;p&gt;</span>
+  <span class="tag">&lt;button</span> <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">action</span> <span class="error">&quot;</span><span class="attribute-name">select</span><span class="error">&quot;</span> <span class="attribute-name">post</span> <span class="attribute-name">on</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">mouseUp</span><span class="delimiter">&quot;</span></span><span class="inline-delimiter">}}</span></span><span class="tag">&gt;</span>✓<span class="tag">&lt;/button&gt;</span>
+  <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">post.title</span><span class="inline-delimiter">}}</span></span>
+<span class="tag">&lt;/p&gt;</span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>You should use the <code>camelCased</code> event names, so two-word names like <code>keypress</code>
+become <code>keyPress</code>.</p>
+<h2 class='anchorable-toc' id='toc_allowing-modifier-keys'>Allowing Modifier Keys</h2>
+<p>By default the <code>{{action}}</code> helper will ignore click events with
+pressed modifier keys. You can supply an <code>allowedKeys</code> option
+to specify which keys should not be ignored.</p>
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+</pre></td>
+  <td class="code"><pre><span class="tag">&lt;button</span> <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">action</span> <span class="error">&quot;</span><span class="attribute-name">anActionName</span><span class="error">&quot;</span> <span class="attribute-name">allowedKeys</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">alt</span><span class="delimiter">&quot;</span></span><span class="inline-delimiter">}}</span></span><span class="tag">&gt;</span>
+  click me
+<span class="tag">&lt;/button&gt;</span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>This way the <code>{{action}}</code> will fire when clicking with the alt key
+pressed down.</p>
+<h2 class='anchorable-toc' id='toc_allowing-default-browser-action'>Allowing Default Browser Action</h2>
+<p>By default, the <code>{{action}}</code> helper prevents the default browser action of the
+DOM event. If you want to allow the browser action, you can stop Ember from
+preventing it.</p>
+
+<p>For example, if you have a normal link tag and want the link to bring the user
+to another page in addition to triggering an ember action when clicked, you can
+use <code>preventDefault=false</code>:</p>
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="tag">&lt;a</span> <span class="attribute-name">href</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">newPage.htm</span><span class="delimiter">&quot;</span></span> <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">action</span> <span class="error">&quot;</span><span class="attribute-name">logClick</span><span class="error">&quot;</span> <span class="attribute-name">preventDefault</span>=<span class="attribute-value">false</span><span class="inline-delimiter">}}</span></span><span class="tag">&gt;</span>Go<span class="tag">&lt;/a&gt;</span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>Without <code>preventDefault=false</code>, if the user clicked on the link, Ember.js
+will trigger the action, but the user will remain on the current page.</p>
+
+<p>With <code>preventDefault=false</code>, if the user clicked on the link, Ember.js
+will trigger the action <em>and</em> the user will be directed to the new page.</p>
+<h2 class='anchorable-toc' id='toc_modifying-the-action-s-first-parameter'>Modifying the action&#39;s first parameter</h2>
+<p>If a <code>value</code> option for the
+<a href="http://emberjs.com/api/classes/Ember.Templates.helpers.html#method_action"><code>{{action}}</code></a>
+helper is specified, its value will be considered a property path that will
+be read off of the first parameter of the action. This comes very handy with
+event listeners and enables to work with one-way bindings.</p>
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre><span class="tag">&lt;label&gt;</span>What's your favorite band?<span class="tag">&lt;/label&gt;</span>
+<span class="tag">&lt;input</span> <span class="attribute-name">type</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">text</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">favoriteBand</span><span class="inline-delimiter">}}</span></span> <span class="attribute-value">onblur</span><span class="error">=</span><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">action</span> <span class="error">&quot;</span><span class="attribute-name">bandDidChange</span><span class="error">&quot;</span><span class="inline-delimiter">}}</span></span><span class="tag">/&gt;</span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>Let&#39;s assume we have an action handler that prints its first parameter:</p>
+<div class="highlight js "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+</pre></td>
+  <td class="code"><pre>actions: {
+  bandDidChange(newValue) {
+    console.log(newValue);
+  }
+}
+</pre></td>
+</tr></table>
+</div></div>
+<p>By default, the action handler receives the first parameter of the event
+listener, the event object the browser passes to the handler, so
+<code>bandDidChange</code> prints <code>Event {}</code>.</p>
+
+<p>Using the <code>value</code> option modifies that behavior by extracting that property from
+the event object:</p>
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre><span class="tag">&lt;label&gt;</span>What's your favorite band?<span class="tag">&lt;/label&gt;</span>
+<span class="tag">&lt;input</span> <span class="attribute-name">type</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">text</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">value</span>=<span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">favoriteBand</span><span class="inline-delimiter">}}</span></span> <span class="attribute-value">onblur</span><span class="error">=</span><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">action</span> <span class="error">&quot;</span><span class="attribute-name">bandDidChange</span><span class="error">&quot;</span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">target.value</span><span class="delimiter">&quot;</span></span><span class="inline-delimiter">}}</span></span><span class="tag">/&gt;</span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>The <code>newValue</code> parameter thus becomes the <code>target.value</code> property of the event
+object, which is the value of the input field the user typed. (e.g &#39;Foo Fighters&#39;)</p>
+<h2 class='anchorable-toc' id='toc_attaching-actions-to-non-clickable-elements'>Attaching Actions to Non-Clickable Elements</h2>
+<p>Note that actions may be attached to any element of the DOM, but not all
+respond to the <code>click</code> event. For example, if an action is attached to an <code>a</code>
+link without an <code>href</code> attribute, or to a <code>div</code>, some browsers won&#39;t execute
+the associated function. If it&#39;s really needed to define actions over such
+elements, a CSS workaround exists to make them clickable, <code>cursor: pointer</code>.
+For example:</p>
+<div class="highlight css "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+</pre></td>
+  <td class="code"><pre>[<span class="attribute-name">data-ember-action</span>] {
+  <span class="key">cursor</span>: <span class="value">pointer</span>;
+}
+</pre></td>
+</tr></table>
+</div></div>
+
+
+          
+      <footer>
+        <a class="previous-guide" href="../links/"> ← Links</a> <a class="next-guide" href="../input-helpers/">Input Helpers →</a>
+      </footer>
+      
+        </div>
+      </div>
+    </div>
+
+    <div id="footer">
+      <div id="footer-wrapper">
+        <div class="info">
+          Copyright 2015 <a href="http://tilde.io">Tilde Inc.</a><br>
+          <a href="http://emberjs.com/team">Core Team</a> | <a href="http://emberjs.com/sponsors">Sponsors</a> | <a href="http://emberjs.com/legal">Legal</a></br>
+          <a href="http://emberjs.com/guidelines">Community Guidelines</a>
+        </div>
+        <div class="statement">Ember.js is free, open source and always will be.</div>
+        <div class="links">
+          <a class="twitter" href="http://twitter.com/emberjs">
+            <i class="icon-twitter"></i><span>Twitter</span>
+          </a>
+          <a class="github" href="https://github.com/emberjs/ember.js">
+            <i class="icon-github"></i><span>GitHub</span>
+          </a>
+          <a class="googleplus" href="https://plus.google.com/communities/106387049790387471205">
+            <i class="icon-gplus"></i><span>Google+</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+      _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+      _gaq.push(['_setAccount', 'UA-27675533-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
+</html>
