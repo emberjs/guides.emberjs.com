@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Ember.js - Components: Passing Properties to a Component</title>
+    <meta property="st:title" content="Components: Passing Properties to a Component" />
+    <link href="../../images/favicon.png" rel="icon" type="image/png" />
+    <!--[if lte IE 7 ]><link href="../../stylesheets/fonts/fontello-ie7.css" rel="stylesheet" /><![endif]-->
+    <link href="../../stylesheets/site.css" rel="stylesheet" />
+    <link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" title="Ember.js - Blog" />
+    
+  </head>
+
+  <body class="guides components components_passing-properties-to-a-component components_passing-properties-to-a-component_index">
+
+    <!--[if lt IE 9]>
+      <script src="../../javascripts/common-old-ie.js"></script>
+    <![endif]-->
+    <!--[if gte IE 9]><!-->
+      <script src="../../javascripts/common-modern.js"></script>
+    <!--<![endif]-->
+
+    <div id="header">
+      <div id="wrapper">
+        <a id="logo" href="http://emberjs.com/">&nbsp;</a>
+        <ul id="nav">
+          <li>
+            <a href="http://emberjs.com/">about</a>
+          </li>
+          <li class="active">
+            <a href="/">guides</a>
+          </li>
+          <li>
+            <a href="http://emberjs.com/api">api</a>
+          </li>
+          <li>
+            <a href="http://emberjs.com/community">community</a>
+          </li>
+          <li>
+            <a href="http://emberjs.com/blog">blog</a>
+          </li>
+          <li>
+            <a href="http://emberjs.com/builds">builds</a>
+          </li>
+
+          <li id="search">
+            <form>
+              <input type="text" id="st-search-input" class="st-search-input" placeholder="Search the guides"/>
+            </form>
+            <div id="st-results-container"></div>
+          </li>
+        </ul>
+
+        <div id="github">
+          <a href="https://github.com/emberjs/ember.js"><i class="icon-fork"></i>Fork Us!</a>
+        </div>
+      </div>
+    </div>
+
+    
+
+    <div id="content-wrapper">
+      <div id="sidebar-wrapper">
+        <select class="version-select" style="width: 100%"></select>
+        <div id="sidebar">
+
+          <ol class='toc-level-0 selected'><li class='toc-level-0 '><a href="#">Getting Started</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../getting-started/">Installing Ember</a></li><li class='toc-level-1 '><a href="../../getting-started/first-app/">Your First Ember App</a></li><li class='toc-level-1 '><a href="../../getting-started/core-concepts/">Core Concepts</a></li></ol></li><li class='toc-level-0 '><a href="#">The Object Model</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../object-model/">Objects in Ember</a></li><li class='toc-level-1 '><a href="../../object-model/classes-and-instances/">Classes and Instances</a></li><li class='toc-level-1 '><a href="../../object-model/reopening-classes-and-instances/">Reopening Classes and Instances</a></li><li class='toc-level-1 '><a href="../../object-model/computed-properties/">Computed Properties</a></li><li class='toc-level-1 '><a href="../../object-model/computed-properties-and-aggregate-data/">Computed Properties and Aggregate Data</a></li><li class='toc-level-1 '><a href="../../object-model/observers/">Observers</a></li><li class='toc-level-1 '><a href="../../object-model/bindings/">Bindings</a></li><li class='toc-level-1 '><a href="../../object-model/enumerables/">Enumerables</a></li></ol></li><li class='toc-level-0 '><a href="#">Routing</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../routing/">Introduction</a></li><li class='toc-level-1 '><a href="../../routing/defining-your-routes/">Defining Your Routes</a></li><li class='toc-level-1 '><a href="../../routing/specifying-a-routes-model/">Specifying a Route's Model</a></li><li class='toc-level-1 '><a href="../../routing/rendering-a-template/">Rendering a Template</a></li><li class='toc-level-1 '><a href="../../routing/redirection/">Redirecting</a></li><li class='toc-level-1 '><a href="../../routing/preventing-and-retrying-transitions/">Preventing and Retrying Transitions</a></li><li class='toc-level-1 '><a href="../../routing/loading-and-error-substates/">Loading / Error Substates</a></li><li class='toc-level-1 '><a href="../../routing/query-params/">Query Parameters</a></li><li class='toc-level-1 '><a href="../../routing/asynchronous-routing/">Asynchronous Routing</a></li></ol></li><li class='toc-level-0 '><a href="#">Templates</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../templates/handlebars-basics/">Handlebars Basics</a></li><li class='toc-level-1 '><a href="../../templates/conditionals/">Conditionals</a></li><li class='toc-level-1 '><a href="../../templates/displaying-a-list-of-items/">Displaying a List of Items</a></li><li class='toc-level-1 '><a href="../../templates/displaying-the-keys-in-an-object/">Displaying the Keys in an Object</a></li><li class='toc-level-1 '><a href="../../templates/binding-element-attributes/">Binding Element Attributes</a></li><li class='toc-level-1 '><a href="../../templates/links/">Links</a></li><li class='toc-level-1 '><a href="../../templates/actions/">Actions</a></li><li class='toc-level-1 '><a href="../../templates/input-helpers/">Input Helpers</a></li><li class='toc-level-1 '><a href="../../templates/development-helpers/">Development Helpers</a></li><li class='toc-level-1 '><a href="../../templates/writing-helpers/">Writing Helpers</a></li></ol></li><li class='toc-level-0 selected'><a href="#">Components</a><ol class='toc-level-1 selected'><li class='toc-level-1 '><a href="../defining-a-component/">Defining a Component</a></li><li class='toc-level-1 selected'><a href="./">Passing Properties to a Component</a></li><li class='toc-level-1 '><a href="../wrapping-content-in-a-component/">Wrapping Content in a Component</a></li><li class='toc-level-1 '><a href="../customizing-a-components-element/">Customizing a Component's Element</a></li><li class='toc-level-1 '><a href="../handling-events/">Handling Events</a></li><li class='toc-level-1 '><a href="../triggering-changes-with-actions/">Triggering Changes with Actions</a></li></ol></li><li class='toc-level-0 '><a href="#">Controllers</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../controllers/">Introduction</a></li><li class='toc-level-1 '><a href="../../controllers/dependencies-between-controllers/">Managing Dependencies Between Controllers</a></li></ol></li><li class='toc-level-0 '><a href="#">Models</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../models/">Introduction</a></li><li class='toc-level-1 '><a href="../../models/defining-models/">Defining Models</a></li><li class='toc-level-1 '><a href="../../models/finding-records/">Finding Records</a></li><li class='toc-level-1 '><a href="../../models/creating-updating-and-deleting-records/">Creating, Updating and Deleting</a></li><li class='toc-level-1 '><a href="../../models/pushing-records-into-the-store/">Pushing Records into the Store</a></li><li class='toc-level-1 '><a href="../../models/working-with-relationships/">Working with Relationships</a></li><li class='toc-level-1 '><a href="../../models/handling-metadata/">Handling Metadata</a></li><li class='toc-level-1 '><a href="../../models/customizing-adapters/">Customizing Adapters</a></li><li class='toc-level-1 '><a href="../../models/customizing-serializers/">Customizing Serializers</a></li></ol></li><li class='toc-level-0 '><a href="#">Application Concerns</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../applications/applications-and-instances/">Applications and Instances</a></li><li class='toc-level-1 '><a href="../../applications/dependency-injection/">Dependency Injection</a></li><li class='toc-level-1 '><a href="../../applications/initializers/">Initializers</a></li><li class='toc-level-1 '><a href="../../applications/services/">Services</a></li><li class='toc-level-1 '><a href="../../applications/run-loop/">The Run Loop</a></li></ol></li><li class='toc-level-0 '><a href="#">Testing</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../testing/">Introduction</a></li><li class='toc-level-1 '><a href="../../testing/acceptance/">Acceptance Tests</a></li><li class='toc-level-1 '><a href="../../testing/unit-testing-basics/">Unit Testing Basics</a></li><li class='toc-level-1 '><a href="../../testing/testing-components/">Testing Components</a></li><li class='toc-level-1 '><a href="../../testing/testing-controllers/">Testing Controllers</a></li><li class='toc-level-1 '><a href="../../testing/testing-routes/">Testing Routes</a></li><li class='toc-level-1 '><a href="../../testing/testing-models/">Testing Models</a></li></ol></li><li class='toc-level-0 '><a href="#">Ember Inspector</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../ember-inspector/installation/">Installing the Inspector</a></li><li class='toc-level-1 '><a href="../../ember-inspector/object-inspector/">Object Inspector</a></li><li class='toc-level-1 '><a href="../../ember-inspector/view-tree/">The View Tree</a></li><li class='toc-level-1 '><a href="../../ember-inspector/routes/">Inspecting Routes</a></li><li class='toc-level-1 '><a href="../../ember-inspector/data/">Data Tab</a></li><li class='toc-level-1 '><a href="../../ember-inspector/deprecations/">Tackling Deprecations</a></li><li class='toc-level-1 '><a href="../../ember-inspector/info/">Library Info</a></li><li class='toc-level-1 '><a href="../../ember-inspector/promises/">Debugging Promises</a></li><li class='toc-level-1 '><a href="../../ember-inspector/container/">Inspecting Objects via the Container</a></li><li class='toc-level-1 '><a href="../../ember-inspector/render-performance/">Rendering Performance</a></li><li class='toc-level-1 '><a href="../../ember-inspector/troubleshooting/">Troubleshooting</a></li></ol></li><li class='toc-level-0 '><a href="#">Addons and Dependencies</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../addons-and-dependencies/managing-dependencies/">Managing Dependencies</a></li></ol></li><li class='toc-level-0 '><a href="#">Configuring Ember.js</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../configuring-ember/configuring-your-app/">Configuring Your App</a></li><li class='toc-level-1 '><a href="../../configuring-ember/configuring-ember-cli/">Configuring Ember CLI</a></li><li class='toc-level-1 '><a href="../../configuring-ember/disabling-prototype-extensions/">Disabling Prototype Extensions</a></li><li class='toc-level-1 '><a href="../../configuring-ember/specifying-url-type/">Specifying the URL Type</a></li><li class='toc-level-1 '><a href="../../configuring-ember/embedding-applications/">Embedding Applications</a></li><li class='toc-level-1 '><a href="../../configuring-ember/feature-flags/">Feature Flags</a></li><li class='toc-level-1 '><a href="../../configuring-ember/debugging/">Debugging</a></li></ol></li><li class='toc-level-0 '><a href="#">Contributing to Ember.js</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../contributing/adding-new-features/">Adding New Features</a></li><li class='toc-level-1 '><a href="../../contributing/repositories/">Repositories</a></li></ol></li></ol>
+          <div id="back-to-top"><a id="back-top-top" href="#">&#11014; Back to Top</a></div>
+        </div>
+      </div>
+      <div id="content" class="has-sidebar">
+        <div class="chapter">
+          <h1>
+            Passing Properties to a Component
+            <a href="https://github.com/emberjs/guides/edit/master/source/components/passing-properties-to-a-component.md"
+               target="_blank" class="edit-page icon-pencil">Edit Page</a>
+          </h1>
+          <hr>
+
+          <p>Components are isolated from their surroundings, so any data that the component
+needs has to be passed in.</p>
+
+<p>For example, imagine you have a <code>blog-post</code> component that is used to
+display a blog post:</p>
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/templates/components/blog-post.hbs</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+</pre></td>
+  <td class="code"><pre><span class="tag">&lt;article</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">blog-post</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+  <span class="tag">&lt;h1&gt;</span><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">title</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/h1&gt;</span>
+  <span class="tag">&lt;p&gt;</span><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">body</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;/article&gt;</span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>Now imagine we have the following template and route:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/routes/index.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+</pre></td>
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> Ember.Route.extend({
+  model() {
+    <span class="keyword">return</span> <span class="local-variable">this</span>.store.findAll(<span class="string"><span class="delimiter">'</span><span class="content">post</span><span class="delimiter">'</span></span>);
+  }
+});
+</pre></td>
+</tr></table>
+</div></div>
+<p>If we tried to use the component like this:</p>
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/templates/index.hbs</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+</pre></td>
+  <td class="code"><pre><span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">each</span> <span class="attribute-name">model</span> <span class="attribute-name">as</span> <span class="error">|</span><span class="attribute-name">post</span><span class="error">|</span><span class="inline-delimiter">}}</span></span>
+  <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">blog-post</span><span class="inline-delimiter">}}</span></span>
+<span class="inline"><span class="inline-delimiter">{{/</span><span class="attribute-name">each</span><span class="inline-delimiter">}}</span></span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>The following HTML would be rendered:</p>
+<div class="highlight html "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+</pre></td>
+  <td class="code"><pre><span class="tag">&lt;article</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">blog-post</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+  <span class="tag">&lt;h1&gt;</span><span class="tag">&lt;/h1&gt;</span>
+  <span class="tag">&lt;p&gt;</span><span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;/article&gt;</span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>In order to make a property available to a component, you must pass it
+in like this:</p>
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/templates/index.hbs</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+</pre></td>
+  <td class="code"><pre><span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">each</span> <span class="attribute-name">model</span> <span class="attribute-name">as</span> <span class="error">|</span><span class="attribute-name">post</span><span class="error">|</span><span class="inline-delimiter">}}</span></span>
+  <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">blog-post</span> <span class="attribute-name">title</span>=<span class="attribute-value">post.title</span> <span class="attribute-name">body</span>=<span class="attribute-value">post.body</span><span class="inline-delimiter">}}</span></span>
+<span class="inline"><span class="inline-delimiter">{{/</span><span class="attribute-name">each</span><span class="inline-delimiter">}}</span></span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>It is important to note that these properties stay in sync (technically
+known as being &quot;bound&quot;). That is, if the value of <code>componentProperty</code>
+changes in the component, <code>outerProperty</code> will be updated to reflect that
+change. The reverse is true as well.</p>
+<h2 class='anchorable-toc' id='toc_positional-params'>Positional Params</h2>
+<p>In addition to passing parameters in by name, you can pass them in by position.
+In other words, you can invoke the above component example like this:</p>
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/templates/index.hbs</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+</pre></td>
+  <td class="code"><pre><span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">each</span> <span class="attribute-name">model</span> <span class="attribute-name">as</span> <span class="error">|</span><span class="attribute-name">post</span><span class="error">|</span><span class="inline-delimiter">}}</span></span>
+  <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">blog-post</span> <span class="attribute-name">post.title</span> <span class="attribute-name">post.body</span><span class="inline-delimiter">}}</span></span>
+<span class="inline"><span class="inline-delimiter">{{/</span><span class="attribute-name">each</span><span class="inline-delimiter">}}</span></span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>To set the component up to receive parameters this way, you need
+set the <code>positionalParams</code> attribute in your component class.</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/components/blog-post.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td>
+  <td class="code"><pre>const BlogPostComponent = Ember.Component.extend({});
+
+BlogPostComponent.reopenClass({
+  <span class="key">positionalParams</span>: [<span class="string"><span class="delimiter">'</span><span class="content">title</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">body</span><span class="delimiter">'</span></span>]
+});
+
+<span class="reserved">export</span> <span class="keyword">default</span> BlogPostComponent;
+</pre></td>
+</tr></table>
+</div></div>
+<p>Then you can use the attributes in the component exactly as if they had been
+passed in like <code>{{blog-post title=post.title body=post.body}}</code>.</p>
+
+<p>Notice that the <code>positionalParams</code> property is added to the class as a
+static variable via <code>reopenClass</code>. Positional params are always declared on
+the component class and cannot be changed while an application runs.</p>
+
+<p>Alternatively, you can accept have an arbitrary number of parameters by
+setting <code>positionalParams</code> to a string, e.g. <code>positionalParams: &#39;params&#39;</code>. This
+will allow you to access those params as an array like so:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/components/blog-post.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+11
+12
+13
+14
+</pre></td>
+  <td class="code"><pre>const BlogPostComponent = Ember.Component.extend({
+  <span class="key">title</span>: Ember.computed(<span class="string"><span class="delimiter">'</span><span class="content">params.[]</span><span class="delimiter">'</span></span>, <span class="keyword">function</span>(){
+    <span class="keyword">return</span> <span class="local-variable">this</span>.get(<span class="string"><span class="delimiter">'</span><span class="content">params</span><span class="delimiter">'</span></span>)[<span class="integer">0</span>];
+  }),
+  <span class="key">body</span>: Ember.computed(<span class="string"><span class="delimiter">'</span><span class="content">params.[]</span><span class="delimiter">'</span></span>, <span class="keyword">function</span>(){
+    <span class="keyword">return</span> <span class="local-variable">this</span>.get(<span class="string"><span class="delimiter">'</span><span class="content">params</span><span class="delimiter">'</span></span>)[<span class="integer">1</span>];
+  })
+});
+
+BlogPostComponent.reopenClass({
+  <span class="key">positionalParams</span>: <span class="string"><span class="delimiter">'</span><span class="content">params</span><span class="delimiter">'</span></span>
+});
+
+<span class="reserved">export</span> <span class="keyword">default</span> BlogPostComponent;
+</pre></td>
+</tr></table>
+</div></div>
+
+
+          
+      <footer>
+        <a class="previous-guide" href="../defining-a-component/"> ← Defining a Component</a> <a class="next-guide" href="../wrapping-content-in-a-component/">Wrapping Content in a Component →</a>
+      </footer>
+      
+        </div>
+      </div>
+    </div>
+
+    <div id="footer">
+      <div id="footer-wrapper">
+        <div class="info">
+          Copyright 2015 <a href="http://tilde.io">Tilde Inc.</a><br>
+          <a href="http://emberjs.com/team">Core Team</a> | <a href="http://emberjs.com/sponsors">Sponsors</a> | <a href="http://emberjs.com/legal">Legal</a></br>
+          <a href="http://emberjs.com/guidelines">Community Guidelines</a>
+        </div>
+        <div class="statement">Ember.js is free, open source and always will be.</div>
+        <div class="links">
+          <a class="twitter" href="http://twitter.com/emberjs">
+            <i class="icon-twitter"></i><span>Twitter</span>
+          </a>
+          <a class="github" href="https://github.com/emberjs/ember.js">
+            <i class="icon-github"></i><span>GitHub</span>
+          </a>
+          <a class="googleplus" href="https://plus.google.com/communities/106387049790387471205">
+            <i class="icon-gplus"></i><span>Google+</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+      _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+      _gaq.push(['_setAccount', 'UA-27675533-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
+</html>

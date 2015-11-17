@@ -1,0 +1,1 @@
+window.GUIDE_VERSIONS.onReady(function(a){var n=$(".version-select");n.select2({data:a.available});var e=a.current;n.val(e).change(),n.on("change",function(){var n=this.value;window.location=a.urlFor(n)})});

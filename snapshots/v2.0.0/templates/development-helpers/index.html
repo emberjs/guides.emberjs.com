@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Ember.js - Templates: Development Helpers</title>
+    <meta property="st:title" content="Templates: Development Helpers" />
+    <link href="../../images/favicon.png" rel="icon" type="image/png" />
+    <!--[if lte IE 7 ]><link href="../../stylesheets/fonts/fontello-ie7.css" rel="stylesheet" /><![endif]-->
+    <link href="../../stylesheets/site.css" rel="stylesheet" />
+    <link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" title="Ember.js - Blog" />
+    
+  </head>
+
+  <body class="guides templates templates_development-helpers templates_development-helpers_index">
+
+    <!--[if lt IE 9]>
+      <script src="../../javascripts/common-old-ie.js"></script>
+    <![endif]-->
+    <!--[if gte IE 9]><!-->
+      <script src="../../javascripts/common-modern.js"></script>
+    <!--<![endif]-->
+
+    <div id="header">
+      <div id="wrapper">
+        <a id="logo" href="http://emberjs.com/">&nbsp;</a>
+        <ul id="nav">
+          <li>
+            <a href="http://emberjs.com/">about</a>
+          </li>
+          <li class="active">
+            <a href="/">guides</a>
+          </li>
+          <li>
+            <a href="http://emberjs.com/api">api</a>
+          </li>
+          <li>
+            <a href="http://emberjs.com/community">community</a>
+          </li>
+          <li>
+            <a href="http://emberjs.com/blog">blog</a>
+          </li>
+          <li>
+            <a href="http://emberjs.com/builds">builds</a>
+          </li>
+
+          <li id="search">
+            <form>
+              <input type="text" id="st-search-input" class="st-search-input" placeholder="Search the guides"/>
+            </form>
+            <div id="st-results-container"></div>
+          </li>
+        </ul>
+
+        <div id="github">
+          <a href="https://github.com/emberjs/ember.js"><i class="icon-fork"></i>Fork Us!</a>
+        </div>
+      </div>
+    </div>
+
+    
+
+    <div id="content-wrapper">
+      <div id="sidebar-wrapper">
+        <select class="version-select" style="width: 100%"></select>
+        <div id="sidebar">
+
+          <ol class='toc-level-0 selected'><li class='toc-level-0 '><a href="#">Getting Started</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../getting-started/">Installing Ember</a></li><li class='toc-level-1 '><a href="../../getting-started/first-app/">Your First Ember App</a></li><li class='toc-level-1 '><a href="../../getting-started/core-concepts/">Core Concepts</a></li></ol></li><li class='toc-level-0 '><a href="#">The Object Model</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../object-model/">Objects in Ember</a></li><li class='toc-level-1 '><a href="../../object-model/classes-and-instances/">Classes and Instances</a></li><li class='toc-level-1 '><a href="../../object-model/reopening-classes-and-instances/">Reopening Classes and Instances</a></li><li class='toc-level-1 '><a href="../../object-model/computed-properties/">Computed Properties</a></li><li class='toc-level-1 '><a href="../../object-model/computed-properties-and-aggregate-data/">Computed Properties and Aggregate Data</a></li><li class='toc-level-1 '><a href="../../object-model/observers/">Observers</a></li><li class='toc-level-1 '><a href="../../object-model/bindings/">Bindings</a></li><li class='toc-level-1 '><a href="../../object-model/enumerables/">Enumerables</a></li></ol></li><li class='toc-level-0 '><a href="#">Routing</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../routing/">Introduction</a></li><li class='toc-level-1 '><a href="../../routing/defining-your-routes/">Defining Your Routes</a></li><li class='toc-level-1 '><a href="../../routing/specifying-a-routes-model/">Specifying a Route's Model</a></li><li class='toc-level-1 '><a href="../../routing/rendering-a-template/">Rendering a Template</a></li><li class='toc-level-1 '><a href="../../routing/redirection/">Redirecting</a></li><li class='toc-level-1 '><a href="../../routing/preventing-and-retrying-transitions/">Preventing and Retrying Transitions</a></li><li class='toc-level-1 '><a href="../../routing/loading-and-error-substates/">Loading / Error Substates</a></li><li class='toc-level-1 '><a href="../../routing/query-params/">Query Parameters</a></li><li class='toc-level-1 '><a href="../../routing/asynchronous-routing/">Asynchronous Routing</a></li></ol></li><li class='toc-level-0 selected'><a href="#">Templates</a><ol class='toc-level-1 selected'><li class='toc-level-1 '><a href="../handlebars-basics/">Handlebars Basics</a></li><li class='toc-level-1 '><a href="../conditionals/">Conditionals</a></li><li class='toc-level-1 '><a href="../displaying-a-list-of-items/">Displaying a List of Items</a></li><li class='toc-level-1 '><a href="../binding-element-attributes/">Binding Element Attributes</a></li><li class='toc-level-1 '><a href="../links/">Links</a></li><li class='toc-level-1 '><a href="../actions/">Actions</a></li><li class='toc-level-1 '><a href="../input-helpers/">Input Helpers</a></li><li class='toc-level-1 selected'><a href="./">Development Helpers</a></li><li class='toc-level-1 '><a href="../writing-helpers/">Writing Helpers</a></li></ol></li><li class='toc-level-0 '><a href="#">Components</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../components/defining-a-component/">Defining a Component</a></li><li class='toc-level-1 '><a href="../../components/passing-properties-to-a-component/">Passing Properties to a Component</a></li><li class='toc-level-1 '><a href="../../components/wrapping-content-in-a-component/">Wrapping Content in a Component</a></li><li class='toc-level-1 '><a href="../../components/customizing-a-components-element/">Customizing a Component's Element</a></li><li class='toc-level-1 '><a href="../../components/handling-events/">Handling Events</a></li><li class='toc-level-1 '><a href="../../components/triggering-changes-with-actions/">Triggering Changes with Actions</a></li></ol></li><li class='toc-level-0 '><a href="#">Controllers</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../controllers/">Introduction</a></li><li class='toc-level-1 '><a href="../../controllers/dependencies-between-controllers/">Managing Dependencies Between Controllers</a></li></ol></li><li class='toc-level-0 '><a href="#">Models</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../models/">Introduction</a></li><li class='toc-level-1 '><a href="../../models/defining-models/">Defining Models</a></li><li class='toc-level-1 '><a href="../../models/finding-records/">Finding Records</a></li><li class='toc-level-1 '><a href="../../models/creating-updating-and-deleting-records/">Creating, Updating and Deleting</a></li><li class='toc-level-1 '><a href="../../models/pushing-records-into-the-store/">Pushing Records into the Store</a></li><li class='toc-level-1 '><a href="../../models/working-with-relationships/">Working with Relationships</a></li><li class='toc-level-1 '><a href="../../models/handling-metadata/">Handling Metadata</a></li><li class='toc-level-1 '><a href="../../models/customizing-adapters/">Customizing Adapters</a></li><li class='toc-level-1 '><a href="../../models/customizing-serializers/">Customizing Serializers</a></li></ol></li><li class='toc-level-0 '><a href="#">Application Concerns</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../applications/applications-and-instances/">Applications and Instances</a></li><li class='toc-level-1 '><a href="../../applications/dependency-injection/">Dependency Injection</a></li><li class='toc-level-1 '><a href="../../applications/initializers/">Initializers</a></li><li class='toc-level-1 '><a href="../../applications/services/">Services</a></li><li class='toc-level-1 '><a href="../../applications/run-loop/">The Run Loop</a></li></ol></li><li class='toc-level-0 '><a href="#">Testing</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../testing/">Introduction</a></li><li class='toc-level-1 '><a href="../../testing/acceptance/">Acceptance Tests</a></li><li class='toc-level-1 '><a href="../../testing/unit-testing-basics/">Unit Testing Basics</a></li><li class='toc-level-1 '><a href="../../testing/testing-components/">Testing Components</a></li><li class='toc-level-1 '><a href="../../testing/testing-controllers/">Testing Controllers</a></li><li class='toc-level-1 '><a href="../../testing/testing-routes/">Testing Routes</a></li><li class='toc-level-1 '><a href="../../testing/testing-models/">Testing Models</a></li></ol></li><li class='toc-level-0 '><a href="#">Ember Inspector</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../ember-inspector/installation/">Installing the Inspector</a></li><li class='toc-level-1 '><a href="../../ember-inspector/object-inspector/">Object Inspector</a></li><li class='toc-level-1 '><a href="../../ember-inspector/view-tree/">The View Tree</a></li><li class='toc-level-1 '><a href="../../ember-inspector/routes/">Inspecting Routes</a></li><li class='toc-level-1 '><a href="../../ember-inspector/data/">Data Tab</a></li><li class='toc-level-1 '><a href="../../ember-inspector/deprecations/">Tackling Deprecations</a></li><li class='toc-level-1 '><a href="../../ember-inspector/info/">Library Info</a></li><li class='toc-level-1 '><a href="../../ember-inspector/promises/">Debugging Promises</a></li><li class='toc-level-1 '><a href="../../ember-inspector/container/">Inspecting Objects via the Container</a></li><li class='toc-level-1 '><a href="../../ember-inspector/render-performance/">Rendering Performance</a></li><li class='toc-level-1 '><a href="../../ember-inspector/troubleshooting/">Troubleshooting</a></li></ol></li><li class='toc-level-0 '><a href="#">Addons and Dependencies</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../addons-and-dependencies/managing-dependencies/">Managing Dependencies</a></li></ol></li><li class='toc-level-0 '><a href="#">Configuring Ember.js</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../configuring-ember/configuring-your-app/">Configuring Your App</a></li><li class='toc-level-1 '><a href="../../configuring-ember/configuring-ember-cli/">Configuring Ember CLI</a></li><li class='toc-level-1 '><a href="../../configuring-ember/disabling-prototype-extensions/">Disabling Prototype Extensions</a></li><li class='toc-level-1 '><a href="../../configuring-ember/specifying-url-type/">Specifying the URL Type</a></li><li class='toc-level-1 '><a href="../../configuring-ember/embedding-applications/">Embedding Applications</a></li><li class='toc-level-1 '><a href="../../configuring-ember/feature-flags/">Feature Flags</a></li><li class='toc-level-1 '><a href="../../configuring-ember/debugging/">Debugging</a></li></ol></li><li class='toc-level-0 '><a href="#">Contributing to Ember.js</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../contributing/adding-new-features/">Adding New Features</a></li><li class='toc-level-1 '><a href="../../contributing/repositories/">Repositories</a></li></ol></li></ol>
+          <div id="back-to-top"><a id="back-top-top" href="#">&#11014; Back to Top</a></div>
+        </div>
+      </div>
+      <div id="content" class="has-sidebar">
+        <div class="chapter">
+          <h1>
+            Development Helpers
+            <a href="https://github.com/emberjs/guides/edit/master/source/templates/development-helpers.md"
+               target="_blank" class="edit-page icon-pencil">Edit Page</a>
+          </h1>
+          <hr>
+
+          <h2 class='anchorable-toc' id='toc_development-helpers'>Development Helpers</h2>
+<p>Handlebars and Ember come with a few helpers that can make developing your
+templates a bit easier. These helpers make it simple to output variables into
+your browser&#39;s console, or activate the debugger from your templates.</p>
+<h3 class='anchorable-toc' id='toc_logging'>Logging</h3>
+<p>The <code>{{log}}</code> helper makes it easy to output variables or expressions in the
+current rendering context into your browser&#39;s console:</p>
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">log</span> <span class="error">'</span><span class="attribute-name">Name</span> <span class="attribute-name">is:</span><span class="error">'</span> <span class="attribute-name">name</span><span class="inline-delimiter">}}</span></span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>The <code>{{log}}</code> helper also accepts primitive types such as strings or numbers.</p>
+<h3 class='anchorable-toc' id='toc_adding-a-breakpoint'>Adding a breakpoint</h3>
+<p>The <code>{{debugger}}</code> helper provides a handlebars equivalent to JavaScript&#39;s
+<code>debugger</code> keyword.  It will halt execution inside the debugger helper and give
+you the ability to inspect the current rendering context:</p>
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">debugger</span><span class="inline-delimiter">}}</span></span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>When using the debugger helper you will have access to a <code>get</code> function. This
+function retrieves values available in the context of the template.
+For example, if you&#39;re wondering why a value <code>{{foo}}</code> isn&#39;t rendering as
+expected within a template, you could place a <code>{{debugger}}</code> statement and,
+when the <code>debugger;</code> breakpoint is hit, you can attempt to retrieve this value:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre>&gt; get(<span class="string"><span class="delimiter">'</span><span class="content">foo</span><span class="delimiter">'</span></span>)
+</pre></td>
+</tr></table>
+</div></div>
+<p><code>get</code> is also aware of keywords. So in this situation:</p>
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+</pre></td>
+  <td class="code"><pre><span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">each</span> <span class="attribute-name">items</span> <span class="attribute-name">as</span> <span class="error">|</span><span class="attribute-name">item</span><span class="error">|</span><span class="inline-delimiter">}}</span></span>
+  <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">debugger</span><span class="inline-delimiter">}}</span></span>
+<span class="inline"><span class="inline-delimiter">{{/</span><span class="attribute-name">each</span><span class="inline-delimiter">}}</span></span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>You&#39;ll be able to get values from the current item:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre>&gt; get(<span class="string"><span class="delimiter">'</span><span class="content">item.name</span><span class="delimiter">'</span></span>)
+</pre></td>
+</tr></table>
+</div></div>
+<p>You can also access the context of the view to make sure it is the object that
+you expect:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre>&gt; context
+</pre></td>
+</tr></table>
+</div></div>
+
+
+          
+      <footer>
+        <a class="previous-guide" href="../input-helpers/"> ← Input Helpers</a> <a class="next-guide" href="../writing-helpers/">Writing Helpers →</a>
+      </footer>
+      
+        </div>
+      </div>
+    </div>
+
+    <div id="footer">
+      <div id="footer-wrapper">
+        <div class="info">
+          Copyright 2015 <a href="http://tilde.io">Tilde Inc.</a><br>
+          <a href="http://emberjs.com/team">Core Team</a> | <a href="http://emberjs.com/sponsors">Sponsors</a> | <a href="http://emberjs.com/legal">Legal</a></br>
+          <a href="http://emberjs.com/guidelines">Community Guidelines</a>
+        </div>
+        <div class="statement">Ember.js is free, open source and always will be.</div>
+        <div class="links">
+          <a class="twitter" href="http://twitter.com/emberjs">
+            <i class="icon-twitter"></i><span>Twitter</span>
+          </a>
+          <a class="github" href="https://github.com/emberjs/ember.js">
+            <i class="icon-github"></i><span>GitHub</span>
+          </a>
+          <a class="googleplus" href="https://plus.google.com/communities/106387049790387471205">
+            <i class="icon-gplus"></i><span>Google+</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+      _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+      _gaq.push(['_setAccount', 'UA-27675533-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
+</html>
