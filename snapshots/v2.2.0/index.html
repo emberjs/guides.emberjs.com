@@ -6,8 +6,13 @@
     <title>Ember.js - Guides and Tutorials</title>
     <meta property="st:title" content="Guides and Tutorials" />
     <link href="images/favicon.png" rel="icon" type="image/png" />
-    <!--[if lte IE 7 ]><link href="stylesheets/fonts/fontello-ie7.css" rel="stylesheet" type="text/css" /><![endif]-->
-    <link href="stylesheets/site.css" rel="stylesheet" type="text/css" />
+    <!--[if lte IE 7 ]><link href="stylesheets/fonts/fontello-ie7.css" rel="stylesheet" /><![endif]-->
+    <link href="stylesheets/application.css" rel="stylesheet" />
+
+    <!-- This TypeKit account is managed by @wifelette. Contact her with any issues. -->
+    <script src="https://use.typekit.net/stz3kpn.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
     <link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" title="Ember.js - Blog" />
     
   </head>
@@ -15,83 +20,85 @@
   <body class="guides index">
 
     <!--[if lt IE 9]>
-      <script src="javascripts/common-old-ie.js" type="text/javascript"></script>
+      <script src="javascripts/common-old-ie.js"></script>
     <![endif]-->
     <!--[if gte IE 9]><!-->
-      <script src="javascripts/common-modern.js" type="text/javascript"></script>
+      <script src="javascripts/common-modern.js"></script>
     <!--<![endif]-->
 
-    <div id="header">
-      <div id="wrapper">
-        <a id="logo" href="http://emberjs.com/">&nbsp;</a>
-        <ul id="nav">
-          <li>
-            <a href="http://emberjs.com/">about</a>
-          </li>
-          <li class="active">
-            <a href="/">guides</a>
-          </li>
-          <li>
-            <a href="http://emberjs.com/api">api</a>
-          </li>
-          <li>
-            <a href="http://emberjs.com/community">community</a>
-          </li>
-          <li>
-            <a href="http://emberjs.com/blog">blog</a>
-          </li>
-          <li>
-            <a href="http://emberjs.com/builds">builds</a>
-          </li>
+    <header class="header">
+  <ul class="header-nav container">
+    <li class="header-logo">
+        <a href="http://emberjs.com/">&nbsp;</a>
+    </li>
+    <li>
+      <a href="http://emberjs.com/">About</a>
+    </li>
+    <li class="active">
+      <a href="/">Guides</a>
+    </li>
+    <li>
+      <a href="http://emberjs.com/api">API</a>
+    </li>
+    <li>
+      <a href="http://emberjs.com/community">Community</a>
+    </li>
+    <li>
+      <a href="http://emberjs.com/blog">Blog</a>
+    </li>
+    <li>
+      <a href="http://emberjs.com/builds">Builds</a>
+    </li>
 
-          <li id="search">
-            <form>
-              <input type="text" id="st-search-input" class="st-search-input" placeholder="Search the guides"/>
-            </form>
-            <div id="st-results-container"></div>
-          </li>
-        </ul>
+    <li class="header-search">
+      <form>
+        <input type="text" id="st-search-input" class="st-search-input" placeholder="Search the guides"/>
+      </form>
+      <div id="st-results-container"></div>
+    </li>
+  </ul>
+</header>
 
-        <div id="github">
-          <a href="https://github.com/emberjs/ember.js"><i class="icon-fork"></i>Fork Us!</a>
-        </div>
-      </div>
-    </div>
+
+
 
     
 
-    <div id="content-wrapper">
-      <div id="sidebar-wrapper">
-        <select class="version-select" style="width: 100%"></select>
-        <div id="sidebar">
+    <main class="container">
+      <aside class="sidebar">
+  <select class="version-select" style="width: 100%"></select>
+  <ol class='toc-level-0 selected'><li class='toc-level-0 '><a href="#">Getting Started</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="getting-started/">Installing Ember</a></li><li class='toc-level-1 '><a href="getting-started/core-concepts/">Core Concepts</a></li><li class='toc-level-1 '><a href="getting-started/ember-cli/">Ember CLI</a></li></ol></li><li class='toc-level-0 '><a href="#">Tutorial</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="tutorial/routes-and-templates/">Routes and Templates</a></li><li class='toc-level-1 '><a href="tutorial/model-hook/">The Model Hook</a></li><li class='toc-level-1 '><a href="tutorial/ember-data/">Ember Data</a></li><li class='toc-level-1 '><a href="tutorial/simple-component/">A Simple Component</a></li></ol></li><li class='toc-level-0 '><a href="#">The Object Model</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="object-model/">Objects in Ember</a></li><li class='toc-level-1 '><a href="object-model/classes-and-instances/">Classes and Instances</a></li><li class='toc-level-1 '><a href="object-model/reopening-classes-and-instances/">Reopening Classes and Instances</a></li><li class='toc-level-1 '><a href="object-model/computed-properties/">Computed Properties</a></li><li class='toc-level-1 '><a href="object-model/computed-properties-and-aggregate-data/">Computed Properties and Aggregate Data</a></li><li class='toc-level-1 '><a href="object-model/observers/">Observers</a></li><li class='toc-level-1 '><a href="object-model/bindings/">Bindings</a></li><li class='toc-level-1 '><a href="object-model/enumerables/">Enumerables</a></li></ol></li><li class='toc-level-0 '><a href="#">Routing</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="routing/">Introduction</a></li><li class='toc-level-1 '><a href="routing/defining-your-routes/">Defining Your Routes</a></li><li class='toc-level-1 '><a href="routing/specifying-a-routes-model/">Specifying a Route's Model</a></li><li class='toc-level-1 '><a href="routing/rendering-a-template/">Rendering a Template</a></li><li class='toc-level-1 '><a href="routing/redirection/">Redirecting</a></li><li class='toc-level-1 '><a href="routing/preventing-and-retrying-transitions/">Preventing and Retrying Transitions</a></li><li class='toc-level-1 '><a href="routing/loading-and-error-substates/">Loading / Error Substates</a></li><li class='toc-level-1 '><a href="routing/query-params/">Query Parameters</a></li><li class='toc-level-1 '><a href="routing/asynchronous-routing/">Asynchronous Routing</a></li></ol></li><li class='toc-level-0 '><a href="#">Templates</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="templates/handlebars-basics/">Handlebars Basics</a></li><li class='toc-level-1 '><a href="templates/conditionals/">Conditionals</a></li><li class='toc-level-1 '><a href="templates/displaying-a-list-of-items/">Displaying a List of Items</a></li><li class='toc-level-1 '><a href="templates/displaying-the-keys-in-an-object/">Displaying the Keys in an Object</a></li><li class='toc-level-1 '><a href="templates/binding-element-attributes/">Binding Element Attributes</a></li><li class='toc-level-1 '><a href="templates/links/">Links</a></li><li class='toc-level-1 '><a href="templates/actions/">Actions</a></li><li class='toc-level-1 '><a href="templates/input-helpers/">Input Helpers</a></li><li class='toc-level-1 '><a href="templates/development-helpers/">Development Helpers</a></li><li class='toc-level-1 '><a href="templates/writing-helpers/">Writing Helpers</a></li></ol></li><li class='toc-level-0 '><a href="#">Components</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="components/defining-a-component/">Defining a Component</a></li><li class='toc-level-1 '><a href="components/the-component-lifecycle/">The Component Lifecycle</a></li><li class='toc-level-1 '><a href="components/passing-properties-to-a-component/">Passing Properties to a Component</a></li><li class='toc-level-1 '><a href="components/wrapping-content-in-a-component/">Wrapping Content in a Component</a></li><li class='toc-level-1 '><a href="components/customizing-a-components-element/">Customizing a Component's Element</a></li><li class='toc-level-1 '><a href="components/handling-events/">Handling Events</a></li><li class='toc-level-1 '><a href="components/triggering-changes-with-actions/">Triggering Changes with Actions</a></li></ol></li><li class='toc-level-0 '><a href="#">Controllers</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="controllers/">Introduction</a></li><li class='toc-level-1 '><a href="controllers/dependencies-between-controllers/">Managing Dependencies Between Controllers</a></li></ol></li><li class='toc-level-0 '><a href="#">Models</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="models/">Introduction</a></li><li class='toc-level-1 '><a href="models/defining-models/">Defining Models</a></li><li class='toc-level-1 '><a href="models/finding-records/">Finding Records</a></li><li class='toc-level-1 '><a href="models/creating-updating-and-deleting-records/">Creating, Updating and Deleting</a></li><li class='toc-level-1 '><a href="models/pushing-records-into-the-store/">Pushing Records into the Store</a></li><li class='toc-level-1 '><a href="models/working-with-relationships/">Working with Relationships</a></li><li class='toc-level-1 '><a href="models/handling-metadata/">Handling Metadata</a></li><li class='toc-level-1 '><a href="models/customizing-adapters/">Customizing Adapters</a></li><li class='toc-level-1 '><a href="models/customizing-serializers/">Customizing Serializers</a></li></ol></li><li class='toc-level-0 '><a href="#">Application Concerns</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="applications/applications-and-instances/">Applications and Instances</a></li><li class='toc-level-1 '><a href="applications/dependency-injection/">Dependency Injection</a></li><li class='toc-level-1 '><a href="applications/initializers/">Initializers</a></li><li class='toc-level-1 '><a href="applications/services/">Services</a></li><li class='toc-level-1 '><a href="applications/run-loop/">The Run Loop</a></li></ol></li><li class='toc-level-0 '><a href="#">Testing</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="testing/">Introduction</a></li><li class='toc-level-1 '><a href="testing/acceptance/">Acceptance Tests</a></li><li class='toc-level-1 '><a href="testing/unit-testing-basics/">Unit Testing Basics</a></li><li class='toc-level-1 '><a href="testing/testing-components/">Testing Components</a></li><li class='toc-level-1 '><a href="testing/testing-controllers/">Testing Controllers</a></li><li class='toc-level-1 '><a href="testing/testing-routes/">Testing Routes</a></li><li class='toc-level-1 '><a href="testing/testing-models/">Testing Models</a></li></ol></li><li class='toc-level-0 '><a href="#">Ember Inspector</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="ember-inspector/installation/">Installing the Inspector</a></li><li class='toc-level-1 '><a href="ember-inspector/object-inspector/">Object Inspector</a></li><li class='toc-level-1 '><a href="ember-inspector/view-tree/">The View Tree</a></li><li class='toc-level-1 '><a href="ember-inspector/routes/">Inspecting Routes</a></li><li class='toc-level-1 '><a href="ember-inspector/data/">Data Tab</a></li><li class='toc-level-1 '><a href="ember-inspector/deprecations/">Tackling Deprecations</a></li><li class='toc-level-1 '><a href="ember-inspector/info/">Library Info</a></li><li class='toc-level-1 '><a href="ember-inspector/promises/">Debugging Promises</a></li><li class='toc-level-1 '><a href="ember-inspector/container/">Inspecting Objects via the Container</a></li><li class='toc-level-1 '><a href="ember-inspector/render-performance/">Rendering Performance</a></li><li class='toc-level-1 '><a href="ember-inspector/troubleshooting/">Troubleshooting</a></li></ol></li><li class='toc-level-0 '><a href="#">Addons and Dependencies</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="addons-and-dependencies/managing-dependencies/">Managing Dependencies</a></li></ol></li><li class='toc-level-0 '><a href="#">Configuring Ember.js</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="configuring-ember/configuring-your-app/">Configuring Your App</a></li><li class='toc-level-1 '><a href="configuring-ember/configuring-ember-cli/">Configuring Ember CLI</a></li><li class='toc-level-1 '><a href="configuring-ember/handling-deprecations/">Handling Deprecations</a></li><li class='toc-level-1 '><a href="configuring-ember/disabling-prototype-extensions/">Disabling Prototype Extensions</a></li><li class='toc-level-1 '><a href="configuring-ember/specifying-url-type/">Specifying the URL Type</a></li><li class='toc-level-1 '><a href="configuring-ember/embedding-applications/">Embedding Applications</a></li><li class='toc-level-1 '><a href="configuring-ember/feature-flags/">Feature Flags</a></li><li class='toc-level-1 '><a href="configuring-ember/debugging/">Debugging</a></li></ol></li><li class='toc-level-0 '><a href="#">Contributing to Ember.js</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="contributing/adding-new-features/">Adding New Features</a></li><li class='toc-level-1 '><a href="contributing/repositories/">Repositories</a></li></ol></li></ol>
+  <a class="back-to-top" href="#">&#11014; Back to Top</a>
+</aside>
 
-          <ol class='toc-level-0 selected'><li class='toc-level-0 '><a href="#">Getting Started</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="getting-started/">Installing Ember</a></li><li class='toc-level-1 '><a href="getting-started/first-app/">Your First Ember App</a></li><li class='toc-level-1 '><a href="getting-started/core-concepts/">Core Concepts</a></li></ol></li><li class='toc-level-0 '><a href="#">The Object Model</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="object-model/">Objects in Ember</a></li><li class='toc-level-1 '><a href="object-model/classes-and-instances/">Classes and Instances</a></li><li class='toc-level-1 '><a href="object-model/reopening-classes-and-instances/">Reopening Classes and Instances</a></li><li class='toc-level-1 '><a href="object-model/computed-properties/">Computed Properties</a></li><li class='toc-level-1 '><a href="object-model/computed-properties-and-aggregate-data/">Computed Properties and Aggregate Data</a></li><li class='toc-level-1 '><a href="object-model/observers/">Observers</a></li><li class='toc-level-1 '><a href="object-model/bindings/">Bindings</a></li><li class='toc-level-1 '><a href="object-model/enumerables/">Enumerables</a></li></ol></li><li class='toc-level-0 '><a href="#">Routing</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="routing/">Introduction</a></li><li class='toc-level-1 '><a href="routing/defining-your-routes/">Defining Your Routes</a></li><li class='toc-level-1 '><a href="routing/specifying-a-routes-model/">Specifying a Route's Model</a></li><li class='toc-level-1 '><a href="routing/rendering-a-template/">Rendering a Template</a></li><li class='toc-level-1 '><a href="routing/redirection/">Redirecting</a></li><li class='toc-level-1 '><a href="routing/preventing-and-retrying-transitions/">Preventing and Retrying Transitions</a></li><li class='toc-level-1 '><a href="routing/loading-and-error-substates/">Loading / Error Substates</a></li><li class='toc-level-1 '><a href="routing/query-params/">Query Parameters</a></li><li class='toc-level-1 '><a href="routing/asynchronous-routing/">Asynchronous Routing</a></li></ol></li><li class='toc-level-0 '><a href="#">Templates</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="templates/handlebars-basics/">Handlebars Basics</a></li><li class='toc-level-1 '><a href="templates/conditionals/">Conditionals</a></li><li class='toc-level-1 '><a href="templates/displaying-a-list-of-items/">Displaying a List of Items</a></li><li class='toc-level-1 '><a href="templates/displaying-the-keys-in-an-object/">Displaying the Keys in an Object</a></li><li class='toc-level-1 '><a href="templates/binding-element-attributes/">Binding Element Attributes</a></li><li class='toc-level-1 '><a href="templates/links/">Links</a></li><li class='toc-level-1 '><a href="templates/actions/">Actions</a></li><li class='toc-level-1 '><a href="templates/input-helpers/">Input Helpers</a></li><li class='toc-level-1 '><a href="templates/development-helpers/">Development Helpers</a></li><li class='toc-level-1 '><a href="templates/writing-helpers/">Writing Helpers</a></li></ol></li><li class='toc-level-0 '><a href="#">Components</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="components/defining-a-component/">Defining a Component</a></li><li class='toc-level-1 '><a href="components/the-component-lifecycle/">The Component Lifecycle</a></li><li class='toc-level-1 '><a href="components/passing-properties-to-a-component/">Passing Properties to a Component</a></li><li class='toc-level-1 '><a href="components/wrapping-content-in-a-component/">Wrapping Content in a Component</a></li><li class='toc-level-1 '><a href="components/customizing-a-components-element/">Customizing a Component's Element</a></li><li class='toc-level-1 '><a href="components/handling-events/">Handling Events</a></li><li class='toc-level-1 '><a href="components/triggering-changes-with-actions/">Triggering Changes with Actions</a></li></ol></li><li class='toc-level-0 '><a href="#">Controllers</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="controllers/">Introduction</a></li><li class='toc-level-1 '><a href="controllers/dependencies-between-controllers/">Managing Dependencies Between Controllers</a></li></ol></li><li class='toc-level-0 '><a href="#">Models</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="models/">Introduction</a></li><li class='toc-level-1 '><a href="models/defining-models/">Defining Models</a></li><li class='toc-level-1 '><a href="models/finding-records/">Finding Records</a></li><li class='toc-level-1 '><a href="models/creating-updating-and-deleting-records/">Creating, Updating and Deleting</a></li><li class='toc-level-1 '><a href="models/pushing-records-into-the-store/">Pushing Records into the Store</a></li><li class='toc-level-1 '><a href="models/working-with-relationships/">Working with Relationships</a></li><li class='toc-level-1 '><a href="models/handling-metadata/">Handling Metadata</a></li><li class='toc-level-1 '><a href="models/customizing-adapters/">Customizing Adapters</a></li><li class='toc-level-1 '><a href="models/customizing-serializers/">Customizing Serializers</a></li></ol></li><li class='toc-level-0 '><a href="#">Application Concerns</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="applications/applications-and-instances/">Applications and Instances</a></li><li class='toc-level-1 '><a href="applications/dependency-injection/">Dependency Injection</a></li><li class='toc-level-1 '><a href="applications/initializers/">Initializers</a></li><li class='toc-level-1 '><a href="applications/services/">Services</a></li><li class='toc-level-1 '><a href="applications/run-loop/">The Run Loop</a></li></ol></li><li class='toc-level-0 '><a href="#">Testing</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="testing/">Introduction</a></li><li class='toc-level-1 '><a href="testing/acceptance/">Acceptance Tests</a></li><li class='toc-level-1 '><a href="testing/unit-testing-basics/">Unit Testing Basics</a></li><li class='toc-level-1 '><a href="testing/testing-components/">Testing Components</a></li><li class='toc-level-1 '><a href="testing/testing-controllers/">Testing Controllers</a></li><li class='toc-level-1 '><a href="testing/testing-routes/">Testing Routes</a></li><li class='toc-level-1 '><a href="testing/testing-models/">Testing Models</a></li></ol></li><li class='toc-level-0 '><a href="#">Ember Inspector</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="ember-inspector/installation/">Installing the Inspector</a></li><li class='toc-level-1 '><a href="ember-inspector/object-inspector/">Object Inspector</a></li><li class='toc-level-1 '><a href="ember-inspector/view-tree/">The View Tree</a></li><li class='toc-level-1 '><a href="ember-inspector/routes/">Inspecting Routes</a></li><li class='toc-level-1 '><a href="ember-inspector/data/">Data Tab</a></li><li class='toc-level-1 '><a href="ember-inspector/deprecations/">Tackling Deprecations</a></li><li class='toc-level-1 '><a href="ember-inspector/info/">Library Info</a></li><li class='toc-level-1 '><a href="ember-inspector/promises/">Debugging Promises</a></li><li class='toc-level-1 '><a href="ember-inspector/container/">Inspecting Objects via the Container</a></li><li class='toc-level-1 '><a href="ember-inspector/render-performance/">Rendering Performance</a></li><li class='toc-level-1 '><a href="ember-inspector/troubleshooting/">Troubleshooting</a></li></ol></li><li class='toc-level-0 '><a href="#">Addons and Dependencies</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="addons-and-dependencies/managing-dependencies/">Managing Dependencies</a></li></ol></li><li class='toc-level-0 '><a href="#">Configuring Ember.js</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="configuring-ember/configuring-your-app/">Configuring Your App</a></li><li class='toc-level-1 '><a href="configuring-ember/configuring-ember-cli/">Configuring Ember CLI</a></li><li class='toc-level-1 '><a href="configuring-ember/handling-deprecations/">Handling Deprecations</a></li><li class='toc-level-1 '><a href="configuring-ember/disabling-prototype-extensions/">Disabling Prototype Extensions</a></li><li class='toc-level-1 '><a href="configuring-ember/specifying-url-type/">Specifying the URL Type</a></li><li class='toc-level-1 '><a href="configuring-ember/embedding-applications/">Embedding Applications</a></li><li class='toc-level-1 '><a href="configuring-ember/feature-flags/">Feature Flags</a></li><li class='toc-level-1 '><a href="configuring-ember/debugging/">Debugging</a></li></ol></li><li class='toc-level-0 '><a href="#">Contributing to Ember.js</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="contributing/adding-new-features/">Adding New Features</a></li><li class='toc-level-1 '><a href="contributing/repositories/">Repositories</a></li></ol></li></ol>
-          <div id="back-to-top"><a id="back-top-top" href="#">&#11014; Back to Top</a></div>
-        </div>
-      </div>
-      <div id="content" class="has-sidebar">
-        <div class="chapter">
-          <h1>
-            Guides and Tutorials
-            <a href="https://github.com/emberjs/guides/edit/master/source/index.md"
-               target="_blank" class="edit-page icon-pencil">Edit Page</a>
-          </h1>
-          <hr>
 
-          <p>Welcome to the Ember.js Guides! This documentation will take you from
+      <article class="chapter">
+        <h1>
+          Guides and Tutorials
+          <a href="https://github.com/emberjs/guides/edit/master/source/index.md"
+             target="_blank" class="edit-page icon-pencil">Edit Page</a>
+        </h1>
+        <hr>
+
+        <p>Welcome to the Ember.js Guides! This documentation will take you from
 total beginner to Ember expert.</p>
 <h2 class='anchorable-toc' id='toc_organization'>Organization</h2>
 <p>On the left side of each page in the Guides is a table of contents,
 organized into sections that can be expanded to show the topics
 they cover. Both the sections and the topics within each section are
-ordered from the most basic concepts to more advanced.</p>
+ordered from the most basic concepts to the more advanced.</p>
 
 <p>The Guides are intended to contain practical explanations of how to
 build Ember apps, focusing on the most widely-used features of Ember.js.
 For exhaustive documentation of every Ember feature and API, see the
 <a href="http://emberjs.com/api/">Ember.js API documentation</a>.</p>
+
+<p>The Guides begin with an explanation of how to get started with Ember, followed
+by a tutorial on how to build your first Ember app. If you&#39;re brand new to
+Ember, we recommend you start off by following along with these first two
+sections of the Guides.</p>
 <h2 class='anchorable-toc' id='toc_assumptions'>Assumptions</h2>
-<p>While we try to make the guides as beginner-friendly as we can, we must
+<p>While we try to make the Guides as beginner-friendly as we can, we must
 establish a baseline so that the guides can keep focused on Ember.js
 functionality. We will try to link to appropriate documentation whenever
 a concept is introduced.</p>
@@ -120,7 +127,7 @@ the existing guides, we are happy to help you help us!</p>
 <li>Opening an issue/pull request to <a href="https://github.com/emberjs/guides/">the GitHub repository</a></li>
 </ul>
 
-<p>Clicking the the pencil icon will bring you to GitHub&#39;s editor for that
+<p>Clicking the pencil icon will bring you to GitHub&#39;s editor for that
 guide so you can edit right away, using the Markdown markup language.
 This is the fastest way to correct a typo, a missing word, or an error in
 a code sample.</p>
@@ -138,36 +145,51 @@ group</a>.</p>
 
 
 
-          
+        
       <footer>
-         <a class="next-guide" href="getting-started/">We've finished covering Guides and Tutorials. Next up: Getting Started - Installing Ember →</a>
+         <a class="next-guide" href="getting-started/">We've finished covering Guides and Tutorials. Next up: Getting Started - Installing Ember</a>
       </footer>
       
-        </div>
-      </div>
+      </article>
+    </main>
+
+    <div class="footer">
+  <div class="container">
+    <div class="footer-info">
+      Copyright 2015
+      <a href="http://tilde.io">Tilde Inc.</a>
+      <br>
+      <a href="http://emberjs.com/team">Core Team</a> |
+      <a href="http://emberjs.com/sponsors">Sponsors</a>
+      <br>
+      <a href="http://emberjs.com/security">Security</a> |
+      <a href="http://emberjs.com/legal">Legal</a> |
+      <a href="http://emberjs.com/logos">Logos</a>
+      <br>
+      <a href="http://emberjs.com/guidelines">Community Guidelines</a>
     </div>
 
-    <div id="footer">
-      <div id="footer-wrapper">
-        <div class="info">
-          Copyright 2015 <a href="http://tilde.io">Tilde Inc.</a><br>
-          <a href="http://emberjs.com/team">Core Team</a> | <a href="http://emberjs.com/sponsors">Sponsors</a> | <a href="http://emberjs.com/legal">Legal</a></br>
-          <a href="http://emberjs.com/guidelines">Community Guidelines</a>
-        </div>
-        <div class="statement">Ember.js is free, open source and always will be.</div>
-        <div class="links">
-          <a class="twitter" href="http://twitter.com/emberjs">
-            <i class="icon-twitter"></i><span>Twitter</span>
-          </a>
-          <a class="github" href="https://github.com/emberjs/ember.js">
-            <i class="icon-github"></i><span>GitHub</span>
-          </a>
-          <a class="googleplus" href="https://plus.google.com/communities/106387049790387471205">
-            <i class="icon-gplus"></i><span>Google+</span>
-          </a>
-        </div>
-      </div>
+    <div class="footer-statement">
+      Ember.js is free, open source and always will be.
     </div>
+
+    <div class="footer-social">
+      <a href="http://twitter.com/emberjs"
+        title="Twitter">
+        <i class="icon-twitter"></i>
+      </a>
+      <a href="https://github.com/emberjs/ember.js"
+        title="GitHub">
+        <i class="icon-github"></i>
+      </a>
+      <a href="https://plus.google.com/communities/106387049790387471205"
+        title="Google+">
+        <i class="icon-gplus"></i>
+      </a>
+    </div>
+  </div>
+</div>
+
 
     
 
