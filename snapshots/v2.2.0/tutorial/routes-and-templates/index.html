@@ -5,6 +5,7 @@
 
     <title>Ember.js - Tutorial: Routes and Templates</title>
     <meta property="st:title" content="Tutorial: Routes and Templates" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../../images/favicon.png" rel="icon" type="image/png" />
     <!--[if lte IE 7 ]><link href="../../stylesheets/fonts/fontello-ie7.css" rel="stylesheet" /><![endif]-->
     <link href="../../stylesheets/application.css" rel="stylesheet" />
@@ -80,19 +81,29 @@
         </h1>
         <hr>
 
-        <p>To demonstrate the basic setup and processing of an Ember application, this section will walk through building an Ember application for a property rental site called Super Rentals.  It will start with just a homepage, an about page and a contact page.  Let&#39;s take a look at the application from the user perspective before we get started.</p>
+        <p>To demonstrate the basic setup and processing of an Ember application, this section will walk through building an Ember application for a property rental site called Super Rentals.
+It will start with a homepage, an about page and a contact page.
+Let&#39;s take a look at the application from the user perspective before we get started.</p>
 
 <p><img src="../../images/routes-and-templates/ember-super-rentals-index.png" alt="super rentals homepage screenshot"></p>
 
-<p>We arrive at the home page which shows a list of rentals.  From here, we will be able to navigate to an about page and a contact page.  </p>
+<p>We arrive at the home page which shows a list of rentals.
+From here, we will be able to navigate to an about page and a contact page.</p>
 
-<p>If you haven&#39;t already, create a new Ember app called <code>super-rentals</code>.</p>
+<p>Let&#39;s make sure we have a fresh Ember CLI app called <code>super-rentals</code> by running <code>ember new super-rentals</code>.</p>
 
-<p>Before we start building the three pages for our app, we are going to clear out the contents of the <code>app/templates/application.hbs</code> file and only leave the <code>{{outlet}}</code> code in place.  We&#39;ll talk more about the role of the <code>application.hbs</code> file after our site has a few routes.</p>
+<p>Before we start building the three pages for our app,
+we are going to clear out the contents of the <code>app/templates/application.hbs</code> file
+and only leave the <code>{{outlet}}</code> code in place.
+We&#39;ll talk more about the role of the <code>application.hbs</code> file after our site has a few routes.</p>
 
-<p>Now, let&#39;s start with building our &quot;about&quot; page. Remember, when the URL path <code>/about</code> is loaded, the router will map the URL to the route handler of the same name, <em>about.js</em>.  The route handler then loads a template.  </p>
+<p>Now, let&#39;s start by building our &quot;about&quot; page.
+Remember, when the URL path <code>/about</code> is loaded,
+the router will map the URL to the route handler of the same name, <em>about.js</em>.
+The route handler then loads a template.</p>
 <h2 class='anchorable-toc' id='toc_an-about-route'>An About Route</h2>
-<p>If we run <code>ember help generate</code>, we can see a variety of tools that come with Ember for automatically generating files for various Ember resources.  We&#39;ll use the route generator to start our <code>about</code> route.</p>
+<p>If we run <code>ember help generate</code>, we can see a variety of tools that come with Ember for automatically generating files for various Ember resources.
+Let&#39;s use the route generator to start our <code>about</code> route.</p>
 <div class="highlight shell "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
   <td class="line-numbers"><pre>1
 </pre></td>
@@ -108,7 +119,7 @@
 </pre></td>
 </tr></table>
 </div></div>
-<p>We can see what actions are taken by the generator:</p>
+<p>We can then see what actions were taken by the generator:</p>
 <div class="highlight shell "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
   <td class="line-numbers"><pre>1
 2
@@ -128,9 +139,12 @@ installing route-test
 </pre></td>
 </tr></table>
 </div></div>
-<p>Three new files are created: one for the route handler, one for the template the route handler will render, and a test file.  The fourth file that is touched is the router.  </p>
+<p>Three new files are created: one for the route handler,one for the template the route handler will render,
+and a test file.
+The fourth file that is touched is the router.</p>
 
-<p>When we open the router, we can see that the generator has mapped a new <em>about</em> route for us. This route will load the <code>about</code> route handler.</p>
+<p>When we open the router, we can see that the generator has mapped a new <em>about</em> route for us.
+This route will load the <code>about</code> route handler.</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
@@ -154,7 +168,7 @@ installing route-test
   <td class="code"><pre><span class="reserved">import</span> Ember from <span class="string"><span class="delimiter">'</span><span class="content">ember</span><span class="delimiter">'</span></span>;
 <span class="reserved">import</span> config from <span class="string"><span class="delimiter">'</span><span class="content">./config/environment</span><span class="delimiter">'</span></span>;
 
-<span class="keyword">var</span> Router = Ember.Router.extend({
+const Router = Ember.Router.extend({
   <span class="key">location</span>: config.locationType
 });
 
@@ -166,9 +180,11 @@ Router.map(<span class="keyword">function</span>() {
 </pre></td>
 </tr></table>
 </div></div>
-<p>By default, the <code>about</code> route handler loads the <code>about.hbs</code> template. So we don&#39;t actually have to change anything in the new <code>app/routes/about.js</code> file for the <code>about.hbs</code> template to render as we want.</p>
+<p>By default, the <code>about</code> route handler loads the <code>about.hbs</code> template.
+This means we don&#39;t actually have to change anything in the new <code>app/routes/about.js</code> file for the <code>about.hbs</code> template to render as we want.</p>
 
-<p>With all of the routing in place from the generator, we can get right to work on coding our template.  For our <code>about</code> page, we&#39;ll add some HTML that just says a little about the site:</p>
+<p>With all of the routing in place from the generator, we can get right to work on coding our template.
+For our <code>about</code> page, we&#39;ll add some HTML that has a bit of information about the site:</p>
 <div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
@@ -190,9 +206,11 @@ AND building Ember applications.<span class="tag">&lt;/p&gt;</span>
 </pre></td>
 </tr></table>
 </div></div>
-<p>Run <code>ember s</code> from your shell to start the Ember development server, and then go to <code>localhost:4200</code> to see your new app in action!</p>
+<p>Run <code>ember serve</code> (or <code>ember s</code> for short) from the shell to start the Ember development server,
+and then go to <code>localhost:4200</code> to see our new app in action!</p>
 <h2 class='anchorable-toc' id='toc_a-contact-route'>A Contact Route</h2>
-<p>Let&#39;s create another route with details for contacting the company.  Once again, we&#39;ll start by generating a route, a route handler, and a template.</p>
+<p>Let&#39;s create another route with details for contacting the company.
+Once again, we&#39;ll start by generating a route, a route handler, and a template.</p>
 <div class="highlight shell "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
   <td class="line-numbers"><pre>1
 </pre></td>
@@ -200,7 +218,9 @@ AND building Ember applications.<span class="tag">&lt;/p&gt;</span>
 </pre></td>
 </tr></table>
 </div></div>
-<p>We see that our generator has created a <code>contact</code> route in the <code>app/router.js</code> file, and a corresponding route handler in <code>app/routes/contact.js</code>.  We will be using the <code>contact</code> template, so the <code>contact</code> route does not need any additional changes.</p>
+<p>We see that our generator has created a <code>contact</code> route in the <code>app/router.js</code> file,
+and a corresponding route handler in <code>app/routes/contact.js</code>.
+Since we will be using the <code>contact</code> template, the <code>contact</code> route does not need any additional changes.</p>
 
 <p>In <code>contact.hbs</code>, we can add the details for contacting our Super Rentals HQ:</p>
 <div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
@@ -242,11 +262,15 @@ any questions you may have.<span class="tag">&lt;/p&gt;</span>
 </pre></td>
 </tr></table>
 </div></div>
-<p>Now we have completed our second route.  If we go to the URL <code>localhost:4200/contact</code>, we arrive on our contact page.</p>
+<p>Now we have completed our second route.
+If we go to the URL <code>localhost:4200/contact</code>, we&#39;ll arrive on our contact page.</p>
 <h2 class='anchorable-toc' id='toc_navigating-with-links-and-the-link-to-helper'>Navigating with Links and the {{link-to}} Helper</h2>
-<p>We really don&#39;t want users to have to know our URLs in order to move around our site, so let&#39;s add some navigational links at the bottom of each page.  Let&#39;s make a contact link on the about page and an about link on the contact page.</p>
+<p>We really don&#39;t want users to have to know our URLs in order to move around our site,
+so let&#39;s add some navigational links at the bottom of each page.
+Let&#39;s make a contact link on the about page and an about link on the contact page.</p>
 
-<p>Ember has built-in <strong>helpers</strong> that provide functionality such as linking to other routes.  Here is how to use the <code>{{link-to}}</code> helper in our code:</p>
+<p>Ember has built-in <strong>helpers</strong> that provide functionality such as linking to other routes.
+Here we will use the <code>{{link-to}}</code> helper in our code to link between routes:</p>
 <div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
@@ -268,15 +292,16 @@ any questions you may have.<span class="tag">&lt;/p&gt;</span>
   By building a property rental site, we can simultaneously imagine traveling<span class="tag">&lt;br&gt;</span>
   AND building Ember applications simultaneously.<span class="tag">&lt;/p&gt;</span>
 
-<span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">link-to</span> <span class="error">'</span><span class="attribute-name">contact</span><span class="error">'</span><span class="inline-delimiter">}}</span></span>Click here to contact us.<span class="inline"><span class="inline-delimiter">{{/</span><span class="attribute-name">link-to</span><span class="inline-delimiter">}}</span></span>
+<span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">link-to</span> <span class="error">&quot;</span><span class="attribute-name">contact</span><span class="error">&quot;</span><span class="inline-delimiter">}}</span></span>Click here to contact us.<span class="inline"><span class="inline-delimiter">{{/</span><span class="attribute-name">link-to</span><span class="inline-delimiter">}}</span></span>
 </pre></td>
 </tr></table>
 </div></div>
-<p>The helper takes an argument with the name of the route to link to, in this case, <code>contact</code>.  When we look at our about page, we now have a link to our contact page.</p>
+<p>The <code>{{link-to}}</code> helper takes an argument with the name of the route to link to, in this case: <code>contact</code>.
+When we look at our about page, we now have a working link to our contact page.</p>
 
 <p><img src="../../images/routes-and-templates/ember-super-rentals-about.png" alt="super rentals about page screenshot"></p>
 
-<p>Now, we&#39;ll add one to link to our about page so we can navigate from back and forth from <code>about</code> to <code>contact</code>.</p>
+<p>Now, we&#39;ll add a to link to our about page so we can navigate from back and forth between <code>about</code> and <code>contact</code>.</p>
 <div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
@@ -316,11 +341,12 @@ any questions you may have.<span class="tag">&lt;/p&gt;</span>
 
 <span class="tag">&lt;p&gt;</span>superrentalsrep@superrentals.com<span class="tag">&lt;/p&gt;</span>
 
-<span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">link-to</span> <span class="error">'</span><span class="attribute-name">about</span><span class="error">'</span><span class="inline-delimiter">}}</span></span>About<span class="inline"><span class="inline-delimiter">{{/</span><span class="attribute-name">link-to</span><span class="inline-delimiter">}}</span></span>
+<span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">link-to</span> <span class="error">&quot;</span><span class="attribute-name">about</span><span class="error">&quot;</span><span class="inline-delimiter">}}</span></span>About<span class="inline"><span class="inline-delimiter">{{/</span><span class="attribute-name">link-to</span><span class="inline-delimiter">}}</span></span>
 </pre></td>
 </tr></table>
 </div></div><h2 class='anchorable-toc' id='toc_an-index-route'>An Index Route</h2>
-<p>With our two static pages in place, we are ready to add our home page which welcomes users to the site.  Using the same process we did for our about and contact pages, we will first generate a new route called &quot;index&quot;.</p>
+<p>With our two static pages in place, we are ready to add our home page which welcomes users to the site.
+Using the same process we did for our about and contact pages, we will first generate a new route called <code>index</code>.</p>
 <div class="highlight shell "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
   <td class="line-numbers"><pre>1
 2
@@ -340,9 +366,11 @@ installing route-test
 </pre></td>
 </tr></table>
 </div></div>
-<p>Unlike the other route handlers we&#39;ve made so far, the <code>index</code> route is special: it does NOT require an entry in the router&#39;s mapping, and you&#39;ll notice that the action of updating the router was not taken by the generator. We&#39;ll learn more about why the entry isn&#39;t required when we touch on nested routes.</p>
+<p>Unlike the other route handlers we&#39;ve made so far, the <code>index</code> route is special:
+it does NOT require an entry in the router&#39;s mapping.
+We&#39;ll learn more about why the entry isn&#39;t required when we look at nested routes in Ember.</p>
 
-<p>We can update our <code>index.hbs</code> with some HTML and we have our welcome home page and our links to the other routes in our application:</p>
+<p>Let&#39;s update our <code>index.hbs</code> with some HTML for our home page and our links to the other routes in our application:</p>
 <div class="highlight hbs "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
   <td class="line-numbers"><pre>1
 2
@@ -353,10 +381,10 @@ installing route-test
 </pre></td>
   <td class="code"><pre>&lt;h1&gt;Welcome to Super Rentals&lt;/h1&gt;
 
-We hope you find exactly what you're looking for in a place to stay.
+&lt;p&gt;We hope you find exactly what you're looking for in a place to stay.&lt;/p&gt;
 
-{{#link-to 'about'}}About{{/link-to}}
-{{#link-to 'contact'}}Click here to contact us.{{/link-to}}
+{{#link-to &quot;about&quot;}}About{{/link-to}}
+{{#link-to &quot;contact&quot;}}Click here to contact us.{{/link-to}}
 </pre></td>
 </tr></table>
 </div></div>

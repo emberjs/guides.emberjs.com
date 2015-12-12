@@ -5,6 +5,7 @@
 
     <title>Ember.js - Tutorial: The Model Hook</title>
     <meta property="st:title" content="Tutorial: The Model Hook" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../../images/favicon.png" rel="icon" type="image/png" />
     <!--[if lte IE 7 ]><link href="../../stylesheets/fonts/fontello-ie7.css" rel="stylesheet" /><![endif]-->
     <link href="../../stylesheets/application.css" rel="stylesheet" />
@@ -80,13 +81,18 @@
         </h1>
         <hr>
 
-        <p>Now, let&#39;s add a list of available rentals to the index template. We know that rentals will not be static, since eventually users will be able to add, update or delete them.  For this reason, we will need a <em>rentals</em> model to save information about the rentals. However, to keep things simple at first, our model is just going to be a hard-coded array of JavaScript objects. Later, we&#39;ll switch to using Ember Data, a library for robustly managing model data.</p>
+        <p>Now, let&#39;s add a list of available rentals to the index template.
+We know that rentals will not be static, since eventually users will be able to add, update, and delete them.
+For this reason, we&#39;ll need a <em>rentals</em> model to save information about the rentals.
+To keep things simple at first, we&#39;ll use a hard-coded array of JavaScript objects.
+Later, we&#39;ll switch to using Ember Data, a library for robustly managing data in our app.</p>
 
 <p>Here&#39;s what our homepage will look like when we&#39;re done:</p>
 
 <p><img src="../../images/models/super-rentals-index-with-list.png" alt="super rentals homepage with rentals list"></p>
 
-<p>Since the route handler is responsible for loading model data, that&#39;s where we&#39;ll start. Let&#39;s open <code>app/routes/index.js</code> and add our hard-coded data as the model:</p>
+<p>In Ember, route handlers art responsible for loading model data.
+Let&#39;s open <code>app/routes/index.js</code> and add our hard-coded data as the return value of the <code>model</code> hook:</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
@@ -132,28 +138,28 @@
 
 <span class="keyword">var</span> rentals = [{
   <span class="key">id</span>: <span class="integer">1</span>,
-  <span class="key">title</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Grand Old Mansion</span><span class="delimiter">&quot;</span></span>,
-  <span class="key">owner</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Veruca Salt</span><span class="delimiter">&quot;</span></span>,
-  <span class="key">city</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">San Francisco</span><span class="delimiter">&quot;</span></span>,
-  <span class="key">type</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Estate</span><span class="delimiter">&quot;</span></span>,
+  <span class="key">title</span>: <span class="string"><span class="delimiter">'</span><span class="content">Grand Old Mansion</span><span class="delimiter">'</span></span>,
+  <span class="key">owner</span>: <span class="string"><span class="delimiter">'</span><span class="content">Veruca Salt</span><span class="delimiter">'</span></span>,
+  <span class="key">city</span>: <span class="string"><span class="delimiter">'</span><span class="content">San Francisco</span><span class="delimiter">'</span></span>,
+  <span class="key">type</span>: <span class="string"><span class="delimiter">'</span><span class="content">Estate</span><span class="delimiter">'</span></span>,
   <span class="key">bedrooms</span>: <span class="integer">15</span>,
-  <span class="key">image</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">https://upload.wikimedia.org/wikipedia/commons/c/cb/Crane_estate_(5).jpg</span><span class="delimiter">&quot;</span></span>
+  <span class="key">image</span>: <span class="string"><span class="delimiter">'</span><span class="content">https://upload.wikimedia.org/wikipedia/commons/c/cb/Crane_estate_(5).jpg</span><span class="delimiter">'</span></span>
 }, {
   <span class="key">id</span>: <span class="integer">2</span>,
-  <span class="key">title</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Urban Living</span><span class="delimiter">&quot;</span></span>,
-  <span class="key">owner</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Mike TV</span><span class="delimiter">&quot;</span></span>,
-  <span class="key">city</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Seattle</span><span class="delimiter">&quot;</span></span>,
-  <span class="key">type</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Condo</span><span class="delimiter">&quot;</span></span>,
+  <span class="key">title</span>: <span class="string"><span class="delimiter">'</span><span class="content">Urban Living</span><span class="delimiter">'</span></span>,
+  <span class="key">owner</span>: <span class="string"><span class="delimiter">'</span><span class="content">Mike TV</span><span class="delimiter">'</span></span>,
+  <span class="key">city</span>: <span class="string"><span class="delimiter">'</span><span class="content">Seattle</span><span class="delimiter">'</span></span>,
+  <span class="key">type</span>: <span class="string"><span class="delimiter">'</span><span class="content">Condo</span><span class="delimiter">'</span></span>,
   <span class="key">bedrooms</span>: <span class="integer">1</span>,
-  <span class="key">image</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">https://upload.wikimedia.org/wikipedia/commons/0/0e/Alfonso_13_Highrise_Tegucigalpa.jpg</span><span class="delimiter">&quot;</span></span>
+  <span class="key">image</span>: <span class="string"><span class="delimiter">'</span><span class="content">https://upload.wikimedia.org/wikipedia/commons/0/0e/Alfonso_13_Highrise_Tegucigalpa.jpg</span><span class="delimiter">'</span></span>
 }, {
   <span class="key">id</span>: <span class="integer">3</span>,
-  <span class="key">title</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Downtown Charm</span><span class="delimiter">&quot;</span></span>,
-  <span class="key">owner</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Violet Beauregarde</span><span class="delimiter">&quot;</span></span>,
-  <span class="key">city</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Portland</span><span class="delimiter">&quot;</span></span>,
-  <span class="key">type</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Apartment</span><span class="delimiter">&quot;</span></span>,
+  <span class="key">title</span>: <span class="string"><span class="delimiter">'</span><span class="content">Downtown Charm</span><span class="delimiter">'</span></span>,
+  <span class="key">owner</span>: <span class="string"><span class="delimiter">'</span><span class="content">Violet Beauregarde</span><span class="delimiter">'</span></span>,
+  <span class="key">city</span>: <span class="string"><span class="delimiter">'</span><span class="content">Portland</span><span class="delimiter">'</span></span>,
+  <span class="key">type</span>: <span class="string"><span class="delimiter">'</span><span class="content">Apartment</span><span class="delimiter">'</span></span>,
   <span class="key">bedrooms</span>: <span class="integer">3</span>,
-  <span class="key">image</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">https://upload.wikimedia.org/wikipedia/commons/f/f7/Wheeldon_Apartment_Building_-_Portland_Oregon.jpg</span><span class="delimiter">&quot;</span></span>
+  <span class="key">image</span>: <span class="string"><span class="delimiter">'</span><span class="content">https://upload.wikimedia.org/wikipedia/commons/f/f7/Wheeldon_Apartment_Building_-_Portland_Oregon.jpg</span><span class="delimiter">'</span></span>
 }];
 
 <span class="reserved">export</span> <span class="keyword">default</span> Ember.Route.extend({
@@ -164,13 +170,17 @@
 </pre></td>
 </tr></table>
 </div></div>
-<p>If you haven&#39;t used the ES6 shorthand method definition syntax before, <code>model()</code> is the same as writing <code>model: function()</code>.</p>
+<p>Here, we are using the ES6 shorthand method definition syntax: <code>model()</code> is the same as writing <code>model: function()</code>.</p>
 
-<p>When we add special methods that the Ember framework will call, we often call them <strong>hooks</strong>. So here, we&#39;ve added the model hook to our <code>index</code> route handler, which Ember will automatically call when a user enters the route.</p>
+<p>The <code>model</code> function acts as a <strong>hook</strong>, meaning that Ember will call it for us as during different times in our app.
+The model hook we&#39;ve added to our <code>index</code> route handler will be called when a user enters the <code>index</code> route.</p>
 
-<p>The model hook returns our <em>rentals</em> array, so that the data is now available to the <em>rentals</em> template as the <code>model</code> property.</p>
+<p>The <code>model</code> hook returns our <em>rentals</em> array and passes it to our <code>index</code> template as the <code>model</code> property.</p>
 
-<p>Now, let&#39;s switch over to our template. We can use the model data to display our list of rentals.  We&#39;ll use another common helper called <code>{{each}}</code> that will let us loop through each of the objects in our model.  Here is how our index template is updated:</p>
+<p>Now, let&#39;s switch over to our template.
+We can use the model data to display our list of rentals.
+Here, we&#39;ll use another common Handlebars helper called <code>{{each}}</code>.
+This helper will let us loop through each of the objects in our model:</p>
 <div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
@@ -204,8 +214,8 @@ We hope you find exactly what you're looking for in a place to stay.
 </pre></td>
 </tr></table>
 </div></div>
-<p>Here we loop through each model object and call it <em>rental</em>. For each
-rental, we create a listing with information about the property.</p>
+<p>In this template, we loop through each model object and call it <em>rental</em>.
+For each rental, we then create a listing with information about the property.</p>
 
 
 

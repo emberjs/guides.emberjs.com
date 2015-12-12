@@ -5,6 +5,7 @@
 
     <title>Ember.js - Tutorial: Ember Data</title>
     <meta property="st:title" content="Tutorial: Ember Data" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../../images/favicon.png" rel="icon" type="image/png" />
     <!--[if lte IE 7 ]><link href="../../stylesheets/fonts/fontello-ie7.css" rel="stylesheet" /><![endif]-->
     <link href="../../stylesheets/application.css" rel="stylesheet" />
@@ -80,9 +81,12 @@
         </h1>
         <hr>
 
-        <p>Currently, we&#39;re using hard-coded data in the <code>rentals</code> route handler file to set the model. As our application grows, we will want to be able to create new rentals, make updates to them, and delete them, and store them on a backend server. Ember integrates with a model data management library called Ember Data that makes this easy.</p>
+        <p>Currently, our app is using hard-coded data for <em>rentals</em> in the <code>index</code> route handler to set the model.
+As our application grows, we will want to be able to create new rentals,
+make updates to them, delete them, and save these changes to a backend server.
+Ember integrates with a data management library called Ember Data to help solve this problem.</p>
 
-<p>Let&#39;s generate our first Ember Data model:</p>
+<p>Let&#39;s generate our first Ember Data model called <code>rental</code>:</p>
 <div class="highlight shell "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
   <td class="line-numbers"><pre>1
 </pre></td>
@@ -90,7 +94,7 @@
 </pre></td>
 </tr></table>
 </div></div>
-<p>which results in the creation of a model file and a test file:</p>
+<p>This results in the creation of a model file and a test file:</p>
 <div class="highlight shell "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
   <td class="line-numbers"><pre>1
 2
@@ -104,7 +108,7 @@ installing model-test
 </pre></td>
 </tr></table>
 </div></div>
-<p>When we open the model file, we see :</p>
+<p>When we open the model file, we see:</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
@@ -126,7 +130,8 @@ installing model-test
 </pre></td>
 </tr></table>
 </div></div>
-<p>Let&#39;s add the same attributes for our rental that we used in our hard-coded array of JavaScript objects - owner, city, type, image, and bedrooms:</p>
+<p>Let&#39;s add the same attributes for our rental that we used in our hard-coded array of JavaScript objects -
+<em>owner</em>, <em>city</em>, <em>type</em>, <em>image</em>, and <em>bedrooms</em>:</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
@@ -160,7 +165,9 @@ installing model-test
 </div></div>
 <p>Now we have a model in our Ember Data store.</p>
 <h2 class='anchorable-toc' id='toc_using-mirage-with-ember-data'>Using Mirage with Ember Data</h2>
-<p>Ember Data can be configured to save data in a variety of ways, but often is setup to work with a backend API server. So that we don&#39;t have to build a server as part of this tutorial, we are going to configure our app to use <a href="http://www.ember-cli-mirage.com">Mirage</a> which will help us produce fake data easily for our system.</p>
+<p>Ember Data can be configured to save data in a variety of ways, but often it is setup to work with a backend API server.
+For this tutorial, we will use <a href="http://www.ember-cli-mirage.com">Mirage</a>.
+This will allow us to create fake data to work with while developing our app and mimic a running backend server.</p>
 
 <p>Let&#39;s start by installing Mirage:</p>
 <div class="highlight shell "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
@@ -170,12 +177,11 @@ installing model-test
 </pre></td>
 </tr></table>
 </div></div>
-<p>Let&#39;s now configure Mirage to send back our rentals that we had defined above by
-updating <code>mirage/config.js</code> like this:</p>
+<p>Let&#39;s now configure Mirage to send back our rentals that we had defined above by updating <code>app/mirage/config.js</code>:</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
-      <td colspan="2">mirage/config.js</td>
+      <td colspan="2">app/mirage/config.js</td>
     </tr>
   </thead>
 <tr>
@@ -224,37 +230,37 @@ updating <code>mirage/config.js</code> like this:</p>
   <span class="local-variable">this</span>.get(<span class="string"><span class="delimiter">'</span><span class="content">/rentals</span><span class="delimiter">'</span></span>, <span class="keyword">function</span>() {
     <span class="keyword">return</span> {
       <span class="key">data</span>: [{
-        <span class="key">type</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">rentals</span><span class="delimiter">&quot;</span></span>,
+        <span class="key">type</span>: <span class="string"><span class="delimiter">'</span><span class="content">rentals</span><span class="delimiter">'</span></span>,
         <span class="key">id</span>: <span class="integer">1</span>,
         <span class="key">attributes</span>: {
-          <span class="key">title</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Grand Old Mansion</span><span class="delimiter">&quot;</span></span>,
-          <span class="key">owner</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Veruca Salt</span><span class="delimiter">&quot;</span></span>,
-          <span class="key">city</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">San Francisco</span><span class="delimiter">&quot;</span></span>,
-          <span class="key">type</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Estate</span><span class="delimiter">&quot;</span></span>,
+          <span class="key">title</span>: <span class="string"><span class="delimiter">'</span><span class="content">Grand Old Mansion</span><span class="delimiter">'</span></span>,
+          <span class="key">owner</span>: <span class="string"><span class="delimiter">'</span><span class="content">Veruca Salt</span><span class="delimiter">'</span></span>,
+          <span class="key">city</span>: <span class="string"><span class="delimiter">'</span><span class="content">San Francisco</span><span class="delimiter">'</span></span>,
+          <span class="key">type</span>: <span class="string"><span class="delimiter">'</span><span class="content">Estate</span><span class="delimiter">'</span></span>,
           <span class="key">bedrooms</span>: <span class="integer">15</span>,
-          <span class="key">image</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">https://upload.wikimedia.org/wikipedia/commons/c/cb/Crane_estate_(5).jpg</span><span class="delimiter">&quot;</span></span>
+          <span class="key">image</span>: <span class="string"><span class="delimiter">'</span><span class="content">https://upload.wikimedia.org/wikipedia/commons/c/cb/Crane_estate_(5).jpg</span><span class="delimiter">'</span></span>
         }
       }, {
-        <span class="key">type</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">rentals</span><span class="delimiter">&quot;</span></span>,
+        <span class="key">type</span>: <span class="string"><span class="delimiter">'</span><span class="content">rentals</span><span class="delimiter">'</span></span>,
         <span class="key">id</span>: <span class="integer">2</span>,
         <span class="key">attributes</span>: {
-          <span class="key">title</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Urban Living</span><span class="delimiter">&quot;</span></span>,
-          <span class="key">owner</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Mike Teavee</span><span class="delimiter">&quot;</span></span>,
-          <span class="key">city</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Seattle</span><span class="delimiter">&quot;</span></span>,
-          <span class="key">type</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Condo</span><span class="delimiter">&quot;</span></span>,
+          <span class="key">title</span>: <span class="string"><span class="delimiter">'</span><span class="content">Urban Living</span><span class="delimiter">'</span></span>,
+          <span class="key">owner</span>: <span class="string"><span class="delimiter">'</span><span class="content">Mike Teavee</span><span class="delimiter">'</span></span>,
+          <span class="key">city</span>: <span class="string"><span class="delimiter">'</span><span class="content">Seattle</span><span class="delimiter">'</span></span>,
+          <span class="key">type</span>: <span class="string"><span class="delimiter">'</span><span class="content">Condo</span><span class="delimiter">'</span></span>,
           <span class="key">bedrooms</span>: <span class="integer">1</span>,
-          <span class="key">image</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">https://upload.wikimedia.org/wikipedia/commons/0/0e/Alfonso_13_Highrise_Tegucigalpa.jpg</span><span class="delimiter">&quot;</span></span>
+          <span class="key">image</span>: <span class="string"><span class="delimiter">'</span><span class="content">https://upload.wikimedia.org/wikipedia/commons/0/0e/Alfonso_13_Highrise_Tegucigalpa.jpg</span><span class="delimiter">'</span></span>
         }
       }, {
-        <span class="key">type</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">rentals</span><span class="delimiter">&quot;</span></span>,
+        <span class="key">type</span>: <span class="string"><span class="delimiter">'</span><span class="content">rentals</span><span class="delimiter">'</span></span>,
         <span class="key">id</span>: <span class="integer">3</span>,
         <span class="key">attributes</span>: {
-          <span class="key">title</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Downtown Charm</span><span class="delimiter">&quot;</span></span>,
-          <span class="key">owner</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Violet Beauregarde</span><span class="delimiter">&quot;</span></span>,
-          <span class="key">city</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Portland</span><span class="delimiter">&quot;</span></span>,
-          <span class="key">type</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Apartment</span><span class="delimiter">&quot;</span></span>,
+          <span class="key">title</span>: <span class="string"><span class="delimiter">'</span><span class="content">Downtown Charm</span><span class="delimiter">'</span></span>,
+          <span class="key">owner</span>: <span class="string"><span class="delimiter">'</span><span class="content">Violet Beauregarde</span><span class="delimiter">'</span></span>,
+          <span class="key">city</span>: <span class="string"><span class="delimiter">'</span><span class="content">Portland</span><span class="delimiter">'</span></span>,
+          <span class="key">type</span>: <span class="string"><span class="delimiter">'</span><span class="content">Apartment</span><span class="delimiter">'</span></span>,
           <span class="key">bedrooms</span>: <span class="integer">3</span>,
-          <span class="key">image</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">https://upload.wikimedia.org/wikipedia/commons/f/f7/Wheeldon_Apartment_Building_-_Portland_Oregon.jpg</span><span class="delimiter">&quot;</span></span>
+          <span class="key">image</span>: <span class="string"><span class="delimiter">'</span><span class="content">https://upload.wikimedia.org/wikipedia/commons/f/f7/Wheeldon_Apartment_Building_-_Portland_Oregon.jpg</span><span class="delimiter">'</span></span>
         }
       }]
     }
@@ -263,10 +269,10 @@ updating <code>mirage/config.js</code> like this:</p>
 </pre></td>
 </tr></table>
 </div></div>
-<p>Now, whenever Ember Data makes a GET request to <code>/rentals</code>, Mirage will return
-this JavaScript object as JSON.</p>
+<p>This configures Mirage so that whenever Ember Data makes a GET request to <code>/rentals</code>,
+Mirage will return this JavaScript object as JSON.</p>
 <h3 class='anchorable-toc' id='toc_updating-the-model-hook'>Updating the Model Hook</h3>
-<p>To use our new data store, we need to update the model hook in our route handler.</p>
+<p>To use our new data store, we need to update the <code>model</code> hook in our route handler.</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
@@ -292,10 +298,9 @@ this JavaScript object as JSON.</p>
 </pre></td>
 </tr></table>
 </div></div>
-<p>When we call <code>this.store.findAll(&#39;rental&#39;)</code>, Ember Data will make a GET request
-to <code>/rentals</code>. Since we&#39;re using Mirage in our development environment, Mirage
-will return the data we&#39;ve provided. When you deploy your app to a production
-web server, you will need to provide a backend for Ember Data to communicate with.</p>
+<p>When we call <code>this.store.findAll(&#39;rental&#39;)</code>, Ember Data will make a GET request to <code>/rentals</code>.
+Since we&#39;re using Mirage in our development environment, Mirage will return the data we&#39;ve provided.
+When we deploy our app to a production server, we will need to provide a backend for Ember Data to communicate with.</p>
 
 
 

@@ -5,6 +5,7 @@
 
     <title>Ember.js - Templates: Writing Helpers</title>
     <meta property="st:title" content="Templates: Writing Helpers" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../../images/favicon.png" rel="icon" type="image/png" />
     <!--[if lte IE 7 ]><link href="../../stylesheets/fonts/fontello-ie7.css" rel="stylesheet" /><![endif]-->
     <link href="../../stylesheets/application.css" rel="stylesheet" />
@@ -121,7 +122,7 @@ You can also have Ember generate the file for you from the command line:</p>
 </pre></td>
 </tr></table>
 </div></div>
-<p>That file should export a function wrapped with <a href="http://emberjs.com/api/classes/Ember.String.html#method_htmlSafe"><code>Ember.Helper.helper()</code></a>:</p>
+<p>That file should export a function wrapped with <a href="http://emberjs.com/api/classes/Ember.Helper.html"><code>Ember.Helper.helper()</code></a>:</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
@@ -408,7 +409,7 @@ access to services in your application, and can optionally save state as well,
 although this is usually unnecessary and error-prone.</p>
 
 <p>To create a class-based helper, rather than exporting a simple function, you
-should export a subclass of <a href="http://emberjs.com/api/classes/Ember.String.html#method_htmlSafe"><code>Ember.Helper</code></a>. Helper classes must contain a
+should export a subclass of <a href="http://emberjs.com/api/classes/Ember.Helper.html"><code>Ember.Helper</code></a>. Helper classes must contain a
 <a href="http://emberjs.com/api/classes/Ember.Helper.html#method_compute"><code>compute</code></a> method that behaves the same as the function passed to
 <a href="http://emberjs.com/api/classes/Ember.Helper.html#method_helper"><code>Ember.Helper.helper</code></a>.  In order to access a service, you must first inject it
 into the class-based helper.  Once added, you can call the service&#39;s methods or

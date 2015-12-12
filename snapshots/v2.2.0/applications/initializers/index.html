@@ -5,6 +5,7 @@
 
     <title>Ember.js - Application Concerns: Initializers</title>
     <meta property="st:title" content="Application Concerns: Initializers" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../../images/favicon.png" rel="icon" type="image/png" />
     <!--[if lte IE 7 ]><link href="../../stylesheets/fonts/fontello-ie7.css" rel="stylesheet" /><![endif]-->
     <link href="../../stylesheets/application.css" rel="stylesheet" />
@@ -82,28 +83,25 @@
 
         <p>Initializers provide an opportunity to configure your application as it boots.</p>
 
-<p>There are two types of initializers: application initializers and application
-instance initializers.</p>
+<p>There are two types of initializers: application initializers and application instance initializers.</p>
 
-<p>Application initializers are run as your application boots, and provide the
-primary means to configure <a href="../dependency-injection">dependency injections</a> in
-your application.</p>
+<p>Application initializers are run as your application boots,
+and provide the primary means to configure <a href="../dependency-injection">dependency injections</a> in your application.</p>
 
 <p>Application instance initializers are run as an application instance is loaded.
-They provide a way to configure the initial state of your application, as well
-as to set up dependency injections that are local to the application instance
+They provide a way to configure the initial state of your application,
+as well as to set up dependency injections that are local to the application instance
 (e.g. A/B testing configurations).</p>
 
 <p>Operations performed in initializers should be kept as lightweight as possible
-to minimize delays in loading your application. Although advanced techniques
-exist for allowing asynchrony in application initializers (i.e. <code>deferReadiness</code>
-and <code>advanceReadiness</code>), these techniques should generally be avoided. Any
-asynchronous loading conditions (e.g. user authorization) are almost always
-better handled in your application route&#39;s hooks, which allows for DOM
-interaction while waiting for conditions to resolve.</p>
+to minimize delays in loading your application.
+Although advanced techniques exist for allowing asynchrony in application initializers
+(i.e. <code>deferReadiness</code> and <code>advanceReadiness</code>), these techniques should generally be avoided.
+Any asynchronous loading conditions (e.g. user authorization) are almost always
+better handled in your application route&#39;s hooks,
+which allows for DOM interaction while waiting for conditions to resolve.</p>
 <h2 class='anchorable-toc' id='toc_application-initializers'>Application Initializers</h2>
-<p>Application initializers can be created with Ember CLI&#39;s <code>initializer</code>
-generator:</p>
+<p>Application initializers can be created with Ember CLI&#39;s <code>initializer</code> generator:</p>
 <div class="highlight bash "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
   <td class="line-numbers"><pre>1
 </pre></td>
@@ -111,8 +109,7 @@ generator:</p>
 </pre></td>
 </tr></table>
 </div></div>
-<p>Let&#39;s customize the <code>shopping-cart</code> initializer to inject a <code>cart</code> property into
-all the routes in your application:</p>
+<p>Let&#39;s customize the <code>shopping-cart</code> initializer to inject a <code>cart</code> property into all the routes in your application:</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
@@ -140,8 +137,7 @@ all the routes in your application:</p>
 </pre></td>
 </tr></table>
 </div></div><h2 class='anchorable-toc' id='toc_application-instance-initializers'>Application Instance Initializers</h2>
-<p>Application instance initializers can be created with Ember CLI&#39;s
-<code>instance-initializer</code> generator:</p>
+<p>Application instance initializers can be created with Ember CLI&#39;s <code>instance-initializer</code> generator:</p>
 <div class="highlight bash "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
   <td class="line-numbers"><pre>1
 </pre></td>
@@ -179,8 +175,7 @@ all the routes in your application:</p>
 </pre></td>
 </tr></table>
 </div></div><h2 class='anchorable-toc' id='toc_specifying-initializer-order'>Specifying Initializer Order</h2>
-<p>If you&#39;d like to control the order in which initializers run, you can use the
-<code>before</code> and/or <code>after</code> options:</p>
+<p>If you&#39;d like to control the order in which initializers run, you can use the <code>before</code> and/or <code>after</code> options:</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
@@ -238,9 +233,8 @@ all the routes in your application:</p>
 </pre></td>
 </tr></table>
 </div></div>
-<p>Note that ordering only applies to initializers of the same type (i.e.
-application or application instance). Application initializers will always run
-before application instance initializers.</p>
+<p>Note that ordering only applies to initializers of the same type (i.e. application or application instance).
+Application initializers will always run before application instance initializers.</p>
 
 
 

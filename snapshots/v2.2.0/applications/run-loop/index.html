@@ -5,6 +5,7 @@
 
     <title>Ember.js - Application Concerns: The Run Loop</title>
     <meta property="st:title" content="Application Concerns: The Run Loop" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../../images/favicon.png" rel="icon" type="image/png" />
     <!--[if lte IE 7 ]><link href="../../stylesheets/fonts/fontello-ie7.css" rel="stylesheet" /><![endif]-->
     <link href="../../stylesheets/application.css" rel="stylesheet" />
@@ -80,19 +81,18 @@
         </h1>
         <hr>
 
-        <p>Ember&#39;s internals and most of the code you will write in your applications takes
-place in a run loop. The run loop is used to
-batch, and order (or reorder) work in a way that is most effective and efficient.</p>
+        <p>Ember&#39;s internals and most of the code you will write in your applications takes place in a run loop.
+The run loop is used to batch, and order (or reorder) work in a way that is most effective and efficient.</p>
 
-<p>It does so by scheduling work on specific queues. These queues have a priority,
-and are processed to completion in priority order.</p>
+<p>It does so by scheduling work on specific queues.
+These queues have a priority, and are processed to completion in priority order.</p>
 
-<p>For basic Ember app development scenarios, you don&#39;t need to understand the run
-loop or use it directly. All common paths are paved nicely
-for you and don&#39;t require working with the run loop directly.</p>
+<p>For basic Ember app development scenarios, you don&#39;t need to understand the run loop or use it directly.
+All common paths are paved nicely for you and don&#39;t require working with the run loop directly.</p>
 
 <p>The most common case for using the run loop is integrating with a non-Ember API
-that includes some sort of asynchronous callback. For example:</p>
+that includes some sort of asynchronous callback.
+For example:</p>
 
 <ul>
 <li>DOM update and event callbacks</li>
@@ -102,8 +102,8 @@ that includes some sort of asynchronous callback. For example:</p>
 <li>Websocket callbacks</li>
 </ul>
 <h2 class='anchorable-toc' id='toc_why-is-the-run-loop-useful'>Why is the run loop useful?</h2>
-<p>Very often, batching similar work has benefits. Web browsers do something quite similar
-by batching changes to the DOM.</p>
+<p>Very often, batching similar work has benefits.
+Web browsers do something quite similar by batching changes to the DOM.</p>
 
 <p>Consider the following HTML snippet:</p>
 <div class="highlight html "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
@@ -139,8 +139,8 @@ baz.offsetHeight <span class="comment">// read (recalculate style, layout, expen
 </pre></td>
 </tr></table>
 </div></div>
-<p>In this example, the sequence of code forced the browser to recalculate style,
-and relayout after each step. However, if we were able to batch similar jobs together,
+<p>In this example, the sequence of code forced the browser to recalculate style, and relayout after each step.
+However, if we were able to batch similar jobs together,
 the browser would have only needed to recalculate the style and layout once.</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
   <td class="line-numbers"><pre>1
@@ -161,8 +161,8 @@ baz.offsetHeight <span class="comment">// read (fast since style and layout is a
 </pre></td>
 </tr></table>
 </div></div>
-<p>Interestingly, this pattern holds true for many other types of work. Essentially,
-batching similar work allows for better pipelining, and further optimization.</p>
+<p>Interestingly, this pattern holds true for many other types of work.
+Essentially, batching similar work allows for better pipelining, and further optimization.</p>
 
 <p>Let&#39;s look at a similar example that is optimized in Ember, starting with a <code>User</code> object:</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
@@ -214,7 +214,8 @@ user.set(<span class="string"><span class="delimiter">'</span><span class="conte
 </div></div>
 <p>We see that the browser will rerender the template twice.</p>
 
-<p>However, if we have the run loop in the above code, the browser will only rerender the template once the attributes have all been set.</p>
+<p>However, if we have the run loop in the above code,
+the browser will only rerender the template once the attributes have all been set.</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
   <td class="line-numbers"><pre>1
 2
@@ -230,14 +231,15 @@ user.set(<span class="string"><span class="delimiter">'</span><span class="conte
 </pre></td>
 </tr></table>
 </div></div>
-<p>In the above example with the run loop, since the user&#39;s attributes end up at the same values as before execution, the template will not even rerender!</p>
+<p>In the above example with the run loop, since the user&#39;s attributes end up at the same values as before execution,
+the template will not even rerender!</p>
 
 <p>It is of course possible to optimize these scenarios on a case-by-case basis,
-but getting them for free is much nicer. Using the run loop, we can apply these
-classes of optimizations not only for each scenario, but holistically app-wide.</p>
+but getting them for free is much nicer.
+Using the run loop, we can apply these classes of optimizations not only for each scenario, but holistically app-wide.</p>
 <h2 class='anchorable-toc' id='toc_how-does-the-run-loop-work-in-ember'>How does the Run Loop work in Ember?</h2>
-<p>As mentioned earlier, we schedule work (in the form of function invocations) on
-queues, and these queues are processed to completion in priority order.</p>
+<p>As mentioned earlier, we schedule work (in the form of function invocations) on queues,
+and these queues are processed to completion in priority order.</p>
 
 <p>What are the queues, and what is their priority order?</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
@@ -256,37 +258,41 @@ queues, and these queues are processed to completion in priority order.</p>
 <li>The <code>actions</code> queue is the general work queue and will typically contain scheduled tasks e.g. promises</li>
 <li>The <code>routerTransitions</code> queue contains transition jobs in the router</li>
 <li>The <code>render</code> queue contains jobs meant for rendering, these will typically update the DOM</li>
-<li>The <code>afterRender</code> queue contains jobs meant to be run after all previously scheduled render tasks are complete. This is often good for 3rd-party DOM manipulation libraries, that should only be run after an entire tree of DOM has been updated</li>
+<li>The <code>afterRender</code> queue contains jobs meant to be run after all previously scheduled render tasks are complete.
+This is often good for 3rd-party DOM manipulation libraries,
+that should only be run after an entire tree of DOM has been updated</li>
 <li>The <code>destroy</code> queue contains jobs to finish the teardown of objects other jobs have scheduled to destroy</li>
 </ul>
 <h2 class='anchorable-toc' id='toc_in-what-order-are-jobs-executed-on-the-queues'>In what order are jobs executed on the queues?</h2>
 <p>The algorithm works this way:</p>
 
 <ol>
-<li>Let the highest priority queue with pending jobs be: <code>CURRENT_QUEUE</code>, if there are no queues with pending jobs the run loop is complete</li>
+<li>Let the highest priority queue with pending jobs be: <code>CURRENT_QUEUE</code>,
+if there are no queues with pending jobs the run loop is complete</li>
 <li>Let a new temporary queue be defined as <code>WORK_QUEUE</code></li>
 <li>Move jobs from <code>CURRENT_QUEUE</code> into <code>WORK_QUEUE</code></li>
 <li>Process all the jobs sequentially in <code>WORK_QUEUE</code></li>
 <li>Return to Step 1</li>
 </ol>
 <h2 class='anchorable-toc' id='toc_an-example-of-the-internals'>An example of the internals</h2>
-<p>Rather than writing the higher level app code that internally invokes the various
-run loop scheduling functions, we have stripped away the covers, and shown the raw run-loop interactions.</p>
+<p>Rather than writing the higher level app code that internally invokes the various run loop scheduling functions,
+we have stripped away the covers, and shown the raw run-loop interactions.</p>
 
-<p>Working with this API directly is not common in most Ember apps, but understanding this example will
-help you to understand the run-loops algorithm, which will make you a better Ember developer.</p>
+<p>Working with this API directly is not common in most Ember apps,
+but understanding this example will help you to understand the run-loops algorithm,
+which will make you a better Ember developer.</p>
 
 <iframe src="http://emberjs.com.s3.amazonaws.com/run-loop-guide/index.html" width="678" height="410" style="border:1px solid rgb(170, 170, 170);margin-bottom:1.5em;"></iframe>
 <h2 class='anchorable-toc' id='toc_how-do-i-tell-ember-to-start-a-run-loop'>How do I tell Ember to start a run loop?</h2>
 <p>You should begin a run loop when the callback fires.</p>
 
-<p>The <code>Ember.run</code> method can be used to create a runloop. In this example, jQuery
-and <code>Ember.run</code> are used to handle a click event and run some Ember code.</p>
+<p>The <code>Ember.run</code> method can be used to create a runloop.
+In this example, jQuery and <code>Ember.run</code> are used to handle a click event and run some Ember code.</p>
 
-<p>This example uses the <code>=&gt;</code> function syntax, which is a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions">new ES2015 syntax for
-callback functions</a> that provides a lexical <code>this</code>. If this syntax is new,
-think of it as a function that has the same <code>this</code> as the context it is
-defined in.</p>
+<p>This example uses the <code>=&gt;</code> function syntax, which is a <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions">new ES2015 syntax for callback functions</a>
+that provides a lexical <code>this</code>.
+If this syntax is new,
+think of it as a function that has the same <code>this</code> as the context it is defined in.</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
   <td class="line-numbers"><pre>1
 2
@@ -302,8 +308,8 @@ defined in.</p>
 </pre></td>
 </tr></table>
 </div></div><h2 class='anchorable-toc' id='toc_what-happens-if-i-forget-to-start-a-run-loop-in-an-async-handler'>What happens if I forget to start a run loop in an async handler?</h2>
-<p>As mentioned above, you should wrap any non-Ember async callbacks in
-<code>Ember.run</code>. If you don&#39;t, Ember will try to approximate a beginning and end for you.
+<p>As mentioned above, you should wrap any non-Ember async callbacks in <code>Ember.run</code>.
+If you don&#39;t, Ember will try to approximate a beginning and end for you.
 Consider the following callback:</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
   <td class="line-numbers"><pre>1
@@ -324,10 +330,9 @@ Consider the following callback:</p>
 </pre></td>
 </tr></table>
 </div></div>
-<p>The runloop API calls that <em>schedule</em> work i.e. <a href="http://emberjs.com/api/classes/Ember.run.html#method_schedule"><code>run.schedule</code></a>,
-<a href="http://emberjs.com/api/classes/Ember.run.html#method_scheduleOnce"><code>run.scheduleOnce</code></a>, <a href="http://emberjs.com/api/classes/Ember.run.html#method_once"><code>run.once</code></a> have the property that they will approximate a
-runloop for you if one does not already exist. These automatically created
-runloops we call <em>autoruns</em>.</p>
+<p>The runloop API calls that <em>schedule</em> work i.e. <a href="http://emberjs.com/api/classes/Ember.run.html#method_schedule"><code>run.schedule</code></a>, <a href="http://emberjs.com/api/classes/Ember.run.html#method_scheduleOnce"><code>run.scheduleOnce</code></a>,
+<a href="http://emberjs.com/api/classes/Ember.run.html#method_once"><code>run.once</code></a> have the property that they will approximate a runloop for you if one does not already exist.
+These automatically created runloops we call <em>autoruns</em>.</p>
 
 <p>Here is some pseudocode to describe what happens using the example above:</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
@@ -397,36 +402,32 @@ runloops we call <em>autoruns</em>.</p>
 </pre></td>
 </tr></table>
 </div></div>
-<p>Although autoruns are convenient, they are suboptimal. The current JS frame is
-allowed to end before the run loop is flushed, which sometimes means the browser
-will take the opportunity to do other things, like garbage collection. GC
-running in between data changing and DOM rerendering can cause visual lag and
-should be minimized.</p>
+<p>Although autoruns are convenient, they are suboptimal.
+The current JS frame is allowed to end before the run loop is flushed,
+which sometimes means the browser will take the opportunity to do other things, like garbage collection.
+GC running in between data changing and DOM rerendering can cause visual lag and should be minimized.</p>
 
 <p>Relying on autoruns is not a rigorous or efficient way to use the runloop.
 Wrapping event handlers manually is preferred.</p>
 <h2 class='anchorable-toc' id='toc_how-is-runloop-behaviour-different-when-testing'>How is runloop behaviour different when testing?</h2>
-<p>When your application is in <em>testing mode</em> then
-Ember will throw an error if you try to schedule work without an available
-runloop.</p>
+<p>When your application is in <em>testing mode</em> then Ember will throw an error if you try to schedule work
+without an available runloop.</p>
 
 <p>Autoruns are disabled in testing for several reasons:</p>
 
 <ol>
-<li>Autoruns are Embers way of not punishing you in production if you forget to
-open a runloop before you schedule callbacks on it. While this is useful in
-production, these are still situations that should be revealed in testing to
-help you find and fix them.</li>
-<li>Some of Ember&#39;s test helpers are promises that wait for the run loop to empty
-before resolving. If your application has code that runs <em>outside</em> a runloop,
-these will resolve too early and give erroneous test failures which are
-difficult to find. Disabling autoruns help you identify these scenarios and
-helps both your testing and your application!</li>
+<li>Autoruns are Embers way of not punishing you in production if you forget to open a runloop
+before you schedule callbacks on it.
+While this is useful in production, these are still situations that should be revealed in testing
+to help you find and fix them.</li>
+<li>Some of Ember&#39;s test helpers are promises that wait for the run loop to empty before resolving.
+If your application has code that runs <em>outside</em> a runloop,
+these will resolve too early and give erroneous test failures which are difficult to find.
+Disabling autoruns help you identify these scenarios and helps both your testing and your application!</li>
 </ol>
 <h2 class='anchorable-toc' id='toc_where-can-i-find-more-information'>Where can I find more information?</h2>
-<p>Check out the <a href="http://emberjs.com/api/classes/Ember.run.html">Ember.run</a> API
-documentation, as well as the <a href="https://github.com/ebryn/backburner.js/">Backburner library</a>
-that powers the run loop.</p>
+<p>Check out the <a href="http://emberjs.com/api/classes/Ember.run.html">Ember.run</a> API documentation,
+as well as the <a href="https://github.com/ebryn/backburner.js/">Backburner library</a> that powers the run loop.</p>
 
 
 

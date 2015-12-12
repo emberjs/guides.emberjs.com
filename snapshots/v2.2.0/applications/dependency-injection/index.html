@@ -5,6 +5,7 @@
 
     <title>Ember.js - Application Concerns: Dependency Injection</title>
     <meta property="st:title" content="Application Concerns: Dependency Injection" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../../images/favicon.png" rel="icon" type="image/png" />
     <!--[if lte IE 7 ]><link href="../../stylesheets/fonts/fontello-ie7.css" rel="stylesheet" /><![endif]-->
     <link href="../../stylesheets/application.css" rel="stylesheet" />
@@ -80,47 +81,42 @@
         </h1>
         <hr>
 
-        <p>Ember applications utilize the <a href="https://en.wikipedia.org/wiki/Dependency_injection">dependency
-injection</a> (&quot;DI&quot;) design
-pattern to declare and instantiate classes of objects and dependencies between
-them. Applications and application instances each serve a role in Ember&#39;s DI
-implementation.</p>
+        <p>Ember applications utilize the <a href="https://en.wikipedia.org/wiki/Dependency_injection">dependency injection</a>
+(&quot;DI&quot;) design pattern to declare and instantiate classes of objects and dependencies between them.
+Applications and application instances each serve a role in Ember&#39;s DI implementation.</p>
 
 <p>An <a href="http://emberjs.com/api/classes/Ember.Application.html"><code>Ember.Application</code></a> serves as a &quot;registry&quot; for dependency declarations.
-Factories (i.e. classes) are registered with an application, as well as rules
-about &quot;injecting&quot; dependencies that are applied when objects are instantiated.</p>
+Factories (i.e. classes) are registered with an application,
+as well as rules about &quot;injecting&quot; dependencies that are applied when objects are instantiated.</p>
 
-<p>An <a href="http://emberjs.com/api/classes/Ember.ApplicationInstance.html"><code>Ember.ApplicationInstance</code></a> serves as the &quot;owner&quot; for objects that are
-instantiated from registered factories. Application instances provide a means to
-&quot;look up&quot; (i.e. instantiate and / or retrieve) objects.</p>
+<p>An <a href="http://emberjs.com/api/classes/Ember.ApplicationInstance.html"><code>Ember.ApplicationInstance</code></a> serves as the &quot;owner&quot; for objects that are instantiated from registered factories.
+Application instances provide a means to &quot;look up&quot; (i.e. instantiate and / or retrieve) objects.</p>
 
 <blockquote>
 <p><em>Note: Although an <code>Application</code> serves as the primary registry for an app,
-each <code>ApplicationInstance</code> can also serve as a registry. Instance-level
-registrations are useful for providing instance-level customizations, such as
-A/B testing of a feature.</em></p>
+each <code>ApplicationInstance</code> can also serve as a registry.
+Instance-level registrations are useful for providing instance-level customizations,
+such as A/B testing of a feature.</em></p>
 </blockquote>
 <h2 class='anchorable-toc' id='toc_factory-registrations'>Factory Registrations</h2>
-<p>A factory can represent any part of your application, like a <em>route</em>,
-<em>template</em>, or custom class. Every factory is registered with a particular key.
-For example, the index template is registered with the key <code>template:index</code>, and
-the application route is registered with the key <code>route:application</code>.</p>
+<p>A factory can represent any part of your application, like a <em>route</em>, <em>template</em>, or custom class.
+Every factory is registered with a particular key.
+For example, the index template is registered with the key <code>template:index</code>,
+and the application route is registered with the key <code>route:application</code>.</p>
 
-<p>Registration keys have two segments split by a colon (<code>:</code>). The first segment is
-the framework factory type, and the second is the name of the particular
-factory. Hence, the <code>index</code> template has the key <code>template:index</code>. Ember has
-several built-in factory types, such as <code>service</code>, <code>route</code>, <code>template</code>, and
-<code>component</code>.</p>
+<p>Registration keys have two segments split by a colon (<code>:</code>).
+The first segment is the framework factory type, and the second is the name of the particular factory.
+Hence, the <code>index</code> template has the key <code>template:index</code>.
+Ember has several built-in factory types, such as <code>service</code>, <code>route</code>, <code>template</code>, and <code>component</code>.</p>
 
-<p>You can create your own factory type by simply registering a factory with the
-new type. For example, to create a <code>user</code> type, you&#39;d simply register your
-factory with <code>application.register(&#39;user:user-to-register&#39;)</code>.</p>
+<p>You can create your own factory type by simply registering a factory with the new type.
+For example, to create a <code>user</code> type,
+you&#39;d simply register your factory with <code>application.register(&#39;user:user-to-register&#39;)</code>.</p>
 
-<p>Factory registrations must be performed either in application or application
-instance initializers (with the former being much more common).</p>
+<p>Factory registrations must be performed either in application
+or application instance initializers (with the former being much more common).</p>
 
-<p>For example, an application initializer could register a <code>Logger</code> factory with
-the key <code>logger:main</code>:</p>
+<p>For example, an application initializer could register a <code>Logger</code> factory with the key <code>logger:main</code>:</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
@@ -160,10 +156,9 @@ the key <code>logger:main</code>:</p>
 </pre></td>
 </tr></table>
 </div></div><h3 class='anchorable-toc' id='toc_registering-already-instantiated-objects'>Registering Already Instantiated Objects</h3>
-<p>By default, Ember will attempt to instantiate a registered factory when it is
-looked up. When registering an already instantiated object instead of a class,
-use the <code>instantiate: false</code> option to avoid attempts to re-instantiate it
-during lookups.</p>
+<p>By default, Ember will attempt to instantiate a registered factory when it is looked up.
+When registering an already instantiated object instead of a class,
+use the <code>instantiate: false</code> option to avoid attempts to re-instantiate it during lookups.</p>
 
 <p>In the following example, the <code>logger</code> is a plain JavaScript object that should
 be returned &quot;as is&quot; when it&#39;s looked up:</p>
@@ -206,12 +201,12 @@ be returned &quot;as is&quot; when it&#39;s looked up:</p>
 </pre></td>
 </tr></table>
 </div></div><h3 class='anchorable-toc' id='toc_registering-singletons-vs-non-singletons'>Registering Singletons vs. Non-Singletons</h3>
-<p>By default, registrations are treated as &quot;singletons&quot;. This simply means that
-an instance will be created when it is first looked up, and this same instance
-will be cached and returned from subsequent lookups.</p>
+<p>By default, registrations are treated as &quot;singletons&quot;.
+This simply means that an instance will be created when it is first looked up,
+and this same instance will be cached and returned from subsequent lookups.</p>
 
-<p>When you want fresh objects to be created for every lookup, register your
-factories as non-singletons using the <code>singleton: false</code> option.</p>
+<p>When you want fresh objects to be created for every lookup,
+register your factories as non-singletons using the <code>singleton: false</code> option.</p>
 
 <p>In the following example, the <code>Message</code> class is registered as a non-singleton:</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
@@ -251,8 +246,7 @@ factories as non-singletons using the <code>singleton: false</code> option.</p>
 </div></div><h2 class='anchorable-toc' id='toc_factory-injections'>Factory Injections</h2>
 <p>Once a factory is registered, it can be &quot;injected&quot; where it is needed.</p>
 
-<p>Factories can be injected into whole &quot;types&quot; of factories with <em>type
-injections</em>. For example:</p>
+<p>Factories can be injected into whole &quot;types&quot; of factories with <em>type injections</em>. For example:</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
@@ -294,9 +288,9 @@ injections</em>. For example:</p>
 </pre></td>
 </tr></table>
 </div></div>
-<p>As a result of this type injection, all factories of the type <code>route</code> will be
-instantiated with the property <code>logger</code> injected. The value of <code>logger</code> will
-come from the factory named <code>logger:main</code>.</p>
+<p>As a result of this type injection,
+all factories of the type <code>route</code> will be instantiated with the property <code>logger</code> injected.
+The value of <code>logger</code> will come from the factory named <code>logger:main</code>.</p>
 
 <p>Routes in this example application can now access the injected logger:</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
@@ -332,16 +326,14 @@ come from the factory named <code>logger:main</code>.</p>
 </div></div>
 <p>In this case, the logger will only be injected on the index route.</p>
 
-<p>Injections can be made onto any class that requires instantiation. This includes
-all of Ember&#39;s major framework classes, such as components, helpers, routes, and
-the router.</p>
+<p>Injections can be made onto any class that requires instantiation.
+This includes all of Ember&#39;s major framework classes, such as components, helpers, routes, and the router.</p>
 <h3 class='anchorable-toc' id='toc_ad-hoc-injections'>Ad Hoc Injections</h3>
-<p>Dependency injections can also be declared directly on Ember classes using
-<code>Ember.inject</code>. Currently, <code>Ember.inject</code> supports injecting controllers (via
-<code>Ember.inject.controller</code>) and services (via <code>Ember.inject.service</code>).</p>
+<p>Dependency injections can also be declared directly on Ember classes using <code>Ember.inject</code>.
+Currently, <code>Ember.inject</code> supports injecting controllers (via <code>Ember.inject.controller</code>)
+and services (via <code>Ember.inject.service</code>).</p>
 
-<p>The following code injects the <code>shopping-cart</code> service on the <code>cart-contents</code>
-component as the property <code>cart</code>:</p>
+<p>The following code injects the <code>shopping-cart</code> service on the <code>cart-contents</code> component as the property <code>cart</code>:</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
@@ -359,8 +351,8 @@ component as the property <code>cart</code>:</p>
 </pre></td>
 </tr></table>
 </div></div>
-<p>If you&#39;d like to inject a service with the same name as the property, simply
-leave off the service name (the dasherized version of the name will be used):</p>
+<p>If you&#39;d like to inject a service with the same name as the property,
+simply leave off the service name (the dasherized version of the name will be used):</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
@@ -380,9 +372,9 @@ leave off the service name (the dasherized version of the name will be used):</p
 </div></div><h2 class='anchorable-toc' id='toc_factory-instance-lookups'>Factory Instance Lookups</h2>
 <p>The vast majority of Ember registrations and lookups are performed implicitly.</p>
 
-<p>In the rare cases in which you want to perform an explicit lookup of an instance of a
-registered factory, you can do so on an application instance in its associated
-instance initializer. For example:</p>
+<p>In the rare cases in which you want to perform an explicit lookup of an instance of a registered factory,
+you can do so on an application instance in its associated instance initializer.
+For example:</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>

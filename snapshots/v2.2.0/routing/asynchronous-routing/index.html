@@ -5,6 +5,7 @@
 
     <title>Ember.js - Routing: Asynchronous Routing</title>
     <meta property="st:title" content="Routing: Asynchronous Routing" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../../images/favicon.png" rel="icon" type="image/png" />
     <!--[if lte IE 7 ]><link href="../../stylesheets/fonts/fontello-ie7.css" rel="stylesheet" /><![endif]-->
     <link href="../../stylesheets/application.css" rel="stylesheet" />
@@ -112,7 +113,7 @@ sole argument. For example:</p>
 promise.then(fulfill, reject);
 
 <span class="keyword">function</span> <span class="function">fulfill</span>(answer) {
-  console.log(<span class="string"><span class="delimiter">'</span><span class="content">The answer is </span><span class="delimiter">'</span></span> + answer);
+  console.log(<span class="error">`</span>The answer is <span class="predefined">$</span>{answer}<span class="error">`</span>);
 }
 
 <span class="keyword">function</span> <span class="function">reject</span>(reason) {

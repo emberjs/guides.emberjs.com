@@ -5,6 +5,7 @@
 
     <title>Ember.js - Tutorial: A Simple Component</title>
     <meta property="st:title" content="Tutorial: A Simple Component" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../../images/favicon.png" rel="icon" type="image/png" />
     <!--[if lte IE 7 ]><link href="../../stylesheets/fonts/fontello-ie7.css" rel="stylesheet" /><![endif]-->
     <link href="../../stylesheets/application.css" rel="stylesheet" />
@@ -80,9 +81,13 @@
         </h1>
         <hr>
 
-        <p>As a user looks through our list of rentals, they may want to have some interactive options to help them make a decision. Let&#39;s add the ability to hide and show an image for each rental.  To do this, we&#39;ll use a component.</p>
+        <p>As a user looks through our list of rentals, they may want to have some interactive options to help them make a decision.
+Let&#39;s add the ability to hide and show an image for each rental.
+To do this, we&#39;ll use a component.</p>
 
-<p>Let&#39;s generate a <code>rental-listing</code> component that will manage the behavior for each of our rentals. A dash is required in every component name to avoid conflicting with a possible HTML element.  So <code>rental-listing</code> is acceptable but <code>rental</code> would not be.</p>
+<p>Let&#39;s generate a <code>rental-listing</code> component that will manage the behavior for each of our rentals.
+A dash is required in every component name to avoid conflicting with a possible HTML element.
+So <code>rental-listing</code> is acceptable but <code>rental</code> would not be.</p>
 <div class="highlight shell "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
   <td class="line-numbers"><pre>1
 </pre></td>
@@ -90,7 +95,7 @@
 </pre></td>
 </tr></table>
 </div></div>
-<p>and we&#39;ll see what is generated:</p>
+<p>Ember CLI will then generate a handful of files for our component:</p>
 <div class="highlight shell "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
   <td class="line-numbers"><pre>1
 2
@@ -106,33 +111,13 @@ installing component-test
 </pre></td>
 </tr></table>
 </div></div>
-<p>A component consists of two parts: a Handlebars template that defines how it will look (<code>app/templates/components/rental-listing.hbs</code>) and a JavaScript source file (<code>app/components/rental-listing.js</code>) that defines how it will behave.</p>
+<p>A component consists of two parts:
+a Handlebars template that defines how it will look (<code>app/templates/components/rental-listing.hbs</code>)
+and a JavaScript source file (<code>app/components/rental-listing.js</code>) that defines how it will behave.</p>
 
-<p>Since our <code>rental-listing</code> component will be taking over management for how a user sees and interacts with a rental, we will move the rental display details from the <code>index.hbs</code> template into <code>rental-listing.hbs</code> and have our index just render the component.</p>
-<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
-  <thead>
-    <tr>
-      <td colspan="2">app/templates/index.hbs</td>
-    </tr>
-  </thead>
-<tr>
-  <td class="line-numbers"><pre>1
-2
-3
-4
-5
-</pre></td>
-  <td class="code"><pre>…
-<span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">each</span> <span class="attribute-name">model</span> <span class="attribute-name">as</span> <span class="error">|</span><span class="attribute-name">rental-unit</span><span class="error">|</span><span class="inline-delimiter">}}</span></span>
-  <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental-listing</span> <span class="attribute-name">rental</span>=<span class="attribute-value">rental-unit</span><span class="inline-delimiter">}}</span></span>
-<span class="inline"><span class="inline-delimiter">{{/</span><span class="attribute-name">each</span><span class="inline-delimiter">}}</span></span>
-…
-</pre></td>
-</tr></table>
-</div></div>
-<p>We call the component by name, <code>rental-listing</code>, and assign each <code>rental-unit</code> as the <code>rental</code> attribute of the component.</p>
-
-<p>In the component template, we&#39;ll add the content previously in the index template for displaying an individual rental&#39;s listing:</p>
+<p>Our new <code>rental-listing</code> component will manage how a user sees and interacts with a rental.
+To start, let&#39;s move the rental display details for a single rental from the <code>index.hbs</code> template
+into <code>rental-listing.hbs</code>:</p>
 <div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
@@ -153,10 +138,37 @@ installing component-test
 <span class="tag">&lt;p&gt;</span>Number of bedrooms: <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.bedrooms</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/p&gt;</span>
 </pre></td>
 </tr></table>
-</div></div><h2 class='anchorable-toc' id='toc_hiding-and-showing-an-image'>Hiding and Showing an Image</h2>
-<p>Now, we can add functionality that will show the image of a rental when requested by the user.</p>
+</div></div>
+<p>In our <code>index.hbs</code> template, let&#39;s replace the old HTML markup within our <code>{{#each}}</code> loop
+with our new <code>rental-listing</code> component:</p>
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/templates/index.hbs</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+</pre></td>
+  <td class="code"><pre>…
+<span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">each</span> <span class="attribute-name">model</span> <span class="attribute-name">as</span> <span class="error">|</span><span class="attribute-name">rentalUnit</span><span class="error">|</span><span class="inline-delimiter">}}</span></span>
+  <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental-listing</span> <span class="attribute-name">rental</span>=<span class="attribute-value">rentalUnit</span><span class="inline-delimiter">}}</span></span>
+<span class="inline"><span class="inline-delimiter">{{/</span><span class="attribute-name">each</span><span class="inline-delimiter">}}</span></span>
+…
+</pre></td>
+</tr></table>
+</div></div>
+<p>Here we invoke the <code>rental-listing</code> component by name,
+and assign each <code>rentalUnit</code> as the <code>rental</code> attribute of the component.</p>
+<h2 class='anchorable-toc' id='toc_hiding-and-showing-an-image'>Hiding and Showing an Image</h2>
+<p>Now we can add functionality that will show the image of a rental when requested by the user.</p>
 
-<p>Let&#39;s allow the user to show and hide a rental image:</p>
+<p>Let&#39;s use the <code>{{#if}}</code> helper to show our current rental image only when <code>isImageShowing</code> is set to true.
+Otherwise, let&#39;s show a button to allow our user to toggle this:</p>
 <div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
@@ -188,9 +200,8 @@ installing component-test
 </pre></td>
 </tr></table>
 </div></div>
-<p>When &#39;isImageShowing&#39; is set to <code>false</code>, the user will see a <code>Show image</code> button as an option.  When <code>isImageShowing</code> is <code>true</code>, they&#39;ll see the image.</p>
-
-<p>The value of <code>isImageShowing</code> comes from the component&#39;s JavaScript file, in our case <code>rental-listing.js</code>.  Since we do not want the image to be showing at first, we will set the property to false:</p>
+<p>The value of <code>isImageShowing</code> comes from our component&#39;s JavaScript file, in this case <code>rental-listing.js</code>.
+Since we do not want the image to be showing at first, we will set the property to start as <code>false</code>:</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
@@ -212,7 +223,9 @@ installing component-test
 </pre></td>
 </tr></table>
 </div></div>
-<p>For the button to make the image show, we will need to add an action that changes the value of <code>isImageShowing</code> to <code>true</code>:</p>
+<p>To make it where clicking on the button shows the image to the user,
+we will need to add an action that changes the value of <code>isImageShowing</code> to <code>true</code>.
+Let&#39;s call this action <code>imageShow</code></p>
 <div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
@@ -225,12 +238,14 @@ installing component-test
 3
 </pre></td>
   <td class="code"><pre>...
-<span class="tag">&lt;button</span> <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">action</span> <span class="error">'</span><span class="attribute-name">imageShow</span><span class="error">'</span><span class="inline-delimiter">}}</span></span><span class="tag">&gt;</span>Show image<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;button</span> <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">action</span> <span class="error">&quot;</span><span class="attribute-name">imageShow</span><span class="error">&quot;</span><span class="inline-delimiter">}}</span></span><span class="tag">&gt;</span>Show image<span class="tag">&lt;/button&gt;</span>
 ...
 </pre></td>
 </tr></table>
 </div></div>
-<p>Clicking this button will send the action to the component:</p>
+<p>Clicking this button will send the action to the component.
+Ember will then go into the <code>actions</code> hash and call the <code>imageShow</code> function.
+Let&#39;s create the <code>imageShow</code> function and set <code>isImageShowing</code> to <code>true</code> on our component:</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
@@ -258,9 +273,10 @@ installing component-test
 </pre></td>
 </tr></table>
 </div></div>
-<p>Now the image will be shown when the button is clicked.</p>
+<p>Now when we click the button in our browser, we can see our image.</p>
 
-<p>We should let users hide the image again. In our template:</p>
+<p>We should also let users hide the image.
+In our template, let&#39;s add a button with an <code>imageHide</code> action:</p>
 <div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
@@ -287,14 +303,14 @@ installing component-test
 <span class="tag">&lt;p&gt;</span>Number of bedrooms: <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.bedrooms</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/p&gt;</span>
 <span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">if</span> <span class="attribute-name">isImageShowing</span> <span class="inline-delimiter">}}</span></span>
   <span class="tag">&lt;p&gt;</span><span class="tag">&lt;img</span> <span class="attribute-name">src</span>=<span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.image</span><span class="inline-delimiter">}}</span></span> <span class="attribute-value">alt</span><span class="error">=</span><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.type</span><span class="inline-delimiter">}}</span></span> <span class="attribute-name">width</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">500px</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span><span class="tag">&lt;/p&gt;</span>
-  <span class="tag">&lt;button</span> <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">action</span> <span class="error">'</span><span class="attribute-name">imageHide</span><span class="error">'</span><span class="inline-delimiter">}}</span></span><span class="tag">&gt;</span>Hide image<span class="tag">&lt;/button&gt;</span>
+  <span class="tag">&lt;button</span> <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">action</span> <span class="error">&quot;</span><span class="attribute-name">imageHide</span><span class="error">&quot;</span><span class="inline-delimiter">}}</span></span><span class="tag">&gt;</span>Hide image<span class="tag">&lt;/button&gt;</span>
 <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">else</span><span class="inline-delimiter">}}</span></span>
-  <span class="tag">&lt;button</span> <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">action</span> <span class="error">'</span><span class="attribute-name">imageShow</span><span class="error">'</span><span class="inline-delimiter">}}</span></span><span class="tag">&gt;</span>Show image<span class="tag">&lt;/button&gt;</span>
+  <span class="tag">&lt;button</span> <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">action</span> <span class="error">&quot;</span><span class="attribute-name">imageShow</span><span class="error">&quot;</span><span class="inline-delimiter">}}</span></span><span class="tag">&gt;</span>Show image<span class="tag">&lt;/button&gt;</span>
 <span class="inline"><span class="inline-delimiter">{{/</span><span class="attribute-name">if</span><span class="inline-delimiter">}}</span></span>
 </pre></td>
 </tr></table>
 </div></div>
-<p>In our JavaScript file:</p>
+<p>Then let&#39;s setup an <code>imageHide</code> action handler in our component to set <code>isImageShowing</code> to <code>false</code>:</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
@@ -316,7 +332,7 @@ installing component-test
 </pre></td>
   <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> Ember.Component.extend({
   <span class="key">isImageShowing</span>: <span class="predefined-constant">false</span>,
- <span class="key">actions</span>: {
+  <span class="key">actions</span>: {
     imageShow() {
       <span class="local-variable">this</span>.set(<span class="string"><span class="delimiter">'</span><span class="content">isImageShowing</span><span class="delimiter">'</span></span>, <span class="predefined-constant">true</span>);
     },
@@ -328,7 +344,7 @@ installing component-test
 </pre></td>
 </tr></table>
 </div></div>
-<p>If the image is clicked, it will hide it again.</p>
+<p>Now our users can toggle or images on and off using the &quot;Show image&quot; and &quot;Hide image&quot; buttons.</p>
 
 
 

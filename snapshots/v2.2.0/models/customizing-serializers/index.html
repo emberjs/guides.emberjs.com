@@ -5,6 +5,7 @@
 
     <title>Ember.js - Models: Customizing Serializers</title>
     <meta property="st:title" content="Models: Customizing Serializers" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../../images/favicon.png" rel="icon" type="image/png" />
     <!--[if lte IE 7 ]><link href="../../stylesheets/fonts/fontello-ie7.css" rel="stylesheet" /><![endif]-->
     <link href="../../stylesheets/application.css" rel="stylesheet" />
@@ -102,7 +103,7 @@ Document that follows the JSON API specification and the conventions
 of the examples found on <a href="http://jsonapi.org/format/">http://jsonapi.org/format</a>. This means all
 type names should be pluralized and attribute and relationship names
 should be dash-cased. For example, if you request a record from
-<code>/people/123</code>, the response should looks like this:</p>
+<code>/people/123</code>, the response should look like this:</p>
 <div class="highlight js "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
   <td class="line-numbers"><pre>1
 2
@@ -171,9 +172,9 @@ should be dash-cased. For example, if you request a record from
 </div></div><h3 class='anchorable-toc' id='toc_sideloaded-data'>Sideloaded Data</h3>
 <p>Data that is not a part of the primary request but includes linked
 relationships should be placed in an array under the <code>included</code>
-key. For example if you <code>/people/1</code> and the backend also returned any
-comments associated with that relationship the response should look
-like this:</p>
+key. For example, if you request <code>/people/1</code> and the backend also
+returned any comments associated with that person the response
+should look like this:</p>
 <div class="highlight js "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
   <td class="line-numbers"><pre>1
 2
@@ -216,7 +217,7 @@ like this:</p>
 39
 </pre></td>
   <td class="code"><pre>{
-  <span class="key"><span class="delimiter">&quot;</span><span class="content">data</span><span class="delimiter">&quot;</span></span>: {
+  <span class="key"><span class="delimiter">&quot;</span><span class="content">data</span><span class="delimiter">&quot;</span></span>: [{
     <span class="key"><span class="delimiter">&quot;</span><span class="content">type</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">articles</span><span class="delimiter">&quot;</span></span>,
     <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">1</span><span class="delimiter">&quot;</span></span>,
     <span class="key"><span class="delimiter">&quot;</span><span class="content">attributes</span><span class="delimiter">&quot;</span></span>: {
@@ -718,7 +719,7 @@ have a model with a <code>hasMany</code> relationship:</p>
 </tr></table>
 </div></div>
 <p><code>Comments</code> for a <code>post</code> can be loaded by <code>post.get(&#39;comments&#39;)</code>. The
-JSON API adapter will send 3 <code>GET</code> request to <code>/comments/1/</code>,
+JSON API adapter will send 3 <code>GET</code> requests to <code>/comments/1/</code>,
 <code>/comments/2/</code> and <code>/comments/3/</code>.</p>
 
 <p>Any <code>belongsTo</code> relationships in the JSON representation should be the
@@ -1049,9 +1050,9 @@ embedded relationship you can use the shorthand option of <code>{ embedded:
 </tr></table>
 </div></div>
 <p>The <code>serialize</code> and <code>deserialize</code> keys support 3 options.
-- <code>records</code> is uses to signal that the entire record is expected
-- <code>ids</code> is uses to signal that only the id of the record is expected
-- false is uses to signal that the record is not expected</p>
+- <code>records</code> is used to signal that the entire record is expected
+- <code>ids</code> is used to signal that only the id of the record is expected
+- false is used to signal that the record is not expected</p>
 
 <p>For example you may find that you want to read an embedded record when
 extracting a JSON payload but only include the relationship&#39;s id when
@@ -1120,11 +1121,11 @@ must be implemented on a serializer.</p>
 Data expects as an argument to <code>store.push()</code>.</p>
 
 <p><code>store.push</code> accepts a JSON API document. However, unlike the
-JSONAPISerializer, store.push does not do any transformation of the
+JSONAPISerializer, <code>store.push</code> does not do any transformation of the
 record&#39;s type name or attributes. It is important to make sure that
 the type name matches the name of the file where it is defined
 exactly. Also attribute and relationship names in the JSON API
-document should match the name an casing of the attribute and
+document should match the name and casing of the attribute and
 relationship properties on the Model.</p>
 
 <p>For Example: given this <code>post</code> model.</p>

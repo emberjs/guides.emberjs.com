@@ -5,6 +5,7 @@
 
     <title>Ember.js - Application Concerns: Services</title>
     <meta property="st:title" content="Application Concerns: Services" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../../images/favicon.png" rel="icon" type="image/png" />
     <!--[if lte IE 7 ]><link href="../../stylesheets/fonts/fontello-ie7.css" rel="stylesheet" /><![endif]-->
     <link href="../../stylesheets/application.css" rel="stylesheet" />
@@ -80,8 +81,8 @@
         </h1>
         <hr>
 
-        <p>An <a href="http://emberjs.com/api/classes/Ember.Service.html"><code>Ember.Service</code></a> is a long-lived Ember object that can be made available in
-different parts of your application.</p>
+        <p>An <a href="http://emberjs.com/api/classes/Ember.Service.html"><code>Ember.Service</code></a> is a long-lived Ember object
+that can be made available in different parts of your application.</p>
 
 <p>Example uses of services include:</p>
 
@@ -120,8 +121,7 @@ the following command will create the <code>ShoppingCart</code> service:</p>
 </pre></td>
 </tr></table>
 </div></div>
-<p>Like any Ember object, a service is initialized and can have properties and
-methods of its own.</p>
+<p>Like any Ember object, a service is initialized and can have properties and methods of its own.</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
@@ -191,8 +191,7 @@ methods of its own.</p>
 </pre></td>
 </tr></table>
 </div></div>
-<p>This injects the shopping cart service into the component and makes it available
-as the <code>cart</code> property.</p>
+<p>This injects the shopping cart service into the component and makes it available as the <code>cart</code> property.</p>
 
 <p>You can then access properties and methods on the service:</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
@@ -250,11 +249,10 @@ as the <code>cart</code> property.</p>
 </pre></td>
 </tr></table>
 </div></div>
-<p>The injected property is lazy; the service will not be instantiated until the
-property is explicitly called. It will then persist until the application exits.</p>
+<p>The injected property is lazy; the service will not be instantiated until the property is explicitly called.
+It will then persist until the application exits.</p>
 
-<p>If no argument is provided to <code>service()</code>, Ember will use the dasherized version
-of the property name:</p>
+<p>If no argument is provided to <code>service()</code>, Ember will use the dasherized version of the property name:</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>

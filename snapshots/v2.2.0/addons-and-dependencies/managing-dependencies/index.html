@@ -5,6 +5,7 @@
 
     <title>Ember.js - Addons and Dependencies: Managing Dependencies</title>
     <meta property="st:title" content="Addons and Dependencies: Managing Dependencies" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../../images/favicon.png" rel="icon" type="image/png" />
     <!--[if lte IE 7 ]><link href="../../stylesheets/fonts/fontello-ie7.css" rel="stylesheet" /><![endif]-->
     <link href="../../stylesheets/application.css" rel="stylesheet" />
@@ -80,32 +81,38 @@
         </h1>
         <hr>
 
-        <p>As you&#39;re developing your Ember app, you&#39;ll likely run into common scenarios that aren&#39;t addressed by Ember itself, such as authentication or using SASS for your stylesheets. Ember CLI provides a common format called <a href="#toc_addons">Ember Addons</a> for distributing reusable libraries to solve these problems. Additionally, you may want to make use of front-end dependencies like a CSS framework or a JavaScript datepicker that aren&#39;t specific to Ember apps. Ember CLI supports installing these packages through the standard <a href="#toc_bower">Bower package manager</a>.</p>
+        <p>As you&#39;re developing your Ember app, you&#39;ll likely run into common scenarios that aren&#39;t addressed by Ember itself,
+such as authentication or using SASS for your stylesheets.
+Ember CLI provides a common format called <a href="#toc_addons">Ember Addons</a> for distributing reusable libraries
+to solve these problems.
+Additionally, you may want to make use of front-end dependencies like a CSS framework
+or a JavaScript datepicker that aren&#39;t specific to Ember apps.
+Ember CLI supports installing these packages through the standard <a href="#toc_bower">Bower package manager</a>.</p>
 <h2 class='anchorable-toc' id='toc_addons'>Addons</h2>
-<p>Ember Addons are installed using NPM (e.g. <code>npm install --save-dev ember-cli-sass</code>). Addons
-may bring in other dependencies by modifying your project&#39;s <code>bower.json</code> file
-automatically.</p>
+<p>Ember Addons are installed using NPM (e.g. <code>npm install --save-dev ember-cli-sass</code>).
+Addons may bring in other dependencies by modifying your project&#39;s <code>bower.json</code> file automatically.</p>
 
 <p>You can find listings of addons on <a href="http://emberobserver.com">Ember Observer</a>.</p>
 <h2 class='anchorable-toc' id='toc_bower'>Bower</h2>
-<p>Ember CLI uses the <a href="http://bower.io">Bower</a> package manager, making it easy
-to keep your front-end dependencies up to date. The Bower configuration file, <code>bower.json</code>, is located at the root of your Ember
-CLI project, and lists the dependencies for your project. Executing <code>bower install</code>
-will install all of the dependencies listed in <code>bower.json</code> in one step.</p>
+<p>Ember CLI uses the <a href="http://bower.io">Bower</a> package manager,
+making it easy to keep your front-end dependencies up to date.
+The Bower configuration file, <code>bower.json</code>, is located at the root of your Ember CLI project,
+and lists the dependencies for your project.
+Executing <code>bower install</code> will install all of the dependencies listed in <code>bower.json</code> in one step.</p>
 
-<p>Ember CLI watches <code>bower.json</code> for changes. Thus it reloads your app if you
-install new dependencies via <code>bower install &lt;dependencies&gt; --save</code>.</p>
+<p>Ember CLI watches <code>bower.json</code> for changes.
+Thus it reloads your app if you install new dependencies via <code>bower install &lt;dependencies&gt; --save</code>.</p>
 <h2 class='anchorable-toc' id='toc_other-assets'>Other assets</h2>
 <p>Assets not available as an addon or Bower package should be placed in the <code>vendor</code> folder in your project.</p>
 <h2 class='anchorable-toc' id='toc_compiling-assets'>Compiling Assets</h2>
-<p>When you&#39;re using dependencies that are not included in an addon, you will
-have to instruct Ember CLI to include your assets in the build. This is done using
-the asset manifest file <code>ember-cli-build.js</code>. You should only try to import assets
-located in the <code>bower_components</code> and <code>vendor</code> folders.</p>
+<p>When you&#39;re using dependencies that are not included in an addon,
+you will have to instruct Ember CLI to include your assets in the build.
+This is done using the asset manifest file <code>ember-cli-build.js</code>.
+You should only try to import assets located in the <code>bower_components</code> and <code>vendor</code> folders.</p>
 <h3 class='anchorable-toc' id='toc_globals-provided-by-javascript-assets'>Globals provided by Javascript assets</h3>
-<p>The globals provided by some assets (like <code>moment</code> in the below example) can be
-used in your application without the need to <code>import</code> them.  Provide the asset
-path as the first and only argument.</p>
+<p>The globals provided by some assets (like <code>moment</code> in the below example) can be used in your application
+without the need to <code>import</code> them.
+Provide the asset path as the first and only argument.</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
@@ -119,8 +126,8 @@ path as the first and only argument.</p>
 </pre></td>
 </tr></table>
 </div></div>
-<p>You will need to add <code>&quot;moment&quot;: true</code> to the <code>predef</code> section in <code>.jshintrc</code> to
-prevent JSHint errors about using an undefined variable.</p>
+<p>You will need to add <code>&quot;moment&quot;: true</code> to the <code>predef</code> section in <code>.jshintrc</code> to prevent JSHint errors
+about using an undefined variable.</p>
 <h3 class='anchorable-toc' id='toc_amd-javascript-modules'>AMD Javascript modules</h3>
 <p>Provide the asset path as the first argument, and the list of modules and exports as the second.</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
@@ -158,7 +165,8 @@ prevent JSHint errors about using an undefined variable.</p>
 </div></div>
 <p>You can now <code>import</code> them in your app. (e.g. <code>import { raw as icAjaxRaw } from &#39;ic-ajax&#39;;</code>)</p>
 <h3 class='anchorable-toc' id='toc_environment-specific-assets'>Environment Specific Assets</h3>
-<p>If you need to use different assets in different environments, specify an object as the first parameter. That object&#39;s key should be the environment name, and the value should be the asset to use in that environment.</p>
+<p>If you need to use different assets in different environments, specify an object as the first parameter.
+That object&#39;s key should be the environment name, and the value should be the asset to use in that environment.</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
@@ -226,7 +234,8 @@ are available in test mode.</p>
 </div></div>
 <p>All style assets added this way will be concatenated and output as <code>/assets/vendor.css</code>.</p>
 <h3 class='anchorable-toc' id='toc_other-assets'>Other Assets</h3>
-<p>All other assets like images or fonts can also be added via <code>import()</code>. By default, they
+<p>All other assets like images or fonts can also be added via <code>import()</code>.
+By default, they
 will be copied to <code>dist/</code> as they are.</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
@@ -262,7 +271,9 @@ The following example will copy the file to <code>dist/assets/fontawesome-webfon
 </pre></td>
 </tr></table>
 </div></div>
-<p>If you need to load certain dependencies before others, you can set the <code>prepend</code> property equal to <code>true</code> on the second argument of <code>import()</code>. This will prepend the dependency to the vendor file instead of appending it, which is the default behavior.</p>
+<p>If you need to load certain dependencies before others,
+you can set the <code>prepend</code> property equal to <code>true</code> on the second argument of <code>import()</code>.
+This will prepend the dependency to the vendor file instead of appending it, which is the default behavior.</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
