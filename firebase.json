@@ -1,0 +1,16 @@
+{
+  "firebase": "ember-guides",
+  "public": "./snapshots",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ],
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/v2.2.0",
+      "type": 302
+    }
+  ]
+}
