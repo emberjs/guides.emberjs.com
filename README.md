@@ -63,18 +63,18 @@ git push
 
 ### Publish
 
-The site is hosted on Divshot. If you don't have divshot-cli installed, do so with `npm install divshot-cli -g`.
+The site is hosted on Firebase. If you don't have firebase-tools installed, do so with `npm install firebase-tools -g`.
 
-Publish this repo to Divshot's development environment:
+Publish this repo to the Firebase staging environment:
 
 ```shell
-divshot push
+firebase deploy -f ember-guides-staging
 ```
 
-Verify that the content looks good at http://development.ember-guides.divshot.io/.
+Verify that the content looks good at https://ember-guides-staging.firebaseapp.com/.
 
 If there are no obvious defects, you're ready to publish the site content:
 
 ```shell
-divshot promote development production
+firebase deploy
 ```
