@@ -22,9 +22,9 @@ fs.writeFileSync('snapshots/versions.json', JSON.stringify(versions), { encoding
 
 var currentRevision = versions[versions.length - 1];
 
-var divshot = require('../divshot.json');
-divshot['redirects']['/']['url'] = '/' + currentRevision;
-fs.writeFileSync('divshot.json', JSON.stringify(divshot, null, 2), { encoding: 'utf8' });
+var firebase = require('../firebase.json');
+firebase['redirects'][0]['destination'] = '/' + currentRevision;
+fs.writeFileSync('firebase.json', JSON.stringify(firebase, null, 2), { encoding: 'utf8' });
 
 ['common-modern.js', 'common-old-ie.js', 'common-all.js'].forEach(function(javascript) {
   var searchJsFile = path.join('snapshots/', currentRevision, '/javascripts/' + javascript);

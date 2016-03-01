@@ -21,8 +21,8 @@ var possibleOptions = {
 }
 
 
-var divshotConfig = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'divshot.json'), 'utf-8'));
-var siteRoot = divshotConfig.root;
+var divshotConfig = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'firebase.json'), 'utf-8'));
+var siteRoot = divshotConfig.public;
 
 var options = nopt(possibleOptions, process.argv);
 options.environment = options.environment || 'staging';
