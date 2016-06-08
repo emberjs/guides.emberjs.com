@@ -9,7 +9,7 @@
   "redirects": [
     {
       "source": "/",
-      "destination": "/v2.5.0",
+      "destination": "/v2.6.0",
       "type": 302
     }
   ]

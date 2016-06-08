@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Ember.js - Tutorial: Acceptance Testing</title>
+    <meta property="st:title" content="Tutorial: Acceptance Testing" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../../images/favicon.png" rel="icon" type="image/png" />
+    <!--[if lte IE 7 ]><link href="../../stylesheets/fonts/fontello-ie7.css" rel="stylesheet" /><![endif]-->
+    <link href="../../stylesheets/application.css" rel="stylesheet" />
+
+    <!-- This TypeKit account is managed by @wifelette. Contact her with any issues. -->
+    <script src="https://use.typekit.net/stz3kpn.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+    <link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" title="Ember.js - Blog" />
+    
+  </head>
+
+  <body class="guides tutorial tutorial_acceptance-test tutorial_acceptance-test_index">
+
+    <!--[if lt IE 9]>
+      <script src="../../javascripts/common-old-ie.js"></script>
+    <![endif]-->
+    <!--[if gte IE 9]><!-->
+      <script src="../../javascripts/common-modern.js"></script>
+    <!--<![endif]-->
+
+    <header class="header">
+  <nav role="navigation" aria-label="main">
+    <ul class="header-nav container">
+      <li class="header-logo">
+        <a href="http://emberjs.com/"><span class="visually-hidden">Ember homepage</span></a>
+      </li>
+      <li>
+        <a href="http://emberjs.com/">About</a>
+      </li>
+      <li class="active" aria-label="You are here">
+        <a href="/">Guides</a>
+      </li>
+      <li>
+        <a href="http://emberjs.com/api">API</a>
+      </li>
+      <li>
+        <a href="http://emberjs.com/community">Community</a>
+      </li>
+      <li>
+        <a href="http://emberjs.com/blog">Blog</a>
+      </li>
+      <li>
+        <a href="http://emberjs.com/builds">Builds</a>
+      </li>
+
+      <li class="header-search">
+        <form>
+          <input type="text" id="search-input" class="search-input" placeholder="Search the guides"/>
+        </form>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+
+    
+
+    <main class="container">
+      <aside class="sidebar">
+  <label for="version-select" class="visually-hidden">Guides version</label>
+  <select class="version-select" id="version-select" style="width: 100%"></select>
+
+  <input id="toc-toggle" class="toc-toggle visually-hidden" type="checkbox" />
+  <label for="toc-toggle">Table of Contents <span class="visually-hidden">toggle</span></label>
+
+  <nav class="toc-container" aria-label="table of contents">
+    <ol class='toc-level-0 selected'><li class='toc-level-0 '><a href="#">Getting Started</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../getting-started/quick-start/">Quick Start</a></li><li class='toc-level-1 '><a href="../../getting-started/">Installing Ember</a></li><li class='toc-level-1 '><a href="../../getting-started/core-concepts/">Core Concepts</a></li></ol></li><li class='toc-level-0 selected'><a href="#">Tutorial</a><ol class='toc-level-1 selected'><li class='toc-level-1 '><a href="../ember-cli/">Creating a new app</a></li><li class='toc-level-1 selected'><a href="./">Acceptance Testing</a></li><li class='toc-level-1 '><a href="../routes-and-templates/">Routes and Templates</a></li><li class='toc-level-1 '><a href="../model-hook/">The Model Hook</a></li><li class='toc-level-1 '><a href="../installing-addons/">Installing Addons</a></li><li class='toc-level-1 '><a href="../ember-data/">Ember Data</a></li><li class='toc-level-1 '><a href="../simple-component/">A Simple Component</a></li><li class='toc-level-1 '><a href="../hbs-helper/">Handlebars Helper</a></li><li class='toc-level-1 '><a href="../autocomplete-component/">A Complex Component</a></li><li class='toc-level-1 '><a href="../service/">A Service and Utility</a></li><li class='toc-level-1 '><a href="../deploying/">Deploying</a></li></ol></li><li class='toc-level-0 '><a href="#">The Object Model</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../object-model/">Objects in Ember</a></li><li class='toc-level-1 '><a href="../../object-model/classes-and-instances/">Classes and Instances</a></li><li class='toc-level-1 '><a href="../../object-model/reopening-classes-and-instances/">Reopening Classes and Instances</a></li><li class='toc-level-1 '><a href="../../object-model/computed-properties/">Computed Properties</a></li><li class='toc-level-1 '><a href="../../object-model/computed-properties-and-aggregate-data/">Computed Properties and Aggregate Data</a></li><li class='toc-level-1 '><a href="../../object-model/observers/">Observers</a></li><li class='toc-level-1 '><a href="../../object-model/bindings/">Bindings</a></li><li class='toc-level-1 '><a href="../../object-model/enumerables/">Enumerables</a></li></ol></li><li class='toc-level-0 '><a href="#">Routing</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../routing/">Introduction</a></li><li class='toc-level-1 '><a href="../../routing/defining-your-routes/">Defining Your Routes</a></li><li class='toc-level-1 '><a href="../../routing/specifying-a-routes-model/">Specifying a Route's Model</a></li><li class='toc-level-1 '><a href="../../routing/rendering-a-template/">Rendering a Template</a></li><li class='toc-level-1 '><a href="../../routing/redirection/">Redirecting</a></li><li class='toc-level-1 '><a href="../../routing/preventing-and-retrying-transitions/">Preventing and Retrying Transitions</a></li><li class='toc-level-1 '><a href="../../routing/loading-and-error-substates/">Loading / Error Substates</a></li><li class='toc-level-1 '><a href="../../routing/query-params/">Query Parameters</a></li><li class='toc-level-1 '><a href="../../routing/asynchronous-routing/">Asynchronous Routing</a></li></ol></li><li class='toc-level-0 '><a href="#">Templates</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../templates/handlebars-basics/">Handlebars Basics</a></li><li class='toc-level-1 '><a href="../../templates/built-in-helpers/">Built-in Helpers</a></li><li class='toc-level-1 '><a href="../../templates/conditionals/">Conditionals</a></li><li class='toc-level-1 '><a href="../../templates/displaying-a-list-of-items/">Displaying a List of Items</a></li><li class='toc-level-1 '><a href="../../templates/displaying-the-keys-in-an-object/">Displaying the Keys in an Object</a></li><li class='toc-level-1 '><a href="../../templates/binding-element-attributes/">Binding Element Attributes</a></li><li class='toc-level-1 '><a href="../../templates/links/">Links</a></li><li class='toc-level-1 '><a href="../../templates/actions/">Actions</a></li><li class='toc-level-1 '><a href="../../templates/input-helpers/">Input Helpers</a></li><li class='toc-level-1 '><a href="../../templates/development-helpers/">Development Helpers</a></li><li class='toc-level-1 '><a href="../../templates/writing-helpers/">Writing Helpers</a></li></ol></li><li class='toc-level-0 '><a href="#">Components</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../components/defining-a-component/">Defining a Component</a></li><li class='toc-level-1 '><a href="../../components/the-component-lifecycle/">The Component Lifecycle</a></li><li class='toc-level-1 '><a href="../../components/passing-properties-to-a-component/">Passing Properties to a Component</a></li><li class='toc-level-1 '><a href="../../components/wrapping-content-in-a-component/">Wrapping Content in a Component</a></li><li class='toc-level-1 '><a href="../../components/customizing-a-components-element/">Customizing a Component's Element</a></li><li class='toc-level-1 '><a href="../../components/block-params/">Using Block Params</a></li><li class='toc-level-1 '><a href="../../components/handling-events/">Handling Events</a></li><li class='toc-level-1 '><a href="../../components/triggering-changes-with-actions/">Triggering Changes with Actions</a></li></ol></li><li class='toc-level-0 '><a href="#">Controllers</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../controllers/">Introduction</a></li></ol></li><li class='toc-level-0 '><a href="#">Models</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../models/">Introduction</a></li><li class='toc-level-1 '><a href="../../models/defining-models/">Defining Models</a></li><li class='toc-level-1 '><a href="../../models/finding-records/">Finding Records</a></li><li class='toc-level-1 '><a href="../../models/creating-updating-and-deleting-records/">Creating, Updating and Deleting</a></li><li class='toc-level-1 '><a href="../../models/relationships/">Relationships</a></li><li class='toc-level-1 '><a href="../../models/pushing-records-into-the-store/">Pushing Records into the Store</a></li><li class='toc-level-1 '><a href="../../models/handling-metadata/">Handling Metadata</a></li><li class='toc-level-1 '><a href="../../models/customizing-adapters/">Customizing Adapters</a></li><li class='toc-level-1 '><a href="../../models/customizing-serializers/">Customizing Serializers</a></li></ol></li><li class='toc-level-0 '><a href="#">Application Concerns</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../applications/applications-and-instances/">Applications and Instances</a></li><li class='toc-level-1 '><a href="../../applications/dependency-injection/">Dependency Injection</a></li><li class='toc-level-1 '><a href="../../applications/initializers/">Initializers</a></li><li class='toc-level-1 '><a href="../../applications/services/">Services</a></li><li class='toc-level-1 '><a href="../../applications/run-loop/">The Run Loop</a></li></ol></li><li class='toc-level-0 '><a href="#">Testing</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../testing/">Introduction</a></li><li class='toc-level-1 '><a href="../../testing/acceptance/">Acceptance Tests</a></li><li class='toc-level-1 '><a href="../../testing/unit-testing-basics/">Unit Testing Basics</a></li><li class='toc-level-1 '><a href="../../testing/testing-components/">Testing Components</a></li><li class='toc-level-1 '><a href="../../testing/testing-controllers/">Testing Controllers</a></li><li class='toc-level-1 '><a href="../../testing/testing-routes/">Testing Routes</a></li><li class='toc-level-1 '><a href="../../testing/testing-models/">Testing Models</a></li></ol></li><li class='toc-level-0 '><a href="#">Ember Inspector</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../ember-inspector/installation/">Installing the Inspector</a></li><li class='toc-level-1 '><a href="../../ember-inspector/object-inspector/">Object Inspector</a></li><li class='toc-level-1 '><a href="../../ember-inspector/view-tree/">The View Tree</a></li><li class='toc-level-1 '><a href="../../ember-inspector/routes/">Inspecting Routes</a></li><li class='toc-level-1 '><a href="../../ember-inspector/data/">Data Tab</a></li><li class='toc-level-1 '><a href="../../ember-inspector/deprecations/">Tackling Deprecations</a></li><li class='toc-level-1 '><a href="../../ember-inspector/info/">Library Info</a></li><li class='toc-level-1 '><a href="../../ember-inspector/promises/">Debugging Promises</a></li><li class='toc-level-1 '><a href="../../ember-inspector/container/">Inspecting Objects via the Container</a></li><li class='toc-level-1 '><a href="../../ember-inspector/render-performance/">Rendering Performance</a></li><li class='toc-level-1 '><a href="../../ember-inspector/troubleshooting/">Troubleshooting</a></li></ol></li><li class='toc-level-0 '><a href="#">Addons and Dependencies</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../addons-and-dependencies/managing-dependencies/">Managing Dependencies</a></li></ol></li><li class='toc-level-0 '><a href="#">Configuring Ember.js</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../configuring-ember/configuring-your-app/">Configuring Your App</a></li><li class='toc-level-1 '><a href="../../configuring-ember/configuring-ember-cli/">Configuring Ember CLI</a></li><li class='toc-level-1 '><a href="../../configuring-ember/handling-deprecations/">Handling Deprecations</a></li><li class='toc-level-1 '><a href="../../configuring-ember/disabling-prototype-extensions/">Disabling Prototype Extensions</a></li><li class='toc-level-1 '><a href="../../configuring-ember/specifying-url-type/">Specifying the URL Type</a></li><li class='toc-level-1 '><a href="../../configuring-ember/embedding-applications/">Embedding Applications</a></li><li class='toc-level-1 '><a href="../../configuring-ember/feature-flags/">Feature Flags</a></li><li class='toc-level-1 '><a href="../../configuring-ember/debugging/">Debugging</a></li></ol></li><li class='toc-level-0 '><a href="#">Contributing to Ember.js</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../contributing/adding-new-features/">Adding New Features</a></li><li class='toc-level-1 '><a href="../../contributing/repositories/">Repositories</a></li></ol></li><li class='toc-level-0 '><a href="#">Glossary</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../glossary/web-development/">Web Development</a></li></ol></li></ol>
+  </nav>
+
+  <a class="back-to-top" href="#">&#11014; Back to Top</a>
+</aside>
+
+
+      <article class="chapter">
+        <h1>
+          Acceptance Testing
+          <a href="https://github.com/emberjs/guides/edit/master/source/localizable/tutorial/acceptance-test.md"
+             target="_blank" class="edit-page icon-pencil">Edit Page</a>
+        </h1>
+        <hr>
+
+        <p>Let&#39;s think through what we want to do on the home page of our Super Rentals application.</p>
+
+<p>We want our application to:</p>
+
+<ul>
+<li>List available rentals.</li>
+<li>Link to information about the company.</li>
+<li>Link to contact information.</li>
+<li>Filter the list of rentals by city.</li>
+</ul>
+
+<p>We can represent these goals as <a href="../../testing/acceptance/">ember acceptance tests</a>.
+Acceptance tests interact with our app like an actual person would, but can be automated, ensuring that our app doesn&#39;t break in the future.</p>
+
+<p>We&#39;ll start by using Ember CLI to generate a new acceptance test:</p>
+<div class="highlight shell "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre>ember g acceptance-test list-rentals
+</pre></td>
+</tr></table>
+</div></div>
+<p>The command will generate the following output, showing that it created a single file called <code>list-rentals-test</code>.</p>
+<div class="highlight shell "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre>installing acceptance-test
+  create tests/acceptance/list-rentals-test.js
+</pre></td>
+</tr></table>
+</div></div>
+<p>Opening the new test file will reveal some boilerplate code that will try to go to the <code>list-rentals</code> route and verify that the route is loaded.
+This boilerplate code is there to guide you into your first working acceptance test.
+Since we are testing our index route, which is <code>/</code>, we&#39;ll replace occurrences of <code>/list-rentals</code> with <code>/</code>.</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><?xml version="1.0"?>
+<table class="CodeRay">
+  <tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+<span class="highlight-line removed">6</span>
+<span class="highlight-line added">7</span>
+<span class="highlight-line removed">8</span>
+<span class="highlight-line added">9</span>
+<strong>10</strong>
+11
+<span class="highlight-line removed">12</span>
+<span class="highlight-line added">13</span>
+14
+15</pre></td>
+  <td class="code"><pre><span class="reserved">import</span> { test } from <span class="string"><span class="delimiter">'</span><span class="content">qunit</span><span class="delimiter">'</span></span>;
+<span class="reserved">import</span> moduleForAcceptance from <span class="string"><span class="delimiter">'</span><span class="content">super-rentals/tests/helpers/module-for-acceptance</span><span class="delimiter">'</span></span>;
+
+moduleForAcceptance(<span class="string"><span class="delimiter">'</span><span class="content">Acceptance | list-rentals</span><span class="delimiter">'</span></span>);
+
+<span class="highlight-line removed">test(<span class="string"><span class="delimiter">'</span><span class="content">visiting /list-rentals</span><span class="delimiter">'</span></span>, <span class="keyword">function</span>(assert) {</span>
+<span class="highlight-line added">test(<span class="string"><span class="delimiter">'</span><span class="content">visiting /</span><span class="delimiter">'</span></span>, <span class="keyword">function</span>(assert) {</span>
+<span class="highlight-line removed">  visit(<span class="string"><span class="delimiter">'</span><span class="content">/list-rentals</span><span class="delimiter">'</span></span>);</span>
+<span class="highlight-line added">  visit(<span class="string"><span class="delimiter">'</span><span class="content">/</span><span class="delimiter">'</span></span>);</span>
+
+  andThen(<span class="keyword">function</span>() {
+<span class="highlight-line removed">    assert.equal(currentURL(), <span class="string"><span class="delimiter">'</span><span class="content">/list-rentals</span><span class="delimiter">'</span></span>);</span>
+<span class="highlight-line added">    assert.equal(currentURL(), <span class="string"><span class="delimiter">'</span><span class="content">/</span><span class="delimiter">'</span></span>);</span>
+  });
+});</pre></td>
+</tr>
+</table>
+</div></div>
+<p>Now run your test suite with <code>ember t -s</code> from the command line and you&#39;ll see one successful test!</p>
+
+<p>As mentioned before, this test boilerplate is just for checking the environment, so now let&#39;s replace this test with our list of goals.</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">/tests/acceptance/list-rentals-test.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+11
+12
+13
+14
+15
+16
+</pre></td>
+  <td class="code"><pre><span class="reserved">import</span> { test } from <span class="string"><span class="delimiter">'</span><span class="content">qunit</span><span class="delimiter">'</span></span>;
+<span class="reserved">import</span> moduleForAcceptance from <span class="string"><span class="delimiter">'</span><span class="content">super-rentals/tests/helpers/module-for-acceptance</span><span class="delimiter">'</span></span>;
+
+moduleForAcceptance(<span class="string"><span class="delimiter">'</span><span class="content">Acceptance | homepage</span><span class="delimiter">'</span></span>);
+
+test(<span class="string"><span class="delimiter">'</span><span class="content">should list available rentals.</span><span class="delimiter">'</span></span>, <span class="keyword">function</span> (assert) {
+});
+
+test(<span class="string"><span class="delimiter">'</span><span class="content">should link to information about the company.</span><span class="delimiter">'</span></span>, <span class="keyword">function</span> (assert) {
+});
+
+test(<span class="string"><span class="delimiter">'</span><span class="content">should link to contact information.</span><span class="delimiter">'</span></span>, <span class="keyword">function</span> (assert) {
+});
+
+test(<span class="string"><span class="delimiter">'</span><span class="content">should filter the list of rentals by city.</span><span class="delimiter">'</span></span>, <span class="keyword">function</span> (assert) {
+});
+</pre></td>
+</tr></table>
+</div></div>
+<p>These tests will fail, since Ember tests will always fail without assertions.
+Since we have an idea of what we want our application to look like, we can also add some details to the tests.</p>
+
+<p>Ember acceptance tests provide test helpers to perform common tasks, such as visiting routes, filling in fields, clicking on elements, and waiting for pages to render.</p>
+
+<p>To check that rentals are listed, we&#39;ll first visit the index route and check that the results show 3 listings.</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">/tests/acceptance/list-rentals-test.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+</pre></td>
+  <td class="code"><pre>test(<span class="string"><span class="delimiter">'</span><span class="content">should list available rentals.</span><span class="delimiter">'</span></span>, <span class="keyword">function</span> (assert) {
+  visit(<span class="string"><span class="delimiter">'</span><span class="content">/</span><span class="delimiter">'</span></span>);
+  andThen(<span class="keyword">function</span> () {
+    assert.equal(<span class="local-variable">this</span>.<span class="predefined">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">.results .listing</span><span class="delimiter">'</span></span>).length, <span class="integer">3</span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">should see 3 listings</span><span class="delimiter">&quot;</span></span>);
+  });
+});
+</pre></td>
+</tr></table>
+</div></div>
+<p>The test assumes that we show the list of rentals in an element with class <code>results</code>, and that each rental will have an element with class <code>listing</code>.</p>
+
+<p>The <a href="http://emberjs.com/api/classes/Ember.Test.html#method_visit"><code>visit</code></a> helper loads the route specified for the given URL.</p>
+
+<p>The <a href="../../testing/acceptance/#toc_wait-helpers"><code>andThen</code></a> helper waits for all previously called test helpers to complete before executing the function you provide it.
+In this case we need to wait for the page to load after <code>visit</code>, so that we can assert that the listings are displayed.</p>
+
+<p>For the next two tests, we want to verify that clicking the about and contact page links successfully load the proper URLs.
+We&#39;ll use the <a href="http://emberjs.com/api/classes/Ember.Test.html#method_click"><code>click</code></a> helper to simulate a user clicking these links.
+After the new screen loads, we just verify that the new URL matches our expectation using the <a href="http://emberjs.com/api/classes/Ember.Test.html#method_currentURL"><code>currentUrl</code></a> helper.</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">/tests/acceptance/list-rentals-test.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+11
+12
+13
+14
+15
+</pre></td>
+  <td class="code"><pre>test(<span class="string"><span class="delimiter">'</span><span class="content">should link to about page</span><span class="delimiter">'</span></span>, <span class="keyword">function</span> (assert) {
+  visit(<span class="string"><span class="delimiter">'</span><span class="content">/</span><span class="delimiter">'</span></span>);
+  click(<span class="string"><span class="delimiter">'</span><span class="content">a:contains(&quot;About&quot;)</span><span class="delimiter">'</span></span>);
+  andThen(<span class="keyword">function</span> () {
+    assert.equal(currentURL(), <span class="string"><span class="delimiter">'</span><span class="content">/about</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">should navigate to about</span><span class="delimiter">&quot;</span></span>);
+  });
+});
+
+test(<span class="string"><span class="delimiter">'</span><span class="content">should link to contacts page</span><span class="delimiter">'</span></span>, <span class="keyword">function</span> (assert) {
+  visit(<span class="string"><span class="delimiter">'</span><span class="content">/</span><span class="delimiter">'</span></span>);
+  click(<span class="string"><span class="delimiter">'</span><span class="content">a:contains(&quot;Contact&quot;)</span><span class="delimiter">'</span></span>);
+  andThen(<span class="keyword">function</span> () {
+    assert.equal(currentURL(), <span class="string"><span class="delimiter">'</span><span class="content">/contact</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">should navigate to contact</span><span class="delimiter">&quot;</span></span>);
+  });
+});
+</pre></td>
+</tr></table>
+</div></div>
+<p>Note that we can call 2 <a href="../../testing/acceptance/#toc_asynchronous-helpers">asynchronous test helpers</a> in a row without needing to use <code>andThen</code> or a promise.
+This is because each asynchronous test helper is made to wait until other test helpers are complete.</p>
+
+<p>Finally, we&#39;ll test that we can filter the list down according to a city search criteria.
+We anticipate having an input field in a container with a class of <code>list-filter</code>.
+We will fill out &quot;Seattle&quot; as the search criteria in that field, and send a key up event to trigger our filtering action.
+Since we control our data, we know that there is only one rental with a city of &quot;Seattle&quot;, we assert that the number of listings is one, and that its location is &quot;Seattle&quot;</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">/tests/acceptance/list-rentals-test.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td>
+  <td class="code"><pre>test(<span class="string"><span class="delimiter">'</span><span class="content">should list 1 rental when filtering by Seattle</span><span class="delimiter">'</span></span>, <span class="keyword">function</span> (assert) {
+  visit(<span class="string"><span class="delimiter">'</span><span class="content">/</span><span class="delimiter">'</span></span>);
+  fillIn(<span class="string"><span class="delimiter">'</span><span class="content">.list-filter input</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">seattle</span><span class="delimiter">'</span></span>);
+  keyEvent(<span class="string"><span class="delimiter">'</span><span class="content">.list-filter input</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">keyup</span><span class="delimiter">'</span></span>, <span class="integer">69</span>);
+  andThen(<span class="keyword">function</span> () {
+    assert.equal(<span class="local-variable">this</span>.<span class="predefined">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">.results .listing</span><span class="delimiter">'</span></span>).length, <span class="integer">1</span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">should show 1 listing</span><span class="delimiter">&quot;</span></span>);
+    assert.equal(<span class="local-variable">this</span>.<span class="predefined">$</span>(<span class="string"><span class="delimiter">&quot;</span><span class="content">.listing .location:contains('Seattle')</span><span class="delimiter">&quot;</span></span>).length, <span class="integer">1</span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">should contain 1 listing with location Seattle</span><span class="delimiter">&quot;</span></span>);
+  });
+});
+</pre></td>
+</tr></table>
+</div></div>
+<p>Of course, because we have not implemented this functionality yet our tests will all fail.
+Your test output should now show all failed tests, which gives us a todo list for the rest of the tutorial.</p>
+
+<p><img src="../../images/acceptance-test/failed-acceptance-tests.png" alt="failing tests"></p>
+
+<p>As we walk through the tutorial, we&#39;ll use our acceptance tests as a checklist of functionality.
+When all are green, we&#39;ve accomplished our high level goals!</p>
+
+
+
+        
+      <footer>
+        <a class="previous-guide" href="../ember-cli/">Creating a new app</a> <a class="next-guide" href="../routes-and-templates/">Routes and Templates</a>
+      </footer>
+      
+      </article>
+    </main>
+
+    <div class="footer">
+  <div class="container">
+    <div class="footer-info">
+      Copyright 2016
+      <a href="http://tilde.io">Tilde Inc.</a>
+      <br>
+      <a href="http://emberjs.com/team">Core Team</a> |
+      <a href="http://emberjs.com/sponsors">Sponsors</a>
+      <br>
+      <a href="http://emberjs.com/security">Security</a> |
+      <a href="http://emberjs.com/legal">Legal</a> |
+      <a href="http://emberjs.com/logos">Logos</a>
+      <br>
+      <a href="http://emberjs.com/guidelines">Community Guidelines</a>
+    </div>
+
+    <div class="footer-statement">
+      Ember.js is free, open source and always will be.
+    </div>
+
+    <div class="footer-social">
+      <a href="http://twitter.com/emberjs"
+        title="Twitter">
+        <i class="icon-twitter"></i>
+      </a>
+      <a href="https://github.com/emberjs/ember.js"
+        title="GitHub">
+        <i class="icon-github"></i>
+      </a>
+      <a href="https://plus.google.com/communities/106387049790387471205"
+        title="Google+">
+        <i class="icon-gplus"></i>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+    
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+      _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+      _gaq.push(['_setAccount', 'UA-27675533-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
+</html>

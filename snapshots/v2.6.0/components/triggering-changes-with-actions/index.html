@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Ember.js - Components: Triggering Changes with Actions</title>
+    <meta property="st:title" content="Components: Triggering Changes with Actions" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../../images/favicon.png" rel="icon" type="image/png" />
+    <!--[if lte IE 7 ]><link href="../../stylesheets/fonts/fontello-ie7.css" rel="stylesheet" /><![endif]-->
+    <link href="../../stylesheets/application.css" rel="stylesheet" />
+
+    <!-- This TypeKit account is managed by @wifelette. Contact her with any issues. -->
+    <script src="https://use.typekit.net/stz3kpn.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+    <link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" title="Ember.js - Blog" />
+    
+  </head>
+
+  <body class="guides components components_triggering-changes-with-actions components_triggering-changes-with-actions_index">
+
+    <!--[if lt IE 9]>
+      <script src="../../javascripts/common-old-ie.js"></script>
+    <![endif]-->
+    <!--[if gte IE 9]><!-->
+      <script src="../../javascripts/common-modern.js"></script>
+    <!--<![endif]-->
+
+    <header class="header">
+  <nav role="navigation" aria-label="main">
+    <ul class="header-nav container">
+      <li class="header-logo">
+        <a href="http://emberjs.com/"><span class="visually-hidden">Ember homepage</span></a>
+      </li>
+      <li>
+        <a href="http://emberjs.com/">About</a>
+      </li>
+      <li class="active" aria-label="You are here">
+        <a href="/">Guides</a>
+      </li>
+      <li>
+        <a href="http://emberjs.com/api">API</a>
+      </li>
+      <li>
+        <a href="http://emberjs.com/community">Community</a>
+      </li>
+      <li>
+        <a href="http://emberjs.com/blog">Blog</a>
+      </li>
+      <li>
+        <a href="http://emberjs.com/builds">Builds</a>
+      </li>
+
+      <li class="header-search">
+        <form>
+          <input type="text" id="search-input" class="search-input" placeholder="Search the guides"/>
+        </form>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+
+    
+
+    <main class="container">
+      <aside class="sidebar">
+  <label for="version-select" class="visually-hidden">Guides version</label>
+  <select class="version-select" id="version-select" style="width: 100%"></select>
+
+  <input id="toc-toggle" class="toc-toggle visually-hidden" type="checkbox" />
+  <label for="toc-toggle">Table of Contents <span class="visually-hidden">toggle</span></label>
+
+  <nav class="toc-container" aria-label="table of contents">
+    <ol class='toc-level-0 selected'><li class='toc-level-0 '><a href="#">Getting Started</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../getting-started/quick-start/">Quick Start</a></li><li class='toc-level-1 '><a href="../../getting-started/">Installing Ember</a></li><li class='toc-level-1 '><a href="../../getting-started/core-concepts/">Core Concepts</a></li></ol></li><li class='toc-level-0 '><a href="#">Tutorial</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../tutorial/ember-cli/">Creating a new app</a></li><li class='toc-level-1 '><a href="../../tutorial/acceptance-test/">Acceptance Testing</a></li><li class='toc-level-1 '><a href="../../tutorial/routes-and-templates/">Routes and Templates</a></li><li class='toc-level-1 '><a href="../../tutorial/model-hook/">The Model Hook</a></li><li class='toc-level-1 '><a href="../../tutorial/installing-addons/">Installing Addons</a></li><li class='toc-level-1 '><a href="../../tutorial/ember-data/">Ember Data</a></li><li class='toc-level-1 '><a href="../../tutorial/simple-component/">A Simple Component</a></li><li class='toc-level-1 '><a href="../../tutorial/hbs-helper/">Handlebars Helper</a></li><li class='toc-level-1 '><a href="../../tutorial/autocomplete-component/">A Complex Component</a></li><li class='toc-level-1 '><a href="../../tutorial/service/">A Service and Utility</a></li><li class='toc-level-1 '><a href="../../tutorial/deploying/">Deploying</a></li></ol></li><li class='toc-level-0 '><a href="#">The Object Model</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../object-model/">Objects in Ember</a></li><li class='toc-level-1 '><a href="../../object-model/classes-and-instances/">Classes and Instances</a></li><li class='toc-level-1 '><a href="../../object-model/reopening-classes-and-instances/">Reopening Classes and Instances</a></li><li class='toc-level-1 '><a href="../../object-model/computed-properties/">Computed Properties</a></li><li class='toc-level-1 '><a href="../../object-model/computed-properties-and-aggregate-data/">Computed Properties and Aggregate Data</a></li><li class='toc-level-1 '><a href="../../object-model/observers/">Observers</a></li><li class='toc-level-1 '><a href="../../object-model/bindings/">Bindings</a></li><li class='toc-level-1 '><a href="../../object-model/enumerables/">Enumerables</a></li></ol></li><li class='toc-level-0 '><a href="#">Routing</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../routing/">Introduction</a></li><li class='toc-level-1 '><a href="../../routing/defining-your-routes/">Defining Your Routes</a></li><li class='toc-level-1 '><a href="../../routing/specifying-a-routes-model/">Specifying a Route's Model</a></li><li class='toc-level-1 '><a href="../../routing/rendering-a-template/">Rendering a Template</a></li><li class='toc-level-1 '><a href="../../routing/redirection/">Redirecting</a></li><li class='toc-level-1 '><a href="../../routing/preventing-and-retrying-transitions/">Preventing and Retrying Transitions</a></li><li class='toc-level-1 '><a href="../../routing/loading-and-error-substates/">Loading / Error Substates</a></li><li class='toc-level-1 '><a href="../../routing/query-params/">Query Parameters</a></li><li class='toc-level-1 '><a href="../../routing/asynchronous-routing/">Asynchronous Routing</a></li></ol></li><li class='toc-level-0 '><a href="#">Templates</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../templates/handlebars-basics/">Handlebars Basics</a></li><li class='toc-level-1 '><a href="../../templates/built-in-helpers/">Built-in Helpers</a></li><li class='toc-level-1 '><a href="../../templates/conditionals/">Conditionals</a></li><li class='toc-level-1 '><a href="../../templates/displaying-a-list-of-items/">Displaying a List of Items</a></li><li class='toc-level-1 '><a href="../../templates/displaying-the-keys-in-an-object/">Displaying the Keys in an Object</a></li><li class='toc-level-1 '><a href="../../templates/binding-element-attributes/">Binding Element Attributes</a></li><li class='toc-level-1 '><a href="../../templates/links/">Links</a></li><li class='toc-level-1 '><a href="../../templates/actions/">Actions</a></li><li class='toc-level-1 '><a href="../../templates/input-helpers/">Input Helpers</a></li><li class='toc-level-1 '><a href="../../templates/development-helpers/">Development Helpers</a></li><li class='toc-level-1 '><a href="../../templates/writing-helpers/">Writing Helpers</a></li></ol></li><li class='toc-level-0 selected'><a href="#">Components</a><ol class='toc-level-1 selected'><li class='toc-level-1 '><a href="../defining-a-component/">Defining a Component</a></li><li class='toc-level-1 '><a href="../the-component-lifecycle/">The Component Lifecycle</a></li><li class='toc-level-1 '><a href="../passing-properties-to-a-component/">Passing Properties to a Component</a></li><li class='toc-level-1 '><a href="../wrapping-content-in-a-component/">Wrapping Content in a Component</a></li><li class='toc-level-1 '><a href="../customizing-a-components-element/">Customizing a Component's Element</a></li><li class='toc-level-1 '><a href="../block-params/">Using Block Params</a></li><li class='toc-level-1 '><a href="../handling-events/">Handling Events</a></li><li class='toc-level-1 selected'><a href="./">Triggering Changes with Actions</a></li></ol></li><li class='toc-level-0 '><a href="#">Controllers</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../controllers/">Introduction</a></li></ol></li><li class='toc-level-0 '><a href="#">Models</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../models/">Introduction</a></li><li class='toc-level-1 '><a href="../../models/defining-models/">Defining Models</a></li><li class='toc-level-1 '><a href="../../models/finding-records/">Finding Records</a></li><li class='toc-level-1 '><a href="../../models/creating-updating-and-deleting-records/">Creating, Updating and Deleting</a></li><li class='toc-level-1 '><a href="../../models/relationships/">Relationships</a></li><li class='toc-level-1 '><a href="../../models/pushing-records-into-the-store/">Pushing Records into the Store</a></li><li class='toc-level-1 '><a href="../../models/handling-metadata/">Handling Metadata</a></li><li class='toc-level-1 '><a href="../../models/customizing-adapters/">Customizing Adapters</a></li><li class='toc-level-1 '><a href="../../models/customizing-serializers/">Customizing Serializers</a></li></ol></li><li class='toc-level-0 '><a href="#">Application Concerns</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../applications/applications-and-instances/">Applications and Instances</a></li><li class='toc-level-1 '><a href="../../applications/dependency-injection/">Dependency Injection</a></li><li class='toc-level-1 '><a href="../../applications/initializers/">Initializers</a></li><li class='toc-level-1 '><a href="../../applications/services/">Services</a></li><li class='toc-level-1 '><a href="../../applications/run-loop/">The Run Loop</a></li></ol></li><li class='toc-level-0 '><a href="#">Testing</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../testing/">Introduction</a></li><li class='toc-level-1 '><a href="../../testing/acceptance/">Acceptance Tests</a></li><li class='toc-level-1 '><a href="../../testing/unit-testing-basics/">Unit Testing Basics</a></li><li class='toc-level-1 '><a href="../../testing/testing-components/">Testing Components</a></li><li class='toc-level-1 '><a href="../../testing/testing-controllers/">Testing Controllers</a></li><li class='toc-level-1 '><a href="../../testing/testing-routes/">Testing Routes</a></li><li class='toc-level-1 '><a href="../../testing/testing-models/">Testing Models</a></li></ol></li><li class='toc-level-0 '><a href="#">Ember Inspector</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../ember-inspector/installation/">Installing the Inspector</a></li><li class='toc-level-1 '><a href="../../ember-inspector/object-inspector/">Object Inspector</a></li><li class='toc-level-1 '><a href="../../ember-inspector/view-tree/">The View Tree</a></li><li class='toc-level-1 '><a href="../../ember-inspector/routes/">Inspecting Routes</a></li><li class='toc-level-1 '><a href="../../ember-inspector/data/">Data Tab</a></li><li class='toc-level-1 '><a href="../../ember-inspector/deprecations/">Tackling Deprecations</a></li><li class='toc-level-1 '><a href="../../ember-inspector/info/">Library Info</a></li><li class='toc-level-1 '><a href="../../ember-inspector/promises/">Debugging Promises</a></li><li class='toc-level-1 '><a href="../../ember-inspector/container/">Inspecting Objects via the Container</a></li><li class='toc-level-1 '><a href="../../ember-inspector/render-performance/">Rendering Performance</a></li><li class='toc-level-1 '><a href="../../ember-inspector/troubleshooting/">Troubleshooting</a></li></ol></li><li class='toc-level-0 '><a href="#">Addons and Dependencies</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../addons-and-dependencies/managing-dependencies/">Managing Dependencies</a></li></ol></li><li class='toc-level-0 '><a href="#">Configuring Ember.js</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../configuring-ember/configuring-your-app/">Configuring Your App</a></li><li class='toc-level-1 '><a href="../../configuring-ember/configuring-ember-cli/">Configuring Ember CLI</a></li><li class='toc-level-1 '><a href="../../configuring-ember/handling-deprecations/">Handling Deprecations</a></li><li class='toc-level-1 '><a href="../../configuring-ember/disabling-prototype-extensions/">Disabling Prototype Extensions</a></li><li class='toc-level-1 '><a href="../../configuring-ember/specifying-url-type/">Specifying the URL Type</a></li><li class='toc-level-1 '><a href="../../configuring-ember/embedding-applications/">Embedding Applications</a></li><li class='toc-level-1 '><a href="../../configuring-ember/feature-flags/">Feature Flags</a></li><li class='toc-level-1 '><a href="../../configuring-ember/debugging/">Debugging</a></li></ol></li><li class='toc-level-0 '><a href="#">Contributing to Ember.js</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../contributing/adding-new-features/">Adding New Features</a></li><li class='toc-level-1 '><a href="../../contributing/repositories/">Repositories</a></li></ol></li><li class='toc-level-0 '><a href="#">Glossary</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../glossary/web-development/">Web Development</a></li></ol></li></ol>
+  </nav>
+
+  <a class="back-to-top" href="#">&#11014; Back to Top</a>
+</aside>
+
+
+      <article class="chapter">
+        <h1>
+          Triggering Changes with Actions
+          <a href="https://github.com/emberjs/guides/edit/master/source/localizable/components/triggering-changes-with-actions.md"
+             target="_blank" class="edit-page icon-pencil">Edit Page</a>
+        </h1>
+        <hr>
+
+        <p>You can think of a component as a black box of UI functionality.
+So far, you&#39;ve learned how parent components can pass attributes in to a
+child component, and how that component can use those attributes from
+both JavaScript and its template.</p>
+
+<p>But what about the opposite direction? How does data flow back out of
+the component to the parent? In Ember, components use <strong>actions</strong> to
+communicate events and changes.</p>
+
+<p>Let&#39;s look at a simple example of how a component can use an action to
+communicate with its parent.</p>
+
+<p>Imagine we&#39;re building an application where users can have accounts. We
+need to build the UI for users to delete their account. Because we don&#39;t
+want users to accidentally delete their accounts, we&#39;ll build a button
+that requires the user to confirm in order to trigger some
+action.</p>
+
+<p>Once we create this &quot;button with confirmation&quot;
+component, we want to be able to reuse it all over our application.</p>
+<h2 class='anchorable-toc' id='toc_creating-the-component'>Creating the Component</h2>
+<p>Let&#39;s call our component <code>button-with-confirmation</code>. We can create it by
+typing:</p>
+<div class="highlight shell "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre>ember generate component button-with-confirmation
+</pre></td>
+</tr></table>
+</div></div>
+<p>We&#39;ll plan to use the component in a template something like this:</p>
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/templates/components/user-profile.hbs</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">button-with-confirmation</span> <span class="attribute-name">text</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">Click OK to delete your account.</span><span class="delimiter">&quot;</span></span><span class="inline-delimiter">}}</span></span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>We&#39;ll also want to use the component elsewhere, perhaps like this:</p>
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/templates/components/send-message.hbs</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">button-with-confirmation</span> <span class="attribute-name">text</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">Click OK to send your message.</span><span class="delimiter">&quot;</span></span><span class="inline-delimiter">}}</span></span>
+</pre></td>
+</tr></table>
+</div></div><h2 class='anchorable-toc' id='toc_designing-the-action'>Designing the Action</h2>
+<p>When implementing an action on a component, you need to break it down into two steps:</p>
+
+<ol>
+<li>In the parent component, decide how you want to react to the action.
+Here, we want to have the action delete the user&#39;s account in one place, and
+send a message in another place.</li>
+<li>In the component, determine when something has happened, and when to tell the
+outside world. Here, we want to trigger the outside action (deleting the
+account or sending the message) after the user clicks the button and then
+confirms.</li>
+</ol>
+
+<p>Let&#39;s take it step by step.</p>
+<h2 class='anchorable-toc' id='toc_implementing-the-action'>Implementing the Action</h2>
+<p>In the parent component, let&#39;s first define what we want to happen when the
+user clicks the button and then confirms. In this case, we&#39;ll find the user&#39;s
+account and delete it.</p>
+
+<p>In Ember, each component can
+have a property called <code>actions</code>, where you put functions that can be
+<a href="../../templates/actions/">invoked by the user interacting with the component
+itself</a>, or by child components.</p>
+
+<p>Let&#39;s look at the parent component&#39;s JavaScript file. In this example,
+imagine we have a parent component called <code>user-profile</code> that shows the
+user&#39;s profile to them.</p>
+
+<p>We&#39;ll implement an action on the parent component called
+<code>userDidDeleteAccount()</code> that, when called, gets a hypothetical <code>login</code>
+<a href="../../applications/services/">service</a> and calls the service&#39;s
+<code>deleteUser()</code> method.</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/components/user-profile.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td>
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> Ember.Component.extend({
+  <span class="key">login</span>: Ember.inject.service(),
+
+  <span class="key">actions</span>: {
+    userDidDeleteAccount() {
+      <span class="local-variable">this</span>.get(<span class="string"><span class="delimiter">'</span><span class="content">login</span><span class="delimiter">'</span></span>).deleteUser();
+    }
+  }
+});
+</pre></td>
+</tr></table>
+</div></div>
+<p>Now we&#39;ve implemented our action, but we have not told Ember when we
+want this action to be triggered, which is the next step.</p>
+<h2 class='anchorable-toc' id='toc_designing-the-child-component'>Designing the Child Component</h2>
+<p>Next, let&#39;s implement the logic to confirm that the user wants to take
+the action from the component:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/components/button-with-confirmation.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+11
+12
+13
+14
+15
+16
+17
+</pre></td>
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> Ember.Component.extend({
+
+  <span class="key">actions</span>: {
+    launchConfirmDialog() {
+      <span class="local-variable">this</span>.set(<span class="string"><span class="delimiter">'</span><span class="content">confirmShown</span><span class="delimiter">'</span></span>, <span class="predefined-constant">true</span>);
+    },
+
+    submitConfirm() {
+      <span class="comment">// trigger action on parent component</span>
+      <span class="local-variable">this</span>.set(<span class="string"><span class="delimiter">'</span><span class="content">confirmShown</span><span class="delimiter">'</span></span>, <span class="predefined-constant">false</span>);
+    },
+
+    cancelConfirm() {
+      <span class="local-variable">this</span>.set(<span class="string"><span class="delimiter">'</span><span class="content">confirmShown</span><span class="delimiter">'</span></span>, <span class="predefined-constant">false</span>);
+    }
+  }
+});
+</pre></td>
+</tr></table>
+</div></div>
+<p>The component template will have a button and a div that shows the confirmation dialog
+based on the value of <code>confirmShown</code>.</p>
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/templates/components/button-with-confirmation.hbs</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td>
+  <td class="code"><pre><span class="tag">&lt;button</span> <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">action</span> <span class="error">&quot;</span><span class="attribute-name">launchConfirmDialog</span><span class="error">&quot;</span><span class="inline-delimiter">}}</span></span><span class="tag">&gt;</span><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">text</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/button&gt;</span>
+<span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">if</span> <span class="attribute-name">confirmShown</span><span class="inline-delimiter">}}</span></span>
+  <span class="tag">&lt;div</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">confirm-dialog</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;button</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">confirm-submit</span><span class="delimiter">&quot;</span></span> <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">action</span> <span class="error">&quot;</span><span class="attribute-name">submitConfirm</span><span class="error">&quot;</span><span class="inline-delimiter">}}</span></span><span class="tag">&gt;</span>OK<span class="tag">&lt;/button&gt;</span>
+    <span class="tag">&lt;button</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">confirm-cancel</span><span class="delimiter">&quot;</span></span> <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">action</span> <span class="error">&quot;</span><span class="attribute-name">cancelConfirm</span><span class="error">&quot;</span><span class="inline-delimiter">}}</span></span><span class="tag">&gt;</span>Cancel<span class="tag">&lt;/button&gt;</span>
+  <span class="tag">&lt;/div&gt;</span>
+<span class="inline"><span class="inline-delimiter">{{/</span><span class="attribute-name">if</span><span class="inline-delimiter">}}</span></span>
+</pre></td>
+</tr></table>
+</div></div><h2 class='anchorable-toc' id='toc_passing-the-action-to-the-component'>Passing the Action to the Component</h2>
+<p>Now we need to make it so that the <code>onConfirm()</code> event in the
+<code>button-with-confirmation()</code> component triggers the
+<code>userDidDeleteAccount()</code> action in the <code>user-profile</code> component.
+One important thing to know about actions is that they&#39;re functions
+you can call, like any other method on your component.
+So they can be passed from one component to another like this:</p>
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/templates/components/user-profile.hbs</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">button-with-confirmation</span> <span class="attribute-name">text</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">Click here to delete your account.</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">onConfirm</span>=<span class="error">(</span><span class="attribute-value">action</span> <span class="error">&quot;</span><span class="attribute-name">userDidDeleteAccount</span><span class="error">&quot;</span><span class="error">)</span><span class="inline-delimiter">}}</span></span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>This snippet says &quot;take the <code>userDidDeleteAccount</code> action from the
+parent and make it available on the child component as
+<code>onConfirm</code>.&quot;</p>
+
+<p>We can do a similar thing for our <code>send-message</code> component:</p>
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/templates/components/send-message.hbs</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">button-with-confirmation</span> <span class="attribute-name">text</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">Click to send your message.</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">onConfirm</span>=<span class="error">(</span><span class="attribute-value">action</span> <span class="error">&quot;</span><span class="attribute-name">sendMessage</span><span class="error">&quot;</span><span class="error">)</span><span class="inline-delimiter">}}</span></span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>Now, we can use <code>onConfirm</code> in the child component to invoke the action on the
+parent:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/components/button-with-confirmation.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+11
+12
+13
+14
+15
+16
+17
+</pre></td>
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> Ember.Component.extend({
+
+  <span class="key">actions</span>: {
+    launchConfirmDialog() {
+      <span class="local-variable">this</span>.set(<span class="string"><span class="delimiter">'</span><span class="content">confirmShown</span><span class="delimiter">'</span></span>, <span class="predefined-constant">true</span>);
+    },
+
+    submitConfirm() {
+      <span class="comment">//call the onConfirm property to invoke the passed in action</span>
+      <span class="local-variable">this</span>.get(<span class="string"><span class="delimiter">'</span><span class="content">onConfirm</span><span class="delimiter">'</span></span>)();
+    },
+
+    cancelConfirm() {
+      <span class="local-variable">this</span>.set(<span class="string"><span class="delimiter">'</span><span class="content">confirmShown</span><span class="delimiter">'</span></span>, <span class="predefined-constant">false</span>);
+    }
+  }
+});
+</pre></td>
+</tr></table>
+</div></div>
+<p><code>this.get(&#39;onConfirm&#39;)</code> will return the function passed from the parent as the
+value of <code>onConfirm</code>, and the following <code>()</code> will invoke the function.</p>
+
+<p>Like normal attributes, actions can be a property on the component; the
+only difference is that the property is set to a function that knows how
+to trigger behavior.</p>
+
+<p>That makes it easy to remember how to add an action to a component. It&#39;s
+like passing an attribute, but you use the <code>action</code> helper to pass
+a function instead.</p>
+
+<p>Actions in components allow you to
+decouple an event happening from how it&#39;s handled, leading to modular,
+more reusable components.</p>
+<h2 class='anchorable-toc' id='toc_handling-action-completion'>Handling Action Completion</h2>
+<p>Often actions perform asynchronous tasks, such as making an ajax request to a server.
+Since actions are functions that can be passed in by a parent component, they are able to return values when called.
+The most common scenario is for an action to return a promise so that the component can handle the action&#39;s completion.</p>
+
+<p>In our user <code>button-with-confirmation</code> component we want to leave the confirmation modal open until we know that the
+operation has completed successfully.
+This is accomplished by expecting a promise to be returned from <code>onConfirm</code>.
+Upon resolution of the promise, we set a property used to indicate the visibility of the confirmation modal.</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/components/button-with-confirmation.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre></td>
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> Ember.Component.extend({
+  <span class="key">actions</span>: {
+    launchConfirmDialog() {
+      <span class="local-variable">this</span>.set(<span class="string"><span class="delimiter">'</span><span class="content">confirmShown</span><span class="delimiter">'</span></span>, <span class="predefined-constant">true</span>);
+    },
+
+    submitConfirm() {
+      <span class="comment">//call onConfirm with the value of the input field as an argument</span>
+      const promise = <span class="local-variable">this</span>.get(<span class="string"><span class="delimiter">'</span><span class="content">onConfirm</span><span class="delimiter">'</span></span>)();
+      promise.then(() =&gt; {
+        <span class="local-variable">this</span>.set(<span class="string"><span class="delimiter">'</span><span class="content">confirmShown</span><span class="delimiter">'</span></span>, <span class="predefined-constant">false</span>);
+      });
+    },
+
+    cancelConfirm() {
+      <span class="local-variable">this</span>.set(<span class="string"><span class="delimiter">'</span><span class="content">confirmShown</span><span class="delimiter">'</span></span>, <span class="predefined-constant">false</span>);
+    }
+  }
+});
+</pre></td>
+</tr></table>
+</div></div><h2 class='anchorable-toc' id='toc_passing-arguments'>Passing Arguments</h2>
+<p>Sometimes the parent component invoking an action has some context needed for the action that the child component
+doesn&#39;t.
+For these cases, actions passed to a component via the action helper may be invoked with arguments.
+For example, we&#39;ll update the <code>send-message</code> action to take a message type in addition to the message itself.
+Since the <code>button-with-confirmation</code> component doesn&#39;t know or care about what type of message its collecting, we want
+to provide a message type from <code>send-message</code> when we define the action.</p>
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/templates/components/send-message.hbs</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">button-with-confirmation</span> <span class="attribute-name">text</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">Click to send your message.</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">onConfirm</span>=<span class="error">(</span><span class="attribute-value">action</span> <span class="error">&quot;</span><span class="attribute-name">sendMessage</span><span class="error">&quot;</span> <span class="error">&quot;</span><span class="attribute-name">info</span><span class="error">&quot;</span><span class="error">)</span><span class="inline-delimiter">}}</span></span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>In this case, the code in <code>button-with-confirmation</code> does not change.
+It will still invoke <code>onConfirm</code> with no arguments.
+The action helper will add the arguments provided in the template to the call.</p>
+
+<p>Action arguments curry, meaning that you can provide partial arguments to the action helper and provide the rest of the
+arguments when you call the function within the component javascript file.
+For example, our <code>button-with-confirmation</code> component will now <a href="../wrapping-content-in-a-component/">yield</a> the content
+of the confirmation dialog to collect extra information to be sent along with the <code>onConfirm</code> action:</p>
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/templates/components/button-with-confirmation.hbs</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+</pre></td>
+  <td class="code"><pre><span class="tag">&lt;button</span> <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">action</span> <span class="error">&quot;</span><span class="attribute-name">launchConfirmDialog</span><span class="error">&quot;</span><span class="inline-delimiter">}}</span></span><span class="tag">&gt;</span><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">text</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/button&gt;</span>
+<span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">if</span> <span class="attribute-name">confirmShown</span><span class="inline-delimiter">}}</span></span>
+  <span class="tag">&lt;div</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">confirm-dialog</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+    <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">yield</span> <span class="attribute-name">confirmValue</span><span class="inline-delimiter">}}</span></span>
+    <span class="tag">&lt;button</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">confirm-submit</span><span class="delimiter">&quot;</span></span> <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">action</span> <span class="error">&quot;</span><span class="attribute-name">submitConfirm</span><span class="error">&quot;</span><span class="inline-delimiter">}}</span></span><span class="tag">&gt;</span>OK<span class="tag">&lt;/button&gt;</span>
+    <span class="tag">&lt;button</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">confirm-cancel</span><span class="delimiter">&quot;</span></span> <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">action</span> <span class="error">&quot;</span><span class="attribute-name">cancelConfirm</span><span class="error">&quot;</span><span class="inline-delimiter">}}</span></span><span class="tag">&gt;</span>Cancel<span class="tag">&lt;/button&gt;</span>
+  <span class="tag">&lt;/div&gt;</span>
+<span class="inline"><span class="inline-delimiter">{{/</span><span class="attribute-name">if</span><span class="inline-delimiter">}}</span></span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>The <code>send-message</code> component provides an input as block content to the <code>button-with-confirmation</code> component, setting
+<code>confirmValue</code>.</p>
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/templates/components/send-message.hbs</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+</pre></td>
+  <td class="code"><pre><span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">button-with-confirmation</span>
+    <span class="attribute-name">text</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">Click to send your message.</span><span class="delimiter">&quot;</span></span>
+    <span class="attribute-name">onConfirm</span>=<span class="error">(</span><span class="attribute-value">action</span> <span class="error">&quot;</span><span class="attribute-name">sendMessage</span><span class="error">&quot;</span> <span class="error">&quot;</span><span class="attribute-name">info</span><span class="error">&quot;</span><span class="error">)</span>
+    <span class="attribute-name">as</span> <span class="error">|</span><span class="attribute-name">confirmValue</span><span class="error">|</span><span class="inline-delimiter">}}</span></span>
+  <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">input</span> <span class="attribute-name">value</span>=<span class="attribute-value">confirmValue</span><span class="inline-delimiter">}}</span></span>
+<span class="inline"><span class="inline-delimiter">{{/</span><span class="attribute-name">button-with-confirmation</span><span class="inline-delimiter">}}</span></span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>Now when the <code>submitConfirm</code> action is invoked, we call it with the value provided by our yielded input.</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/components/button-with-confirmation.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+11
+12
+13
+14
+15
+16
+17
+18
+19
+</pre></td>
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> Ember.Component.extend({
+  <span class="key">actions</span>: {
+    launchConfirmDialog() {
+      <span class="local-variable">this</span>.set(<span class="string"><span class="delimiter">&quot;</span><span class="content">confirmShown</span><span class="delimiter">&quot;</span></span>, <span class="predefined-constant">true</span>);
+    },
+
+    submitConfirm() {
+      <span class="comment">//call onConfirm with the value of the input field as an argument</span>
+      const promise = <span class="local-variable">this</span>.get(<span class="string"><span class="delimiter">'</span><span class="content">onConfirm</span><span class="delimiter">'</span></span>)(<span class="local-variable">this</span>.get(<span class="string"><span class="delimiter">'</span><span class="content">confirmValue</span><span class="delimiter">'</span></span>));
+      promise.then(() =&gt; {
+        <span class="local-variable">this</span>.set(<span class="string"><span class="delimiter">'</span><span class="content">confirmShown</span><span class="delimiter">'</span></span>, <span class="predefined-constant">false</span>);
+      });
+    },
+
+    cancelConfirm() {
+      <span class="local-variable">this</span>.set(<span class="string"><span class="delimiter">'</span><span class="content">confirmShown</span><span class="delimiter">'</span></span>, <span class="predefined-constant">false</span>);
+    }
+  }
+});
+</pre></td>
+</tr></table>
+</div></div>
+<p>This action will call our bound <code>sendMessage</code> function with both the message type we provided earlier, and the template
+and the message value provided in the component JavaScript.</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/components/send-message.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td>
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> Ember.Component.extend({
+  <span class="key">actions</span>: {
+    sendMessage(messageType, messageText) {
+      <span class="comment">//send message here and return a promise</span>
+    }
+  }
+});
+</pre></td>
+</tr></table>
+</div></div><h2 class='anchorable-toc' id='toc_invoking-actions-directly-on-component-collaborators'>Invoking Actions Directly on Component Collaborators</h2>
+<p>Actions can be invoked on objects other than the component directly from the template.  For example, in our
+<code>send-message</code> component we might include a service that processes the <code>sendMessage</code> logic.</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/components/send-message.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+</pre></td>
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> Ember.Component.extend({
+  <span class="key">messaging</span>: Ember.inject.service(),
+
+  <span class="comment">// component implementation</span>
+});
+</pre></td>
+</tr></table>
+</div></div>
+<p>We can tell the action to invoke the <code>sendMessage</code> action directly on the messaging service with the <code>target</code> attribute.</p>
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/templates/components/send-message.hbs</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+</pre></td>
+  <td class="code"><pre><span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">button-with-confirmation</span>
+    <span class="attribute-name">text</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">Click to send your message.</span><span class="delimiter">&quot;</span></span>
+    <span class="attribute-name">onConfirm</span>=<span class="error">(</span><span class="attribute-value">action</span> <span class="error">&quot;</span><span class="attribute-name">sendMessage</span><span class="error">&quot;</span> <span class="error">&quot;</span><span class="attribute-name">info</span><span class="error">&quot;</span> <span class="attribute-name">target</span>=<span class="attribute-value">messaging</span><span class="error">)</span>
+    <span class="attribute-name">as</span> <span class="error">|</span><span class="attribute-name">confirmValue</span><span class="error">|</span> <span class="inline-delimiter">}}</span></span>
+  <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">input</span> <span class="attribute-name">value</span>=<span class="attribute-value">confirmValue</span><span class="inline-delimiter">}}</span></span>
+<span class="inline"><span class="inline-delimiter">{{/</span><span class="attribute-name">button-with-confirmation</span><span class="inline-delimiter">}}</span></span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>By supplying the <code>target</code> attribute, the action helper will look to invoke the <code>sendMessage</code> action directly on the messaging
+service, saving us from writing code on the component that just passes the action along to the service.</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/services/messaging.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td>
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> Ember.Service.extend({
+  <span class="key">actions</span>: {
+    sendMessage(messageType, text) {
+      <span class="comment">//handle message send and return a promise</span>
+    }
+  }
+});
+</pre></td>
+</tr></table>
+</div></div><h2 class='anchorable-toc' id='toc_destructuring-objects-passed-as-action-arguments'>Destructuring Objects Passed as Action Arguments</h2>
+<p>A component will often not know what information a parent needs to process an action, and will just pass all the
+information it has.
+For example, our <code>user-profile</code> component is going to notify its parent, <code>system-preferences-editor</code>, that a
+user&#39;s account was deleted, and passes along with it the full user profile object.</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/components/user-profile.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+</pre></td>
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> Ember.Component.extend({
+  <span class="key">login</span>: Ember.inject.service(),
+
+  <span class="key">actions</span>: {
+    userDidDeleteAccount() {
+      <span class="local-variable">this</span>.get(<span class="string"><span class="delimiter">'</span><span class="content">login</span><span class="delimiter">'</span></span>).deleteUser();
+      <span class="local-variable">this</span>.get(<span class="string"><span class="delimiter">'</span><span class="content">didDelete</span><span class="delimiter">'</span></span>)(<span class="local-variable">this</span>.get(<span class="string"><span class="delimiter">'</span><span class="content">login.currentUserObj</span><span class="delimiter">'</span></span>));
+    }
+  }
+});
+</pre></td>
+</tr></table>
+</div></div>
+<p>All our <code>system-preferences-editor</code> component really needs to process a user deletion is an account ID.
+For this case, the action helper provides the <code>value</code> attribute to allow a parent component to dig into the passed
+object to pull out only what it needs.</p>
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/templates/components/system-preferences-editor.hbs</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">user-profile</span> <span class="attribute-name">didDelete</span>=<span class="error">(</span><span class="attribute-value">action</span> <span class="error">&quot;</span><span class="attribute-name">userDeleted</span><span class="error">&quot;</span> <span class="attribute-name">value</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">account.id</span><span class="delimiter">&quot;</span></span><span class="error">)</span><span class="inline-delimiter">}}</span></span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>Now when the <code>system-preferences-editor</code> handles the delete action, it receives only the user&#39;s account <code>id</code> string.</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/components/system-preferences-editor.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td>
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> Ember.Component.extend({
+  <span class="key">actions</span>: {
+    userDeleted(idStr) {
+      <span class="comment">//respond to deletion</span>
+    }
+  }
+});
+</pre></td>
+</tr></table>
+</div></div><h2 class='anchorable-toc' id='toc_calling-actions-up-multiple-component-layers'>Calling Actions Up Multiple Component Layers</h2>
+<p>When your components go multiple template layers deep, its common to need to handle an action several layers up the tree.
+Using the action helper, it is possible to make actions defined in parent components available at the bottom layers of
+your component tree without adding JavaScript code to the components in between.</p>
+
+<p>For example, we want to take account deletion out of the <code>user-profile</code> component and handle deletion in its parent.
+In our template in <code>user-profile.hbs</code>, we can change our action to call <code>deleteCurrentUser</code>,
+which will be defined on <code>system-preferences-editor</code>.</p>
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/templates/components/user-profile.hbs</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">button-with-confirmation</span> <span class="attribute-name">onConfirm</span>=<span class="error">(</span><span class="attribute-value">action</span> <span class="attribute-name">deleteCurrentUser</span><span class="error">)</span>
+  <span class="attribute-name">text</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">Click OK to delete your account.</span><span class="delimiter">&quot;</span></span><span class="inline-delimiter">}}</span></span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>Note that <code>deleteCurrentUser</code> is not in quotes as was the case <a href="#toc_passing-the-action-to-the-component">previously</a>
+when the action was local to <code>user-profile</code>.  When you pass an actual function reference (without quotes) to the action
+helper, it will call the function from the component&#39;s local context.</p>
+
+<p>Alternately, when you pass a string to the action helper, Ember will attempt to call that function from the
+component&#39;s local <code>actions</code> object.</p>
+
+<p>Here our <code>system-preferences-editor</code> template passes its <code>deleteUser</code> action into the <code>user-profile</code>
+component&#39;s local <code>deleteCurrentUser</code> property.</p>
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/templates/components/system-preferences-editor.hbs</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">user-profile</span> <span class="attribute-name">deleteCurrentUser</span>=<span class="error">(</span><span class="attribute-value">action</span> <span class="error">'</span><span class="attribute-name">deleteUser</span><span class="error">'</span> <span class="attribute-name">login.currentUser.id</span><span class="error">)</span><span class="inline-delimiter">}}</span></span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>Now when you confirm deletion, the action goes straight to the <code>system-preferences-editor</code> to handle.</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/components/system-preferences-editor.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+</pre></td>
+  <td class="code"><pre><span class="reserved">import</span> Ember from <span class="string"><span class="delimiter">'</span><span class="content">ember</span><span class="delimiter">'</span></span>;
+
+<span class="reserved">export</span> <span class="keyword">default</span> Ember.Component.extend({
+  <span class="key">login</span>: Ember.inject.service(),
+  <span class="key">actions</span>: {
+    deleteUser(idStr) {
+      <span class="keyword">return</span> <span class="local-variable">this</span>.get(<span class="string"><span class="delimiter">'</span><span class="content">login</span><span class="delimiter">'</span></span>).deleteUserAccount(idStr);
+    }
+  }
+});
+</pre></td>
+</tr></table>
+</div></div>
+
+
+        
+      <footer>
+        <a class="previous-guide" href="../handling-events/">Handling Events</a> <a class="next-guide" href="../../controllers/">We've finished covering Components. Next up: Controllers - Introduction</a>
+      </footer>
+      
+      </article>
+    </main>
+
+    <div class="footer">
+  <div class="container">
+    <div class="footer-info">
+      Copyright 2016
+      <a href="http://tilde.io">Tilde Inc.</a>
+      <br>
+      <a href="http://emberjs.com/team">Core Team</a> |
+      <a href="http://emberjs.com/sponsors">Sponsors</a>
+      <br>
+      <a href="http://emberjs.com/security">Security</a> |
+      <a href="http://emberjs.com/legal">Legal</a> |
+      <a href="http://emberjs.com/logos">Logos</a>
+      <br>
+      <a href="http://emberjs.com/guidelines">Community Guidelines</a>
+    </div>
+
+    <div class="footer-statement">
+      Ember.js is free, open source and always will be.
+    </div>
+
+    <div class="footer-social">
+      <a href="http://twitter.com/emberjs"
+        title="Twitter">
+        <i class="icon-twitter"></i>
+      </a>
+      <a href="https://github.com/emberjs/ember.js"
+        title="GitHub">
+        <i class="icon-github"></i>
+      </a>
+      <a href="https://plus.google.com/communities/106387049790387471205"
+        title="Google+">
+        <i class="icon-gplus"></i>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+    
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+      _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+      _gaq.push(['_setAccount', 'UA-27675533-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
+</html>

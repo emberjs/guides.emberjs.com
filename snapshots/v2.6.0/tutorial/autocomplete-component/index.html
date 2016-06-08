@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>Ember.js - Tutorial: A Complex Component</title>
+    <meta property="st:title" content="Tutorial: A Complex Component" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../../images/favicon.png" rel="icon" type="image/png" />
+    <!--[if lte IE 7 ]><link href="../../stylesheets/fonts/fontello-ie7.css" rel="stylesheet" /><![endif]-->
+    <link href="../../stylesheets/application.css" rel="stylesheet" />
+
+    <!-- This TypeKit account is managed by @wifelette. Contact her with any issues. -->
+    <script src="https://use.typekit.net/stz3kpn.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+    <link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" title="Ember.js - Blog" />
+    
+  </head>
+
+  <body class="guides tutorial tutorial_autocomplete-component tutorial_autocomplete-component_index">
+
+    <!--[if lt IE 9]>
+      <script src="../../javascripts/common-old-ie.js"></script>
+    <![endif]-->
+    <!--[if gte IE 9]><!-->
+      <script src="../../javascripts/common-modern.js"></script>
+    <!--<![endif]-->
+
+    <header class="header">
+  <nav role="navigation" aria-label="main">
+    <ul class="header-nav container">
+      <li class="header-logo">
+        <a href="http://emberjs.com/"><span class="visually-hidden">Ember homepage</span></a>
+      </li>
+      <li>
+        <a href="http://emberjs.com/">About</a>
+      </li>
+      <li class="active" aria-label="You are here">
+        <a href="/">Guides</a>
+      </li>
+      <li>
+        <a href="http://emberjs.com/api">API</a>
+      </li>
+      <li>
+        <a href="http://emberjs.com/community">Community</a>
+      </li>
+      <li>
+        <a href="http://emberjs.com/blog">Blog</a>
+      </li>
+      <li>
+        <a href="http://emberjs.com/builds">Builds</a>
+      </li>
+
+      <li class="header-search">
+        <form>
+          <input type="text" id="search-input" class="search-input" placeholder="Search the guides"/>
+        </form>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+
+    
+
+    <main class="container">
+      <aside class="sidebar">
+  <label for="version-select" class="visually-hidden">Guides version</label>
+  <select class="version-select" id="version-select" style="width: 100%"></select>
+
+  <input id="toc-toggle" class="toc-toggle visually-hidden" type="checkbox" />
+  <label for="toc-toggle">Table of Contents <span class="visually-hidden">toggle</span></label>
+
+  <nav class="toc-container" aria-label="table of contents">
+    <ol class='toc-level-0 selected'><li class='toc-level-0 '><a href="#">Getting Started</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../getting-started/quick-start/">Quick Start</a></li><li class='toc-level-1 '><a href="../../getting-started/">Installing Ember</a></li><li class='toc-level-1 '><a href="../../getting-started/core-concepts/">Core Concepts</a></li></ol></li><li class='toc-level-0 selected'><a href="#">Tutorial</a><ol class='toc-level-1 selected'><li class='toc-level-1 '><a href="../ember-cli/">Creating a new app</a></li><li class='toc-level-1 '><a href="../acceptance-test/">Acceptance Testing</a></li><li class='toc-level-1 '><a href="../routes-and-templates/">Routes and Templates</a></li><li class='toc-level-1 '><a href="../model-hook/">The Model Hook</a></li><li class='toc-level-1 '><a href="../installing-addons/">Installing Addons</a></li><li class='toc-level-1 '><a href="../ember-data/">Ember Data</a></li><li class='toc-level-1 '><a href="../simple-component/">A Simple Component</a></li><li class='toc-level-1 '><a href="../hbs-helper/">Handlebars Helper</a></li><li class='toc-level-1 selected'><a href="./">A Complex Component</a></li><li class='toc-level-1 '><a href="../service/">A Service and Utility</a></li><li class='toc-level-1 '><a href="../deploying/">Deploying</a></li></ol></li><li class='toc-level-0 '><a href="#">The Object Model</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../object-model/">Objects in Ember</a></li><li class='toc-level-1 '><a href="../../object-model/classes-and-instances/">Classes and Instances</a></li><li class='toc-level-1 '><a href="../../object-model/reopening-classes-and-instances/">Reopening Classes and Instances</a></li><li class='toc-level-1 '><a href="../../object-model/computed-properties/">Computed Properties</a></li><li class='toc-level-1 '><a href="../../object-model/computed-properties-and-aggregate-data/">Computed Properties and Aggregate Data</a></li><li class='toc-level-1 '><a href="../../object-model/observers/">Observers</a></li><li class='toc-level-1 '><a href="../../object-model/bindings/">Bindings</a></li><li class='toc-level-1 '><a href="../../object-model/enumerables/">Enumerables</a></li></ol></li><li class='toc-level-0 '><a href="#">Routing</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../routing/">Introduction</a></li><li class='toc-level-1 '><a href="../../routing/defining-your-routes/">Defining Your Routes</a></li><li class='toc-level-1 '><a href="../../routing/specifying-a-routes-model/">Specifying a Route's Model</a></li><li class='toc-level-1 '><a href="../../routing/rendering-a-template/">Rendering a Template</a></li><li class='toc-level-1 '><a href="../../routing/redirection/">Redirecting</a></li><li class='toc-level-1 '><a href="../../routing/preventing-and-retrying-transitions/">Preventing and Retrying Transitions</a></li><li class='toc-level-1 '><a href="../../routing/loading-and-error-substates/">Loading / Error Substates</a></li><li class='toc-level-1 '><a href="../../routing/query-params/">Query Parameters</a></li><li class='toc-level-1 '><a href="../../routing/asynchronous-routing/">Asynchronous Routing</a></li></ol></li><li class='toc-level-0 '><a href="#">Templates</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../templates/handlebars-basics/">Handlebars Basics</a></li><li class='toc-level-1 '><a href="../../templates/built-in-helpers/">Built-in Helpers</a></li><li class='toc-level-1 '><a href="../../templates/conditionals/">Conditionals</a></li><li class='toc-level-1 '><a href="../../templates/displaying-a-list-of-items/">Displaying a List of Items</a></li><li class='toc-level-1 '><a href="../../templates/displaying-the-keys-in-an-object/">Displaying the Keys in an Object</a></li><li class='toc-level-1 '><a href="../../templates/binding-element-attributes/">Binding Element Attributes</a></li><li class='toc-level-1 '><a href="../../templates/links/">Links</a></li><li class='toc-level-1 '><a href="../../templates/actions/">Actions</a></li><li class='toc-level-1 '><a href="../../templates/input-helpers/">Input Helpers</a></li><li class='toc-level-1 '><a href="../../templates/development-helpers/">Development Helpers</a></li><li class='toc-level-1 '><a href="../../templates/writing-helpers/">Writing Helpers</a></li></ol></li><li class='toc-level-0 '><a href="#">Components</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../components/defining-a-component/">Defining a Component</a></li><li class='toc-level-1 '><a href="../../components/the-component-lifecycle/">The Component Lifecycle</a></li><li class='toc-level-1 '><a href="../../components/passing-properties-to-a-component/">Passing Properties to a Component</a></li><li class='toc-level-1 '><a href="../../components/wrapping-content-in-a-component/">Wrapping Content in a Component</a></li><li class='toc-level-1 '><a href="../../components/customizing-a-components-element/">Customizing a Component's Element</a></li><li class='toc-level-1 '><a href="../../components/block-params/">Using Block Params</a></li><li class='toc-level-1 '><a href="../../components/handling-events/">Handling Events</a></li><li class='toc-level-1 '><a href="../../components/triggering-changes-with-actions/">Triggering Changes with Actions</a></li></ol></li><li class='toc-level-0 '><a href="#">Controllers</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../controllers/">Introduction</a></li></ol></li><li class='toc-level-0 '><a href="#">Models</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../models/">Introduction</a></li><li class='toc-level-1 '><a href="../../models/defining-models/">Defining Models</a></li><li class='toc-level-1 '><a href="../../models/finding-records/">Finding Records</a></li><li class='toc-level-1 '><a href="../../models/creating-updating-and-deleting-records/">Creating, Updating and Deleting</a></li><li class='toc-level-1 '><a href="../../models/relationships/">Relationships</a></li><li class='toc-level-1 '><a href="../../models/pushing-records-into-the-store/">Pushing Records into the Store</a></li><li class='toc-level-1 '><a href="../../models/handling-metadata/">Handling Metadata</a></li><li class='toc-level-1 '><a href="../../models/customizing-adapters/">Customizing Adapters</a></li><li class='toc-level-1 '><a href="../../models/customizing-serializers/">Customizing Serializers</a></li></ol></li><li class='toc-level-0 '><a href="#">Application Concerns</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../applications/applications-and-instances/">Applications and Instances</a></li><li class='toc-level-1 '><a href="../../applications/dependency-injection/">Dependency Injection</a></li><li class='toc-level-1 '><a href="../../applications/initializers/">Initializers</a></li><li class='toc-level-1 '><a href="../../applications/services/">Services</a></li><li class='toc-level-1 '><a href="../../applications/run-loop/">The Run Loop</a></li></ol></li><li class='toc-level-0 '><a href="#">Testing</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../testing/">Introduction</a></li><li class='toc-level-1 '><a href="../../testing/acceptance/">Acceptance Tests</a></li><li class='toc-level-1 '><a href="../../testing/unit-testing-basics/">Unit Testing Basics</a></li><li class='toc-level-1 '><a href="../../testing/testing-components/">Testing Components</a></li><li class='toc-level-1 '><a href="../../testing/testing-controllers/">Testing Controllers</a></li><li class='toc-level-1 '><a href="../../testing/testing-routes/">Testing Routes</a></li><li class='toc-level-1 '><a href="../../testing/testing-models/">Testing Models</a></li></ol></li><li class='toc-level-0 '><a href="#">Ember Inspector</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../ember-inspector/installation/">Installing the Inspector</a></li><li class='toc-level-1 '><a href="../../ember-inspector/object-inspector/">Object Inspector</a></li><li class='toc-level-1 '><a href="../../ember-inspector/view-tree/">The View Tree</a></li><li class='toc-level-1 '><a href="../../ember-inspector/routes/">Inspecting Routes</a></li><li class='toc-level-1 '><a href="../../ember-inspector/data/">Data Tab</a></li><li class='toc-level-1 '><a href="../../ember-inspector/deprecations/">Tackling Deprecations</a></li><li class='toc-level-1 '><a href="../../ember-inspector/info/">Library Info</a></li><li class='toc-level-1 '><a href="../../ember-inspector/promises/">Debugging Promises</a></li><li class='toc-level-1 '><a href="../../ember-inspector/container/">Inspecting Objects via the Container</a></li><li class='toc-level-1 '><a href="../../ember-inspector/render-performance/">Rendering Performance</a></li><li class='toc-level-1 '><a href="../../ember-inspector/troubleshooting/">Troubleshooting</a></li></ol></li><li class='toc-level-0 '><a href="#">Addons and Dependencies</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../addons-and-dependencies/managing-dependencies/">Managing Dependencies</a></li></ol></li><li class='toc-level-0 '><a href="#">Configuring Ember.js</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../configuring-ember/configuring-your-app/">Configuring Your App</a></li><li class='toc-level-1 '><a href="../../configuring-ember/configuring-ember-cli/">Configuring Ember CLI</a></li><li class='toc-level-1 '><a href="../../configuring-ember/handling-deprecations/">Handling Deprecations</a></li><li class='toc-level-1 '><a href="../../configuring-ember/disabling-prototype-extensions/">Disabling Prototype Extensions</a></li><li class='toc-level-1 '><a href="../../configuring-ember/specifying-url-type/">Specifying the URL Type</a></li><li class='toc-level-1 '><a href="../../configuring-ember/embedding-applications/">Embedding Applications</a></li><li class='toc-level-1 '><a href="../../configuring-ember/feature-flags/">Feature Flags</a></li><li class='toc-level-1 '><a href="../../configuring-ember/debugging/">Debugging</a></li></ol></li><li class='toc-level-0 '><a href="#">Contributing to Ember.js</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../contributing/adding-new-features/">Adding New Features</a></li><li class='toc-level-1 '><a href="../../contributing/repositories/">Repositories</a></li></ol></li><li class='toc-level-0 '><a href="#">Glossary</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../glossary/web-development/">Web Development</a></li></ol></li></ol>
+  </nav>
+
+  <a class="back-to-top" href="#">&#11014; Back to Top</a>
+</aside>
+
+
+      <article class="chapter">
+        <h1>
+          A Complex Component
+          <a href="https://github.com/emberjs/guides/edit/master/source/localizable/tutorial/autocomplete-component.md"
+             target="_blank" class="edit-page icon-pencil">Edit Page</a>
+        </h1>
+        <hr>
+
+        <p>As they search for a rental, users might also want to narrow their search to a specific city. 
+Let&#39;s build a component that will let them filter rentals by city.</p>
+
+<p>To begin, let&#39;s generate our new component. 
+We&#39;ll call this component <code>list-filter</code>, since all we want our component to do is filter the list of rentals based on input.</p>
+<div class="highlight shell "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre>ember g component list-filter
+</pre></td>
+</tr></table>
+</div></div>
+<p>As before, this creates a Handlebars template (<code>app/templates/components/list-filter.hbs</code>), 
+a JavaScript file (<code>app/components/list-filter.js</code>), 
+and a component integration test (<code>tests/integration/components/list-filter-test.js</code>).</p>
+
+<p>Let&#39;s start with writing some tests to help us think through what we are doing.
+The filter component should yield a list of filtered items to whatever is rendered inside of it, known as its inner template block.
+We want our component to call out to 2 actions: one to provide a list of all items when no filter is provided and an action to search listings by city.</p>
+
+<p>For our initial test, we&#39;ll simply check that all the cities we provide are rendered and that the listing object is accessible from the template.</p>
+
+<p>Since we plan to use Ember Data as our model store, we need to make our action calls to fetch data asynchronous, so we&#39;ll return promises.
+Because accessing persisted data is typically done asynchronously, we want to use the wait helper at the end of our test, which will wait for all promises to resolve before completing the test.</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">tests/integration/components/list-filter-test.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+11
+12
+13
+14
+15
+16
+17
+18
+19
+<strong>20</strong>
+21
+22
+23
+24
+25
+26
+27
+28
+29
+<strong>30</strong>
+31
+32
+33
+34
+35
+36
+37
+38
+39
+<strong>40</strong>
+41
+42
+43
+</pre></td>
+  <td class="code"><pre><span class="reserved">import</span> Ember from <span class="string"><span class="delimiter">'</span><span class="content">ember</span><span class="delimiter">'</span></span>;
+<span class="reserved">import</span> { moduleForComponent, test } from <span class="string"><span class="delimiter">'</span><span class="content">ember-qunit</span><span class="delimiter">'</span></span>;
+<span class="reserved">import</span> hbs from <span class="string"><span class="delimiter">'</span><span class="content">htmlbars-inline-precompile</span><span class="delimiter">'</span></span>;
+<span class="reserved">import</span> wait from <span class="string"><span class="delimiter">'</span><span class="content">ember-test-helpers/wait</span><span class="delimiter">'</span></span>;
+
+moduleForComponent(<span class="string"><span class="delimiter">'</span><span class="content">list-filter</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">Integration | Component | filter listing</span><span class="delimiter">'</span></span>, {
+  <span class="key">integration</span>: <span class="predefined-constant">true</span>
+});
+
+const ITEMS = [{<span class="key">city</span>: <span class="string"><span class="delimiter">'</span><span class="content">San Francisco</span><span class="delimiter">'</span></span>}, {<span class="key">city</span>: <span class="string"><span class="delimiter">'</span><span class="content">Portland</span><span class="delimiter">'</span></span>}, {<span class="key">city</span>: <span class="string"><span class="delimiter">'</span><span class="content">Seattle</span><span class="delimiter">'</span></span>}];
+const FILTERED_ITEMS = [{<span class="key">city</span>: <span class="string"><span class="delimiter">'</span><span class="content">San Francisco</span><span class="delimiter">'</span></span>}];
+
+test(<span class="string"><span class="delimiter">'</span><span class="content">should initially load all listings</span><span class="delimiter">'</span></span>, <span class="keyword">function</span> (assert) {
+  <span class="comment">// we want our actions to return promises, since they are potentially fetching data asynchronously</span>
+  <span class="local-variable">this</span>.on(<span class="string"><span class="delimiter">'</span><span class="content">filterByCity</span><span class="delimiter">'</span></span>, (val) =&gt; {
+    <span class="keyword">if</span> (val === <span class="string"><span class="delimiter">'</span><span class="delimiter">'</span></span>) {
+      <span class="keyword">return</span> Ember.RSVP.resolve(ITEMS);
+    } <span class="keyword">else</span> {
+      <span class="keyword">return</span> Ember.RSVP.resolve(FILTERED_ITEMS);
+    }
+  });
+
+  <span class="comment">// with an integration test, you can set up and use your component in the same way your application </span>
+  <span class="comment">// will use it.</span>
+  <span class="local-variable">this</span>.render(hbs<span class="error">`</span>
+    {{<span class="error">#</span>list-filter filter=(action <span class="string"><span class="delimiter">'</span><span class="content">filterByCity</span><span class="delimiter">'</span></span>) as |rentals|}}
+      <span class="tag">&lt;ul&gt;</span>
+      {{#each rentals as |item|}}
+        <span class="tag">&lt;li</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">city</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+          {{item.city}}
+        <span class="tag">&lt;/li&gt;</span>
+      {{/each}}
+      <span class="tag">&lt;/ul&gt;</span>
+    {{<span class="regexp"><span class="delimiter">/</span><span class="content">list-filter}}
+  `);
+
+  </span><span class="delimiter">/</span></span>/ the wait <span class="keyword">function</span> <span class="function">will</span> <span class="keyword">return</span> a promise that will wait <span class="keyword">for</span> all promises 
+  <span class="comment">// and xhr requests to resolve before running the contents of the then block.</span>
+  <span class="keyword">return</span> wait().then(() =&gt; {
+    assert.equal(<span class="local-variable">this</span>.<span class="predefined">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">.city</span><span class="delimiter">'</span></span>).length, <span class="integer">3</span>);
+    assert.equal(<span class="local-variable">this</span>.<span class="predefined">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">.city</span><span class="delimiter">'</span></span>).first().text().trim(), <span class="string"><span class="delimiter">'</span><span class="content">San Francisco</span><span class="delimiter">'</span></span>);
+  });
+});
+</pre></td>
+</tr></table>
+</div></div>
+<p>For our second test, we&#39;ll check that typing text in the filter will actually appropriately call the filter action and update the listings shown.</p>
+
+<p>We force the action by generating a <code>keyUp</code> event on our input field, and then assert that only one item is rendered.</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">tests/integration/components/list-filter-test.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+11
+12
+13
+14
+15
+16
+17
+18
+19
+<strong>20</strong>
+21
+22
+23
+24
+25
+26
+27
+28
+29
+<strong>30</strong>
+</pre></td>
+  <td class="code"><pre>test(<span class="string"><span class="delimiter">'</span><span class="content">should update with matching listings</span><span class="delimiter">'</span></span>, <span class="keyword">function</span> (assert) {
+  <span class="local-variable">this</span>.on(<span class="string"><span class="delimiter">'</span><span class="content">filterByCity</span><span class="delimiter">'</span></span>, (val) =&gt; {
+    <span class="keyword">if</span> (val === <span class="string"><span class="delimiter">'</span><span class="delimiter">'</span></span>) {
+      <span class="keyword">return</span> Ember.RSVP.resolve(ITEMS);
+    } <span class="keyword">else</span> {
+      <span class="keyword">return</span> Ember.RSVP.resolve(FILTERED_ITEMS);
+    }
+  });
+
+  <span class="local-variable">this</span>.render(hbs<span class="error">`</span>
+    {{<span class="error">#</span>list-filter filter=(action <span class="string"><span class="delimiter">'</span><span class="content">filterByCity</span><span class="delimiter">'</span></span>) as |rentals|}}
+      <span class="tag">&lt;ul&gt;</span>
+      {{#each rentals as |item|}}
+        <span class="tag">&lt;li</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">city</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+          {{item.city}}
+        <span class="tag">&lt;/li&gt;</span>
+      {{/each}}
+      <span class="tag">&lt;/ul&gt;</span>
+    {{<span class="regexp"><span class="delimiter">/</span><span class="content">list-filter}}
+  `);
+
+  </span><span class="delimiter">/</span></span>/ The keyup event here should invoke an action that will cause the list to be filtered
+  <span class="local-variable">this</span>.<span class="predefined">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">.list-filter input</span><span class="delimiter">'</span></span>).val(<span class="string"><span class="delimiter">'</span><span class="content">San</span><span class="delimiter">'</span></span>).keyup();
+
+  <span class="keyword">return</span> wait().then(() =&gt; {
+    assert.equal(<span class="local-variable">this</span>.<span class="predefined">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">.city</span><span class="delimiter">'</span></span>).length, <span class="integer">1</span>);
+    assert.equal(<span class="local-variable">this</span>.<span class="predefined">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">.city</span><span class="delimiter">'</span></span>).text().trim(), <span class="string"><span class="delimiter">'</span><span class="content">San Francisco</span><span class="delimiter">'</span></span>);
+  });
+});
+
+</pre></td>
+</tr></table>
+</div></div>
+<p>Next, in our <code>app/templates/index.hbs</code> file, we&#39;ll add our new <code>list-filter</code> component in a similar way to what we did in our test.  Instead of just showing the city, we&#39;ll use our <code>rental-listing</code> component to display details of the the rental.</p>
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/templates/index.hbs</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+11
+12
+13
+14
+15
+16
+17
+18
+19
+<strong>20</strong>
+21
+</pre></td>
+  <td class="code"><pre><span class="tag">&lt;div</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">jumbo</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">right tomster</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;h2&gt;</span>Welcome!<span class="tag">&lt;/h2&gt;</span>
+  <span class="tag">&lt;p&gt;</span>
+    We hope you find exactly what you're looking for in a place to stay.
+    <span class="tag">&lt;br&gt;</span>Browse our listings, or use the search box above to narrow your search.
+  <span class="tag">&lt;/p&gt;</span>
+  <span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">link-to</span> <span class="error">'</span><span class="attribute-name">about</span><span class="error">'</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">button</span><span class="delimiter">&quot;</span></span><span class="inline-delimiter">}}</span></span>
+    About Us
+  <span class="inline"><span class="inline-delimiter">{{/</span><span class="attribute-name">link-to</span><span class="inline-delimiter">}}</span></span>
+<span class="tag">&lt;/div&gt;</span>
+
+<span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">list-filter</span>
+   <span class="attribute-name">filter</span>=<span class="error">(</span><span class="attribute-value">action</span> <span class="error">'</span><span class="attribute-name">filterByCity</span><span class="error">'</span><span class="error">)</span>
+   <span class="attribute-name">as</span> <span class="error">|</span><span class="attribute-name">rentals</span><span class="error">|</span><span class="inline-delimiter">}}</span></span>
+  <span class="tag">&lt;ul</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">results</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+    <span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">each</span> <span class="attribute-name">rentals</span> <span class="attribute-name">as</span> <span class="error">|</span><span class="attribute-name">rentalUnit</span><span class="error">|</span><span class="inline-delimiter">}}</span></span>
+      <span class="tag">&lt;li&gt;</span><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental-listing</span> <span class="attribute-name">rental</span>=<span class="attribute-value">rentalUnit</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/li&gt;</span>
+    <span class="inline"><span class="inline-delimiter">{{/</span><span class="attribute-name">each</span><span class="inline-delimiter">}}</span></span>
+  <span class="tag">&lt;/ul&gt;</span>
+<span class="inline"><span class="inline-delimiter">{{/</span><span class="attribute-name">list-filter</span><span class="inline-delimiter">}}</span></span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>Now that we have failing tests and an idea of what we want our component contract to be, we&#39;ll implement the component.
+We want the component to simply provide an input field and yield the results list to its block, so our template will be simple:</p>
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/templates/components/list-filter.hbs</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">input</span> <span class="attribute-name">value</span>=<span class="attribute-value">value</span> <span class="attribute-name">key-up</span>=<span class="error">(</span><span class="attribute-value">action</span> <span class="error">'</span><span class="attribute-name">handleFilterEntry</span><span class="error">'</span><span class="error">)</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">light</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">placeholder</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">Filter By City</span><span class="delimiter">&quot;</span></span><span class="inline-delimiter">}}</span></span>
+<span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">yield</span> <span class="attribute-name">results</span><span class="inline-delimiter">}}</span></span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>The template contains an <a href="../../templates/input-helpers"><code>{{input}}</code></a> helper that renders as a text field, in which the user can type a pattern to filter the list of cities used in a search. 
+The <code>value</code> property of the <code>input</code> will be bound to the <code>value</code> property in our component.
+The <code>key-up</code> property will be bound to the <code>handleFilterEntry</code> action.</p>
+
+<p>Here is what the component&#39;s JavaScript looks like:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/components/list-filter.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+11
+12
+13
+14
+15
+16
+17
+18
+19
+<strong>20</strong>
+</pre></td>
+  <td class="code"><pre><span class="reserved">import</span> Ember from <span class="string"><span class="delimiter">'</span><span class="content">ember</span><span class="delimiter">'</span></span>;
+
+<span class="reserved">export</span> <span class="keyword">default</span> Ember.Component.extend({
+  <span class="key">classNames</span>: [<span class="string"><span class="delimiter">'</span><span class="content">list-filter</span><span class="delimiter">'</span></span>],
+  <span class="key">value</span>: <span class="string"><span class="delimiter">'</span><span class="delimiter">'</span></span>,
+
+  init() {
+    <span class="local-variable">this</span>._super(...<span class="local-variable">arguments</span>);
+    <span class="local-variable">this</span>.get(<span class="string"><span class="delimiter">'</span><span class="content">filter</span><span class="delimiter">'</span></span>)(<span class="string"><span class="delimiter">'</span><span class="delimiter">'</span></span>).then((results) =&gt; <span class="local-variable">this</span>.set(<span class="string"><span class="delimiter">'</span><span class="content">rentals</span><span class="delimiter">'</span></span>, results));
+  },
+
+  <span class="key">actions</span>: {
+    handleFilterEntry() {
+      let filterInputValue = <span class="local-variable">this</span>.get(<span class="string"><span class="delimiter">'</span><span class="content">value</span><span class="delimiter">'</span></span>);
+      let filterAction = <span class="local-variable">this</span>.get(<span class="string"><span class="delimiter">'</span><span class="content">filter</span><span class="delimiter">'</span></span>);
+      filterAction(filterInputValue).then((filterResults) =&gt; <span class="local-variable">this</span>.set(<span class="string"><span class="delimiter">'</span><span class="content">rentals</span><span class="delimiter">'</span></span>, filterResults));
+    }
+  }
+
+});
+</pre></td>
+</tr></table>
+</div></div>
+<p>We use the <code>init</code> hook to seed our initial listings by calling the <code>filter</code> action with an empty value.
+Our <code>handleFilterEntry</code> action calls our filter action based on the <code>value</code> attribute set by our input helper.</p>
+
+<p>Both the <code>filter</code> action is <a href="../../components/triggering-changes-with-actions/#toc_passing-the-action-to-the-component">passed</a> in by the calling object. This is a pattern known as <em>closure actions</em>.</p>
+
+<p>To implement these actions, we&#39;ll create the index controller for the application.  The index controller is executed when the user goes to the base (index) route for the application.</p>
+
+<p>Generate a controller for the <code>index</code> page by running the following:</p>
+<div class="highlight shell "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre>ember g controller index
+</pre></td>
+</tr></table>
+</div></div>
+<p>Now, define your new controller like so:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/controllers/index.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+11
+12
+13
+</pre></td>
+  <td class="code"><pre><span class="reserved">import</span> Ember from <span class="string"><span class="delimiter">'</span><span class="content">ember</span><span class="delimiter">'</span></span>;
+
+<span class="reserved">export</span> <span class="keyword">default</span> Ember.Controller.extend({
+  <span class="key">actions</span>: {
+    filterByCity(param) {
+      <span class="keyword">if</span> (param !== <span class="string"><span class="delimiter">'</span><span class="delimiter">'</span></span>) {
+        <span class="keyword">return</span> <span class="local-variable">this</span>.get(<span class="string"><span class="delimiter">'</span><span class="content">store</span><span class="delimiter">'</span></span>).query(<span class="string"><span class="delimiter">'</span><span class="content">rental</span><span class="delimiter">'</span></span>, { <span class="key">city</span>: param });
+      } <span class="keyword">else</span> {
+        <span class="keyword">return</span> <span class="local-variable">this</span>.get(<span class="string"><span class="delimiter">'</span><span class="content">store</span><span class="delimiter">'</span></span>).findAll(<span class="string"><span class="delimiter">'</span><span class="content">rental</span><span class="delimiter">'</span></span>);
+      }
+    }
+  }
+});
+</pre></td>
+</tr></table>
+</div></div>
+<p>When the user types in the text field in our component, the <code>filterByCity</code> action in the controller is called. 
+This action takes in the <code>value</code> property, and filters the <code>rental</code> data for records in data store that match what the user has typed thus far. 
+The result of the query is returned to the caller.</p>
+
+<p>For this action to work, we need to modify the Mirage <code>config.js</code> file
+to look like this, so that it can respond to our queries.</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><?xml version="1.0"?>
+<table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">mirage/config.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+<span class="highlight-line added">2</span>
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+11
+12
+13
+14
+15
+16
+17
+18
+19
+<strong>20</strong>
+21
+22
+23
+24
+25
+26
+27
+28
+29
+<strong>30</strong>
+31
+32
+33
+34
+35
+36
+37
+<span class="highlight-line added">38</span>
+<span class="highlight-line added">39</span>
+<span class="highlight-line added"><strong>40</strong></span>
+<span class="highlight-line added">41</span>
+<span class="highlight-line added">42</span>
+<span class="highlight-line added">43</span>
+<span class="highlight-line added">44</span>
+<span class="highlight-line added">45</span>
+46
+47</pre></td>
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> <span class="keyword">function</span>() {
+<span class="highlight-line added">  <span class="local-variable">this</span>.get(<span class="string"><span class="delimiter">'</span><span class="content">/rentals</span><span class="delimiter">'</span></span>, <span class="keyword">function</span>(db, request) {</span>
+    let rentals = [{
+        <span class="key">type</span>: <span class="string"><span class="delimiter">'</span><span class="content">rentals</span><span class="delimiter">'</span></span>,
+        <span class="key">id</span>: <span class="integer">1</span>,
+        <span class="key">attributes</span>: {
+          <span class="key">title</span>: <span class="string"><span class="delimiter">'</span><span class="content">Grand Old Mansion</span><span class="delimiter">'</span></span>,
+          <span class="key">owner</span>: <span class="string"><span class="delimiter">'</span><span class="content">Veruca Salt</span><span class="delimiter">'</span></span>,
+          <span class="key">city</span>: <span class="string"><span class="delimiter">'</span><span class="content">San Francisco</span><span class="delimiter">'</span></span>,
+          <span class="key">type</span>: <span class="string"><span class="delimiter">'</span><span class="content">Estate</span><span class="delimiter">'</span></span>,
+          <span class="key">bedrooms</span>: <span class="integer">15</span>,
+          <span class="key">image</span>: <span class="string"><span class="delimiter">'</span><span class="content">https://upload.wikimedia.org/wikipedia/commons/c/cb/Crane_estate_(5).jpg</span><span class="delimiter">'</span></span>
+        }
+      }, {
+        <span class="key">type</span>: <span class="string"><span class="delimiter">'</span><span class="content">rentals</span><span class="delimiter">'</span></span>,
+        <span class="key">id</span>: <span class="integer">2</span>,
+        <span class="key">attributes</span>: {
+          <span class="key">title</span>: <span class="string"><span class="delimiter">'</span><span class="content">Urban Living</span><span class="delimiter">'</span></span>,
+          <span class="key">owner</span>: <span class="string"><span class="delimiter">'</span><span class="content">Mike Teavee</span><span class="delimiter">'</span></span>,
+          <span class="key">city</span>: <span class="string"><span class="delimiter">'</span><span class="content">Seattle</span><span class="delimiter">'</span></span>,
+          <span class="key">type</span>: <span class="string"><span class="delimiter">'</span><span class="content">Condo</span><span class="delimiter">'</span></span>,
+          <span class="key">bedrooms</span>: <span class="integer">1</span>,
+          <span class="key">image</span>: <span class="string"><span class="delimiter">'</span><span class="content">https://upload.wikimedia.org/wikipedia/commons/0/0e/Alfonso_13_Highrise_Tegucigalpa.jpg</span><span class="delimiter">'</span></span>
+        }
+      }, {
+        <span class="key">type</span>: <span class="string"><span class="delimiter">'</span><span class="content">rentals</span><span class="delimiter">'</span></span>,
+        <span class="key">id</span>: <span class="integer">3</span>,
+        <span class="key">attributes</span>: {
+          <span class="key">title</span>: <span class="string"><span class="delimiter">'</span><span class="content">Downtown Charm</span><span class="delimiter">'</span></span>,
+          <span class="key">owner</span>: <span class="string"><span class="delimiter">'</span><span class="content">Violet Beauregarde</span><span class="delimiter">'</span></span>,
+          <span class="key">city</span>: <span class="string"><span class="delimiter">'</span><span class="content">Portland</span><span class="delimiter">'</span></span>,
+          <span class="key">type</span>: <span class="string"><span class="delimiter">'</span><span class="content">Apartment</span><span class="delimiter">'</span></span>,
+          <span class="key">bedrooms</span>: <span class="integer">3</span>,
+          <span class="key">image</span>: <span class="string"><span class="delimiter">'</span><span class="content">https://upload.wikimedia.org/wikipedia/commons/f/f7/Wheeldon_Apartment_Building_-_Portland_Oregon.jpg</span><span class="delimiter">'</span></span>
+        }
+      }];
+
+<span class="highlight-line added">    <span class="keyword">if</span>(request.queryParams.city !== <span class="predefined-constant">undefined</span>) {</span>
+<span class="highlight-line added">      let filteredRentals = rentals.filter(<span class="keyword">function</span>(i) {</span>
+<span class="highlight-line added">        <span class="keyword">return</span> i.attributes.city.toLowerCase().indexOf(request.queryParams.city.toLowerCase()) !== -<span class="integer">1</span>;</span>
+<span class="highlight-line added">      });</span>
+<span class="highlight-line added">      <span class="keyword">return</span> { <span class="key">data</span>: filteredRentals };</span>
+<span class="highlight-line added">    } <span class="keyword">else</span> {</span>
+<span class="highlight-line added">      <span class="keyword">return</span> { <span class="key">data</span>: rentals };</span>
+<span class="highlight-line added">    }</span>
+  });
+}</pre></td>
+</tr></table>
+</div></div>
+<p>After updating our mirage configuration, we should see passing tests, as well as a simple filter on your home screen, that will update the rental list as you type:</p>
+
+<p><img src="../../images/autocomplete-component/styled-super-rentals-filter.png" alt="home screen with filter component"></p>
+
+<p><img src="../../images/autocomplete-component/passing-acceptance-tests.png" alt="passing acceptance tests"></p>
+
+
+
+        
+      <footer>
+        <a class="previous-guide" href="../hbs-helper/">Handlebars Helper</a> <a class="next-guide" href="../service/">A Service and Utility</a>
+      </footer>
+      
+      </article>
+    </main>
+
+    <div class="footer">
+  <div class="container">
+    <div class="footer-info">
+      Copyright 2016
+      <a href="http://tilde.io">Tilde Inc.</a>
+      <br>
+      <a href="http://emberjs.com/team">Core Team</a> |
+      <a href="http://emberjs.com/sponsors">Sponsors</a>
+      <br>
+      <a href="http://emberjs.com/security">Security</a> |
+      <a href="http://emberjs.com/legal">Legal</a> |
+      <a href="http://emberjs.com/logos">Logos</a>
+      <br>
+      <a href="http://emberjs.com/guidelines">Community Guidelines</a>
+    </div>
+
+    <div class="footer-statement">
+      Ember.js is free, open source and always will be.
+    </div>
+
+    <div class="footer-social">
+      <a href="http://twitter.com/emberjs"
+        title="Twitter">
+        <i class="icon-twitter"></i>
+      </a>
+      <a href="https://github.com/emberjs/ember.js"
+        title="GitHub">
+        <i class="icon-github"></i>
+      </a>
+      <a href="https://plus.google.com/communities/106387049790387471205"
+        title="Google+">
+        <i class="icon-gplus"></i>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+    
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+      _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+      _gaq.push(['_setAccount', 'UA-27675533-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
+</html>
