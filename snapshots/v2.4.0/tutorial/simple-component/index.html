@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
 
-    <title>Ember.js - Tutorial: A Simple Component</title>
-    <meta property="st:title" content="Tutorial: A Simple Component" />
+    <title>Ember.js - Tutorial: Building a Simple Component</title>
+    <meta property="st:title" content="Tutorial: Building a Simple Component" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../../images/favicon.png" rel="icon" type="image/png" />
     <!--[if lte IE 7 ]><link href="../../stylesheets/fonts/fontello-ie7.css" rel="stylesheet" /><![endif]-->
@@ -54,9 +54,8 @@
 
       <li class="header-search">
         <form>
-          <input type="text" id="st-search-input" class="st-search-input" placeholder="Search the guides"/>
+          <input type="text" id="search-input" class="search-input" placeholder="Search the guides"/>
         </form>
-        <div id="st-results-container"></div>
       </li>
     </ul>
   </nav>
@@ -74,7 +73,7 @@
   <label for="toc-toggle">Table of Contents <span class="visually-hidden">toggle</span></label>
 
   <nav class="toc-container" aria-label="table of contents">
-    <ol class='toc-level-0 selected'><li class='toc-level-0 '><a href="#">Getting Started</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../getting-started/quick-start/">Quick Start</a></li><li class='toc-level-1 '><a href="../../getting-started/">Installing Ember</a></li><li class='toc-level-1 '><a href="../../getting-started/core-concepts/">Core Concepts</a></li></ol></li><li class='toc-level-0 selected'><a href="#">Tutorial</a><ol class='toc-level-1 selected'><li class='toc-level-1 '><a href="../ember-cli/">Creating a new app</a></li><li class='toc-level-1 '><a href="../routes-and-templates/">Routes and Templates</a></li><li class='toc-level-1 '><a href="../model-hook/">The Model Hook</a></li><li class='toc-level-1 '><a href="../ember-data/">Ember Data</a></li><li class='toc-level-1 selected'><a href="./">A Simple Component</a></li><li class='toc-level-1 '><a href="../hbs-helper/">Handlebars Helper</a></li><li class='toc-level-1 '><a href="../autocomplete-component/">An Autocomplete Component</a></li><li class='toc-level-1 '><a href="../deploying/">Deploying</a></li></ol></li><li class='toc-level-0 '><a href="#">The Object Model</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../object-model/">Objects in Ember</a></li><li class='toc-level-1 '><a href="../../object-model/classes-and-instances/">Classes and Instances</a></li><li class='toc-level-1 '><a href="../../object-model/reopening-classes-and-instances/">Reopening Classes and Instances</a></li><li class='toc-level-1 '><a href="../../object-model/computed-properties/">Computed Properties</a></li><li class='toc-level-1 '><a href="../../object-model/computed-properties-and-aggregate-data/">Computed Properties and Aggregate Data</a></li><li class='toc-level-1 '><a href="../../object-model/observers/">Observers</a></li><li class='toc-level-1 '><a href="../../object-model/bindings/">Bindings</a></li><li class='toc-level-1 '><a href="../../object-model/enumerables/">Enumerables</a></li></ol></li><li class='toc-level-0 '><a href="#">Routing</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../routing/">Introduction</a></li><li class='toc-level-1 '><a href="../../routing/defining-your-routes/">Defining Your Routes</a></li><li class='toc-level-1 '><a href="../../routing/specifying-a-routes-model/">Specifying a Route's Model</a></li><li class='toc-level-1 '><a href="../../routing/rendering-a-template/">Rendering a Template</a></li><li class='toc-level-1 '><a href="../../routing/redirection/">Redirecting</a></li><li class='toc-level-1 '><a href="../../routing/preventing-and-retrying-transitions/">Preventing and Retrying Transitions</a></li><li class='toc-level-1 '><a href="../../routing/loading-and-error-substates/">Loading / Error Substates</a></li><li class='toc-level-1 '><a href="../../routing/query-params/">Query Parameters</a></li><li class='toc-level-1 '><a href="../../routing/asynchronous-routing/">Asynchronous Routing</a></li></ol></li><li class='toc-level-0 '><a href="#">Templates</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../templates/handlebars-basics/">Handlebars Basics</a></li><li class='toc-level-1 '><a href="../../templates/conditionals/">Conditionals</a></li><li class='toc-level-1 '><a href="../../templates/displaying-a-list-of-items/">Displaying a List of Items</a></li><li class='toc-level-1 '><a href="../../templates/displaying-the-keys-in-an-object/">Displaying the Keys in an Object</a></li><li class='toc-level-1 '><a href="../../templates/binding-element-attributes/">Binding Element Attributes</a></li><li class='toc-level-1 '><a href="../../templates/links/">Links</a></li><li class='toc-level-1 '><a href="../../templates/actions/">Actions</a></li><li class='toc-level-1 '><a href="../../templates/input-helpers/">Input Helpers</a></li><li class='toc-level-1 '><a href="../../templates/development-helpers/">Development Helpers</a></li><li class='toc-level-1 '><a href="../../templates/writing-helpers/">Writing Helpers</a></li></ol></li><li class='toc-level-0 '><a href="#">Components</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../components/defining-a-component/">Defining a Component</a></li><li class='toc-level-1 '><a href="../../components/the-component-lifecycle/">The Component Lifecycle</a></li><li class='toc-level-1 '><a href="../../components/passing-properties-to-a-component/">Passing Properties to a Component</a></li><li class='toc-level-1 '><a href="../../components/wrapping-content-in-a-component/">Wrapping Content in a Component</a></li><li class='toc-level-1 '><a href="../../components/customizing-a-components-element/">Customizing a Component's Element</a></li><li class='toc-level-1 '><a href="../../components/block-params/">Using Block Params</a></li><li class='toc-level-1 '><a href="../../components/handling-events/">Handling Events</a></li><li class='toc-level-1 '><a href="../../components/triggering-changes-with-actions/">Triggering Changes with Actions</a></li></ol></li><li class='toc-level-0 '><a href="#">Controllers</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../controllers/">Introduction</a></li></ol></li><li class='toc-level-0 '><a href="#">Models</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../models/">Introduction</a></li><li class='toc-level-1 '><a href="../../models/defining-models/">Defining Models</a></li><li class='toc-level-1 '><a href="../../models/finding-records/">Finding Records</a></li><li class='toc-level-1 '><a href="../../models/creating-updating-and-deleting-records/">Creating, Updating and Deleting</a></li><li class='toc-level-1 '><a href="../../models/relationships/">Relationships</a></li><li class='toc-level-1 '><a href="../../models/pushing-records-into-the-store/">Pushing Records into the Store</a></li><li class='toc-level-1 '><a href="../../models/handling-metadata/">Handling Metadata</a></li><li class='toc-level-1 '><a href="../../models/customizing-adapters/">Customizing Adapters</a></li><li class='toc-level-1 '><a href="../../models/customizing-serializers/">Customizing Serializers</a></li></ol></li><li class='toc-level-0 '><a href="#">Application Concerns</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../applications/applications-and-instances/">Applications and Instances</a></li><li class='toc-level-1 '><a href="../../applications/dependency-injection/">Dependency Injection</a></li><li class='toc-level-1 '><a href="../../applications/initializers/">Initializers</a></li><li class='toc-level-1 '><a href="../../applications/services/">Services</a></li><li class='toc-level-1 '><a href="../../applications/run-loop/">The Run Loop</a></li></ol></li><li class='toc-level-0 '><a href="#">Testing</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../testing/">Introduction</a></li><li class='toc-level-1 '><a href="../../testing/acceptance/">Acceptance Tests</a></li><li class='toc-level-1 '><a href="../../testing/unit-testing-basics/">Unit Testing Basics</a></li><li class='toc-level-1 '><a href="../../testing/testing-components/">Testing Components</a></li><li class='toc-level-1 '><a href="../../testing/testing-controllers/">Testing Controllers</a></li><li class='toc-level-1 '><a href="../../testing/testing-routes/">Testing Routes</a></li><li class='toc-level-1 '><a href="../../testing/testing-models/">Testing Models</a></li></ol></li><li class='toc-level-0 '><a href="#">Ember Inspector</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../ember-inspector/installation/">Installing the Inspector</a></li><li class='toc-level-1 '><a href="../../ember-inspector/object-inspector/">Object Inspector</a></li><li class='toc-level-1 '><a href="../../ember-inspector/view-tree/">The View Tree</a></li><li class='toc-level-1 '><a href="../../ember-inspector/routes/">Inspecting Routes</a></li><li class='toc-level-1 '><a href="../../ember-inspector/data/">Data Tab</a></li><li class='toc-level-1 '><a href="../../ember-inspector/deprecations/">Tackling Deprecations</a></li><li class='toc-level-1 '><a href="../../ember-inspector/info/">Library Info</a></li><li class='toc-level-1 '><a href="../../ember-inspector/promises/">Debugging Promises</a></li><li class='toc-level-1 '><a href="../../ember-inspector/container/">Inspecting Objects via the Container</a></li><li class='toc-level-1 '><a href="../../ember-inspector/render-performance/">Rendering Performance</a></li><li class='toc-level-1 '><a href="../../ember-inspector/troubleshooting/">Troubleshooting</a></li></ol></li><li class='toc-level-0 '><a href="#">Addons and Dependencies</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../addons-and-dependencies/managing-dependencies/">Managing Dependencies</a></li></ol></li><li class='toc-level-0 '><a href="#">Configuring Ember.js</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../configuring-ember/configuring-your-app/">Configuring Your App</a></li><li class='toc-level-1 '><a href="../../configuring-ember/configuring-ember-cli/">Configuring Ember CLI</a></li><li class='toc-level-1 '><a href="../../configuring-ember/handling-deprecations/">Handling Deprecations</a></li><li class='toc-level-1 '><a href="../../configuring-ember/disabling-prototype-extensions/">Disabling Prototype Extensions</a></li><li class='toc-level-1 '><a href="../../configuring-ember/specifying-url-type/">Specifying the URL Type</a></li><li class='toc-level-1 '><a href="../../configuring-ember/embedding-applications/">Embedding Applications</a></li><li class='toc-level-1 '><a href="../../configuring-ember/feature-flags/">Feature Flags</a></li><li class='toc-level-1 '><a href="../../configuring-ember/debugging/">Debugging</a></li></ol></li><li class='toc-level-0 '><a href="#">Contributing to Ember.js</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../contributing/adding-new-features/">Adding New Features</a></li><li class='toc-level-1 '><a href="../../contributing/repositories/">Repositories</a></li></ol></li><li class='toc-level-0 '><a href="#">Glossary</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../glossary/web-development/">Web Development</a></li></ol></li></ol>
+    <ol class='toc-level-0 selected'><li class='toc-level-0 '><a href="#">Getting Started</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../getting-started/quick-start/">Quick Start</a></li><li class='toc-level-1 '><a href="../../getting-started/">Installing Ember</a></li><li class='toc-level-1 '><a href="../../getting-started/core-concepts/">Core Concepts</a></li></ol></li><li class='toc-level-0 selected'><a href="#">Tutorial</a><ol class='toc-level-1 selected'><li class='toc-level-1 '><a href="../ember-cli/">Creating Your App</a></li><li class='toc-level-1 '><a href="../acceptance-test/">Setting Up Tests</a></li><li class='toc-level-1 '><a href="../routes-and-templates/">Routes and Templates</a></li><li class='toc-level-1 '><a href="../model-hook/">The Model Hook</a></li><li class='toc-level-1 '><a href="../installing-addons/">Installing Addons</a></li><li class='toc-level-1 '><a href="../ember-data/">Using Ember Data</a></li><li class='toc-level-1 selected'><a href="./">Building a Simple Component</a></li><li class='toc-level-1 '><a href="../hbs-helper/">Creating a Handlebars Helper</a></li><li class='toc-level-1 '><a href="../autocomplete-component/">Building a Complex Component</a></li><li class='toc-level-1 '><a href="../service/">Services and Utilities</a></li><li class='toc-level-1 '><a href="../deploying/">Deploying</a></li></ol></li><li class='toc-level-0 '><a href="#">The Object Model</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../object-model/">Objects in Ember</a></li><li class='toc-level-1 '><a href="../../object-model/classes-and-instances/">Classes and Instances</a></li><li class='toc-level-1 '><a href="../../object-model/reopening-classes-and-instances/">Reopening Classes and Instances</a></li><li class='toc-level-1 '><a href="../../object-model/computed-properties/">Computed Properties</a></li><li class='toc-level-1 '><a href="../../object-model/computed-properties-and-aggregate-data/">Computed Properties and Aggregate Data</a></li><li class='toc-level-1 '><a href="../../object-model/observers/">Observers</a></li><li class='toc-level-1 '><a href="../../object-model/bindings/">Bindings</a></li><li class='toc-level-1 '><a href="../../object-model/enumerables/">Enumerables</a></li></ol></li><li class='toc-level-0 '><a href="#">Routing</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../routing/">Introduction</a></li><li class='toc-level-1 '><a href="../../routing/defining-your-routes/">Defining Your Routes</a></li><li class='toc-level-1 '><a href="../../routing/specifying-a-routes-model/">Specifying a Route's Model</a></li><li class='toc-level-1 '><a href="../../routing/rendering-a-template/">Rendering a Template</a></li><li class='toc-level-1 '><a href="../../routing/redirection/">Redirecting</a></li><li class='toc-level-1 '><a href="../../routing/preventing-and-retrying-transitions/">Preventing and Retrying Transitions</a></li><li class='toc-level-1 '><a href="../../routing/loading-and-error-substates/">Loading / Error Substates</a></li><li class='toc-level-1 '><a href="../../routing/query-params/">Query Parameters</a></li><li class='toc-level-1 '><a href="../../routing/asynchronous-routing/">Asynchronous Routing</a></li></ol></li><li class='toc-level-0 '><a href="#">Templates</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../templates/handlebars-basics/">Handlebars Basics</a></li><li class='toc-level-1 '><a href="../../templates/built-in-helpers/">Built-in Helpers</a></li><li class='toc-level-1 '><a href="../../templates/conditionals/">Conditionals</a></li><li class='toc-level-1 '><a href="../../templates/displaying-a-list-of-items/">Displaying a List of Items</a></li><li class='toc-level-1 '><a href="../../templates/displaying-the-keys-in-an-object/">Displaying the Keys in an Object</a></li><li class='toc-level-1 '><a href="../../templates/binding-element-attributes/">Binding Element Attributes</a></li><li class='toc-level-1 '><a href="../../templates/links/">Links</a></li><li class='toc-level-1 '><a href="../../templates/actions/">Actions</a></li><li class='toc-level-1 '><a href="../../templates/input-helpers/">Input Helpers</a></li><li class='toc-level-1 '><a href="../../templates/development-helpers/">Development Helpers</a></li><li class='toc-level-1 '><a href="../../templates/writing-helpers/">Writing Helpers</a></li></ol></li><li class='toc-level-0 '><a href="#">Components</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../components/defining-a-component/">Defining a Component</a></li><li class='toc-level-1 '><a href="../../components/the-component-lifecycle/">The Component Lifecycle</a></li><li class='toc-level-1 '><a href="../../components/passing-properties-to-a-component/">Passing Properties to a Component</a></li><li class='toc-level-1 '><a href="../../components/wrapping-content-in-a-component/">Wrapping Content in a Component</a></li><li class='toc-level-1 '><a href="../../components/customizing-a-components-element/">Customizing a Component's Element</a></li><li class='toc-level-1 '><a href="../../components/block-params/">Using Block Params</a></li><li class='toc-level-1 '><a href="../../components/handling-events/">Handling Events</a></li><li class='toc-level-1 '><a href="../../components/triggering-changes-with-actions/">Triggering Changes with Actions</a></li></ol></li><li class='toc-level-0 '><a href="#">Controllers</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../controllers/">Introduction</a></li></ol></li><li class='toc-level-0 '><a href="#">Models</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../models/">Introduction</a></li><li class='toc-level-1 '><a href="../../models/defining-models/">Defining Models</a></li><li class='toc-level-1 '><a href="../../models/finding-records/">Finding Records</a></li><li class='toc-level-1 '><a href="../../models/creating-updating-and-deleting-records/">Creating, Updating and Deleting</a></li><li class='toc-level-1 '><a href="../../models/relationships/">Relationships</a></li><li class='toc-level-1 '><a href="../../models/pushing-records-into-the-store/">Pushing Records into the Store</a></li><li class='toc-level-1 '><a href="../../models/handling-metadata/">Handling Metadata</a></li><li class='toc-level-1 '><a href="../../models/customizing-adapters/">Customizing Adapters</a></li><li class='toc-level-1 '><a href="../../models/customizing-serializers/">Customizing Serializers</a></li></ol></li><li class='toc-level-0 '><a href="#">Application Concerns</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../applications/applications-and-instances/">Applications and Instances</a></li><li class='toc-level-1 '><a href="../../applications/dependency-injection/">Dependency Injection</a></li><li class='toc-level-1 '><a href="../../applications/initializers/">Initializers</a></li><li class='toc-level-1 '><a href="../../applications/services/">Services</a></li><li class='toc-level-1 '><a href="../../applications/run-loop/">The Run Loop</a></li></ol></li><li class='toc-level-0 '><a href="#">Testing</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../testing/">Introduction</a></li><li class='toc-level-1 '><a href="../../testing/acceptance/">Acceptance Tests</a></li><li class='toc-level-1 '><a href="../../testing/unit-testing-basics/">Unit Testing Basics</a></li><li class='toc-level-1 '><a href="../../testing/testing-components/">Testing Components</a></li><li class='toc-level-1 '><a href="../../testing/testing-controllers/">Testing Controllers</a></li><li class='toc-level-1 '><a href="../../testing/testing-routes/">Testing Routes</a></li><li class='toc-level-1 '><a href="../../testing/testing-models/">Testing Models</a></li></ol></li><li class='toc-level-0 '><a href="#">Ember Inspector</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../ember-inspector/installation/">Installing the Inspector</a></li><li class='toc-level-1 '><a href="../../ember-inspector/object-inspector/">Object Inspector</a></li><li class='toc-level-1 '><a href="../../ember-inspector/view-tree/">The View Tree</a></li><li class='toc-level-1 '><a href="../../ember-inspector/routes/">Inspecting Routes</a></li><li class='toc-level-1 '><a href="../../ember-inspector/data/">Data Tab</a></li><li class='toc-level-1 '><a href="../../ember-inspector/deprecations/">Tackling Deprecations</a></li><li class='toc-level-1 '><a href="../../ember-inspector/info/">Library Info</a></li><li class='toc-level-1 '><a href="../../ember-inspector/promises/">Debugging Promises</a></li><li class='toc-level-1 '><a href="../../ember-inspector/container/">Inspecting Objects via the Container</a></li><li class='toc-level-1 '><a href="../../ember-inspector/render-performance/">Rendering Performance</a></li><li class='toc-level-1 '><a href="../../ember-inspector/troubleshooting/">Troubleshooting</a></li></ol></li><li class='toc-level-0 '><a href="#">Addons and Dependencies</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../addons-and-dependencies/managing-dependencies/">Managing Dependencies</a></li></ol></li><li class='toc-level-0 '><a href="#">Configuring Ember.js</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../configuring-ember/configuring-your-app/">Configuring Your App</a></li><li class='toc-level-1 '><a href="../../configuring-ember/configuring-ember-cli/">Configuring Ember CLI</a></li><li class='toc-level-1 '><a href="../../configuring-ember/handling-deprecations/">Handling Deprecations</a></li><li class='toc-level-1 '><a href="../../configuring-ember/disabling-prototype-extensions/">Disabling Prototype Extensions</a></li><li class='toc-level-1 '><a href="../../configuring-ember/specifying-url-type/">Specifying the URL Type</a></li><li class='toc-level-1 '><a href="../../configuring-ember/embedding-applications/">Embedding Applications</a></li><li class='toc-level-1 '><a href="../../configuring-ember/feature-flags/">Feature Flags</a></li><li class='toc-level-1 '><a href="../../configuring-ember/debugging/">Debugging</a></li></ol></li><li class='toc-level-0 '><a href="#">Contributing to Ember.js</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../contributing/adding-new-features/">Adding New Features</a></li><li class='toc-level-1 '><a href="../../contributing/repositories/">Repositories</a></li></ol></li><li class='toc-level-0 '><a href="#">Glossary</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../glossary/web-development/">Web Development</a></li></ol></li></ol>
   </nav>
 
   <a class="back-to-top" href="#">&#11014; Back to Top</a>
@@ -83,19 +82,19 @@
 
       <article class="chapter">
         <h1>
-          A Simple Component
+          Building a Simple Component
           <a href="https://github.com/emberjs/guides/edit/master/source/localizable/tutorial/simple-component.md"
              target="_blank" class="edit-page icon-pencil">Edit Page</a>
         </h1>
         <hr>
 
         <p>As a user looks through our list of rentals, they may want to have some interactive options to help them make a decision.
-Let&#39;s add the ability to hide and show an image for each rental.
+Let&#39;s add the ability to toggle the size of the image for each rental.
 To do this, we&#39;ll use a component.</p>
 
 <p>Let&#39;s generate a <code>rental-listing</code> component that will manage the behavior for each of our rentals.
-A dash is required in every component name to avoid conflicting with a possible HTML element.
-So <code>rental-listing</code> is acceptable but <code>rental</code> would not be.</p>
+A dash is required in every component name to avoid conflicting with a possible HTML element,
+so <code>rental-listing</code> is acceptable but <code>rental</code> would not be.</p>
 <div class="highlight shell "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
   <td class="line-numbers"><pre>1
 </pre></td>
@@ -119,17 +118,15 @@ installing component-test
 </pre></td>
 </tr></table>
 </div></div>
-<p>A component consists of two parts:
-a Handlebars template that defines how it will look (<code>app/templates/components/rental-listing.hbs</code>)
-and a JavaScript source file (<code>app/components/rental-listing.js</code>) that defines how it will behave.</p>
+<p>We&#39;ll start by implementing a failing test with the image toggling behavior that we want.</p>
 
-<p>Our new <code>rental-listing</code> component will manage how a user sees and interacts with a rental.
-To start, let&#39;s move the rental display details for a single rental from the <code>index.hbs</code> template
-into <code>rental-listing.hbs</code>:</p>
-<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+<p>For our integration test, we&#39;ll create a stub rental that has all the properties that our rental model has.
+We will assert that the component is initially rendered without the <code>wide</code> class name. Clicking the image will add the class <code>wide</code> to our element, and clicking it a second time will take the <code>wide</code> class away.
+Note that we find the image element using the the CSS selector <code>.image</code>.</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
-      <td colspan="2">app/templates/components/rental-listing.hbs</td>
+      <td colspan="2">tests/integration/components/rental-listing-test.js</td>
     </tr>
   </thead>
 <tr>
@@ -138,18 +135,112 @@ into <code>rental-listing.hbs</code>:</p>
 3
 4
 5
+6
+7
+8
+9
+<strong>10</strong>
+11
+12
+13
+14
+15
+16
+17
+18
+19
+<strong>20</strong>
+21
+22
+23
+24
+25
+26
 </pre></td>
-  <td class="code"><pre><span class="tag">&lt;h2&gt;</span><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.title</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/h2&gt;</span>
-<span class="tag">&lt;p&gt;</span>Owner: <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.owner</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/p&gt;</span>
-<span class="tag">&lt;p&gt;</span>Type: <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.type</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/p&gt;</span>
-<span class="tag">&lt;p&gt;</span>Location: <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.city</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/p&gt;</span>
-<span class="tag">&lt;p&gt;</span>Number of bedrooms: <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.bedrooms</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/p&gt;</span>
+  <td class="code"><pre><span class="reserved">import</span> { moduleForComponent, test } from <span class="string"><span class="delimiter">'</span><span class="content">ember-qunit</span><span class="delimiter">'</span></span>;
+<span class="reserved">import</span> hbs from <span class="string"><span class="delimiter">'</span><span class="content">htmlbars-inline-precompile</span><span class="delimiter">'</span></span>;
+<span class="reserved">import</span> Ember from <span class="string"><span class="delimiter">'</span><span class="content">ember</span><span class="delimiter">'</span></span>;
+
+moduleForComponent(<span class="string"><span class="delimiter">'</span><span class="content">rental-listing</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">Integration | Component | rental listing</span><span class="delimiter">'</span></span>, {
+  <span class="key">integration</span>: <span class="predefined-constant">true</span>
+});
+
+test(<span class="string"><span class="delimiter">'</span><span class="content">should toggle wide class on click</span><span class="delimiter">'</span></span>, <span class="keyword">function</span>(assert) {
+  assert.expect(<span class="integer">3</span>);
+  let stubRental = Ember.Object.create({
+    <span class="key">image</span>: <span class="string"><span class="delimiter">'</span><span class="content">fake.png</span><span class="delimiter">'</span></span>,
+    <span class="key">title</span>: <span class="string"><span class="delimiter">'</span><span class="content">test-title</span><span class="delimiter">'</span></span>,
+    <span class="key">owner</span>: <span class="string"><span class="delimiter">'</span><span class="content">test-owner</span><span class="delimiter">'</span></span>,
+    <span class="key">type</span>: <span class="string"><span class="delimiter">'</span><span class="content">test-type</span><span class="delimiter">'</span></span>,
+    <span class="key">city</span>: <span class="string"><span class="delimiter">'</span><span class="content">test-city</span><span class="delimiter">'</span></span>,
+    <span class="key">bedrooms</span>: <span class="integer">3</span>
+  });
+  <span class="local-variable">this</span>.set(<span class="string"><span class="delimiter">'</span><span class="content">rentalObj</span><span class="delimiter">'</span></span>, stubRental);
+  <span class="local-variable">this</span>.render(hbs<span class="error">`</span>{{rental-listing rental=rentalObj}}<span class="error">`</span>);
+  assert.equal(<span class="local-variable">this</span>.<span class="predefined">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">.image.wide</span><span class="delimiter">'</span></span>).length, <span class="integer">0</span>, <span class="string"><span class="delimiter">'</span><span class="content">initially rendered small</span><span class="delimiter">'</span></span>);
+  <span class="local-variable">this</span>.<span class="predefined">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">.image</span><span class="delimiter">'</span></span>).click();
+  assert.equal(<span class="local-variable">this</span>.<span class="predefined">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">.image.wide</span><span class="delimiter">'</span></span>).length, <span class="integer">1</span>, <span class="string"><span class="delimiter">'</span><span class="content">rendered wide after click</span><span class="delimiter">'</span></span>);
+  <span class="local-variable">this</span>.<span class="predefined">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">.image</span><span class="delimiter">'</span></span>).click();
+  assert.equal(<span class="local-variable">this</span>.<span class="predefined">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">.image.wide</span><span class="delimiter">'</span></span>).length, <span class="integer">0</span>, <span class="string"><span class="delimiter">'</span><span class="content">rendered small after second click</span><span class="delimiter">'</span></span>);
+});
 </pre></td>
+</tr></table>
+</div></div>
+<p>A component consists of two parts:</p>
+
+<ul>
+<li>A template that defines how it will look (<code>app/templates/components/rental-listing.hbs</code>)</li>
+<li>A JavaScript source file (<code>app/components/rental-listing.js</code>) that defines how it will behave.</li>
+</ul>
+
+<p>Our new <code>rental-listing</code> component will manage how a user sees and interacts with a rental.
+To start, let&#39;s move the rental display details for a single rental from the <code>index.hbs</code> template into <code>rental-listing.hbs</code> and add the image field:</p>
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><?xml version="1.0"?>
+<table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/templates/components/rental-listing.hbs</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+<span class="highlight-line added">2</span>
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+11
+12
+13
+14
+15
+16</pre></td>
+  <td class="code"><pre><span class="tag">&lt;article</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">"</span><span class="content">listing</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+<span class="highlight-line added">  <span class="tag">&lt;img</span> <span class="attribute-name">src</span>=<span class="string"><span class="delimiter">"</span></span><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.image</span><span class="inline-delimiter">}}</span></span><span class="string"><span class="delimiter">"</span></span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">"</span><span class="content">image</span><span class="delimiter">"</span></span> <span class="attribute-name">alt</span>=<span class="string"><span class="delimiter">"</span><span class="delimiter">"</span></span><span class="tag">&gt;</span></span>
+  <span class="tag">&lt;h3&gt;</span><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.title</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/h3&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">"</span><span class="content">detail owner</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;span&gt;</span>Owner:<span class="tag">&lt;/span&gt;</span> <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.owner</span><span class="inline-delimiter">}}</span></span>
+  <span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">"</span><span class="content">detail type</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;span&gt;</span>Type:<span class="tag">&lt;/span&gt;</span> <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.type</span><span class="inline-delimiter">}}</span></span>
+  <span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">"</span><span class="content">detail location</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;span&gt;</span>Location:<span class="tag">&lt;/span&gt;</span> <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.city</span><span class="inline-delimiter">}}</span></span>
+  <span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">"</span><span class="content">detail bedrooms</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;span&gt;</span>Number of bedrooms:<span class="tag">&lt;/span&gt;</span> <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.bedrooms</span><span class="inline-delimiter">}}</span></span>
+  <span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/article&gt;</span></pre></td>
 </tr></table>
 </div></div>
 <p>In our <code>index.hbs</code> template, let&#39;s replace the old HTML markup within our <code>{{#each}}</code> loop
 with our new <code>rental-listing</code> component:</p>
-<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><?xml version="1.0"?>
+<table class="CodeRay">
   <thead>
     <tr>
       <td colspan="2">app/templates/index.hbs</td>
@@ -163,25 +254,68 @@ with our new <code>rental-listing</code> component:</p>
 5
 6
 7
-</pre></td>
-  <td class="code"><pre><span class="tag">&lt;h1&gt;</span> Welcome to Super Rentals <span class="tag">&lt;/h1&gt;</span>
+8
+9
+<strong>10</strong>
+11
+12
+13
+<span class="highlight-line added">14</span>
+<span class="highlight-line removed">15</span>
+<span class="highlight-line removed">16</span>
+<span class="highlight-line removed">17</span>
+<span class="highlight-line removed">18</span>
+<span class="highlight-line removed">19</span>
+<span class="highlight-line removed"><strong>20</strong></span>
+<span class="highlight-line removed">21</span>
+<span class="highlight-line removed">22</span>
+<span class="highlight-line removed">23</span>
+<span class="highlight-line removed">24</span>
+<span class="highlight-line removed">25</span>
+<span class="highlight-line removed">26</span>
+<span class="highlight-line removed">27</span>
+<span class="highlight-line removed">28</span>
+<span class="highlight-line removed">29</span>
+<strong>30</strong></pre></td>
+  <td class="code"><pre><span class="tag">&lt;div</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">"</span><span class="content">jumbo</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">"</span><span class="content">right tomster</span><span class="delimiter">"</span></span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;h2&gt;</span>Welcome!<span class="tag">&lt;/h2&gt;</span>
+  <span class="tag">&lt;p&gt;</span>
+    We hope you find exactly what you're looking for in a place to stay.
+    <span class="tag">&lt;br&gt;</span>Browse our listings, or use the search box above to narrow your search.
+  <span class="tag">&lt;/p&gt;</span>
+  <span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">link-to</span> <span class="error">'</span><span class="attribute-name">about</span><span class="error">'</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">"</span><span class="content">button</span><span class="delimiter">"</span></span><span class="inline-delimiter">}}</span></span>
+    About Us
+  <span class="inline"><span class="inline-delimiter">{{/</span><span class="attribute-name">link-to</span><span class="inline-delimiter">}}</span></span>
+<span class="tag">&lt;/div&gt;</span>
 
-We hope you find exactly what you're looking for in a place to stay.
-
-<span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">each</span> <span class="attribute-name">model</span> <span class="attribute-name">as</span> <span class="error">|</span><span class="attribute-name">rentalUnit</span><span class="error">|</span><span class="inline-delimiter">}}</span></span>
-  <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental-listing</span> <span class="attribute-name">rental</span>=<span class="attribute-value">rentalUnit</span><span class="inline-delimiter">}}</span></span>
-<span class="inline"><span class="inline-delimiter">{{/</span><span class="attribute-name">each</span><span class="inline-delimiter">}}</span></span>
-</pre></td>
+<span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">each</span> <span class="attribute-name">model</span> <span class="attribute-name">as</span> <span class="error">|</span><span class="attribute-name">rental</span><span class="error">|</span><span class="inline-delimiter">}}</span></span>
+<span class="highlight-line added">  <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental-listing</span> <span class="attribute-name">rental</span>=<span class="attribute-value">rental</span><span class="inline-delimiter">}}</span></span></span>
+<span class="highlight-line removed">  <span class="tag">&lt;article</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">"</span><span class="content">listing</span><span class="delimiter">"</span></span><span class="tag">&gt;</span></span>
+<span class="highlight-line removed">    <span class="tag">&lt;h3&gt;</span><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.title</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/h3&gt;</span></span>
+<span class="highlight-line removed">    <span class="tag">&lt;div</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">"</span><span class="content">detail owner</span><span class="delimiter">"</span></span><span class="tag">&gt;</span></span>
+<span class="highlight-line removed">      <span class="tag">&lt;span&gt;</span>Owner:<span class="tag">&lt;/span&gt;</span> <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.owner</span><span class="inline-delimiter">}}</span></span></span>
+<span class="highlight-line removed">    <span class="tag">&lt;/div&gt;</span></span>
+<span class="highlight-line removed">    <span class="tag">&lt;div</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">"</span><span class="content">detail type</span><span class="delimiter">"</span></span><span class="tag">&gt;</span></span>
+<span class="highlight-line removed">      <span class="tag">&lt;span&gt;</span>Type:<span class="tag">&lt;/span&gt;</span> <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.type</span><span class="inline-delimiter">}}</span></span></span>
+<span class="highlight-line removed">    <span class="tag">&lt;/div&gt;</span></span>
+<span class="highlight-line removed">    <span class="tag">&lt;div</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">"</span><span class="content">detail location</span><span class="delimiter">"</span></span><span class="tag">&gt;</span></span>
+<span class="highlight-line removed">      <span class="tag">&lt;span&gt;</span>Location:<span class="tag">&lt;/span&gt;</span> <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.city</span><span class="inline-delimiter">}}</span></span></span>
+<span class="highlight-line removed">    <span class="tag">&lt;/div&gt;</span></span>
+<span class="highlight-line removed">    <span class="tag">&lt;div</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">"</span><span class="content">detail bedrooms</span><span class="delimiter">"</span></span><span class="tag">&gt;</span></span>
+<span class="highlight-line removed">      <span class="tag">&lt;span&gt;</span>Number of bedrooms:<span class="tag">&lt;/span&gt;</span> <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.bedrooms</span><span class="inline-delimiter">}}</span></span></span>
+<span class="highlight-line removed">    <span class="tag">&lt;/div&gt;</span></span>
+<span class="highlight-line removed">  <span class="tag">&lt;/article&gt;</span></span>
+<span class="inline"><span class="inline-delimiter">{{/</span><span class="attribute-name">each</span><span class="inline-delimiter">}}</span></span></pre></td>
 </tr></table>
 </div></div>
-<p>Here we invoke the <code>rental-listing</code> component by name,
-and assign each <code>rentalUnit</code> as the <code>rental</code> attribute of the component.</p>
+<p>Here we invoke the <code>rental-listing</code> component by name, and assign each <code>rentalUnit</code> as the <code>rental</code> attribute of the component.</p>
 <h2 class='anchorable-toc' id='toc_hiding-and-showing-an-image'>Hiding and Showing an Image</h2>
 <p>Now we can add functionality that will show the image of a rental when requested by the user.</p>
 
-<p>Let&#39;s use the <code>{{#if}}</code> helper to show our current rental image only when <code>isImageShowing</code> is set to true.
-Otherwise, let&#39;s show a button to allow our user to toggle this:</p>
-<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+<p>Let&#39;s use the <code>{{#if}}</code> helper to show our current rental image larger only when <code>isWide</code> is set to true, by setting the element class name to <code>wide</code>. We&#39;ll also add some text to indicate that the image can be clicked on, and wrap both with an anchor element, giving it the <code>image</code> class name so that our test can find it.</p>
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><?xml version="1.0"?>
+<table class="CodeRay">
   <thead>
     <tr>
       <td colspan="2">app/templates/components/rental-listing.hbs</td>
@@ -189,85 +323,47 @@ Otherwise, let&#39;s show a button to allow our user to toggle this:</p>
   </thead>
 <tr>
   <td class="line-numbers"><pre>1
-2
+<span class="highlight-line added">2</span>
 3
-4
-5
+<span class="highlight-line added">4</span>
+<span class="highlight-line added">5</span>
 6
 7
 8
 9
 <strong>10</strong>
-</pre></td>
-  <td class="code"><pre><span class="tag">&lt;h2&gt;</span><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.title</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/h2&gt;</span>
-<span class="tag">&lt;p&gt;</span>Owner: <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.owner</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/p&gt;</span>
-<span class="tag">&lt;p&gt;</span>Type: <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.type</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/p&gt;</span>
-<span class="tag">&lt;p&gt;</span>Location: <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.city</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/p&gt;</span>
-<span class="tag">&lt;p&gt;</span>Number of bedrooms: <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.bedrooms</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/p&gt;</span>
-<span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">if</span> <span class="attribute-name">isImageShowing</span><span class="inline-delimiter">}}</span></span>
-  <span class="tag">&lt;p&gt;</span><span class="tag">&lt;img</span> <span class="attribute-name">src</span>=<span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.image</span><span class="inline-delimiter">}}</span></span> <span class="attribute-value">alt</span><span class="error">=</span><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.type</span><span class="inline-delimiter">}}</span></span> <span class="attribute-name">width</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">500</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span><span class="tag">&lt;/p&gt;</span>
-<span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">else</span><span class="inline-delimiter">}}</span></span>
-  <span class="tag">&lt;button&gt;</span>Show image<span class="tag">&lt;/button&gt;</span>
-<span class="inline"><span class="inline-delimiter">{{/</span><span class="attribute-name">if</span><span class="inline-delimiter">}}</span></span>
-</pre></td>
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></td>
+  <td class="code"><pre><span class="tag">&lt;article</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">"</span><span class="content">listing</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+<span class="highlight-line added">  <span class="tag">&lt;a</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">"</span><span class="content">image </span></span><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">if</span> <span class="attribute-name">isWide</span> <span class="error">"</span><span class="attribute-name">wide</span><span class="error">"</span><span class="inline-delimiter">}}</span></span><span class="string"><span class="delimiter">"</span></span><span class="tag">&gt;</span></span>
+    <span class="tag">&lt;img</span> <span class="attribute-name">src</span>=<span class="string"><span class="delimiter">"</span></span><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.image</span><span class="inline-delimiter">}}</span></span><span class="string"><span class="delimiter">"</span></span> <span class="attribute-name">alt</span>=<span class="string"><span class="delimiter">"</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+<span class="highlight-line added">    <span class="tag">&lt;small&gt;</span>View Larger<span class="tag">&lt;/small&gt;</span></span>
+<span class="highlight-line added">  <span class="tag">&lt;/a&gt;</span></span>
+  <span class="tag">&lt;h3&gt;</span><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.title</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/h3&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">"</span><span class="content">detail owner</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;span&gt;</span>Owner:<span class="tag">&lt;/span&gt;</span> <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.owner</span><span class="inline-delimiter">}}</span></span>
+  <span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">"</span><span class="content">detail type</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;span&gt;</span>Type:<span class="tag">&lt;/span&gt;</span> <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.type</span><span class="inline-delimiter">}}</span></span>
+  <span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">"</span><span class="content">detail location</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;span&gt;</span>Location:<span class="tag">&lt;/span&gt;</span> <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.city</span><span class="inline-delimiter">}}</span></span>
+  <span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">"</span><span class="content">detail bedrooms</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;span&gt;</span>Number of bedrooms:<span class="tag">&lt;/span&gt;</span> <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.bedrooms</span><span class="inline-delimiter">}}</span></span>
+  <span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/article&gt;</span></pre></td>
 </tr></table>
 </div></div>
-<p>The value of <code>isImageShowing</code> comes from our component&#39;s JavaScript file, in this case <code>rental-listing.js</code>.
-Since we do not want the image to be showing at first, we will set the property to start as <code>false</code>:</p>
-<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
-  <thead>
-    <tr>
-      <td colspan="2">app/components/rental-listing.js</td>
-    </tr>
-  </thead>
-<tr>
-  <td class="line-numbers"><pre>1
-2
-3
-</pre></td>
-  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> Ember.Component.extend({
-  <span class="key">isImageShowing</span>: <span class="predefined-constant">false</span>
-});
-</pre></td>
-</tr></table>
-</div></div>
-<p>To make it where clicking on the button shows the image to the user,
-we will need to add an action that changes the value of <code>isImageShowing</code> to <code>true</code>.
-Let&#39;s call this action <code>imageShow</code></p>
-<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
-  <thead>
-    <tr>
-      <td colspan="2">app/templates/components/rental-listing.hbs</td>
-    </tr>
-  </thead>
-<tr>
-  <td class="line-numbers"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9
-<strong>10</strong>
-</pre></td>
-  <td class="code"><pre><span class="tag">&lt;h2&gt;</span><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.title</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/h2&gt;</span>
-<span class="tag">&lt;p&gt;</span>Owner: <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.owner</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/p&gt;</span>
-<span class="tag">&lt;p&gt;</span>Type: <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.type</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/p&gt;</span>
-<span class="tag">&lt;p&gt;</span>Location: <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.city</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/p&gt;</span>
-<span class="tag">&lt;p&gt;</span>Number of bedrooms: <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.bedrooms</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/p&gt;</span>
-<span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">if</span> <span class="attribute-name">isImageShowing</span><span class="inline-delimiter">}}</span></span>
-  <span class="tag">&lt;p&gt;</span><span class="tag">&lt;img</span> <span class="attribute-name">src</span>=<span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.image</span><span class="inline-delimiter">}}</span></span> <span class="attribute-value">alt</span><span class="error">=</span><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.type</span><span class="inline-delimiter">}}</span></span> <span class="attribute-name">width</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">500</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span><span class="tag">&lt;/p&gt;</span>
-<span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">else</span><span class="inline-delimiter">}}</span></span>
-  <span class="tag">&lt;button</span> <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">action</span> <span class="error">&quot;</span><span class="attribute-name">imageShow</span><span class="error">&quot;</span><span class="inline-delimiter">}}</span></span><span class="tag">&gt;</span>Show image<span class="tag">&lt;/button&gt;</span>
-<span class="inline"><span class="inline-delimiter">{{/</span><span class="attribute-name">if</span><span class="inline-delimiter">}}</span></span>
-</pre></td>
-</tr></table>
-</div></div>
-<p>Clicking this button will send the action to the component.
-Ember will then go into the <code>actions</code> hash and call the <code>imageShow</code> function.
-Let&#39;s create the <code>imageShow</code> function and set <code>isImageShowing</code> to <code>true</code> on our component:</p>
+<p>The value of <code>isWide</code> comes from our component&#39;s JavaScript file, in this case <code>rental-listing.js</code>.
+Since we do not want the image to be smaller at first, we will set the property to start as <code>false</code>:</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
@@ -280,26 +376,19 @@ Let&#39;s create the <code>imageShow</code> function and set <code>isImageShowin
 3
 4
 5
-6
-7
-8
 </pre></td>
-  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> Ember.Component.extend({
-  <span class="key">isImageShowing</span>: <span class="predefined-constant">false</span>,
-  <span class="key">actions</span>: {
-    imageShow() {
-      <span class="local-variable">this</span>.set(<span class="string"><span class="delimiter">'</span><span class="content">isImageShowing</span><span class="delimiter">'</span></span>, <span class="predefined-constant">true</span>);
-    }
-  }
-});
-</pre></td>
-</tr></table>
-</div></div>
-<p>Now when we click the button in our browser, we can see our image.</p>
+  <td class="code"><pre><span class="reserved">import</span> Ember from <span class="string"><span class="delimiter">'</span><span class="content">ember</span><span class="delimiter">'</span></span>;
 
-<p>We should also let users hide the image.
-In our template, let&#39;s add a button with an <code>imageHide</code> action:</p>
-<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+<span class="reserved">export</span> <span class="keyword">default</span> Ember.Component.extend({
+  <span class="key">isWide</span>: <span class="predefined-constant">false</span>
+});
+</pre></td>
+</tr></table>
+</div></div>
+<p>To allow the user to widen the image, we will need to add an action that toggles the value of <code>isWide</code>.
+Let&#39;s call this action <code>toggleImageSize</code></p>
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><?xml version="1.0"?>
+<table class="CodeRay">
   <thead>
     <tr>
       <td colspan="2">app/templates/components/rental-listing.hbs</td>
@@ -307,7 +396,7 @@ In our template, let&#39;s add a button with an <code>imageHide</code> action:</
   </thead>
 <tr>
   <td class="line-numbers"><pre>1
-2
+<span class="highlight-line added">2</span>
 3
 4
 5
@@ -317,23 +406,40 @@ In our template, let&#39;s add a button with an <code>imageHide</code> action:</
 9
 <strong>10</strong>
 11
-</pre></td>
-  <td class="code"><pre><span class="tag">&lt;h2&gt;</span><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.title</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/h2&gt;</span>
-<span class="tag">&lt;p&gt;</span>Owner: <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.owner</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/p&gt;</span>
-<span class="tag">&lt;p&gt;</span>Type: <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.type</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/p&gt;</span>
-<span class="tag">&lt;p&gt;</span>Location: <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.city</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/p&gt;</span>
-<span class="tag">&lt;p&gt;</span>Number of bedrooms: <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.bedrooms</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/p&gt;</span>
-<span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">if</span> <span class="attribute-name">isImageShowing</span><span class="inline-delimiter">}}</span></span>
-  <span class="tag">&lt;p&gt;</span><span class="tag">&lt;img</span> <span class="attribute-name">src</span>=<span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.image</span><span class="inline-delimiter">}}</span></span> <span class="attribute-value">alt</span><span class="error">=</span><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.type</span><span class="inline-delimiter">}}</span></span> <span class="attribute-name">width</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">500</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span><span class="tag">&lt;/p&gt;</span>
-  <span class="tag">&lt;button</span> <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">action</span> <span class="error">&quot;</span><span class="attribute-name">imageHide</span><span class="error">&quot;</span><span class="inline-delimiter">}}</span></span><span class="tag">&gt;</span>Hide image<span class="tag">&lt;/button&gt;</span>
-<span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">else</span><span class="inline-delimiter">}}</span></span>
-  <span class="tag">&lt;button</span> <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">action</span> <span class="error">&quot;</span><span class="attribute-name">imageShow</span><span class="error">&quot;</span><span class="inline-delimiter">}}</span></span><span class="tag">&gt;</span>Show image<span class="tag">&lt;/button&gt;</span>
-<span class="inline"><span class="inline-delimiter">{{/</span><span class="attribute-name">if</span><span class="inline-delimiter">}}</span></span>
-</pre></td>
+12
+13
+14
+15
+16
+17
+18
+19</pre></td>
+  <td class="code"><pre><span class="tag">&lt;article</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">"</span><span class="content">listing</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+<span class="highlight-line added">  <span class="tag">&lt;a</span> <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">action</span> <span class="error">'</span><span class="attribute-name">toggleImageSize</span><span class="error">'</span><span class="inline-delimiter">}}</span></span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">"</span><span class="content">image </span></span><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">if</span> <span class="attribute-name">isWide</span> <span class="error">"</span><span class="attribute-name">wide</span><span class="error">"</span><span class="inline-delimiter">}}</span></span><span class="string"><span class="delimiter">"</span></span><span class="tag">&gt;</span></span>
+    <span class="tag">&lt;img</span> <span class="attribute-name">src</span>=<span class="string"><span class="delimiter">"</span></span><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.image</span><span class="inline-delimiter">}}</span></span><span class="string"><span class="delimiter">"</span></span> <span class="attribute-name">alt</span>=<span class="string"><span class="delimiter">"</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;small&gt;</span>View Larger<span class="tag">&lt;/small&gt;</span>
+  <span class="tag">&lt;/a&gt;</span>
+  <span class="tag">&lt;h3&gt;</span><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.title</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/h3&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">"</span><span class="content">detail owner</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;span&gt;</span>Owner:<span class="tag">&lt;/span&gt;</span> <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.owner</span><span class="inline-delimiter">}}</span></span>
+  <span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">"</span><span class="content">detail type</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;span&gt;</span>Type:<span class="tag">&lt;/span&gt;</span> <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental-property-type</span> <span class="attribute-name">rental.type</span><span class="inline-delimiter">}}</span></span> - <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.type</span><span class="inline-delimiter">}}</span></span>
+  <span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">"</span><span class="content">detail location</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;span&gt;</span>Location:<span class="tag">&lt;/span&gt;</span> <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.city</span><span class="inline-delimiter">}}</span></span>
+  <span class="tag">&lt;/div&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">"</span><span class="content">detail bedrooms</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;span&gt;</span>Number of bedrooms:<span class="tag">&lt;/span&gt;</span> <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental.bedrooms</span><span class="inline-delimiter">}}</span></span>
+  <span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/article&gt;</span></pre></td>
 </tr></table>
 </div></div>
-<p>Then let&#39;s setup an <code>imageHide</code> action handler in our component to set <code>isImageShowing</code> to <code>false</code>:</p>
-<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+<p>Clicking the anchor element will send the action to the component.
+Ember will then go into the <code>actions</code> hash and call the <code>toggleImageSize</code> function.
+Let&#39;s create the <code>toggleImageSize</code> function and toggle the <code>isWide</code> property on our component:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><?xml version="1.0"?>
+<table class="CodeRay">
   <thead>
     <tr>
       <td colspan="2">app/components/rental-listing.js</td>
@@ -344,35 +450,34 @@ In our template, let&#39;s add a button with an <code>imageHide</code> action:</
 2
 3
 4
-5
-6
-7
-8
-9
-<strong>10</strong>
-11
-</pre></td>
-  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> Ember.Component.extend({
-  <span class="key">isImageShowing</span>: <span class="predefined-constant">false</span>,
-  <span class="key">actions</span>: {
-    imageShow() {
-      <span class="local-variable">this</span>.set(<span class="string"><span class="delimiter">'</span><span class="content">isImageShowing</span><span class="delimiter">'</span></span>, <span class="predefined-constant">true</span>);
-    },
-    imageHide() {
-      <span class="local-variable">this</span>.set(<span class="string"><span class="delimiter">'</span><span class="content">isImageShowing</span><span class="delimiter">'</span></span>, <span class="predefined-constant">false</span>);
-    }
-  }
-});
-</pre></td>
+<span class="highlight-line added">5</span>
+<span class="highlight-line added">6</span>
+<span class="highlight-line added">7</span>
+<span class="highlight-line added">8</span>
+<span class="highlight-line added">9</span>
+<strong>10</strong></pre></td>
+  <td class="code"><pre><span class="reserved">import</span> Ember from <span class="string"><span class="delimiter">'</span><span class="content">ember</span><span class="delimiter">'</span></span>;
+
+<span class="reserved">export</span> <span class="keyword">default</span> Ember.Component.extend({
+  <span class="key">isWide</span>: <span class="predefined-constant">false</span>,
+<span class="highlight-line added">  <span class="key">actions</span>: {</span>
+<span class="highlight-line added">    toggleImageSize() {</span>
+<span class="highlight-line added">      <span class="local-variable">this</span>.toggleProperty(<span class="string"><span class="delimiter">'</span><span class="content">isWide</span><span class="delimiter">'</span></span>);</span>
+<span class="highlight-line added">    }</span>
+<span class="highlight-line added">  }</span>
+});</pre></td>
 </tr></table>
 </div></div>
-<p>Now our users can toggle images on and off using the &quot;Show image&quot; and &quot;Hide image&quot; buttons.</p>
+<p>Now when we click the image or the <code>View Larger</code> link in our browser, we  see our image show larger,
+or when we click the enlarged image we again see it smaller.</p>
+
+<p><img src="../../images/simple-component/styled-rental-listings.png" alt="rental listing with expand"></p>
 
 
 
         
       <footer>
-        <a class="previous-guide" href="../ember-data/">Ember Data</a> <a class="next-guide" href="../hbs-helper/">Handlebars Helper</a>
+        <a class="previous-guide" href="../ember-data/">Using Ember Data</a> <a class="next-guide" href="../hbs-helper/">Creating a Handlebars Helper</a>
       </footer>
       
       </article>
