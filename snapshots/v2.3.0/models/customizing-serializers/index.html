@@ -283,9 +283,9 @@ serializer.</p>
 2
 3
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> JSONSerializer from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/serializers/json</span><span class="delimiter">'</span></span>;
+  <td class="code"><pre><span class="reserved">import</span> JSONAPISerializer from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/serializers/json-api</span><span class="delimiter">'</span></span>;
 
-<span class="reserved">export</span> <span class="keyword">default</span> JSONSerializer.extend({});
+<span class="reserved">export</span> <span class="keyword">default</span> JSONAPISerializer.extend({});
 </pre></td>
 </tr></table>
 </div></div>
@@ -302,9 +302,9 @@ you had a <code>post</code> model you could also define a <code>post</code> seri
 2
 3
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> JSONSerializer from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/serializers/json</span><span class="delimiter">'</span></span>;
+  <td class="code"><pre><span class="reserved">import</span> JSONAPISerializer from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/serializers/json-api</span><span class="delimiter">'</span></span>;
 
-<span class="reserved">export</span> <span class="keyword">default</span> JSONSerializer.extend({});
+<span class="reserved">export</span> <span class="keyword">default</span> JSONAPISerializer.extend({});
 </pre></td>
 </tr></table>
 </div></div>
@@ -396,9 +396,9 @@ hook. Let&#39;s say that we have this JSON API response from Ember Data:</p>
 16
 17
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> JSONSerializer from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/serializers/json</span><span class="delimiter">'</span></span>;
+  <td class="code"><pre><span class="reserved">import</span> JSONAPISerializer from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/serializers/json-api</span><span class="delimiter">'</span></span>;
 
-<span class="reserved">export</span> <span class="keyword">default</span> JSONSerializer.extend({
+<span class="reserved">export</span> <span class="keyword">default</span> JSONAPISerializer.extend({
   serialize(snapshot, options) {
     <span class="keyword">var</span> json = <span class="local-variable">this</span>._super(...<span class="local-variable">arguments</span>);
 
@@ -501,9 +501,9 @@ like:</p>
 11
 12
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> JSONSerializer from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/serializers/json</span><span class="delimiter">'</span></span>;
+  <td class="code"><pre><span class="reserved">import</span> JSONAPISerializer from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/serializers/json-api</span><span class="delimiter">'</span></span>;
 
-<span class="reserved">export</span> <span class="keyword">default</span> JSONSerializer.extend({
+<span class="reserved">export</span> <span class="keyword">default</span> JSONAPISerializer.extend({
   normalizeResponse(store, primaryModelClass, payload, id, requestType) {
     payload.data.attributes.amount = payload.data.attributes.cost.amount;
     payload.data.attributes.currency = payload.data.attributes.cost.currency;
@@ -542,9 +542,9 @@ property to <code>id</code> when serializing and deserializing data.</p>
 4
 5
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> JSONSerializer from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/serializers/json</span><span class="delimiter">'</span></span>;
+  <td class="code"><pre><span class="reserved">import</span> JSONAPISerializer from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/serializers/json-api</span><span class="delimiter">'</span></span>;
 
-<span class="reserved">export</span> <span class="keyword">default</span> JSONSerializer.extend({
+<span class="reserved">export</span> <span class="keyword">default</span> JSONAPISerializer.extend({
   <span class="key">primaryKey</span>: <span class="string"><span class="delimiter">'</span><span class="content">_id</span><span class="delimiter">'</span></span>
 });
 </pre></td>
@@ -629,10 +629,12 @@ method like this.</p>
 5
 6
 7
+8
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> JSONSerializer from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/serializers/json</span><span class="delimiter">'</span></span>;
+  <td class="code"><pre><span class="reserved">import</span> Ember from <span class="string"><span class="delimiter">'</span><span class="content">ember</span><span class="delimiter">'</span></span>;
+<span class="reserved">import</span> JSONAPISerializer from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/serializers/json-api</span><span class="delimiter">'</span></span>;
 
-<span class="reserved">export</span> <span class="keyword">default</span> JSONSerializer.extend({
+<span class="reserved">export</span> <span class="keyword">default</span> JSONAPISerializer.extend({
   <span class="function">keyForAttribute</span>: <span class="keyword">function</span>(attr) {
     <span class="keyword">return</span> Ember.String.underscore(attr);
   }
@@ -686,7 +688,7 @@ Serializer for the model and override the <code>attrs</code> property.</p>
 6
 7
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> JSONSerializer from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/serializers/json</span><span class="delimiter">'</span></span>;
+  <td class="code"><pre><span class="reserved">import</span> JSONAPISerializer from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/serializers/json-api</span><span class="delimiter">'</span></span>;
 
 <span class="reserved">export</span> <span class="keyword">default</span> JSONSerializer.extend({
   <span class="key">attrs</span>: {

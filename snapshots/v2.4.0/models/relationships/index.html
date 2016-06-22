@@ -462,12 +462,16 @@ comment.save();
 3
 4
 5
+6
+7
 </pre></td>
   <td class="code"><pre>let post = <span class="local-variable">this</span>.store.peekRecord(<span class="string"><span class="delimiter">'</span><span class="content">post</span><span class="delimiter">'</span></span>, <span class="integer">1</span>);
 let comment = <span class="local-variable">this</span>.store.createRecord(<span class="string"><span class="delimiter">'</span><span class="content">comment</span><span class="delimiter">'</span></span>, {
 });
 post.get(<span class="string"><span class="delimiter">'</span><span class="content">comments</span><span class="delimiter">'</span></span>).pushObject(comment);
-comment.save();
+comment.save().then(<span class="keyword">function</span> () {
+  post.save();
+});
 </pre></td>
 </tr></table>
 </div></div>
