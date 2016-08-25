@@ -1,7 +1,7 @@
 /*
   run with
   ```shell
-  node tasks/lib/update-versions.js
+  node tasks/update-versions.js
   ```
 */
 var fs = require('fs');
