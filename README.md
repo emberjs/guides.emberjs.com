@@ -30,7 +30,7 @@ git push
 Next, build a new snapshot:
 
 ```shell
-middleman build
+bundle exec middleman build
 ```
 
 ### Update the guides site repo
@@ -47,7 +47,7 @@ Now, change directories into the guides site repo. Update the list of versions:
 node tasks/update-versions
 ```
 
-Publish the searchable content with the new revision:
+Publish the searchable content with the new revision (not applicable for new versions using Algolia):
 
 ```shell
 node tasks/publish-search --engine ember-guides --environment production --revision $VERSION --api-key $API_KEY
@@ -63,7 +63,7 @@ git push
 
 ### Publish
 
-The site is hosted on Firebase. If you don't have firebase-tools installed, do so with `npm install firebase-tools -g`.
+The site is hosted on Firebase. If you don't have firebase-tools installed, do so with `npm install -g firebase-tools@^2.1`.
 
 Publish this repo to the Firebase staging environment:
 
