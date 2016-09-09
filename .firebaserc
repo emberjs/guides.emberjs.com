@@ -1,0 +1,5 @@
+{
+  "projects": {
+    "staging": "ember-guides-staging"
+  }
+}
