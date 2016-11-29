@@ -382,17 +382,23 @@ redirect to a login page, etc.</p>
 12
 13
 14
+15
+16
+17
 </pre></td>
   <td class="code"><pre><span class="reserved">import</span> Ember from <span class="string"><span class="delimiter">'</span><span class="content">ember</span><span class="delimiter">'</span></span>;
 
 <span class="reserved">export</span> <span class="keyword">default</span> Ember.Route.extend({
   model(params) {
-    <span class="keyword">return</span> <span class="local-variable">this</span>.get(<span class="string"><span class="delimiter">'</span><span class="content">store</span><span class="delimiter">'</span></span>).findAll(<span class="string"><span class="delimiter">'</span><span class="content">problematic-model</span><span class="delimiter">'</span></span>);
+    <span class="keyword">return</span> <span class="local-variable">this</span>.get(<span class="string"><span class="delimiter">'</span><span class="content">store</span><span class="delimiter">'</span></span>).findAll(<span class="string"><span class="delimiter">'</span><span class="content">privileged-model</span><span class="delimiter">'</span></span>);
   },
   <span class="key">actions</span>: {
     error(error, transition) {
-      <span class="keyword">if</span> (error) {
-        <span class="keyword">return</span> <span class="local-variable">this</span>.transitionTo(<span class="string"><span class="delimiter">'</span><span class="content">error-page</span><span class="delimiter">'</span></span>);
+      <span class="keyword">if</span> (error.status === <span class="string"><span class="delimiter">'</span><span class="content">403</span><span class="delimiter">'</span></span>) {
+        <span class="local-variable">this</span>.replaceWith(<span class="string"><span class="delimiter">'</span><span class="content">login</span><span class="delimiter">'</span></span>);
+      } <span class="keyword">else</span> {
+        <span class="comment">// Let the route above this handle the error.</span>
+        <span class="keyword">return</span> <span class="predefined-constant">true</span>;
       }
     }
   }

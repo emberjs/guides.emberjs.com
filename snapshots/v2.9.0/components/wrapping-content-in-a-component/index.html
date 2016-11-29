@@ -183,7 +183,7 @@ outside the component, it is also available inside the component block.</p>
 <h2 class='anchorable-toc' id='toc_sharing-component-data-with-its-wrapped-content'>Sharing Component Data with its Wrapped Content</h2>
 <p>There is also a way to share data within your blog post component with the content it is wrapping.
 In our blog post component we want to provide a way for the user to configure what type of style they want to write their post in.
-We will give them the option to specify either <code>markdown</code> or <code>html</code>.</p>
+We will give them the option to specify either <code>markdown-style</code> or <code>html-style</code>.</p>
 <div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
@@ -196,7 +196,7 @@ We will give them the option to specify either <code>markdown</code> or <code>ht
 3
 4
 </pre></td>
-  <td class="code"><pre><span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">blog-post</span> <span class="attribute-name">editStyle</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">markdown</span><span class="delimiter">&quot;</span></span><span class="inline-delimiter">}}</span></span>
+  <td class="code"><pre><span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">blog-post</span> <span class="attribute-name">editStyle</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">markdown-style</span><span class="delimiter">&quot;</span></span><span class="inline-delimiter">}}</span></span>
   <span class="tag">&lt;p</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">author</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>by <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">author</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/p&gt;</span>
   <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">body</span><span class="inline-delimiter">}}</span></span>
 <span class="inline"><span class="inline-delimiter">{{/</span><span class="attribute-name">blog-post</span><span class="inline-delimiter">}}</span></span>
@@ -233,7 +233,7 @@ To load a different body component based on editing style, you can yield the com
 3
 4
 </pre></td>
-  <td class="code"><pre><span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">blog-post</span> <span class="attribute-name">editStyle</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">markdown</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">as</span> <span class="error">|</span><span class="attribute-name">post</span><span class="error">|</span><span class="inline-delimiter">}}</span></span>
+  <td class="code"><pre><span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">blog-post</span> <span class="attribute-name">editStyle</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">markdown-style</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">as</span> <span class="error">|</span><span class="attribute-name">post</span><span class="error">|</span><span class="inline-delimiter">}}</span></span>
   <span class="tag">&lt;p</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">author</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>by <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">author</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/p&gt;</span>
   <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">post.body</span><span class="inline-delimiter">}}</span></span>
 <span class="inline"><span class="inline-delimiter">{{/</span><span class="attribute-name">blog-post</span><span class="inline-delimiter">}}</span></span>
@@ -272,9 +272,9 @@ When <code>{{post.body}}</code> is instantiated, it will have both the edit styl
 3
 4
 </pre></td>
-  <td class="code"><pre><span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">blog-post</span> <span class="attribute-name">editStyle</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">markdown</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">as</span> <span class="error">|</span><span class="attribute-name">post</span><span class="error">|</span><span class="inline-delimiter">}}</span></span>
+  <td class="code"><pre><span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">blog-post</span> <span class="attribute-name">editStyle</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">markdown-style</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">as</span> <span class="error">|</span><span class="attribute-name">post</span><span class="error">|</span><span class="inline-delimiter">}}</span></span>
   <span class="tag">&lt;p</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">author</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>by <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">author</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/p&gt;</span>
-  <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">post.body</span> <span class="attribute-name">editStyle</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">compact</span><span class="delimiter">&quot;</span></span><span class="inline-delimiter">}}</span></span>
+  <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">post.body</span> <span class="attribute-name">editStyle</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">compact-style</span><span class="delimiter">&quot;</span></span><span class="inline-delimiter">}}</span></span>
 <span class="inline"><span class="inline-delimiter">{{/</span><span class="attribute-name">blog-post</span><span class="inline-delimiter">}}</span></span>
 </pre></td>
 </tr></table>

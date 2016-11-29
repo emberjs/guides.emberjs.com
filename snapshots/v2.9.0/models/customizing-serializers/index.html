@@ -1173,29 +1173,59 @@ all, you can use <code>serialize: false</code>.</p>
 <h2 class='anchorable-toc' id='toc_authoring-serializers'>Authoring Serializers</h2>
 <p>If you would like to create a custom serializer its recommend that you
 start with the <code>JSONAPISerializer</code> or <code>JSONSerializer</code> and extend one of
-those to match your needs. However, if your payload is extremely
-different from one of these serializers you can create your own by
-extending the <code>DS.Serializer</code> base class. There are 3 methods that
-must be implemented on a serializer.</p>
+those to match your needs.
+However, if your payload is extremely different from one of these
+serializers you can create your own by extending the <code>DS.Serializer</code>
+base class.</p>
 
-<ul>
-<li><a href="http://emberjs.com/api/data/classes/DS.Serializer.html#method_normalizeResponse">normalizeResponse</a></li>
-<li><a href="http://emberjs.com/api/data/classes/DS.Serializer.html#method_serialize">serialize</a></li>
-<li><a href="http://emberjs.com/api/data/classes/DS.Serializer.html#method_normalize">normalize</a></li>
-</ul>
+<p>A serializer in Ember Data is responsible for normalizing a payload
+from an adapter into the format that Ember Data understands.
+It is also responsible for transforming a snapshot of a record into
+the payload that an adapter will send to the backend.</p>
 
-<p>Its also important to know about the <code>normalized</code> JSON form that Ember
-Data expects as an argument to <code>store.push()</code>.</p>
+<p>A serializer has two main roles in Ember Data.
+First it is responsible for taking a response from an adapter and
+serializing it into the normalized JSON format that Ember Data
+understands.
+Secondly, it transforms snapshots of records into a payload the
+adapter will send to the server when creating, updating or deleting a
+record.</p>
+<h4 class='anchorable-toc' id='toc_ember-data-s-normalized-json-format'>Ember Data&#39;s Normalized JSON Format</h4>
+<p>The normalized JSON format that Ember Data expects is a
+<a href="http://jsonapi.org/">JSON API</a> document with a couple additional
+restrictions.</p>
 
-<p><code>store.push</code> accepts a JSON API document. However, unlike the
-JSONAPISerializer, <code>store.push</code> does not do any transformation of the
-record&#39;s type name or attributes. It is important to make sure that
-the type name matches the name of the file where it is defined
-exactly. Also attribute and relationship names in the JSON API
-document should match the name and casing of the attribute and
-relationship properties on the Model.</p>
+<p>First, it is important to make sure that the <code>type</code> name of a record
+in the normalized JSON object exactly matches the filename of the
+model defined for this record type.
+By convention Model names are singular in Ember Data, however, the
+example type names shown in the
+<a href="http://jsonapi.org/format/">JSON API spec</a> are pluralized.
+The JSON API spec itself is agnostic about inflection rules, however,
+Ember Data&#39;s own <code>JSONAPISerializer</code> assumes types are plural and it
+will automatically singularize the types.</p>
 
-<p>For Example: given this <code>post</code> model.</p>
+<p>Second, attribute and relationship names in the JSON API document
+should exactly match the name and casing of the <code>DS.attr()</code>,
+<code>DS.belongsTo()</code> and <code>DS.hasMany()</code>, properties defined on the
+Model.</p>
+
+<p>By convention these property names are camelCase in Ember Data models.
+As with the <code>type</code> names, this is different from the example attribute
+and relationship names shown in the
+<a href="http://jsonapi.org/format/">JSON API spec</a>.
+The examples in the spec use dash-case for attribute and relationship
+names, however, the spec does not require attribute or relationship
+names to follow any specific casing convention.
+If you are using Ember Data&#39;s own <code>JSONAPISerializer</code> it will assume
+the attribute and relationship names from your API are dash-case and
+automatically transform them to be camelCase when it creates the
+normalized JSON object.</p>
+
+<p>Other than these two restrictions, Ember Data&#39;s normalized JSON object
+follows the <a href="http://jsonapi.org/">JSON API</a> specification.</p>
+
+<p>Example: given this <code>post</code> model.</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
@@ -1223,7 +1253,8 @@ relationship properties on the Model.</p>
 </pre></td>
 </tr></table>
 </div></div>
-<p><code>store.push</code> would accept an object that looked like this:</p>
+<p>The normalized JSON object that Ember Data expects a serializer to
+return looks like this:</p>
 <div class="highlight js "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
   <td class="line-numbers"><pre>1
 2
@@ -1249,7 +1280,7 @@ relationship properties on the Model.</p>
   <td class="code"><pre>{
   <span class="key">data</span>: {
     <span class="key">id</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">1</span><span class="delimiter">&quot;</span></span>,
-    <span class="key">type</span>: <span class="string"><span class="delimiter">'</span><span class="content">post</span><span class="delimiter">'</span></span>,
+    <span class="key">type</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">post</span><span class="delimiter">&quot;</span></span>,
     <span class="key">attributes</span>: {
       <span class="key">title</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Rails is omakase</span><span class="delimiter">&quot;</span></span>,
       <span class="key">tag</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">rails</span><span class="delimiter">&quot;</span></span>,
@@ -1269,17 +1300,41 @@ relationship properties on the Model.</p>
 </pre></td>
 </tr></table>
 </div></div>
-<p>Every serialized record must follow this format for it to be correctly
-converted into an Ember Data record.</p>
+<p>Note that the type is <code>&quot;post&quot;</code> to match the post model and the
+<code>relatedPosts</code> relationship in the document matches the
+<code>relatedPosts: hasMany(&#39;post&#39;)</code> on the model.</p>
+<h4 class='anchorable-toc' id='toc_normalizing-adapter-responses'>Normalizing adapter responses</h4>
+<p>When creating a custom serializer you will need to define a
+<a href="http://emberjs.com/api/data/classes/DS.Serializer.html#method_normalizeResponse">normalizeResponse</a>
+method to transform the response from the adapter into the normalized
+JSON object described above.</p>
 
-<p>Properties that are defined on the model but are omitted in the
-normalized JSON API document object will not be updated. Properties
-that are included in the normalized JSON API document object but not
-defined on the Model will be ignored.</p>
+<p>This method receives the <code>store</code>, the Model class for the request, the
+payload payload, the id of the record request (or <code>null</code> if there is
+no id associated with the request) and the request type (a string with
+the possible values of: <code>&#39;findRecord&#39;</code>, <code>&#39;queryRecord&#39;</code>, <code>&#39;findAll&#39;</code>,
+<code>&#39;findBelongsTo&#39;</code>, <code>&#39;findHasMany&#39;</code>, <code>&#39;findMany&#39;</code>, <code>&#39;query&#39;</code>,
+<code>&#39;createRecord&#39;</code>, <code>&#39;deleteRecord&#39;</code> and <code>&#39;updateRecord&#39;</code>) as arguments.</p>
+
+<p>A custom serializer will also need to define a
+<a href="http://emberjs.com/api/data/classes/DS.Serializer.html#method_normalize">normalize</a>
+method.
+This method is called by <code>store.normalize(type, payload)</code> and is often
+used for normalizing requests made outside of Ember Data because they
+do not fall into the normal CRUD flow that the adapter provides.</p>
+<h4 class='anchorable-toc' id='toc_serializing-records'>Serializing records</h4>
+<p>Finally a serializer will need to implement a
+<a href="http://emberjs.com/api/data/classes/DS.Serializer.html#method_serialize">serialize</a>
+method.
+Ember Data will provide a record snapshot and an options hash and this
+method should return an object that the adapter will send to the
+server when creating, updating or deleting a record.</p>
 <h2 class='anchorable-toc' id='toc_community-serializers'>Community Serializers</h2>
 <p>If none of the built-in Ember Data Serializers work for your backend,
 be sure to check out some of the community maintained Ember Data
-Adapters and Serializers. A good place to search for them is <a href="http://emberobserver.com/categories/data">Ember Observer</a>.</p>
+Adapters and Serializers.
+A good place to search for them is
+<a href="http://emberobserver.com/categories/data">Ember Observer</a>.</p>
 
 
 

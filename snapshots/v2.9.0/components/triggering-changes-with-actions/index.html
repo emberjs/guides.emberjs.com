@@ -146,12 +146,12 @@ typing:</p>
 </pre></td>
 </tr></table>
 </div></div><h2 class='anchorable-toc' id='toc_designing-the-action'>Designing the Action</h2>
-<p>When implementing an action on a component, you need to break it down into two steps:</p>
+<p>When implementing an action on a component that will be handled outside the component, you need to break it down into two steps:</p>
 
 <ol>
 <li>In the parent component, decide how you want to react to the action.
-Here, we want to have the action delete the user&#39;s account in one place, and
-send a message in another place.</li>
+Here, we want to have the action delete the user&#39;s account when it&#39;s used in one place, and
+send a message when used in another place.</li>
 <li>In the component, determine when something has happened, and when to tell the
 outside world. Here, we want to trigger the outside action (deleting the
 account or sending the message) after the user clicks the button and then
@@ -161,7 +161,7 @@ confirms.</li>
 <p>Let&#39;s take it step by step.</p>
 <h2 class='anchorable-toc' id='toc_implementing-the-action'>Implementing the Action</h2>
 <p>In the parent component, let&#39;s first define what we want to happen when the
-user clicks the button and then confirms. In this case, we&#39;ll find the user&#39;s
+user clicks the button and then confirms. In the first case, we&#39;ll find the user&#39;s
 account and delete it.</p>
 
 <p>In Ember, each component can
@@ -213,8 +213,8 @@ user&#39;s profile to them.</p>
 <p>Now we&#39;ve implemented our action, but we have not told Ember when we
 want this action to be triggered, which is the next step.</p>
 <h2 class='anchorable-toc' id='toc_designing-the-child-component'>Designing the Child Component</h2>
-<p>Next, let&#39;s implement the logic to confirm that the user wants to take
-the action from the component:</p>
+<p>Next,
+in the child component we will implement the logic to confirm that the user wants to take the action they indicated by clicking the button:</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
@@ -291,12 +291,10 @@ based on the value of <code>confirmShown</code>.</p>
 </pre></td>
 </tr></table>
 </div></div><h2 class='anchorable-toc' id='toc_passing-the-action-to-the-component'>Passing the Action to the Component</h2>
-<p>Now we need to make it so that the <code>onConfirm()</code> event in the
-<code>button-with-confirmation</code> component triggers the
-<code>userDidDeleteAccount()</code> action in the <code>user-profile</code> component.
-One important thing to know about actions is that they&#39;re functions
-you can call like any other method on your component.
-They can be passed from one component to another like this:</p>
+<p>Now we need to make it so that the <code>userDidDeleteAccount()</code> action defined in the parent component <code>user-profile</code> can be triggered from within <code>button-with-confirmation</code>.
+We&#39;ll do this by passing the action to the child component in exactly the same way that we pass other properties.
+This is possible since actions are simply functions, just like any other method on a component,
+and they can therefore be passed from one component to another like this:</p>
 <div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
@@ -310,9 +308,9 @@ They can be passed from one component to another like this:</p>
 </pre></td>
 </tr></table>
 </div></div>
-<p>This snippet says &quot;take the <code>userDidDeleteAccount</code> action from the
-parent and make it available on the child component as
-<code>onConfirm</code>.&quot;</p>
+<p>This snippet says &quot;take the <code>userDidDeleteAccount</code> action from the parent and make it available on the child component as the property <code>onConfirm</code>.&quot;
+Note the use here of the <code>action</code> helper,
+which serves to return the function named <code>&quot;userDidDeleteAccount&quot;</code> that we are passing to the component.</p>
 
 <p>We can do a similar thing for our <code>send-message</code> component:</p>
 <div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">

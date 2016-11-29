@@ -88,17 +88,30 @@
         </h1>
         <hr>
 
-        <p>Calling <a href="http://emberjs.com/api/classes/Ember.Route.html#method_transitionTo"><code>transitionTo()</code></a> from a route or <a href="http://emberjs.com/api/classes/Ember.Controller.html#method_transitionToRoute"><code>transitionToRoute()</code></a> from a 
-controller will stop any transition currently in progress and start a new 
-one, functioning as a redirect. <code>transitionTo()</code> behaves exactly like the 
-<a href="../../templates/links">link-to</a> helper.</p>
+        <p>Sometimes you want to redirect a user to a different page than what they requested for.</p>
+
+<p>For example, if they&#39;re not logged in, you might want to prevent them from editing their profile, accessing private information,
+or checking out items in their shopping cart.
+Usually you want to redirect them to the login page, and after they have successfully logged in, take them back to the page they originally wanted to access.</p>
+
+<p>There are many other reasons you probably want to have the last word on whether a user can or cannot access a certain page.
+Whatever the reason, Ember allows you that control with a combination of hooks and methods in your route.</p>
+
+<p>One of the methods is <a href="http://emberjs.com/api/classes/Ember.Route.html#method_transitionTo"><code>transitionTo()</code></a>.
+Calling <code>transitionTo()</code> from a route or
+<a href="http://emberjs.com/api/classes/Ember.Controller.html#method_transitionToRoute"><code>transitionToRoute()</code></a> from a controller will stop any transitions currently in progress and start a new one, functioning as a redirect.
+<code>transitionTo()</code> behaves exactly like the <a href="../../templates/links">link-to</a> helper.</p>
+
+<p>The other one is <a href="http://emberjs.com/api/classes/Ember.Route.html#method_replaceWith"><code>replaceWith()</code></a> which works the same way as <code>transitionTo()</code>.
+The only difference between them is how they manage history.
+<code>replaceWith()</code> substitutes the current route entry and replaces it with that of the route we are redirecting to,
+while <code>transitionTo()</code> leaves the entry for the current route and creates a new one for the redirection.</p>
 
 <p>If the new route has dynamic segments, you need to pass either a <em>model</em> or an <em>identifier</em> for each segment.
-Passing a model will skip that segment&#39;s <code>model()</code> hook (since the model is
-already loaded).</p>
+Passing a model will skip the route&#39;s <code>model()</code> hook since the model is already loaded.</p>
 <h2 class='anchorable-toc' id='toc_transitioning-before-the-model-is-known'>Transitioning Before the Model is Known</h2>
-<p>If you want to redirect from one route to another, you can do the transition in
-the <a href="http://emberjs.com/api/classes/Ember.Route.html#method_beforeModel"><code>beforeModel()</code></a> hook of your route handler.</p>
+<p>Since a route&#39;s <a href="http://emberjs.com/api/classes/Ember.Route.html#method_beforeModel"><code>beforeModel()</code></a> executes before the <code>model()</code> hook,
+it&#39;s a good place to do a redirect if you don&#39;t need any information that is contained in the model.</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
@@ -133,20 +146,26 @@ the <a href="http://emberjs.com/api/classes/Ember.Route.html#method_beforeModel"
   <td class="code"><pre><span class="reserved">import</span> Ember from <span class="string"><span class="delimiter">'</span><span class="content">ember</span><span class="delimiter">'</span></span>;
 
 <span class="reserved">export</span> <span class="keyword">default</span> Ember.Route.extend({
-  beforeModel() {
-    <span class="local-variable">this</span>.transitionTo(<span class="string"><span class="delimiter">'</span><span class="content">posts</span><span class="delimiter">'</span></span>);
+  beforeModel(<span class="comment">/* transition */</span>) {
+    <span class="local-variable">this</span>.transitionTo(<span class="string"><span class="delimiter">'</span><span class="content">posts</span><span class="delimiter">'</span></span>); <span class="comment">// Implicitly aborts the on-going transition.</span>
   }
 });
 </pre></td>
 </tr></table>
 </div></div>
+<p><code>beforeModel()</code> receives the current transition as an argument, which we can store and retry later.
+This allows us to return the user back to the original route.
+For example, we might redirect a user to the login page when they try to edit their profile, and immediately redirect
+them back to the edit page once they have successfully logged in.
+See <a href="../preventing-and-retrying-transitions/#toc_storing-and-retrying-a-transition">Storing and Retrying a Transition</a>
+for how to do that.</p>
+
 <p>If you need to examine some application state to figure out where to redirect,
 you might use a <a href="../../applications/services">service</a>.</p>
 <h2 class='anchorable-toc' id='toc_transitioning-after-the-model-is-known'>Transitioning After the Model is Known</h2>
-<p>If you need information about the current model in order to decide about
-redirection, you can use the <a href="http://emberjs.com/api/classes/Ember.Route.html#method_afterModel"><code>afterModel()</code></a> hook.
-It receives the resolved model as the first parameter and the transition as
-the second one. For example:</p>
+<p>If you need information about the current model in order to decide about redirection, you can use the <a href="http://emberjs.com/api/classes/Ember.Route.html#method_afterModel"><code>afterModel()</code></a> hook.
+It receives the resolved model as the first parameter and the transition as the second one.
+For example:</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>

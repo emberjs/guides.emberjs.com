@@ -221,7 +221,7 @@ Let&#39;s implement our newly generated <code>rentals/index</code> route by movi
 5</pre></td>
   <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> Ember.Route.extend({
 <span class="highlight-line removed">  model() {</span>
-<span class="highlight-line removed">    <span class="keyword">return</span> <span class="local-variable">this</span>.store.findAll(<span class="string"><span class="delimiter">'</span><span class="content">rental</span><span class="delimiter">'</span></span>);</span>
+<span class="highlight-line removed">    <span class="keyword">return</span> <span class="local-variable">this</span>.get(<span class="string"><span class="delimiter">'</span><span class="content">store</span><span class="delimiter">'</span></span>).findAll(<span class="string"><span class="delimiter">'</span><span class="content">rental</span><span class="delimiter">'</span></span>);</span>
 <span class="highlight-line removed">  }</span>
 });</pre></td>
 </tr></table>
@@ -240,7 +240,7 @@ Let&#39;s implement our newly generated <code>rentals/index</code> route by movi
 5</pre></td>
   <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> Ember.Route.extend({
 <span class="highlight-line added">  model() {</span>
-<span class="highlight-line added">    <span class="keyword">return</span> <span class="local-variable">this</span>.store.findAll(<span class="string"><span class="delimiter">'</span><span class="content">rental</span><span class="delimiter">'</span></span>);</span>
+<span class="highlight-line added">    <span class="keyword">return</span> <span class="local-variable">this</span>.get(<span class="string"><span class="delimiter">'</span><span class="content">store</span><span class="delimiter">'</span></span>).findAll(<span class="string"><span class="delimiter">'</span><span class="content">rental</span><span class="delimiter">'</span></span>);</span>
 <span class="highlight-line added">  }</span>
 });</pre></td>
 </tr></table>
@@ -591,17 +591,16 @@ We also want to simplify the URL so that it looks more like this: <code>localhos
 5</pre></td>
   <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> Ember.Route.extend({
 <span class="highlight-line added">  model(params) {</span>
-<span class="highlight-line added">    <span class="keyword">return</span> <span class="local-variable">this</span>.store.findRecord(<span class="string"><span class="delimiter">'</span><span class="content">rental</span><span class="delimiter">'</span></span>, params.rental_id);</span>
+<span class="highlight-line added">    <span class="keyword">return</span> <span class="local-variable">this</span>.get(<span class="string"><span class="delimiter">'</span><span class="content">store</span><span class="delimiter">'</span></span>).findRecord(<span class="string"><span class="delimiter">'</span><span class="content">rental</span><span class="delimiter">'</span></span>, params.rental_id);</span>
 <span class="highlight-line added">  }</span>
 });</pre></td>
 </tr></table>
 </div></div>
 <p>Since we added <code>:rental_id</code> to the <code>show</code> path in our router, <code>rental_id</code> is now available in our <code>model</code> hook.
-When we call <code>this.store.findRecord(&#39;rental&#39;, params.rental_id)</code>, Ember Data queries <code>/rentals/our-id</code> using a HTTP GET request (<a href="../../models/">learn more about that here</a>).</p>
+When we call <code>this.get(&#39;store&#39;).findRecord(&#39;rental&#39;, params.rental_id)</code>, Ember Data queries <code>/rentals/our-id</code> using a HTTP GET request (<a href="../../models/">learn more about that here</a>).</p>
 <h2 class='anchorable-toc' id='toc_adding-the-rental-to-our-template'>Adding the Rental To Our Template</h2>
 <p>Next, we can update the template for our show route (<code>app/templates/rentals/show.hbs</code>) and list the information for our rental.</p>
-<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><?xml version="1.0"?>
-<table class="CodeRay">
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
       <td colspan="2">app/templates/rentals/show.hbs</td>
@@ -623,29 +622,31 @@ When we call <code>this.store.findRecord(&#39;rental&#39;, params.rental_id)</co
 13
 14
 15
-<span class="highlight-line added">16</span>
+16
 17
 18
-19</pre></td>
-  <td class="code"><pre><span class="tag">&lt;div</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">"</span><span class="content">jumbo show-listing</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
-  <span class="tag">&lt;h2</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">"</span><span class="content">title</span><span class="delimiter">"</span></span><span class="tag">&gt;</span><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">model.title</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/h2&gt;</span>
-  <span class="tag">&lt;div</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">"</span><span class="content">right detail-section</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
-    <span class="tag">&lt;div</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">"</span><span class="content">detail owner</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+19
+</pre></td>
+  <td class="code"><pre><span class="tag">&lt;div</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">jumbo show-listing</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+  <span class="tag">&lt;h2</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">title</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">model.title</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/h2&gt;</span>
+  <span class="tag">&lt;div</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">right detail-section</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;div</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">detail owner</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
       <span class="tag">&lt;strong&gt;</span>Owner:<span class="tag">&lt;/strong&gt;</span> <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">model.owner</span><span class="inline-delimiter">}}</span></span>
     <span class="tag">&lt;/div&gt;</span>
-    <span class="tag">&lt;div</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">"</span><span class="content">detail</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;div</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">detail</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
       <span class="tag">&lt;strong&gt;</span>Type:<span class="tag">&lt;/strong&gt;</span> <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">rental-property-type</span> <span class="attribute-name">model.type</span><span class="inline-delimiter">}}</span></span> - <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">model.type</span><span class="inline-delimiter">}}</span></span>
     <span class="tag">&lt;/div&gt;</span>
-    <span class="tag">&lt;div</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">"</span><span class="content">detail</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;div</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">detail</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
       <span class="tag">&lt;strong&gt;</span>Location:<span class="tag">&lt;/strong&gt;</span> <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">model.city</span><span class="inline-delimiter">}}</span></span>
     <span class="tag">&lt;/div&gt;</span>
-    <span class="tag">&lt;div</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">"</span><span class="content">detail</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
+    <span class="tag">&lt;div</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">detail</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
       <span class="tag">&lt;strong&gt;</span>Number of bedrooms:<span class="tag">&lt;/strong&gt;</span> <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">model.bedrooms</span><span class="inline-delimiter">}}</span></span>
     <span class="tag">&lt;/div&gt;</span>
-<span class="highlight-line added">    <span class="tag">&lt;p</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">"</span><span class="content">description</span><span class="delimiter">"</span></span><span class="tag">&gt;</span><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">model.description</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/p&gt;</span></span>
+    <span class="tag">&lt;p</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">description</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">model.description</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/p&gt;</span>
   <span class="tag">&lt;/div&gt;</span>
-  <span class="tag">&lt;img</span> <span class="attribute-name">src</span>=<span class="string"><span class="delimiter">"</span></span><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">model.image</span><span class="inline-delimiter">}}</span></span><span class="string"><span class="delimiter">"</span></span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">"</span><span class="content">rental-pic</span><span class="delimiter">"</span></span><span class="tag">&gt;</span>
-<span class="tag">&lt;/div&gt;</span></pre></td>
+  <span class="tag">&lt;img</span> <span class="attribute-name">src</span>=<span class="string"><span class="delimiter">&quot;</span></span><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">model.image</span><span class="inline-delimiter">}}</span></span><span class="string"><span class="delimiter">&quot;</span></span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">rental-pic</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>
+<span class="tag">&lt;/div&gt;</span>
+</pre></td>
 </tr></table>
 </div></div>
 <p>Now browse to <code>localhost:4200/rentals/grand-old-mansion</code> and you should see the information listed for that specific rental.</p>
