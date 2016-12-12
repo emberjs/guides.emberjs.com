@@ -16,6 +16,22 @@ for (var index = 0, length = entries.length; index < length; index++) {
   if (stat.isDirectory()) {
     versions.push(entry);
   }
+
+  versions = versions
+    .sort(function(a, b) {
+      var pa = a.slice(1).split('.');
+      var pb = b.slice(1).split('.');
+      for (var i = 0; i < 3; i++) {
+          var na = Number(pa[i]);
+          var nb = Number(pb[i]);
+          if (na > nb) return 1;
+          if (nb > na) return -1;
+          if (!isNaN(na) && isNaN(nb)) return 1;
+          if (isNaN(na) && !isNaN(nb)) return -1;
+      }
+
+      return 0;
+    });
 }
 
 fs.writeFileSync('snapshots/versions.json', JSON.stringify(versions), { encoding: 'utf8' });
