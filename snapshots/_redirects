@@ -1,0 +1,3 @@
+# Netlify redirect system: https://www.netlify.com/docs/redirects/
+
+/       /v2.10.0/     302
