@@ -78,3 +78,7 @@ If there are no obvious defects, you're ready to publish the site content:
 ```shell
 firebase deploy
 ```
+
+### Continuous Deploy Setup
+
+Our main repo (https://github.com/emberjs/guides) is setup to auto-deploy to Netlify on every commit to `master` (as seen at https://github.com/emberjs/guides/blob/master/.travis/continuous-delivery.sh#L42). This uses a Netlify access token tied to the `ember-guides-deploy-bot` user account.  If you need to generate a new Netlify access token (which requires Github access to that account), please contact @locks or @acorncom for the credentials.
