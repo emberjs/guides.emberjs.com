@@ -33,9 +33,6 @@
       <li class="header-logo">
         <a href="http://emberjs.com/"><span class="visually-hidden">Ember homepage</span></a>
       </li>
-      <li>
-        <a href="http://emberjs.com/">About</a>
-      </li>
       <li class="active" aria-label="You are here">
         <a href="/">Guides</a>
       </li>
@@ -88,10 +85,10 @@
         </h1>
         <hr>
 
-        <h2 class='anchorable-toc' id='toc_the-code-link-to-code-helper'>The <code>{{link-to}}</code> Helper</h2>
+        <h2 class='anchorable-toc' id='toc_the-code-link-to-code-component'>The <code>{{link-to}}</code> Component</h2>
 <p>You create a link to a route using the
 <a href="http://emberjs.com/api/classes/Ember.Templates.helpers.html#method_link-to"><code>{{link-to}}</code></a>
-helper.</p>
+component.</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
@@ -150,7 +147,7 @@ rendered HTML would look something like this:</p>
 </pre></td>
 </tr></table>
 </div></div>
-<p>The <code>{{link-to}}</code> helper takes one or two arguments:</p>
+<p>The <code>{{link-to}}</code> component takes one or two arguments:</p>
 
 <ul>
 <li>The name of a route. In this example, it would be <code>index</code>, <code>photos</code>, or
@@ -158,7 +155,7 @@ rendered HTML would look something like this:</p>
 <li>At most one model for each <a href="../../routing/defining-your-routes/#toc_dynamic-segments">dynamic segment</a>.
 By default, Ember.js will replace each segment with the value of the corresponding object&#39;s <code>id</code> property.
 In the example above, the second argument is each <code>photo</code> object, and the <code>id</code> property is used to fill in
-the dynamic segment with either <code>1</code>, <code>2</code>, or <code>3</code>. If there is no model to pass to the helper, you can provide
+the dynamic segment with either <code>1</code>, <code>2</code>, or <code>3</code>. If there is no model to pass to the component, you can provide
 an explicit value instead:</li>
 </ul>
 <div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
@@ -179,7 +176,7 @@ an explicit value instead:</li>
 </tr></table>
 </div></div>
 <p>When the rendered link matches the current route, and the same
-object instance is passed into the helper, then the link is given
+object instance is passed into the component, then the link is given
 <code>class=&quot;active&quot;</code>. For example, if you were at the URL <code>/photos/2</code>,
 the first example above would render as:</p>
 <div class="highlight html "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
@@ -249,7 +246,7 @@ segment.</p>
 <p>If you specify only one model, it will represent the innermost dynamic segment <code>:comment_id</code>.
 The <code>:photo_id</code> segment will use the current photo.</p>
 
-<p>Alternatively, you could pass both a photo&#39;s ID and a comment to the helper:</p>
+<p>Alternatively, you could pass both a photo&#39;s ID and a comment to the component:</p>
 <div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
@@ -290,11 +287,11 @@ populate the url according to <code>CommentRoute</code>&#39;s <code>serialize</c
 <span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">link-to</span> <span class="error">&quot;</span><span class="attribute-name">posts</span><span class="error">&quot;</span> <span class="error">(</span><span class="attribute-name">query-params</span> <span class="attribute-name">direction</span>=<span class="attribute-value">otherDirection</span><span class="error">)</span><span class="inline-delimiter">}}</span></span>Sort<span class="inline"><span class="inline-delimiter">{{/</span><span class="attribute-name">link-to</span><span class="inline-delimiter">}}</span></span>
 </pre></td>
 </tr></table>
-</div></div><h3 class='anchorable-toc' id='toc_using-link-to-as-an-inline-helper'>Using link-to as an inline helper</h3>
+</div></div><h3 class='anchorable-toc' id='toc_using-link-to-as-an-inline-component'>Using link-to as an inline component</h3>
 <p>In addition to being used as a block expression, the
 <a href="http://emberjs.com/api/classes/Ember.Templates.helpers.html#method_link-to"><code>link-to</code></a>
-helper can also be used in inline form by specifying the link text as the first
-argument to the helper:</p>
+component can also be used in inline form by specifying the link text as the first
+argument to the component:</p>
 <div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
   <td class="line-numbers"><pre>1
 2
@@ -315,7 +312,7 @@ and a link in <span class="tag">&lt;a</span> <span class="attribute-name">href</
 </tr></table>
 </div></div><h3 class='anchorable-toc' id='toc_adding-additional-attributes-on-a-link'>Adding additional attributes on a link</h3>
 <p>When generating a link you might want to set additional attributes for it. You can do this with additional
-arguments to the <code>link-to</code> helper:</p>
+arguments to the <code>link-to</code> component:</p>
 <div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
   <td class="line-numbers"><pre>1
 2
@@ -363,7 +360,7 @@ can use the <code>replace=true</code> option:</p>
     <div class="footer">
   <div class="container">
     <div class="footer-info">
-      Copyright 2016
+      Copyright 2017
       <a href="http://tilde.io">Tilde Inc.</a>
       <br>
       <a href="http://emberjs.com/team">Core Team</a> |

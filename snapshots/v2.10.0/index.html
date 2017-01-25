@@ -33,9 +33,6 @@
       <li class="header-logo">
         <a href="http://emberjs.com/"><span class="visually-hidden">Ember homepage</span></a>
       </li>
-      <li>
-        <a href="http://emberjs.com/">About</a>
-      </li>
       <li class="active" aria-label="You are here">
         <a href="/">Guides</a>
       </li>
@@ -123,6 +120,33 @@ strings, destructuring, and more. You can check the
 <a href="https://babeljs.io/docs/learn-es2015/">Babel.js documentation</a> or read <a href="https://leanpub.com/understandinges6/read">Understanding ECMAScript 6</a>
 online.</li>
 </ul>
+<h2 class='anchorable-toc' id='toc_a-note-on-mobile-performance'>A Note on Mobile Performance</h2>
+<p>Ember will do a lot to help you write fast apps, but it can&#39;t prevent you from
+writing a slow one. This is especially true on mobile devices. To deliver a great
+experience, it&#39;s important to measure performance early and often, and with a diverse
+set of devices.</p>
+
+<p>Make sure you are testing performance on real devices. Simulated mobile
+environments on a desktop computer give an optimistic-at-best representation of
+what your real world performance will be like. The more operating systems and
+hardware configurations you test, the more confident you can be.</p>
+
+<p>Due to their limited network connectivity and CPU power, great performance on
+mobile devices rarely comes for free. You should integrate performance testing
+into your development workflow from the beginning. This will help you avoid
+making costly architectural mistakes that are much harder to fix if you only
+notice them once your app is nearly complete.</p>
+
+<p>In short:</p>
+
+<ol>
+<li>Always test on real, representative mobile devices.</li>
+<li>Measure performance from the beginning, and keep testing as your app
+develops.</li>
+</ol>
+
+<p>These tips will help you identify problems early so they can be addressed systematically, rather than
+in a last-minute scramble.</p>
 <h2 class='anchorable-toc' id='toc_reporting-a-problem'>Reporting a problem</h2>
 <p>Typos, missing words, and code samples with errors are all considered
 documentation bugs. If you spot one of them, or want to otherwise improve
@@ -164,7 +188,7 @@ group</a>.</p>
     <div class="footer">
   <div class="container">
     <div class="footer-info">
-      Copyright 2016
+      Copyright 2017
       <a href="http://tilde.io">Tilde Inc.</a>
       <br>
       <a href="http://emberjs.com/team">Core Team</a> |

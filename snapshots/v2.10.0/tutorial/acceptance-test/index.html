@@ -33,9 +33,6 @@
       <li class="header-logo">
         <a href="http://emberjs.com/"><span class="visually-hidden">Ember homepage</span></a>
       </li>
-      <li>
-        <a href="http://emberjs.com/">About</a>
-      </li>
       <li class="active" aria-label="You are here">
         <a href="/">Guides</a>
       </li>
@@ -287,7 +284,7 @@ In this case, we need to wait for the page to load after <code>visit</code>, so 
 </pre></td>
   <td class="code"><pre>test(<span class="string"><span class="delimiter">'</span><span class="content">should list available rentals.</span><span class="delimiter">'</span></span>, <span class="keyword">function</span> (assert) {
   visit(<span class="string"><span class="delimiter">'</span><span class="content">/</span><span class="delimiter">'</span></span>);
-  andThen(<span class="keyword">function</span> () {
+  andThen(<span class="keyword">function</span>() {
     assert.equal(find(<span class="string"><span class="delimiter">'</span><span class="content">.listing</span><span class="delimiter">'</span></span>).length, <span class="integer">3</span>, <span class="string"><span class="delimiter">'</span><span class="content">should see 3 listings</span><span class="delimiter">'</span></span>);
   });
 });
@@ -325,7 +322,7 @@ After the new screen loads, we just verify that the new URL matches our expectat
   <td class="code"><pre>test(<span class="string"><span class="delimiter">'</span><span class="content">should link to information about the company.</span><span class="delimiter">'</span></span>, <span class="keyword">function</span> (assert) {
   visit(<span class="string"><span class="delimiter">'</span><span class="content">/</span><span class="delimiter">'</span></span>);
   click(<span class="string"><span class="delimiter">'</span><span class="content">a:contains(&quot;About&quot;)</span><span class="delimiter">'</span></span>);
-  andThen(<span class="keyword">function</span> () {
+  andThen(<span class="keyword">function</span>() {
     assert.equal(currentURL(), <span class="string"><span class="delimiter">'</span><span class="content">/about</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">should navigate to about</span><span class="delimiter">'</span></span>);
   });
 });
@@ -333,7 +330,7 @@ After the new screen loads, we just verify that the new URL matches our expectat
 test(<span class="string"><span class="delimiter">'</span><span class="content">should link to contact information</span><span class="delimiter">'</span></span>, <span class="keyword">function</span> (assert) {
   visit(<span class="string"><span class="delimiter">'</span><span class="content">/</span><span class="delimiter">'</span></span>);
   click(<span class="string"><span class="delimiter">'</span><span class="content">a:contains(&quot;Contact&quot;)</span><span class="delimiter">'</span></span>);
-  andThen(<span class="keyword">function</span> () {
+  andThen(<span class="keyword">function</span>() {
     assert.equal(currentURL(), <span class="string"><span class="delimiter">'</span><span class="content">/contact</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">should navigate to contact</span><span class="delimiter">'</span></span>);
   });
 });
@@ -368,7 +365,7 @@ Since we control our data, we know that there is only one rental with a city of 
   visit(<span class="string"><span class="delimiter">'</span><span class="content">/</span><span class="delimiter">'</span></span>);
   fillIn(<span class="string"><span class="delimiter">'</span><span class="content">.list-filter input</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">seattle</span><span class="delimiter">'</span></span>);
   keyEvent(<span class="string"><span class="delimiter">'</span><span class="content">.list-filter input</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">keyup</span><span class="delimiter">'</span></span>, <span class="integer">69</span>);
-  andThen(<span class="keyword">function</span> () {
+  andThen(<span class="keyword">function</span>() {
     assert.equal(find(<span class="string"><span class="delimiter">'</span><span class="content">.listing</span><span class="delimiter">'</span></span>).length, <span class="integer">1</span>, <span class="string"><span class="delimiter">'</span><span class="content">should show 1 listing</span><span class="delimiter">'</span></span>);
     assert.equal(find(<span class="string"><span class="delimiter">'</span><span class="content">.listing .location:contains(&quot;Seattle&quot;)</span><span class="delimiter">'</span></span>).length, <span class="integer">1</span>, <span class="string"><span class="delimiter">'</span><span class="content">should contain 1 listing with location Seattle</span><span class="delimiter">'</span></span>);
   });
@@ -428,7 +425,7 @@ When all are green, we&#39;ve accomplished our high level goals!</p>
     <div class="footer">
   <div class="container">
     <div class="footer-info">
-      Copyright 2016
+      Copyright 2017
       <a href="http://tilde.io">Tilde Inc.</a>
       <br>
       <a href="http://emberjs.com/team">Core Team</a> |

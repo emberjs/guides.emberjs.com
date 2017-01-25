@@ -33,9 +33,6 @@
       <li class="header-logo">
         <a href="http://emberjs.com/"><span class="visually-hidden">Ember homepage</span></a>
       </li>
-      <li>
-        <a href="http://emberjs.com/">About</a>
-      </li>
       <li class="active" aria-label="You are here">
         <a href="/">Guides</a>
       </li>
@@ -491,13 +488,11 @@ test(<span class="string"><span class="delimiter">'</span><span class="content">
 5
 6
 7
-8
 </pre></td>
   <td class="code"><pre><span class="reserved">import</span> Ember from <span class="string"><span class="delimiter">'</span><span class="content">ember</span><span class="delimiter">'</span></span>;
 
 <span class="reserved">export</span> <span class="keyword">default</span> Ember.Route.extend({
   beforeModel() {
-    <span class="local-variable">this</span>._super(...<span class="local-variable">arguments</span>);
     <span class="local-variable">this</span>.replaceWith(<span class="string"><span class="delimiter">'</span><span class="content">rentals</span><span class="delimiter">'</span></span>);
   }
 });
@@ -589,7 +584,7 @@ test(<span class="string"><span class="delimiter">'</span><span class="content">
     <div class="footer">
   <div class="container">
     <div class="footer-info">
-      Copyright 2016
+      Copyright 2017
       <a href="http://tilde.io">Tilde Inc.</a>
       <br>
       <a href="http://emberjs.com/team">Core Team</a> |

@@ -33,9 +33,6 @@
       <li class="header-logo">
         <a href="http://emberjs.com/"><span class="visually-hidden">Ember homepage</span></a>
       </li>
-      <li>
-        <a href="http://emberjs.com/">About</a>
-      </li>
       <li class="active" aria-label="You are here">
         <a href="/">Guides</a>
       </li>
@@ -177,7 +174,8 @@ Therefore in our case, when we navigate to <code>/rentals</code>, Ember will att
 </pre></td>
 </tr></table>
 </div></div>
-<p>If you open up your Router (<code>app/router</code>) you may notice that nothing has updated.</p>
+<p>If you open up your Router (<code>app/router.js</code>) you may notice that the rentals line has changed.
+This extra <code>function() {}</code> is required because it needs a child route, the <code>this.route(&#39;index&#39;, { path: &#39;/&#39;});</code> is implied.</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
@@ -194,7 +192,7 @@ Therefore in our case, when we navigate to <code>/rentals</code>, Ember will att
   <td class="code"><pre>Router.map(<span class="keyword">function</span>() {
   <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">'</span><span class="content">about</span><span class="delimiter">'</span></span>);
   <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">'</span><span class="content">contact</span><span class="delimiter">'</span></span>);
-  <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">'</span><span class="content">rentals</span><span class="delimiter">'</span></span>);
+  <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">'</span><span class="content">rentals</span><span class="delimiter">'</span></span>, <span class="keyword">function</span>() {});
 });
 </pre></td>
 </tr></table>
@@ -325,11 +323,11 @@ Let&#39;s implement our newly generated <code>rentals/index</code> route by movi
 
 <p>Start by running <code>ember g controller rentals/index</code> to create an index controller for our nested route.</p>
 
-<p>Instead of copying the whole controller file over to <code>app/controller/rentals/index.js</code> from <code>app/controller/rentals.js</code>, we&#39;ll just take advantage of JavaScript&#39;s import/export feature to re-export the rentals controller as the rentals/index controller:</p>
+<p>Instead of copying the whole controller file over to <code>app/controllers/rentals/index.js</code> from <code>app/controllers/rentals.js</code>, we&#39;ll just take advantage of JavaScript&#39;s import/export feature to re-export the rentals controller as the rentals/index controller:</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
-      <td colspan="2">app/controller/rentals/index.js</td>
+      <td colspan="2">app/controllers/rentals/index.js</td>
     </tr>
   </thead>
 <tr>
@@ -422,8 +420,7 @@ handler to return a specific rental:</p>
 <span class="highlight-line added">59</span>
 <span class="highlight-line added"><strong>60</strong></span>
 61
-62
-63</pre></td>
+62</pre></td>
   <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> <span class="keyword">function</span>() {
   <span class="local-variable">this</span>.namespace = <span class="string"><span class="delimiter">'</span><span class="content">/api</span><span class="delimiter">'</span></span>;
 
@@ -485,7 +482,7 @@ handler to return a specific rental:</p>
 <span class="highlight-line added">    <span class="keyword">return</span> { <span class="key">data</span>: rentals.find((rental) =&gt; request.params.id === rental.id) };</span>
 <span class="highlight-line added">  });</span>
 
-};</pre></td>
+}</pre></td>
 </tr></table>
 </div></div><h2 class='anchorable-toc' id='toc_generating-a-nested-detail-route'>Generating a Nested Detail Route</h2>
 <p>Now that our API is ready to return individual rentals, we can generate our <code>show</code> sub-route.
@@ -732,7 +729,7 @@ Regardless, we hope this has helped you get started with creating your own ambit
     <div class="footer">
   <div class="container">
     <div class="footer-info">
-      Copyright 2016
+      Copyright 2017
       <a href="http://tilde.io">Tilde Inc.</a>
       <br>
       <a href="http://emberjs.com/team">Core Team</a> |
