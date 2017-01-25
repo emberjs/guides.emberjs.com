@@ -33,9 +33,6 @@
       <li class="header-logo">
         <a href="http://emberjs.com/"><span class="visually-hidden">Ember homepage</span></a>
       </li>
-      <li>
-        <a href="http://emberjs.com/">About</a>
-      </li>
       <li class="active" aria-label="You are here">
         <a href="/">Guides</a>
       </li>
@@ -507,7 +504,7 @@ according to the model loaded into the route. So, given a <code>team</code> rout
 with dynamic segment <code>/:team_name</code> and controller query param &quot;filter&quot;,
 if you navigate to <code>/badgers</code> and filter by <code>&quot;rookies&quot;</code>, then navigate
 to <code>/bears</code> and filter by <code>&quot;best&quot;</code>, and then navigate to <code>/potatoes</code> and
-filter by <code>&quot;lamest&quot;</code>, then given the following nav bar links,</p>
+filter by <code>&quot;worst&quot;</code>, then given the following nav bar links,</p>
 <div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
   <td class="line-numbers"><pre>1
 2
@@ -527,7 +524,7 @@ filter by <code>&quot;lamest&quot;</code>, then given the following nav bar link
 </pre></td>
   <td class="code"><pre><span class="tag">&lt;a</span> <span class="attribute-name">href</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">/badgers?filter=rookies</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>Badgers<span class="tag">&lt;/a&gt;</span>
 <span class="tag">&lt;a</span> <span class="attribute-name">href</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">/bears?filter=best</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>Bears<span class="tag">&lt;/a&gt;</span>
-<span class="tag">&lt;a</span> <span class="attribute-name">href</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">/potatoes?filter=lamest</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>Potatoes<span class="tag">&lt;/a&gt;</span>
+<span class="tag">&lt;a</span> <span class="attribute-name">href</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">/potatoes?filter=worst</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>Potatoes<span class="tag">&lt;/a&gt;</span>
 </pre></td>
 </tr></table>
 </div></div>
@@ -663,7 +660,7 @@ query param URL key of a single controller query param property:</p>
     <div class="footer">
   <div class="container">
     <div class="footer-info">
-      Copyright 2016
+      Copyright 2017
       <a href="http://tilde.io">Tilde Inc.</a>
       <br>
       <a href="http://emberjs.com/team">Core Team</a> |

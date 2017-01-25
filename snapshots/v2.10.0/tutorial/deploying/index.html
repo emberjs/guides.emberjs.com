@@ -33,9 +33,6 @@
       <li class="header-logo">
         <a href="http://emberjs.com/"><span class="visually-hidden">Ember homepage</span></a>
       </li>
-      <li>
-        <a href="http://emberjs.com/">About</a>
-      </li>
       <li class="active" aria-label="You are here">
         <a href="/">Guides</a>
       </li>
@@ -148,7 +145,33 @@ surge funny-name.surge.sh
 </pre></td>
 </tr></table>
 </div></div>
-<p>We use <code>--enviroment=development</code> here so that Mirage will continue to mock fake data.  However, normally we would use <code>ember build --environment=production</code> which does more to make your code ready for production.</p>
+<p>We use <code>--enviroment=development</code> here so that Mirage will continue to mock fake data.
+However, normally we would use <code>ember build --environment=production</code> which does more to make your code ready for production.</p>
+<h2 class='anchorable-toc' id='toc_servers'>Servers</h2><h3 class='anchorable-toc' id='toc_apache'>Apache</h3>
+<p>On an Apache server, the rewrite engine (mod-rewrite) must be enabled in order for Ember routing to work properly.
+If you upload your dist folder, going to your main URL works, but when you try to go to a route such as &#39;{main URL}/example&#39; and it returns 404, your server has not been configured for &quot;friendly&quot; URLs.
+To fix this, if it doesn&#39;t exist, add a file called &#39;.htaccess&#39; (just a period at the beginning, nothing before it) to the root folder of your website.
+Add these lines:</p>
+<div class="highlight text "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td>
+  <td class="code"><pre>&lt;IfModule mod_rewrite.c&gt;
+RewriteEngine On
+RewriteRule ^index\.html$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule (.*) index.html [L]
+&lt;/IfModule&gt;
+</pre></td>
+</tr></table>
+</div></div>
+<p>Your server&#39;s configuration may be different so you may need different options. Please see http://httpd.apache.org/docs/2.0/misc/rewriteguide.html for more information.</p>
 
 
 
@@ -163,7 +186,7 @@ surge funny-name.surge.sh
     <div class="footer">
   <div class="container">
     <div class="footer-info">
-      Copyright 2016
+      Copyright 2017
       <a href="http://tilde.io">Tilde Inc.</a>
       <br>
       <a href="http://emberjs.com/team">Core Team</a> |

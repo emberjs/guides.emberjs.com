@@ -33,9 +33,6 @@
       <li class="header-logo">
         <a href="http://emberjs.com/"><span class="visually-hidden">Ember homepage</span></a>
       </li>
-      <li>
-        <a href="http://emberjs.com/">About</a>
-      </li>
       <li class="active" aria-label="You are here">
         <a href="/">Guides</a>
       </li>
@@ -88,11 +85,9 @@
         </h1>
         <hr>
 
-        <p>Sometimes, you may want to define a component that wraps content
-provided by other templates.</p>
+        <p>Sometimes, you may want to define a component that wraps content provided by other templates.</p>
 
-<p>For example, imagine we are building a <code>blog-post</code> component that we can
-use in our application to display a blog post:</p>
+<p>For example, imagine we are building a <code>blog-post</code> component that we can use in our application to display a blog post:</p>
 <div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
@@ -108,8 +103,7 @@ use in our application to display a blog post:</p>
 </pre></td>
 </tr></table>
 </div></div>
-<p>Now, we can use the <code>{{blog-post}}</code> component and pass it properties
-in another template:</p>
+<p>Now, we can use the <code>{{blog-post}}</code> component and pass it properties in another template:</p>
 <div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
   <td class="line-numbers"><pre>1
 </pre></td>
@@ -117,27 +111,22 @@ in another template:</p>
 </pre></td>
 </tr></table>
 </div></div>
-<p>(See <a href="../passing-properties-to-a-component/">Passing Properties to a
-Component</a> for
-more.)</p>
+<p>See <a href="../passing-properties-to-a-component/">Passing Properties to a Component</a> for more.</p>
 
-<p>In this case, the content we wanted to display came from the model. But
-what if we want the developer using our component to be able to provide custom
-HTML content?</p>
+<p>In this case, the content we wanted to display came from the model.
+But what if we want the developer using our component to be able to provide custom HTML content?</p>
 
-<p>In addition to the simple form you&#39;ve learned so far, components also
-support being used in <strong>block form</strong>. In block form, components can be
-passed a Handlebars template that is rendered inside the component&#39;s
-template wherever the <code>{{yield}}</code> expression appears.</p>
+<p>In addition to the simple form you&#39;ve learned so far,
+components also support being used in <strong>block form</strong>.
+In block form, components can be passed a Handlebars template that is rendered inside the component&#39;s template wherever the <code>{{yield}}</code> expression appears.</p>
 
-<p>To use the block form, add a <code>#</code> character to the
-beginning of the component name, then make sure to add a closing tag.
-(See the Handlebars documentation on <a href="http://handlebarsjs.com/#block-expressions">block expressions</a> for more.)</p>
+<p>To use the block form, add a <code>#</code> character to the beginning of the component name,
+then make sure to add a closing tag.</p>
 
-<p>In that case, we can use the <code>{{blog-post}}</code> component in <strong>block form</strong>
-and tell Ember where the block content should be rendered using the
-<code>{{yield}}</code> helper. To update the example above, we&#39;ll first change the component&#39;s
-template:</p>
+<p>See the Handlebars documentation on <a href="http://handlebarsjs.com/#block-expressions">block expressions</a> for more.</p>
+
+<p>In that case, we can use the <code>{{blog-post}}</code> component in <strong>block form</strong> and tell Ember where the block content should be rendered using the <code>{{yield}}</code> helper.
+To update the example above, we&#39;ll first change the component&#39;s template:</p>
 <div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
@@ -153,11 +142,10 @@ template:</p>
 </pre></td>
 </tr></table>
 </div></div>
-<p>You can see that we&#39;ve replaced <code>{{body}}</code> with <code>{{yield}}</code>. This tells
-Ember that this content will be provided when the component is used.</p>
+<p>You can see that we&#39;ve replaced <code>{{body}}</code> with <code>{{yield}}</code>.
+This tells Ember that this content will be provided when the component is used.</p>
 
-<p>Next, we&#39;ll update the template using the component to use the block
-form:</p>
+<p>Next, we&#39;ll update the template using the component to use the block form:</p>
 <div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
@@ -177,9 +165,8 @@ form:</p>
 </pre></td>
 </tr></table>
 </div></div>
-<p>It&#39;s important to note that the template scope inside the component
-block is the same as outside. If a property is available in the template
-outside the component, it is also available inside the component block.</p>
+<p>It&#39;s important to note that the template scope inside the component block is the same as outside.
+If a property is available in the template outside the component, it is also available inside the component block.</p>
 <h2 class='anchorable-toc' id='toc_sharing-component-data-with-its-wrapped-content'>Sharing Component Data with its Wrapped Content</h2>
 <p>There is also a way to share data within your blog post component with the content it is wrapping.
 In our blog post component we want to provide a way for the user to configure what type of style they want to write their post in.
@@ -204,7 +191,10 @@ We will give them the option to specify either <code>markdown-style</code> or <c
 </tr></table>
 </div></div>
 <p>Supporting different editing styles will require different body components to provide special validation and highlighting.
-To load a different body component based on editing style, you can yield the component using the component helper and hash helper.</p>
+To load a different body component based on editing style,
+you can yield the component using the <a href="http://emberjs.com/api/classes/Ember.Templates.helpers.html#method_component"><code>component helper</code></a> and <a href="http://emberjs.com/api/classes/Ember.Templates.helpers.html#method_hash"><code>hash helper</code></a>. 
+Here, the appropriate component is assigned to a hash using nested helpers and yielded to the template.
+Notice <code>editStyle</code> being used as an argument to the component helper.</p>
 <div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
@@ -220,7 +210,8 @@ To load a different body component based on editing style, you can yield the com
 </pre></td>
 </tr></table>
 </div></div>
-<p>Once yielded the data can be accessed within wrapped content by referencing the <code>as</code> variable.</p>
+<p>Once yielded, the data can be accessed by the wrapped content by referencing the <code>post</code> variable.
+Now a component called <code>markdown-style</code> will be rendered in <code>{{post.body}}</code>.</p>
 <div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
@@ -233,15 +224,15 @@ To load a different body component based on editing style, you can yield the com
 3
 4
 </pre></td>
-  <td class="code"><pre><span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">blog-post</span> <span class="attribute-name">editStyle</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">markdown-style</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">as</span> <span class="error">|</span><span class="attribute-name">post</span><span class="error">|</span><span class="inline-delimiter">}}</span></span>
+  <td class="code"><pre><span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">blog-post</span> <span class="attribute-name">editStyle</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">markdown-style</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">postData</span>=<span class="attribute-value">myText</span> <span class="attribute-name">as</span> <span class="error">|</span><span class="attribute-name">post</span><span class="error">|</span><span class="inline-delimiter">}}</span></span>
   <span class="tag">&lt;p</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">author</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>by <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">author</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/p&gt;</span>
   <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">post.body</span><span class="inline-delimiter">}}</span></span>
 <span class="inline"><span class="inline-delimiter">{{/</span><span class="attribute-name">blog-post</span><span class="inline-delimiter">}}</span></span>
 </pre></td>
 </tr></table>
 </div></div>
-<p>Finally we want to share the model of the data a user fills out for the post within our <code>blog-post</code> and body components.
-To share the <code>postData</code> object with the new body component, you can add arguments to the component helper.</p>
+<p>Finally, we need to share <code>myText</code> with the body in order to have it display.
+To pass the blog text to the body component, we&#39;ll add a <code>postData</code> argument to the component helper.</p>
 <div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
@@ -257,9 +248,14 @@ To share the <code>postData</code> object with the new body component, you can a
 </pre></td>
 </tr></table>
 </div></div>
-<p>Since the component isn&#39;t instantiated until the component block content is rendered, we can add additional arguments within the block.
-In this case we&#39;ll add a text style option which will dictate the style of body text we want in our post.
-When <code>{{post.body}}</code> is instantiated, it will have both the edit style and the <code>postData</code> given by its wrapping component.</p>
+<p>At this point, our block content has access to everything it needs to render,
+via the wrapping <code>blog-post</code> component&#39;s template helpers.</p>
+
+<p>Additionally, since the component isn&#39;t instantiated until the block content is rendered,
+we can add arguments within the block.
+In this case we&#39;ll add a text style option which will dictate the style of the body text we want in our post.
+When <code>{{post.body}}</code> is instantiated, it will have both the <code>editStyle</code> and <code>postData</code> given by its wrapping component,
+as well as the <code>bodyStyle</code> declared in the template.</p>
 <div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
@@ -274,13 +270,13 @@ When <code>{{post.body}}</code> is instantiated, it will have both the edit styl
 </pre></td>
   <td class="code"><pre><span class="inline"><span class="inline-delimiter">{{#</span><span class="attribute-name">blog-post</span> <span class="attribute-name">editStyle</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">markdown-style</span><span class="delimiter">&quot;</span></span> <span class="attribute-name">as</span> <span class="error">|</span><span class="attribute-name">post</span><span class="error">|</span><span class="inline-delimiter">}}</span></span>
   <span class="tag">&lt;p</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">author</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span>by <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">author</span><span class="inline-delimiter">}}</span></span><span class="tag">&lt;/p&gt;</span>
-  <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">post.body</span> <span class="attribute-name">editStyle</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">compact-style</span><span class="delimiter">&quot;</span></span><span class="inline-delimiter">}}</span></span>
+  <span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">post.body</span> <span class="attribute-name">bodyStyle</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">compact-style</span><span class="delimiter">&quot;</span></span><span class="inline-delimiter">}}</span></span>
 <span class="inline"><span class="inline-delimiter">{{/</span><span class="attribute-name">blog-post</span><span class="inline-delimiter">}}</span></span>
 </pre></td>
 </tr></table>
 </div></div>
-<p>Sharing components this way is commonly referred to as &quot;Contextual Components&quot;,
-because the component is shared only with the context of the parent component&#39;s block area.</p>
+<p>Components built this way are commonly referred to as &quot;Contextual Components&quot;,
+allowing inner components to be wrapped within the context of outer components without breaking encapsulation.</p>
 
 
 
@@ -295,7 +291,7 @@ because the component is shared only with the context of the parent component&#3
     <div class="footer">
   <div class="container">
     <div class="footer-info">
-      Copyright 2016
+      Copyright 2017
       <a href="http://tilde.io">Tilde Inc.</a>
       <br>
       <a href="http://emberjs.com/team">Core Team</a> |

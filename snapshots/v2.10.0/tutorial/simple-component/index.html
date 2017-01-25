@@ -33,9 +33,6 @@
       <li class="header-logo">
         <a href="http://emberjs.com/"><span class="visually-hidden">Ember homepage</span></a>
       </li>
-      <li>
-        <a href="http://emberjs.com/">About</a>
-      </li>
       <li class="active" aria-label="You are here">
         <a href="/">Guides</a>
       </li>
@@ -313,7 +310,7 @@ with our new <code>rental-listing</code> component:</p>
 <h2 class='anchorable-toc' id='toc_hiding-and-showing-an-image'>Hiding and Showing an Image</h2>
 <p>Now we can add functionality that will show the image of a rental when requested by the user.</p>
 
-<p>Let&#39;s use the <code>{{#if}}</code> helper to show our current rental image larger only when <code>isWide</code> is set to true, by setting the element class name to <code>wide</code>. We&#39;ll also add some text to indicate that the image can be clicked on, and wrap both with an anchor element, giving it the <code>image</code> class name so that our test can find it.</p>
+<p>Let&#39;s use the <code>{{if}}</code> helper to show our current rental image larger only when <code>isWide</code> is set to true, by setting the element class name to <code>wide</code>. We&#39;ll also add some text to indicate that the image can be clicked on, and wrap both with an anchor element, giving it the <code>image</code> class name so that our test can find it.</p>
 <div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><?xml version="1.0"?>
 <table class="CodeRay">
   <thead>
@@ -468,7 +465,7 @@ Let&#39;s create the <code>toggleImageSize</code> function and toggle the <code>
 </tr></table>
 </div></div>
 <p>Now when we click the image or the <code>View Larger</code> link in our browser, we  see our image show larger.
-When we click the enlarged image we again see it smaller.</p>
+When we click the enlarged image again, we see it smaller.</p>
 
 <p><img src="../../images/simple-component/styled-rental-listings.png" alt="rental listing with expand"></p>
 
@@ -485,7 +482,7 @@ When we click the enlarged image we again see it smaller.</p>
     <div class="footer">
   <div class="container">
     <div class="footer-info">
-      Copyright 2016
+      Copyright 2017
       <a href="http://tilde.io">Tilde Inc.</a>
       <br>
       <a href="http://emberjs.com/team">Core Team</a> |

@@ -33,9 +33,6 @@
       <li class="header-logo">
         <a href="http://emberjs.com/"><span class="visually-hidden">Ember homepage</span></a>
       </li>
-      <li>
-        <a href="http://emberjs.com/">About</a>
-      </li>
       <li class="active" aria-label="You are here">
         <a href="/">Guides</a>
       </li>
@@ -96,7 +93,7 @@
 <li>A utility function to create a map from the Google Maps API.</li>
 </ol>
 
-<p>We&#39;ll start by displaying the map and work our way back to using the Google Map API.</p>
+<p>We&#39;ll start by displaying the map and work our way back to using the Google Maps API.</p>
 <h3 class='anchorable-toc' id='toc_display-maps-with-a-component'>Display Maps With a Component</h3>
 <p>We&#39;ll start by adding a component that shows the rental&#39;s city on a map.</p>
 <div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><?xml version="1.0"?>
@@ -292,7 +289,7 @@ This function gets executed at render time after the component&#39;s markup gets
 </pre></td>
 </tr></table>
 </div></div><h3 class='anchorable-toc' id='toc_fetching-maps-with-a-service'>Fetching Maps With a Service</h3>
-<p>At this point we should have a passing component integration test, but our acceptance test should now fail, unable to find our maps service.  In addition to our acceptance test failing, no maps show up when we view our web page.
+<p>At this point we should have a passing component integration test. However, no maps show up when we view our web page.
 To actually generate the maps, we&#39;ll implement the maps service.</p>
 
 <p>Accessing our maps API through a <a href="../../applications/services">service</a> will give us several benefits</p>
@@ -483,7 +480,7 @@ There are several ways to include 3rd party libraries in Ember. See the guides s
 
 <p>Since Google provides its map API as a remote script, we&#39;ll use curl to download it into our project&#39;s vendor directory.</p>
 
-<p>From your project&#39;s root directory, run the following command to put the Google maps script in your projects vendor folder as <code>gmaps.js</code>.<br>
+<p>From your project&#39;s root directory, run the following command to put the Google maps script in your projects vendor folder as <code>gmaps.js</code>.
 <code>Curl</code> is a UNIX command, so if you are on windows you should take advantage of <a href="https://msdn.microsoft.com/en-us/commandline/wsl/about">Windows bash support</a>, or use an alternate method to download the script into the vendor directory.</p>
 <div class="highlight shell "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
   <td class="line-numbers"><pre>1
@@ -646,7 +643,8 @@ To avoid hitting our Maps request limit, we&#39;ll stub out our Maps service in 
 To stub these services we simply have to register a stub service that implements the same API, but does not have the dependencies that are problematic for the test suite.</p>
 
 <p>Add the following code after the imports to our acceptance test:</p>
-<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><?xml version="1.0"?>
+<table class="CodeRay">
   <thead>
     <tr>
       <td colspan="2">/tests/acceptance/list-rentals-test.js</td>
@@ -655,34 +653,38 @@ To stub these services we simply have to register a stub service that implements
 <tr>
   <td class="line-numbers"><pre>1
 2
-3
+<span class="highlight-line added">3</span>
 4
-5
-6
-7
-8
-9
-<strong>10</strong>
-11
-12
-13
-14
-</pre></td>
-  <td class="code"><pre><span class="reserved">import</span> Ember from <span class="string"><span class="delimiter">'</span><span class="content">ember</span><span class="delimiter">'</span></span>;
+<span class="highlight-line added">5</span>
+<span class="highlight-line added">6</span>
+<span class="highlight-line added">7</span>
+<span class="highlight-line added">8</span>
+<span class="highlight-line added">9</span>
+<span class="highlight-line added"><strong>10</strong></span>
+<span class="highlight-line removed">11</span>
+<span class="highlight-line added">12</span>
+<span class="highlight-line added">13</span>
+<span class="highlight-line added">14</span>
+<span class="highlight-line added">15</span>
+<span class="highlight-line added">16</span>
+<span class="highlight-line added">17</span></pre></td>
+  <td class="code"><pre><span class="reserved">import</span> { test } from <span class="string"><span class="delimiter">'</span><span class="content">qunit</span><span class="delimiter">'</span></span>;
+<span class="reserved">import</span> moduleForAcceptance from <span class="string"><span class="delimiter">'</span><span class="content">super-rentals/tests/helpers/module-for-acceptance</span><span class="delimiter">'</span></span>;
+<span class="highlight-line added"><span class="reserved">import</span> Ember from <span class="string"><span class="delimiter">'</span><span class="content">ember</span><span class="delimiter">'</span></span>;</span>
 
-let StubMapsService = Ember.Service.extend({
-  getMapElement() {
-    <span class="keyword">return</span> document.createElement(<span class="string"><span class="delimiter">'</span><span class="content">div</span><span class="delimiter">'</span></span>);
-  }
-});
-
-moduleForAcceptance(<span class="string"><span class="delimiter">'</span><span class="content">Acceptance | list rentals</span><span class="delimiter">'</span></span>, {
-  beforeEach() {
-    <span class="local-variable">this</span>.application.register(<span class="string"><span class="delimiter">'</span><span class="content">service:stubMaps</span><span class="delimiter">'</span></span>, StubMapsService);
-    <span class="local-variable">this</span>.application.inject(<span class="string"><span class="delimiter">'</span><span class="content">component:location-map</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">maps</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">service:stubMaps</span><span class="delimiter">'</span></span>);
-  }
-});
-</pre></td>
+<span class="highlight-line added">let StubMapsService = Ember.Service.extend({</span>
+<span class="highlight-line added">  getMapElement() {</span>
+<span class="highlight-line added">    <span class="keyword">return</span> document.createElement(<span class="string"><span class="delimiter">'</span><span class="content">div</span><span class="delimiter">'</span></span>);</span>
+<span class="highlight-line added">  }</span>
+<span class="highlight-line added">});</span>
+<span class="highlight-line added"/>
+<span class="highlight-line removed">moduleForAcceptance(<span class="string"><span class="delimiter">'</span><span class="content">Acceptance | list-rentals</span><span class="delimiter">'</span></span>);</span>
+<span class="highlight-line added">moduleForAcceptance(<span class="string"><span class="delimiter">'</span><span class="content">Acceptance | list rentals</span><span class="delimiter">'</span></span>, {</span>
+<span class="highlight-line added">  beforeEach() {</span>
+<span class="highlight-line added">    <span class="local-variable">this</span>.application.register(<span class="string"><span class="delimiter">'</span><span class="content">service:stubMaps</span><span class="delimiter">'</span></span>, StubMapsService);</span>
+<span class="highlight-line added">    <span class="local-variable">this</span>.application.inject(<span class="string"><span class="delimiter">'</span><span class="content">component:location-map</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">maps</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">service:stubMaps</span><span class="delimiter">'</span></span>);</span>
+<span class="highlight-line added">  }</span>
+<span class="highlight-line added">});</span></pre></td>
 </tr></table>
 </div></div>
 <p>What&#39;s happening here is we are adding our own stub maps service that simply creates an empty div.
@@ -705,7 +707,7 @@ Now when we run our acceptance tests, you&#39;ll notice that maps do not get ren
     <div class="footer">
   <div class="container">
     <div class="footer-info">
-      Copyright 2016
+      Copyright 2017
       <a href="http://tilde.io">Tilde Inc.</a>
       <br>
       <a href="http://emberjs.com/team">Core Team</a> |

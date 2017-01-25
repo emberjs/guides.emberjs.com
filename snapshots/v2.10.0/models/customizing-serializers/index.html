@@ -33,9 +33,6 @@
       <li class="header-logo">
         <a href="http://emberjs.com/"><span class="visually-hidden">Ember homepage</span></a>
       </li>
-      <li>
-        <a href="http://emberjs.com/">About</a>
-      </li>
       <li class="active" aria-label="You are here">
         <a href="/">Guides</a>
       </li>
@@ -107,7 +104,7 @@ serializer before 2.0.</p>
 to return a JSON representation of the record that conforms to the
 following conventions.</p>
 <h3 class='anchorable-toc' id='toc_json-api-document'>JSON API Document</h3>
-<p>The JSONAPI serializer expects the backend to return a JSON API
+<p>The <code>JSONAPISerializer</code> expects the backend to return a JSON API
 Document that follows the JSON API specification and the conventions
 of the examples found on <a href="http://jsonapi.org/format/">http://jsonapi.org/format</a>. This means all
 type names should be pluralized and attribute and relationship names
@@ -357,7 +354,7 @@ hook. Let&#39;s say that we have this JSON API response from Ember Data:</p>
   <td class="code"><pre>{
   <span class="key"><span class="delimiter">&quot;</span><span class="content">data</span><span class="delimiter">&quot;</span></span>: {
     <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">1</span><span class="delimiter">&quot;</span></span>,
-    <span class="key"><span class="delimiter">&quot;</span><span class="content">type</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">product</span><span class="delimiter">&quot;</span></span>
+    <span class="key"><span class="delimiter">&quot;</span><span class="content">type</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">product</span><span class="delimiter">&quot;</span></span>,
     <span class="key"><span class="delimiter">&quot;</span><span class="content">attributes</span><span class="delimiter">&quot;</span></span>: {
       <span class="key"><span class="delimiter">&quot;</span><span class="content">name</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">My Product</span><span class="delimiter">&quot;</span></span>,
       <span class="key"><span class="delimiter">&quot;</span><span class="content">cost</span><span class="delimiter">&quot;</span></span>: {
@@ -597,8 +594,8 @@ in the document payload returned by your server:</p>
     <span class="key"><span class="delimiter">&quot;</span><span class="content">id</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">44</span><span class="delimiter">&quot;</span></span>,
     <span class="key"><span class="delimiter">&quot;</span><span class="content">type</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">people</span><span class="delimiter">&quot;</span></span>,
     <span class="key"><span class="delimiter">&quot;</span><span class="content">attributes</span><span class="delimiter">&quot;</span></span>: {
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">first-name</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Barack</span><span class="delimiter">&quot;</span></span>,
-      <span class="key"><span class="delimiter">&quot;</span><span class="content">last-name</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Obama</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">first-name</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Zaphod</span><span class="delimiter">&quot;</span></span>,
+      <span class="key"><span class="delimiter">&quot;</span><span class="content">last-name</span><span class="delimiter">&quot;</span></span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">Beeblebrox</span><span class="delimiter">&quot;</span></span>,
       <span class="key"><span class="delimiter">&quot;</span><span class="content">is-person-of-the-year</span><span class="delimiter">&quot;</span></span>: <span class="predefined-constant">true</span>
     }
   }
@@ -1009,7 +1006,7 @@ looks similar to this:</p>
 </pre></td>
 </tr></table>
 </div></div>
-<p>The JSONAPISerializer is built on top of the JSONSerializer so they share
+<p>The <code>JSONAPISerializer</code> is built on top of the <code>JSONSerializer</code> so they share
 many of the same hooks for customizing the behavior of the
 serialization process. Be sure to check out the
 <a href="http://emberjs.com/api/data/classes/DS.JSONSerializer.html">API docs</a>
@@ -1310,7 +1307,7 @@ method to transform the response from the adapter into the normalized
 JSON object described above.</p>
 
 <p>This method receives the <code>store</code>, the Model class for the request, the
-payload payload, the id of the record request (or <code>null</code> if there is
+payload, the id of the record request (or <code>null</code> if there is
 no id associated with the request) and the request type (a string with
 the possible values of: <code>&#39;findRecord&#39;</code>, <code>&#39;queryRecord&#39;</code>, <code>&#39;findAll&#39;</code>,
 <code>&#39;findBelongsTo&#39;</code>, <code>&#39;findHasMany&#39;</code>, <code>&#39;findMany&#39;</code>, <code>&#39;query&#39;</code>,
@@ -1349,7 +1346,7 @@ A good place to search for them is
     <div class="footer">
   <div class="container">
     <div class="footer-info">
-      Copyright 2016
+      Copyright 2017
       <a href="http://tilde.io">Tilde Inc.</a>
       <br>
       <a href="http://emberjs.com/team">Core Team</a> |

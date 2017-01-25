@@ -33,9 +33,6 @@
       <li class="header-logo">
         <a href="http://emberjs.com/"><span class="visually-hidden">Ember homepage</span></a>
       </li>
-      <li>
-        <a href="http://emberjs.com/">About</a>
-      </li>
       <li class="active" aria-label="You are here">
         <a href="/">Guides</a>
       </li>
@@ -119,7 +116,7 @@ Thus it reloads your app if you install new dependencies via <code>bower install
 you will have to instruct Ember CLI to include your assets in the build.
 This is done using the asset manifest file <code>ember-cli-build.js</code>.
 You should only try to import assets located in the <code>bower_components</code> and <code>vendor</code> folders.</p>
-<h3 class='anchorable-toc' id='toc_globals-provided-by-javascript-assets'>Globals provided by Javascript assets</h3>
+<h3 class='anchorable-toc' id='toc_globals-provided-by-javascript-assets'>Globals provided by JavaScript assets</h3>
 <p>The globals provided by some assets (like <code>moment</code> in the below example) can be used in your application
 without the need to <code>import</code> them.
 Provide the asset path as the first and only argument.</p>
@@ -138,7 +135,7 @@ Provide the asset path as the first and only argument.</p>
 </div></div>
 <p>You will need to add <code>&quot;moment&quot;</code> to the <code>predef</code> section in <code>.jshintrc</code> to prevent JSHint errors
 about using an undefined variable.</p>
-<h3 class='anchorable-toc' id='toc_amd-javascript-modules'>AMD Javascript modules</h3>
+<h3 class='anchorable-toc' id='toc_amd-javascript-modules'>AMD JavaScript modules</h3>
 <p>Provide the asset path as the first argument, and the list of modules and exports as the second.</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
@@ -174,7 +171,7 @@ about using an undefined variable.</p>
 </tr></table>
 </div></div>
 <p>You can now <code>import</code> them in your app. (e.g. <code>import { raw as icAjaxRaw } from &#39;ic-ajax&#39;;</code>)</p>
-<h3 class='anchorable-toc' id='toc_environment-specific-assets'>Environment Specific Assets</h3>
+<h3 class='anchorable-toc' id='toc_environment-specific-assets'>Environment-Specific Assets</h3>
 <p>If you need to use different assets in different environments, specify an object as the first parameter.
 That object&#39;s key should be the environment name, and the value should be the asset to use in that environment.</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
@@ -322,7 +319,7 @@ This will prepend the dependency to the vendor file instead of appending it, whi
     <div class="footer">
   <div class="container">
     <div class="footer-info">
-      Copyright 2016
+      Copyright 2017
       <a href="http://tilde.io">Tilde Inc.</a>
       <br>
       <a href="http://emberjs.com/team">Core Team</a> |

@@ -33,9 +33,6 @@
       <li class="header-logo">
         <a href="http://emberjs.com/"><span class="visually-hidden">Ember homepage</span></a>
       </li>
-      <li>
-        <a href="http://emberjs.com/">About</a>
-      </li>
       <li class="active" aria-label="You are here">
         <a href="/">Guides</a>
       </li>
@@ -411,8 +408,7 @@ possible post into the router.</p>
 
 <p>Enter <em>dynamic segments</em>.</p>
 
-<p>A dynamic segment is a portion of a URL that starts with a <code>:</code> and is
-followed by an identifier.</p>
+<p>A dynamic segment is a portion of a URL that starts with a <code>:</code> and is followed by an identifier.</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
@@ -452,8 +448,8 @@ To put it in code, the following will <em>not</em> work properly:</p>
 5
 </pre></td>
   <td class="code"><pre>Router.map(<span class="keyword">function</span>() {
-  <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">&quot;</span><span class="content">photo</span><span class="delimiter">&quot;</span></span>, { <span class="key">path</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">photo/:id</span><span class="delimiter">&quot;</span></span> }, <span class="keyword">function</span>() {
-    <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">&quot;</span><span class="content">comment</span><span class="delimiter">&quot;</span></span>, { <span class="key">path</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">comment/:id</span><span class="delimiter">&quot;</span></span> });
+  <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">'</span><span class="content">photo</span><span class="delimiter">'</span></span>, { <span class="key">path</span>: <span class="string"><span class="delimiter">'</span><span class="content">/photo/:id</span><span class="delimiter">'</span></span> }, <span class="keyword">function</span>() {
+    <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">'</span><span class="content">comment</span><span class="delimiter">'</span></span>, { <span class="key">path</span>: <span class="string"><span class="delimiter">'</span><span class="content">/comment/:id</span><span class="delimiter">'</span></span> });
   });
 });
 </pre></td>
@@ -474,8 +470,8 @@ To put it in code, the following will <em>not</em> work properly:</p>
 5
 </pre></td>
   <td class="code"><pre>Router.map(<span class="keyword">function</span>() {
-  <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">&quot;</span><span class="content">photo</span><span class="delimiter">&quot;</span></span>, { <span class="key">path</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">photo/:photo_id</span><span class="delimiter">&quot;</span></span> }, <span class="keyword">function</span>() {
-    <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">&quot;</span><span class="content">comment</span><span class="delimiter">&quot;</span></span>, { <span class="key">path</span>: <span class="string"><span class="delimiter">&quot;</span><span class="content">comment/:comment_id</span><span class="delimiter">&quot;</span></span> });
+  <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">'</span><span class="content">photo</span><span class="delimiter">'</span></span>, { <span class="key">path</span>: <span class="string"><span class="delimiter">'</span><span class="content">/photo/:photo_id</span><span class="delimiter">'</span></span> }, <span class="keyword">function</span>() {
+    <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">'</span><span class="content">comment</span><span class="delimiter">'</span></span>, { <span class="key">path</span>: <span class="string"><span class="delimiter">'</span><span class="content">/comment/:comment_id</span><span class="delimiter">'</span></span> });
   });
 });
 </pre></td>
@@ -483,9 +479,9 @@ To put it in code, the following will <em>not</em> work properly:</p>
 </div></div>
 <p>In the next section, <a href="../specifying-a-routes-model">Specifying a Route&#39;s Model</a>, you will learn more about how to load a model.</p>
 <h2 class='anchorable-toc' id='toc_wildcard-globbing-routes'>Wildcard / globbing routes</h2>
-<p>You can define wildcard routes that will match multiple URL segments. This could be used, for example,
-if you&#39;d like a catch-all route which is useful when the user enters an incorrect URL not managed
-by your app.</p>
+<p>You can define wildcard routes that will match multiple URL segments.
+This could be used, for example, if you&#39;d like a catch-all route which is useful when the user enters an incorrect URL not managed by your app.
+Wildcard routes begin with an asterisk.</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
@@ -498,11 +494,26 @@ by your app.</p>
 3
 </pre></td>
   <td class="code"><pre>Router.map(<span class="keyword">function</span>() {
-  <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">'</span><span class="content">page-not-found</span><span class="delimiter">'</span></span>, { <span class="key">path</span>: <span class="string"><span class="delimiter">'</span><span class="content">/*wildcard</span><span class="delimiter">'</span></span> });
+  <span class="local-variable">this</span>.route(<span class="string"><span class="delimiter">'</span><span class="content">not-found</span><span class="delimiter">'</span></span>, { <span class="key">path</span>: <span class="string"><span class="delimiter">'</span><span class="content">/*path</span><span class="delimiter">'</span></span> });
 });
 </pre></td>
 </tr></table>
-</div></div><h2 class='anchorable-toc' id='toc_route-handlers'>Route Handlers</h2>
+</div></div><div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/templates/not-found.hbs</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre><span class="tag">&lt;p&gt;</span>Oops, the page you're looking for wasn't found<span class="tag">&lt;p&gt;</span>
+</pre></td>
+</tr></table>
+</div></div>
+<p>In the above example we have successfully used a wildcard route to handle all routes not managed by our application
+so that when a user navigates to <code>/a/non-existent/path</code> they will be shown a message that says the page they&#39;re looking for wasn&#39;t found.</p>
+<h2 class='anchorable-toc' id='toc_route-handlers'>Route Handlers</h2>
 <p>To have your route do something beyond render a template with the same name, you&#39;ll
 need to create a route handler. The following guides will explore the different
 features of route handlers. For more information on routes, see the API documentation
@@ -522,7 +533,7 @@ handlers</a>.</p>
     <div class="footer">
   <div class="container">
     <div class="footer-info">
-      Copyright 2016
+      Copyright 2017
       <a href="http://tilde.io">Tilde Inc.</a>
       <br>
       <a href="http://emberjs.com/team">Core Team</a> |
