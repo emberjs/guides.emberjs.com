@@ -15,6 +15,7 @@
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
 
     <link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" title="Ember.js - Blog" />
+    <link href="https://guides.emberjs.com/current/models/creating-updating-and-deleting-records/" rel="canonical">
     
   </head>
 
@@ -134,7 +135,7 @@ modifying attributes. For example, you can use <code>Ember.Object</code>&#39;s
 </div></div><h2 class='anchorable-toc' id='toc_persisting-records'>Persisting Records</h2>
 <p>Records in Ember Data are persisted on a per-instance basis.
 Call <a href="http://emberjs.com/api/data/classes/DS.Model.html#method_save"><code>save()</code></a>
-on any instance of <code>Model</code> and it will make a network request.</p>
+on any instance of <code>DS.Model</code> and it will make a network request.</p>
 
 <p>Ember Data takes care of tracking the state of each record for
 you. This allows Ember Data to treat newly created records differently
@@ -294,7 +295,7 @@ post.save().then(transitionToPost).<span class="keyword">catch</span>(failure);
 </tr></table>
 </div></div><h2 class='anchorable-toc' id='toc_deleting-records'>Deleting Records</h2>
 <p>Deleting records is as straightforward as creating records. Call <a href="http://emberjs.com/api/data/classes/DS.Model.html#method_deleteRecord"><code>deleteRecord()</code></a>
-on any instance of <code>Model</code>. This flags the record as <code>isDeleted</code>. The 
+on any instance of <code>DS.Model</code>. This flags the record as <code>isDeleted</code>. The 
 deletion can then be persisted using <code>save()</code>.  Alternatively, you can use 
 the <code>destroyRecord</code> method to delete and persist at the same time.</p>
 <div class="highlight js "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
@@ -335,7 +336,7 @@ store.findRecord(<span class="string"><span class="delimiter">'</span><span clas
     <div class="footer">
   <div class="container">
     <div class="footer-info">
-      Copyright 2016
+      Copyright 2017
       <a href="http://tilde.io">Tilde Inc.</a>
       <br>
       <a href="http://emberjs.com/team">Core Team</a> |

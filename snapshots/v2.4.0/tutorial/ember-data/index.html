@@ -15,6 +15,7 @@
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
 
     <link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" title="Ember.js - Blog" />
+    <link href="https://guides.emberjs.com/current/tutorial/ember-data/" rel="canonical">
     
   </head>
 
@@ -129,9 +130,9 @@ installing model-test
 4
 5
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> Model from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/model</span><span class="delimiter">'</span></span>;
+  <td class="code"><pre><span class="reserved">import</span> DS from <span class="string"><span class="delimiter">'</span><span class="content">ember-data</span><span class="delimiter">'</span></span>;
 
-<span class="reserved">export</span> <span class="keyword">default</span> Model.extend({
+<span class="reserved">export</span> <span class="keyword">default</span> DS.Model.extend({
 
 });
 </pre></td>
@@ -156,18 +157,16 @@ installing model-test
 8
 9
 <strong>10</strong>
-11
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> Model from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/model</span><span class="delimiter">'</span></span>;
-<span class="reserved">import</span> attr from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/attr</span><span class="delimiter">'</span></span>;
+  <td class="code"><pre><span class="reserved">import</span> DS from <span class="string"><span class="delimiter">'</span><span class="content">ember-data</span><span class="delimiter">'</span></span>;
 
-<span class="reserved">export</span> <span class="keyword">default</span> Model.extend({
-  <span class="key">title</span>: attr(),
-  <span class="key">owner</span>: attr(),
-  <span class="key">city</span>: attr(),
-  <span class="key">type</span>: attr(),
-  <span class="key">image</span>: attr(),
-  <span class="key">bedrooms</span>: attr()
+<span class="reserved">export</span> <span class="keyword">default</span> DS.Model.extend({
+  <span class="key">title</span>: DS.attr(),
+  <span class="key">owner</span>: DS.attr(),
+  <span class="key">city</span>: DS.attr(),
+  <span class="key">type</span>: DS.attr(),
+  <span class="key">image</span>: DS.attr(),
+  <span class="key">bedrooms</span>: DS.attr()
 });
 </pre></td>
 </tr></table>
@@ -219,7 +218,7 @@ When we deploy our app to a production server, we will need to provide a backend
     <div class="footer">
   <div class="container">
     <div class="footer-info">
-      Copyright 2016
+      Copyright 2017
       <a href="http://tilde.io">Tilde Inc.</a>
       <br>
       <a href="http://emberjs.com/team">Core Team</a> |

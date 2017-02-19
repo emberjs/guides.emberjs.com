@@ -15,6 +15,7 @@
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
 
     <link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" title="Ember.js - Blog" />
+    <link href="https://guides.emberjs.com/current/models/relationships/" rel="canonical">
     
   </head>
 
@@ -92,7 +93,7 @@
 define how your models relate to each other.</p>
 <h3 class='anchorable-toc' id='toc_one-to-one'>One-to-One</h3>
 <p>To declare a one-to-one relationship between two models, use
-<code>belongsTo</code>:</p>
+<code>DS.belongsTo</code>:</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
@@ -103,15 +104,9 @@ define how your models relate to each other.</p>
   <td class="line-numbers"><pre>1
 2
 3
-4
-5
-6
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> Model from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/model</span><span class="delimiter">'</span></span>;
-<span class="reserved">import</span> { belongsTo } from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/relationships</span><span class="delimiter">'</span></span>;
-
-<span class="reserved">export</span> <span class="keyword">default</span> Model.extend({
-  <span class="key">profile</span>: belongsTo(<span class="string"><span class="delimiter">'</span><span class="content">profile</span><span class="delimiter">'</span></span>)
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> DS.Model.extend({
+  <span class="key">profile</span>: DS.belongsTo(<span class="string"><span class="delimiter">'</span><span class="content">profile</span><span class="delimiter">'</span></span>)
 });
 </pre></td>
 </tr></table>
@@ -125,21 +120,15 @@ define how your models relate to each other.</p>
   <td class="line-numbers"><pre>1
 2
 3
-4
-5
-6
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> Model from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/model</span><span class="delimiter">'</span></span>;
-<span class="reserved">import</span> { belongsTo } from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/relationships</span><span class="delimiter">'</span></span>;
-
-<span class="reserved">export</span> <span class="keyword">default</span> Model.extend({
-  <span class="key">user</span>: belongsTo(<span class="string"><span class="delimiter">'</span><span class="content">user</span><span class="delimiter">'</span></span>)
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> DS.Model.extend({
+  <span class="key">user</span>: DS.belongsTo(<span class="string"><span class="delimiter">'</span><span class="content">user</span><span class="delimiter">'</span></span>)
 });
 </pre></td>
 </tr></table>
 </div></div><h3 class='anchorable-toc' id='toc_one-to-many'>One-to-Many</h3>
 <p>To declare a one-to-many relationship between two models, use
-<code>belongsTo</code> in combination with <code>hasMany</code>, like this:</p>
+<code>DS.belongsTo</code> in combination with <code>DS.hasMany</code>, like this:</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
@@ -150,15 +139,9 @@ define how your models relate to each other.</p>
   <td class="line-numbers"><pre>1
 2
 3
-4
-5
-6
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> Model from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/model</span><span class="delimiter">'</span></span>;
-<span class="reserved">import</span> { hasMany } from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/relationships</span><span class="delimiter">'</span></span>;
-
-<span class="reserved">export</span> <span class="keyword">default</span> Model.extend({
-  <span class="key">comments</span>: hasMany(<span class="string"><span class="delimiter">'</span><span class="content">comment</span><span class="delimiter">'</span></span>)
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> DS.Model.extend({
+  <span class="key">comments</span>: DS.hasMany(<span class="string"><span class="delimiter">'</span><span class="content">comment</span><span class="delimiter">'</span></span>)
 });
 </pre></td>
 </tr></table>
@@ -172,21 +155,15 @@ define how your models relate to each other.</p>
   <td class="line-numbers"><pre>1
 2
 3
-4
-5
-6
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> Model from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/model</span><span class="delimiter">'</span></span>;
-<span class="reserved">import</span> { belongsTo } from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/relationships</span><span class="delimiter">'</span></span>;
-
-<span class="reserved">export</span> <span class="keyword">default</span> Model.extend({
-  <span class="key">post</span>: belongsTo(<span class="string"><span class="delimiter">'</span><span class="content">post</span><span class="delimiter">'</span></span>)
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> DS.Model.extend({
+  <span class="key">post</span>: DS.belongsTo(<span class="string"><span class="delimiter">'</span><span class="content">post</span><span class="delimiter">'</span></span>)
 });
 </pre></td>
 </tr></table>
 </div></div><h3 class='anchorable-toc' id='toc_many-to-many'>Many-to-Many</h3>
 <p>To declare a many-to-many relationship between two models, use
-<code>hasMany</code>:</p>
+<code>DS.hasMany</code>:</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
@@ -197,15 +174,9 @@ define how your models relate to each other.</p>
   <td class="line-numbers"><pre>1
 2
 3
-4
-5
-6
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> Model from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/model</span><span class="delimiter">'</span></span>;
-<span class="reserved">import</span> { hasMany } from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/relationships</span><span class="delimiter">'</span></span>;
-
-<span class="reserved">export</span> <span class="keyword">default</span> Model.extend({
-  <span class="key">tags</span>: hasMany(<span class="string"><span class="delimiter">'</span><span class="content">tag</span><span class="delimiter">'</span></span>)
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> DS.Model.extend({
+  <span class="key">tags</span>: DS.hasMany(<span class="string"><span class="delimiter">'</span><span class="content">tag</span><span class="delimiter">'</span></span>)
 });
 </pre></td>
 </tr></table>
@@ -219,15 +190,9 @@ define how your models relate to each other.</p>
   <td class="line-numbers"><pre>1
 2
 3
-4
-5
-6
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> Model from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/model</span><span class="delimiter">'</span></span>;
-<span class="reserved">import</span> { hasMany } from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/relationships</span><span class="delimiter">'</span></span>;
-
-<span class="reserved">export</span> <span class="keyword">default</span> Model.extend({
-  <span class="key">posts</span>: hasMany(<span class="string"><span class="delimiter">'</span><span class="content">post</span><span class="delimiter">'</span></span>)
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> DS.Model.extend({
+  <span class="key">posts</span>: DS.hasMany(<span class="string"><span class="delimiter">'</span><span class="content">post</span><span class="delimiter">'</span></span>)
 });
 </pre></td>
 </tr></table>
@@ -240,7 +205,7 @@ that model.</p>
 
 <p>However, sometimes you may have multiple <code>belongsTo</code>/<code>hasMany</code>s for
 the same type. You can specify which property on the related model is
-the inverse using <code>belongsTo</code> or <code>hasMany</code>&#39;s <code>inverse</code>
+the inverse using <code>DS.belongsTo</code> or <code>DS.hasMany</code>&#39;s <code>inverse</code>
 option. Relationships without an inverse can be indicated as such by
 including <code>{ inverse: null }</code>.</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
@@ -256,18 +221,12 @@ including <code>{ inverse: null }</code>.</p>
 4
 5
 6
-7
-8
-9
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> Model from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/model</span><span class="delimiter">'</span></span>;
-<span class="reserved">import</span> { belongsTo } from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/relationships</span><span class="delimiter">'</span></span>;
-
-<span class="reserved">export</span> <span class="keyword">default</span> Model.extend({
-  <span class="key">onePost</span>: belongsTo(<span class="string"><span class="delimiter">'</span><span class="content">post</span><span class="delimiter">'</span></span>, { <span class="key">inverse</span>: <span class="predefined-constant">null</span> }),
-  <span class="key">twoPost</span>: belongsTo(<span class="string"><span class="delimiter">'</span><span class="content">post</span><span class="delimiter">'</span></span>),
-  <span class="key">redPost</span>: belongsTo(<span class="string"><span class="delimiter">'</span><span class="content">post</span><span class="delimiter">'</span></span>),
-  <span class="key">bluePost</span>: belongsTo(<span class="string"><span class="delimiter">'</span><span class="content">post</span><span class="delimiter">'</span></span>)
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> DS.Model.extend({
+  <span class="key">onePost</span>: DS.belongsTo(<span class="string"><span class="delimiter">'</span><span class="content">post</span><span class="delimiter">'</span></span>, { <span class="key">inverse</span>: <span class="predefined-constant">null</span> }),
+  <span class="key">twoPost</span>: DS.belongsTo(<span class="string"><span class="delimiter">'</span><span class="content">post</span><span class="delimiter">'</span></span>),
+  <span class="key">redPost</span>: DS.belongsTo(<span class="string"><span class="delimiter">'</span><span class="content">post</span><span class="delimiter">'</span></span>),
+  <span class="key">bluePost</span>: DS.belongsTo(<span class="string"><span class="delimiter">'</span><span class="content">post</span><span class="delimiter">'</span></span>)
 });
 </pre></td>
 </tr></table>
@@ -283,15 +242,9 @@ including <code>{ inverse: null }</code>.</p>
 3
 4
 5
-6
-7
-8
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> Model from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/model</span><span class="delimiter">'</span></span>;
-<span class="reserved">import</span> { hasMany } from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/relationships</span><span class="delimiter">'</span></span>;
-
-<span class="reserved">export</span> <span class="keyword">default</span> Model.extend({
-  <span class="key">comments</span>: hasMany(<span class="string"><span class="delimiter">'</span><span class="content">comment</span><span class="delimiter">'</span></span>, {
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> DS.Model.extend({
+  <span class="key">comments</span>: DS.hasMany(<span class="string"><span class="delimiter">'</span><span class="content">comment</span><span class="delimiter">'</span></span>, {
     <span class="key">inverse</span>: <span class="string"><span class="delimiter">'</span><span class="content">redPost</span><span class="delimiter">'</span></span>
   })
 });
@@ -314,16 +267,10 @@ is no inverse relationship then you can set the inverse to <code>null</code>.</p
 2
 3
 4
-5
-6
-7
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> Model from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/model</span><span class="delimiter">'</span></span>;
-<span class="reserved">import</span> { belongsTo, hasMany } from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/relationships</span><span class="delimiter">'</span></span>;
-
-<span class="reserved">export</span> <span class="keyword">default</span> Model.extend({
-  <span class="key">children</span>: hasMany(<span class="string"><span class="delimiter">'</span><span class="content">folder</span><span class="delimiter">'</span></span>, { <span class="key">inverse</span>: <span class="string"><span class="delimiter">'</span><span class="content">parent</span><span class="delimiter">'</span></span> }),
-  <span class="key">parent</span>: belongsTo(<span class="string"><span class="delimiter">'</span><span class="content">folder</span><span class="delimiter">'</span></span>, { <span class="key">inverse</span>: <span class="string"><span class="delimiter">'</span><span class="content">children</span><span class="delimiter">'</span></span> })
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> DS.Model.extend({
+  <span class="key">children</span>: DS.hasMany(<span class="string"><span class="delimiter">'</span><span class="content">folder</span><span class="delimiter">'</span></span>, { <span class="key">inverse</span>: <span class="string"><span class="delimiter">'</span><span class="content">parent</span><span class="delimiter">'</span></span> }),
+  <span class="key">parent</span>: DS.belongsTo(<span class="string"><span class="delimiter">'</span><span class="content">folder</span><span class="delimiter">'</span></span>, { <span class="key">inverse</span>: <span class="string"><span class="delimiter">'</span><span class="content">children</span><span class="delimiter">'</span></span> })
 });
 </pre></td>
 </tr></table>
@@ -340,18 +287,10 @@ is no inverse relationship then you can set the inverse to <code>null</code>.</p
 2
 3
 4
-5
-6
-7
-8
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> Model from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/model</span><span class="delimiter">'</span></span>;
-<span class="reserved">import</span> attr from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/attr</span><span class="delimiter">'</span></span>;
-<span class="reserved">import</span> { belongsTo } from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/relationships</span><span class="delimiter">'</span></span>;
-
-<span class="reserved">export</span> <span class="keyword">default</span> Model.extend({
-  <span class="key">name</span>: attr(<span class="string"><span class="delimiter">'</span><span class="content">string</span><span class="delimiter">'</span></span>),
-  <span class="key">bestFriend</span>: belongsTo(<span class="string"><span class="delimiter">'</span><span class="content">user</span><span class="delimiter">'</span></span>, { <span class="key">inverse</span>: <span class="string"><span class="delimiter">'</span><span class="content">bestFriend</span><span class="delimiter">'</span></span> }),
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> DS.Model.extend({
+  <span class="key">name</span>: DS.attr(<span class="string"><span class="delimiter">'</span><span class="content">string</span><span class="delimiter">'</span></span>),
+  <span class="key">bestFriend</span>: DS.belongsTo(<span class="string"><span class="delimiter">'</span><span class="content">user</span><span class="delimiter">'</span></span>, { <span class="key">inverse</span>: <span class="string"><span class="delimiter">'</span><span class="content">bestFriend</span><span class="delimiter">'</span></span> }),
 });
 </pre></td>
 </tr></table>
@@ -367,15 +306,9 @@ is no inverse relationship then you can set the inverse to <code>null</code>.</p
   <td class="line-numbers"><pre>1
 2
 3
-4
-5
-6
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> Model from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/model</span><span class="delimiter">'</span></span>;
-<span class="reserved">import</span> { belongsTo } from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/relationships</span><span class="delimiter">'</span></span>;
-
-<span class="reserved">export</span> <span class="keyword">default</span> Model.extend({
-  <span class="key">parent</span>: belongsTo(<span class="string"><span class="delimiter">'</span><span class="content">folder</span><span class="delimiter">'</span></span>, { <span class="key">inverse</span>: <span class="predefined-constant">null</span> })
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> DS.Model.extend({
+  <span class="key">parent</span>: DS.belongsTo(<span class="string"><span class="delimiter">'</span><span class="content">folder</span><span class="delimiter">'</span></span>, { <span class="key">inverse</span>: <span class="predefined-constant">null</span> })
 });
 </pre></td>
 </tr></table>
@@ -387,7 +320,7 @@ relationship. However, since readonly data will never need to be
 updated and saved this often results in the creation of a great deal
 of code for very little benefit. An alternate approach is to define
 these relationships using an attribute with no transform
-(<code>attr()</code>). This makes it easy to access readonly values in
+(<code>DS.attr()</code>). This makes it easy to access readonly values in
 computed properties and templates without the overhead of defining
 extraneous models.</p>
 <h3 class='anchorable-toc' id='toc_creating-records'>Creating Records</h3>
@@ -402,15 +335,9 @@ extraneous models.</p>
   <td class="line-numbers"><pre>1
 2
 3
-4
-5
-6
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> Model from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/model</span><span class="delimiter">'</span></span>;
-<span class="reserved">import</span> { hasMany } from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/relationships</span><span class="delimiter">'</span></span>;
-
-<span class="reserved">export</span> <span class="keyword">default</span> Model.extend({
-  <span class="key">comments</span>: hasMany(<span class="string"><span class="delimiter">'</span><span class="content">comment</span><span class="delimiter">'</span></span>)
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> DS.Model.extend({
+  <span class="key">comments</span>: DS.hasMany(<span class="string"><span class="delimiter">'</span><span class="content">comment</span><span class="delimiter">'</span></span>)
 });
 </pre></td>
 </tr></table>
@@ -424,15 +351,9 @@ extraneous models.</p>
   <td class="line-numbers"><pre>1
 2
 3
-4
-5
-6
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> Model from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/model</span><span class="delimiter">'</span></span>;
-<span class="reserved">import</span> { belongsTo } from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/relationships</span><span class="delimiter">'</span></span>;
-
-<span class="reserved">export</span> <span class="keyword">default</span> Model.extend({
-  <span class="key">post</span>: belongsTo(<span class="string"><span class="delimiter">'</span><span class="content">post</span><span class="delimiter">'</span></span>)
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> DS.Model.extend({
+  <span class="key">post</span>: DS.belongsTo(<span class="string"><span class="delimiter">'</span><span class="content">post</span><span class="delimiter">'</span></span>)
 });
 </pre></td>
 </tr></table>
@@ -462,16 +383,12 @@ comment.save();
 3
 4
 5
-6
-7
 </pre></td>
   <td class="code"><pre>let post = <span class="local-variable">this</span>.store.peekRecord(<span class="string"><span class="delimiter">'</span><span class="content">post</span><span class="delimiter">'</span></span>, <span class="integer">1</span>);
 let comment = <span class="local-variable">this</span>.store.createRecord(<span class="string"><span class="delimiter">'</span><span class="content">comment</span><span class="delimiter">'</span></span>, {
 });
 post.get(<span class="string"><span class="delimiter">'</span><span class="content">comments</span><span class="delimiter">'</span></span>).pushObject(comment);
-comment.save().then(<span class="keyword">function</span> () {
-  post.save();
-});
+comment.save();
 </pre></td>
 </tr></table>
 </div></div>
@@ -640,7 +557,7 @@ comment.get(<span class="string"><span class="delimiter">'</span><span class="co
     <div class="footer">
   <div class="container">
     <div class="footer-info">
-      Copyright 2016
+      Copyright 2017
       <a href="http://tilde.io">Tilde Inc.</a>
       <br>
       <a href="http://emberjs.com/team">Core Team</a> |

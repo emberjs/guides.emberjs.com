@@ -15,6 +15,7 @@
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
 
     <link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" title="Ember.js - Blog" />
+    <link href="https://guides.emberjs.com/current/configuring-ember/handling-deprecations/" rel="canonical">
     
   </head>
 
@@ -140,7 +141,7 @@ is where the <a href="http://emberobserver.com/addons/ember-cli-deprecation-work
 <p>The ember-cli-deprecation-workflow addon provides a command that will collect deprecations from your console and generate JavaScript code listing
 its findings.</p>
 
-<p>To collect deprecations, first run your in-browser test suite by starting your development server and navigating to <a href="http://localhost:4200/tests"><code>http://localhost:4200/tests</code></a>.  If your test suite isn&#39;t fully covering your app&#39;s functionality, you may also
+<p>To collect deprecations, first run your in-browser test suite by starting your development server and navigating to <code>http://localhost:4200/tests</code>.  If your test suite isn&#39;t fully covering your app&#39;s functionality, you may also
 manually exercise functionality within your app where needed.  Once you&#39;ve exercised the app to your satisfaction, run the following command within
 your browser console: <code>deprecationWorkflow.flushDeprecations()</code>.  This will print to the console JavaScript code, which you should then copy to a
 new file in your project called <code>/config/deprecation-workflow.js</code></p>
@@ -292,7 +293,7 @@ stack trace browsing you have to do.  For more information on using deprecation 
     <div class="footer">
   <div class="container">
     <div class="footer-info">
-      Copyright 2016
+      Copyright 2017
       <a href="http://tilde.io">Tilde Inc.</a>
       <br>
       <a href="http://emberjs.com/team">Core Team</a> |
