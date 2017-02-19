@@ -15,6 +15,7 @@
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
 
     <link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" title="Ember.js - Blog" />
+    <link href="https://guides.emberjs.com/current/models/" rel="canonical">
     
   </head>
 
@@ -326,16 +327,10 @@ string, and a <code>birthday</code> attribute that is a date:</p>
 2
 3
 4
-5
-6
-7
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> Model from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/model</span><span class="delimiter">'</span></span>;
-<span class="reserved">import</span> attr from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/attr</span><span class="delimiter">'</span></span>;
-
-<span class="reserved">export</span> <span class="keyword">default</span> Model.extend({
-  <span class="key">firstName</span>: attr(<span class="string"><span class="delimiter">'</span><span class="content">string</span><span class="delimiter">'</span></span>),
-  <span class="key">birthday</span>:  attr(<span class="string"><span class="delimiter">'</span><span class="content">date</span><span class="delimiter">'</span></span>)
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> DS.Model.extend({
+  <span class="key">firstName</span>: DS.attr(<span class="string"><span class="delimiter">'</span><span class="content">string</span><span class="delimiter">'</span></span>),
+  <span class="key">birthday</span>:  DS.attr(<span class="string"><span class="delimiter">'</span><span class="content">date</span><span class="delimiter">'</span></span>)
 });
 </pre></td>
 </tr></table>
@@ -353,15 +348,9 @@ example, an <code>order</code> may have many <code>line-items</code>, and a
   <td class="line-numbers"><pre>1
 2
 3
-4
-5
-6
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> Model from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/model</span><span class="delimiter">'</span></span>;
-<span class="reserved">import</span> { hasMany } from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/relationships</span><span class="delimiter">'</span></span>;
-
-<span class="reserved">export</span> <span class="keyword">default</span> Model.extend({
-  <span class="key">lineItems</span>: hasMany(<span class="string"><span class="delimiter">'</span><span class="content">line-item</span><span class="delimiter">'</span></span>)
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> DS.Model.extend({
+  <span class="key">lineItems</span>: DS.hasMany(<span class="string"><span class="delimiter">'</span><span class="content">line-item</span><span class="delimiter">'</span></span>)
 });
 </pre></td>
 </tr></table>
@@ -375,15 +364,9 @@ example, an <code>order</code> may have many <code>line-items</code>, and a
   <td class="line-numbers"><pre>1
 2
 3
-4
-5
-6
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> Model from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/model</span><span class="delimiter">'</span></span>;
-<span class="reserved">import</span> { belongsTo } from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/relationships</span><span class="delimiter">'</span></span>;
-
-<span class="reserved">export</span> <span class="keyword">default</span> Model.extend({
-  <span class="key">order</span>: belongsTo(<span class="string"><span class="delimiter">'</span><span class="content">order</span><span class="delimiter">'</span></span>)
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> DS.Model.extend({
+  <span class="key">order</span>: DS.belongsTo(<span class="string"><span class="delimiter">'</span><span class="content">order</span><span class="delimiter">'</span></span>)
 });
 </pre></td>
 </tr></table>
@@ -518,7 +501,7 @@ use them together.</p>
     <div class="footer">
   <div class="container">
     <div class="footer-info">
-      Copyright 2016
+      Copyright 2017
       <a href="http://tilde.io">Tilde Inc.</a>
       <br>
       <a href="http://emberjs.com/team">Core Team</a> |

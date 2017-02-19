@@ -15,6 +15,7 @@
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
 
     <link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" title="Ember.js - Blog" />
+    <link href="https://guides.emberjs.com/current/models/customizing-serializers/" rel="canonical">
     
   </head>
 
@@ -283,9 +284,9 @@ serializer.</p>
 2
 3
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> JSONAPISerializer from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/serializers/json-api</span><span class="delimiter">'</span></span>;
+  <td class="code"><pre><span class="reserved">import</span> DS from <span class="string"><span class="delimiter">'</span><span class="content">ember-data</span><span class="delimiter">'</span></span>;
 
-<span class="reserved">export</span> <span class="keyword">default</span> JSONAPISerializer.extend({});
+<span class="reserved">export</span> <span class="keyword">default</span> DS.JSONAPISerializer.extend({});
 </pre></td>
 </tr></table>
 </div></div>
@@ -302,9 +303,9 @@ you had a <code>post</code> model you could also define a <code>post</code> seri
 2
 3
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> JSONAPISerializer from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/serializers/json-api</span><span class="delimiter">'</span></span>;
+  <td class="code"><pre><span class="reserved">import</span> DS from <span class="string"><span class="delimiter">'</span><span class="content">ember-data</span><span class="delimiter">'</span></span>;
 
-<span class="reserved">export</span> <span class="keyword">default</span> JSONAPISerializer.extend({});
+<span class="reserved">export</span> <span class="keyword">default</span> DS.JSONAPISerializer.extend({});
 </pre></td>
 </tr></table>
 </div></div>
@@ -396,9 +397,9 @@ hook. Let&#39;s say that we have this JSON API response from Ember Data:</p>
 16
 17
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> JSONAPISerializer from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/serializers/json-api</span><span class="delimiter">'</span></span>;
+  <td class="code"><pre><span class="reserved">import</span> DS from <span class="string"><span class="delimiter">'</span><span class="content">ember-data</span><span class="delimiter">'</span></span>;
 
-<span class="reserved">export</span> <span class="keyword">default</span> JSONAPISerializer.extend({
+<span class="reserved">export</span> <span class="keyword">default</span> DS.JSONAPISerializer.extend({
   serialize(snapshot, options) {
     <span class="keyword">var</span> json = <span class="local-variable">this</span>._super(...<span class="local-variable">arguments</span>);
 
@@ -501,9 +502,9 @@ like:</p>
 11
 12
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> JSONAPISerializer from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/serializers/json-api</span><span class="delimiter">'</span></span>;
+  <td class="code"><pre><span class="reserved">import</span> DS from <span class="string"><span class="delimiter">'</span><span class="content">ember-data</span><span class="delimiter">'</span></span>;
 
-<span class="reserved">export</span> <span class="keyword">default</span> JSONAPISerializer.extend({
+<span class="reserved">export</span> <span class="keyword">default</span> DS.JSONAPISerializer.extend({
   normalizeResponse(store, primaryModelClass, payload, id, requestType) {
     payload.data.attributes.amount = payload.data.attributes.cost.amount;
     payload.data.attributes.currency = payload.data.attributes.cost.currency;
@@ -539,12 +540,8 @@ property to <code>id</code> when serializing and deserializing data.</p>
   <td class="line-numbers"><pre>1
 2
 3
-4
-5
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> JSONAPISerializer from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/serializers/json-api</span><span class="delimiter">'</span></span>;
-
-<span class="reserved">export</span> <span class="keyword">default</span> JSONAPISerializer.extend({
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> DS.JSONAPISerializer.extend({
   <span class="key">primaryKey</span>: <span class="string"><span class="delimiter">'</span><span class="content">_id</span><span class="delimiter">'</span></span>
 });
 </pre></td>
@@ -564,17 +561,11 @@ model. For example:</p>
 3
 4
 5
-6
-7
-8
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> Model from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/model</span><span class="delimiter">'</span></span>;
-<span class="reserved">import</span> attr from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/attr</span><span class="delimiter">'</span></span>;
-
-<span class="reserved">export</span> <span class="keyword">default</span> Model.extend({
-  <span class="key">firstName</span>: attr(<span class="string"><span class="delimiter">'</span><span class="content">string</span><span class="delimiter">'</span></span>),
-  <span class="key">lastName</span>:  attr(<span class="string"><span class="delimiter">'</span><span class="content">string</span><span class="delimiter">'</span></span>),
-  <span class="key">isPersonOfTheYear</span>: attr(<span class="string"><span class="delimiter">'</span><span class="content">boolean</span><span class="delimiter">'</span></span>)
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> DS.Model.extend({
+  <span class="key">firstName</span>: DS.attr(<span class="string"><span class="delimiter">'</span><span class="content">string</span><span class="delimiter">'</span></span>),
+  <span class="key">lastName</span>:  DS.attr(<span class="string"><span class="delimiter">'</span><span class="content">string</span><span class="delimiter">'</span></span>),
+  <span class="key">isPersonOfTheYear</span>: DS.attr(<span class="string"><span class="delimiter">'</span><span class="content">boolean</span><span class="delimiter">'</span></span>)
 });
 </pre></td>
 </tr></table>
@@ -628,13 +619,9 @@ method like this.</p>
 4
 5
 6
-7
-8
 </pre></td>
   <td class="code"><pre><span class="reserved">import</span> Ember from <span class="string"><span class="delimiter">'</span><span class="content">ember</span><span class="delimiter">'</span></span>;
-<span class="reserved">import</span> JSONAPISerializer from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/serializers/json-api</span><span class="delimiter">'</span></span>;
-
-<span class="reserved">export</span> <span class="keyword">default</span> JSONAPISerializer.extend({
+<span class="reserved">export</span> <span class="keyword">default</span> DS.JSONAPISerializer.extend({
   <span class="function">keyForAttribute</span>: <span class="keyword">function</span>(attr) {
     <span class="keyword">return</span> Ember.String.underscore(attr);
   }
@@ -644,7 +631,7 @@ method like this.</p>
 </div></div>
 <p>Irregular keys can be mapped with a custom serializer. The <code>attrs</code>
 object can be used to declare a simple mapping between property names
-on <code>Model</code> records and payload keys in the serialized JSON object
+on DS.Model records and payload keys in the serialized JSON object
 representing the record. An object with the property key can also be
 used to designate the attribute&#39;s key on the response payload.</p>
 
@@ -661,15 +648,9 @@ Serializer for the model and override the <code>attrs</code> property.</p>
   <td class="line-numbers"><pre>1
 2
 3
-4
-5
-6
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> Model from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/model</span><span class="delimiter">'</span></span>;
-<span class="reserved">import</span> attr from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/attr</span><span class="delimiter">'</span></span>;
-
-<span class="reserved">export</span> <span class="keyword">default</span> Model.extend({
-  <span class="key">lastName</span>: attr(<span class="string"><span class="delimiter">'</span><span class="content">string</span><span class="delimiter">'</span></span>)
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> DS.Model.extend({
+  <span class="key">lastName</span>: DS.attr(<span class="string"><span class="delimiter">'</span><span class="content">string</span><span class="delimiter">'</span></span>)
 });
 </pre></td>
 </tr></table>
@@ -685,12 +666,8 @@ Serializer for the model and override the <code>attrs</code> property.</p>
 3
 4
 5
-6
-7
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> JSONAPISerializer from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/serializers/json-api</span><span class="delimiter">'</span></span>;
-
-<span class="reserved">export</span> <span class="keyword">default</span> JSONSerializer.extend({
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> DS.JSONAPISerializer.extend({
   <span class="key">attrs</span>: {
     <span class="key">lastName</span>: <span class="string"><span class="delimiter">'</span><span class="content">lastNameOfPerson</span><span class="delimiter">'</span></span>
   }
@@ -710,15 +687,9 @@ have a model with a <code>hasMany</code> relationship:</p>
   <td class="line-numbers"><pre>1
 2
 3
-4
-5
-6
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> Model from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/model</span><span class="delimiter">'</span></span>;
-<span class="reserved">import</span> { hasMany } from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/relationships</span><span class="delimiter">'</span></span>;
-
-<span class="reserved">export</span> <span class="keyword">default</span> Model.extend({
-  <span class="key">comments</span>: hasMany(<span class="string"><span class="delimiter">'</span><span class="content">comment</span><span class="delimiter">'</span></span>, { <span class="key">async</span>: <span class="predefined-constant">true</span> })
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> DS.Model.extend({
+  <span class="key">comments</span>: DS.hasMany(<span class="string"><span class="delimiter">'</span><span class="content">comment</span><span class="delimiter">'</span></span>, { <span class="key">async</span>: <span class="predefined-constant">true</span> })
 });
 </pre></td>
 </tr></table>
@@ -776,15 +747,9 @@ a model:</p>
   <td class="line-numbers"><pre>1
 2
 3
-4
-5
-6
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> Model from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/model</span><span class="delimiter">'</span></span>;
-<span class="reserved">import</span> { belongsTo } from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/relationships</span><span class="delimiter">'</span></span>
-
-<span class="reserved">export</span> <span class="keyword">default</span> Model.extend({
-  <span class="key">originalPost</span>: belongsTo(<span class="string"><span class="delimiter">'</span><span class="content">post</span><span class="delimiter">'</span></span>)
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> DS.Model.extend({
+  <span class="key">originalPost</span>: DS.belongsTo(<span class="string"><span class="delimiter">'</span><span class="content">post</span><span class="delimiter">'</span></span>)
 });
 </pre></td>
 </tr></table>
@@ -833,12 +798,8 @@ method.</p>
 3
 4
 5
-6
-7
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> JSONAPISerializer from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/serializers/json-api</span><span class="delimiter">'</span></span>;
-
-<span class="reserved">export</span> <span class="keyword">default</span> JSONAPISerializer.extend({
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> DS.JSONAPISerializer.extend({
   <span class="function">keyForRelationship</span>: <span class="keyword">function</span>(key, relationship) {
     <span class="keyword">return</span> key + <span class="string"><span class="delimiter">'</span><span class="content">Ids</span><span class="delimiter">'</span></span>;
   }
@@ -867,12 +828,8 @@ registered for use as attributes:</p>
 6
 7
 8
-9
-<strong>10</strong>
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> Transform from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/transform</span><span class="delimiter">'</span></span>;
-
-<span class="reserved">export</span> <span class="keyword">default</span> Transform.extend({
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> DS.Transform.extend({
   <span class="function">serialize</span>: <span class="keyword">function</span>(value) {
     <span class="keyword">return</span> [value.get(<span class="string"><span class="delimiter">'</span><span class="content">x</span><span class="delimiter">'</span></span>), value.get(<span class="string"><span class="delimiter">'</span><span class="content">y</span><span class="delimiter">'</span></span>)];
   },
@@ -892,15 +849,9 @@ registered for use as attributes:</p>
   <td class="line-numbers"><pre>1
 2
 3
-4
-5
-6
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> Model from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/model</span><span class="delimiter">'</span></span>;
-<span class="reserved">import</span> attr from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/attr</span><span class="delimiter">'</span></span>;
-
-<span class="reserved">export</span> <span class="keyword">default</span> Model.extend({
-  <span class="key">position</span>: attr(<span class="string"><span class="delimiter">'</span><span class="content">coordinate-point</span><span class="delimiter">'</span></span>)
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> DS.Model.extend({
+  <span class="key">position</span>: DS.attr(<span class="string"><span class="delimiter">'</span><span class="content">coordinate-point</span><span class="delimiter">'</span></span>)
 });
 </pre></td>
 </tr></table>
@@ -957,12 +908,8 @@ serializer that ships with Ember Data that can be used along side the
   <td class="line-numbers"><pre>1
 2
 3
-4
-5
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> JSONSerializer from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/serializers/json</span><span class="delimiter">'</span></span>;
-
-<span class="reserved">export</span> <span class="keyword">default</span> JSONSerializer.extend({
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> DS.JSONSerializer.extend({
   <span class="comment">// ...</span>
 });
 </pre></td>
@@ -1078,14 +1025,8 @@ that looks similar to this:</p>
 6
 7
 8
-9
-<strong>10</strong>
-11
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> JSONSerializer from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/serializers/json</span><span class="delimiter">'</span></span>;
-<span class="reserved">import</span> EmbeddedRecordsMixin from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/serializers/embedded-records-mixin</span><span class="delimiter">'</span></span>;
-
-<span class="reserved">export</span> <span class="keyword">default</span> JSONSerializer.extend(EmbeddedRecordsMixin, {
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> DS.JSONSerializer.extend(DS.EmbeddedRecordsMixin, {
   <span class="key">attrs</span>: {
     <span class="key">authors</span>: {
       <span class="key">serialize</span>: <span class="string"><span class="delimiter">'</span><span class="content">records</span><span class="delimiter">'</span></span>,
@@ -1111,14 +1052,8 @@ embedded relationship you can use the shorthand option of <code>{ embedded:
 3
 4
 5
-6
-7
-8
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> JSONSerializer from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/serializers/json</span><span class="delimiter">'</span></span>;
-<span class="reserved">import</span> EmbeddedRecordsMixin from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/serializers/embedded-records-mixin</span><span class="delimiter">'</span></span>;
-
-<span class="reserved">export</span> <span class="keyword">default</span> JSONSerializer.extend(EmbeddedRecordsMixin, {
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> DS.JSONSerializer.extend(DS.EmbeddedRecordsMixin, {
   <span class="key">attrs</span>: {
     <span class="key">authors</span>: { <span class="key">embedded</span>: <span class="string"><span class="delimiter">'</span><span class="content">always</span><span class="delimiter">'</span></span> }
   }
@@ -1155,14 +1090,8 @@ setting <code>serialize: false</code>.</p>
 <strong>10</strong>
 11
 12
-13
-14
-15
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> JSONSerializer from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/serializers/json</span><span class="delimiter">'</span></span>;
-<span class="reserved">import</span> EmbeddedRecordsMixin from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/serializers/embedded-records-mixin</span><span class="delimiter">'</span></span>;
-
-<span class="reserved">export</span> <span class="keyword">default</span> JSONSerializer.extend(EmbeddedRecordsMixin, {
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> DS.JSONSerializer.extend(DS.EmbeddedRecordsMixin, {
   <span class="key">attrs</span>: {
     <span class="key">author</span>: {
       <span class="key">serialize</span>: <span class="predefined-constant">false</span>,
@@ -1191,7 +1120,7 @@ all, you can use <code>serialize: false</code>.</p>
 start with the <code>JSONAPISerializer</code> or <code>JSONSerializer</code> and extend one of
 those to match your needs. However, if your payload is extremely
 different from one of these serializers you can create your own by
-extending the <code>Serializer</code> base class. There are 3 methods that
+extending the <code>DS.Serializer</code> base class. There are 3 methods that
 must be implemented on a serializer.</p>
 
 <ul>
@@ -1225,18 +1154,10 @@ relationship properties on the Model.</p>
 4
 5
 6
-7
-8
-9
-<strong>10</strong>
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> Model from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/model</span><span class="delimiter">'</span></span>;
-<span class="reserved">import</span> attr from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/attr</span><span class="delimiter">'</span></span>;
-<span class="reserved">import</span> { hasMany } from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/relationships</span><span class="delimiter">'</span></span>;
-
-<span class="reserved">export</span> <span class="keyword">default</span> Model.extend({
-  <span class="key">title</span>: attr(<span class="string"><span class="delimiter">'</span><span class="content">string</span><span class="delimiter">'</span></span>),
-  <span class="key">tag</span>: attr(<span class="string"><span class="delimiter">'</span><span class="content">string</span><span class="delimiter">'</span></span>),
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> DS.Model.extend({
+  <span class="key">title</span>: DS.attr(<span class="string"><span class="delimiter">'</span><span class="content">string</span><span class="delimiter">'</span></span>),
+  <span class="key">tag</span>: DS.attr(<span class="string"><span class="delimiter">'</span><span class="content">string</span><span class="delimiter">'</span></span>),
   <span class="key">comments</span>: hasMany(<span class="string"><span class="delimiter">'</span><span class="content">comment</span><span class="delimiter">'</span></span>, { <span class="key">async</span>: <span class="predefined-constant">false</span> }),
   <span class="key">relatedPosts</span>: hasMany(<span class="string"><span class="delimiter">'</span><span class="content">post</span><span class="delimiter">'</span></span>)
 });
@@ -1314,7 +1235,7 @@ Adapters and Serializers. A good place to search for them is <a href="http://emb
     <div class="footer">
   <div class="container">
     <div class="footer-info">
-      Copyright 2016
+      Copyright 2017
       <a href="http://tilde.io">Tilde Inc.</a>
       <br>
       <a href="http://emberjs.com/team">Core Team</a> |

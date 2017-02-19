@@ -15,6 +15,7 @@
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
 
     <link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" title="Ember.js - Blog" />
+    <link href="https://guides.emberjs.com/current/testing/testing-models/" rel="canonical">
     
   </head>
 
@@ -89,7 +90,7 @@
         <hr>
 
         <p><em>Unit testing methods and computed properties follows previous patterns shown
-in <a href="../unit-testing-basics">Unit Testing Basics</a> because Model extends Ember.Object.</em></p>
+in <a href="../unit-testing-basics">Unit Testing Basics</a> because DS.Model extends Ember.Object.</em></p>
 
 <p><a href="https://github.com/emberjs/data">Ember Data</a> Models can be tested using the <code>moduleForModel</code> helper.</p>
 
@@ -119,16 +120,10 @@ model player</code>.</p>
 9
 <strong>10</strong>
 11
-12
-13
-14
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> Model from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/model</span><span class="delimiter">'</span></span>;
-<span class="reserved">import</span> attr from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/attr</span><span class="delimiter">'</span></span>;
-
-<span class="reserved">export</span> <span class="keyword">default</span> Model.extend({
-  <span class="key">level</span>:     attr(<span class="string"><span class="delimiter">'</span><span class="content">number</span><span class="delimiter">'</span></span>, { <span class="key">defaultValue</span>: <span class="integer">0</span> }),
-  <span class="key">levelName</span>: attr(<span class="string"><span class="delimiter">'</span><span class="content">string</span><span class="delimiter">'</span></span>, { <span class="key">defaultValue</span>: <span class="string"><span class="delimiter">'</span><span class="content">Noob</span><span class="delimiter">'</span></span> }),
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> DS.Model.extend({
+  <span class="key">level</span>:     DS.attr(<span class="string"><span class="delimiter">'</span><span class="content">number</span><span class="delimiter">'</span></span>, { <span class="key">defaultValue</span>: <span class="integer">0</span> }),
+  <span class="key">levelName</span>: DS.attr(<span class="string"><span class="delimiter">'</span><span class="content">string</span><span class="delimiter">'</span></span>, { <span class="key">defaultValue</span>: <span class="string"><span class="delimiter">'</span><span class="content">Noob</span><span class="delimiter">'</span></span> }),
 
   levelUp() {
     <span class="keyword">var</span> newLevel = <span class="local-variable">this</span>.incrementProperty(<span class="string"><span class="delimiter">'</span><span class="content">level</span><span class="delimiter">'</span></span>);
@@ -207,12 +202,8 @@ generate model user</code> and <code>ember generate model profile</code>.</p>
 <tr>
   <td class="line-numbers"><pre>1
 2
-3
-4
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> Model from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/model</span><span class="delimiter">'</span></span>;
-
-<span class="reserved">export</span> <span class="keyword">default</span> Model.extend({
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> DS.Model.extend({
 });
 </pre></td>
 </tr></table>
@@ -226,15 +217,9 @@ generate model user</code> and <code>ember generate model profile</code>.</p>
   <td class="line-numbers"><pre>1
 2
 3
-4
-5
-6
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> Model from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/model</span><span class="delimiter">'</span></span>;
-<span class="reserved">import</span> { belongsTo } from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/relationships</span><span class="delimiter">'</span></span>;
-
-<span class="reserved">export</span> <span class="keyword">default</span> Model.extend({
-  <span class="key">profile</span>: belongsTo(<span class="string"><span class="delimiter">'</span><span class="content">profile</span><span class="delimiter">'</span></span>)
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> DS.Model.extend({
+  <span class="key">profile</span>: DS.belongsTo(<span class="string"><span class="delimiter">'</span><span class="content">profile</span><span class="delimiter">'</span></span>)
 });
 </pre></td>
 </tr></table>
@@ -300,7 +285,7 @@ feel the need to do it.</em></p>
     <div class="footer">
   <div class="container">
     <div class="footer-info">
-      Copyright 2016
+      Copyright 2017
       <a href="http://tilde.io">Tilde Inc.</a>
       <br>
       <a href="http://emberjs.com/team">Core Team</a> |
