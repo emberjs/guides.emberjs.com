@@ -15,6 +15,7 @@
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
 
     <link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" title="Ember.js - Blog" />
+    <link href="https://guides.emberjs.com/current/models/customizing-adapters/" rel="canonical">
     
   </head>
 
@@ -123,12 +124,8 @@ specific Adapters.</p>
   <td class="line-numbers"><pre>1
 2
 3
-4
-5
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> JSONAPIAdapter from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/adapters/json-api</span><span class="delimiter">'</span></span>;
-
-<span class="reserved">export</span> <span class="keyword">default</span> JSONAPIAdapter.extend({
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> DS.JSONAPIAdapter.extend({
   <span class="comment">// Application specific overrides go here</span>
 });
 </pre></td>
@@ -149,12 +146,8 @@ following file:</p>
   <td class="line-numbers"><pre>1
 2
 3
-4
-5
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> JSONAPIAdapter from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/adapters/json-api</span><span class="delimiter">'</span></span>;
-
-<span class="reserved">export</span> <span class="keyword">default</span> JSONAPIAdapter.extend({
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> DS.JSONAPIAdapter.extend({
   <span class="key">namespace</span>: <span class="string"><span class="delimiter">'</span><span class="content">api/v1</span><span class="delimiter">'</span></span>
 });
 </pre></td>
@@ -165,21 +158,21 @@ to use these adapters as a starting point for creating your own custom
 adapter.</p>
 
 <ul>
-<li><p><a href="http://emberjs.com/api/data/classes/DS.Adapter.html">Adapter</a> is the basic adapter
+<li><p><a href="http://emberjs.com/api/data/classes/DS.Adapter.html">DS.Adapter</a> is the basic adapter
 with no functionality. It is generally a good starting point if you
 want to create an adapter that is radically different from the other
 Ember adapters.</p></li>
-<li><p><a href="http://emberjs.com/api/data/classes/DS.JSONAPIAdapter.html">JSONAPIAdapter</a>
+<li><p><a href="http://emberjs.com/api/data/classes/DS.JSONAPIAdapter.html">DS.JSONAPIAdapter</a>
 The <code>JSONAPIAdapter</code> is the default adapter and follows JSON API
 conventions to communicate with an HTTP server by transmitting JSON
 via XHR.</p></li>
-<li><p><a href="http://emberjs.com/api/data/classes/DS.RESTAdapter.html">RESTAdapter</a>
+<li><p><a href="http://emberjs.com/api/data/classes/DS.RESTAdapter.html">DS.RESTAdapter</a>
 The <code>RESTAdapter</code> allows your store to communicate with an HTTP server
 by transmitting JSON via XHR. Before Ember Data 2.0 this adapter was the default.</p></li>
 </ul>
 <h2 class='anchorable-toc' id='toc_customizing-the-jsonapiadapter'>Customizing the JSONAPIAdapter</h2>
 <p>The
-<a href="http://emberjs.com/api/data/classes/DS.JSONAPIAdapter.html">JSONAPIAdapter</a>
+<a href="http://emberjs.com/api/data/classes/DS.JSONAPIAdapter.html">DS.JSONAPIAdapter</a>
 has a handful of hooks that are commonly used to extend it to work
 with non-standard backends.</p>
 <h3 class='anchorable-toc' id='toc_url-conventions'>URL Conventions</h3>
@@ -279,12 +272,8 @@ specific url namespace.</p>
   <td class="line-numbers"><pre>1
 2
 3
-4
-5
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> JSONAPIAdapter from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/adapters/json-api</span><span class="delimiter">'</span></span>;
-
-<span class="reserved">export</span> <span class="keyword">default</span> JSONAPIAdapter.extend({
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> DS.JSONAPIAdapter.extend({
   <span class="key">namespace</span>: <span class="string"><span class="delimiter">'</span><span class="content">api/1</span><span class="delimiter">'</span></span>
 });
 </pre></td>
@@ -305,12 +294,8 @@ property on the adapter.</p>
   <td class="line-numbers"><pre>1
 2
 3
-4
-5
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> JSONAPIAdapter from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/adapters/json-api</span><span class="delimiter">'</span></span>;
-
-<span class="reserved">export</span> <span class="keyword">default</span> JSONAPIAdapter.extend({
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> DS.JSONAPIAdapter.extend({
   <span class="key">host</span>: <span class="string"><span class="delimiter">'</span><span class="content">https://api.example.com</span><span class="delimiter">'</span></span>
 });
 </pre></td>
@@ -337,12 +322,8 @@ underscore_case instead of camelCase you could override the
 3
 4
 5
-6
-7
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> JSONAPIAdapter from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/adapters/json-api</span><span class="delimiter">'</span></span>;
-
-<span class="reserved">export</span> <span class="keyword">default</span> JSONAPIAdapter.extend({
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> DS.JSONAPIAdapter.extend({
   <span class="function">pathForType</span>: <span class="keyword">function</span>(type) {
     <span class="keyword">return</span> Ember.String.underscore(type);
   }
@@ -369,12 +350,8 @@ object and Ember Data will send them along with each ajax request.</p>
 4
 5
 6
-7
-8
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> JSONAPIAdapter from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/adapters/json-api</span><span class="delimiter">'</span></span>;
-
-<span class="reserved">export</span> <span class="keyword">default</span> JSONAPIAdapter.extend({
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> DS.JSONAPIAdapter.extend({
   <span class="key">headers</span>: {
     <span class="key"><span class="delimiter">'</span><span class="content">API_KEY</span><span class="delimiter">'</span></span>: <span class="string"><span class="delimiter">'</span><span class="content">secret key</span><span class="delimiter">'</span></span>,
     <span class="key"><span class="delimiter">'</span><span class="content">ANOTHER_HEADER</span><span class="delimiter">'</span></span>: <span class="string"><span class="delimiter">'</span><span class="content">Some header value</span><span class="delimiter">'</span></span>
@@ -402,12 +379,8 @@ property dependent on the <code>session</code> service.</p>
 7
 8
 9
-<strong>10</strong>
-11
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> JSONAPIAdapter from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/adapters/json-api</span><span class="delimiter">'</span></span>;
-
-<span class="reserved">export</span> <span class="keyword">default</span> JSONAPIAdapter.extend({
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> DS.JSONAPIAdapter.extend({
   <span class="key">session</span>: Ember.inject.service(<span class="string"><span class="delimiter">'</span><span class="content">session</span><span class="delimiter">'</span></span>),
   <span class="key">headers</span>: Ember.computed(<span class="string"><span class="delimiter">'</span><span class="content">session.authToken</span><span class="delimiter">'</span></span>, <span class="keyword">function</span>() {
     <span class="keyword">return</span> {
@@ -440,12 +413,8 @@ be recomputed with every request.</p>
 6
 7
 8
-9
-<strong>10</strong>
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> JSONAPIAdapter from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/adapters/json-api</span><span class="delimiter">'</span></span>;
-
-<span class="reserved">export</span> <span class="keyword">default</span> JSONAPIAdapter.extend({
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> DS.JSONAPIAdapter.extend({
   <span class="key">headers</span>: Ember.computed(<span class="keyword">function</span>() {
     <span class="keyword">return</span> {
       <span class="key"><span class="delimiter">'</span><span class="content">API_KEY</span><span class="delimiter">'</span></span>: Ember.get(document.cookie.match(<span class="regexp"><span class="delimiter">/</span><span class="content">apiKey</span><span class="content">\=</span><span class="content">([^;]*)</span><span class="delimiter">/</span></span>), <span class="string"><span class="delimiter">'</span><span class="content">1</span><span class="delimiter">'</span></span>),
@@ -475,12 +444,8 @@ does not specify an <code>serializer:application</code>.</p>
   <td class="line-numbers"><pre>1
 2
 3
-4
-5
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> JSONAPIAdapter from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/adapters/json-api</span><span class="delimiter">'</span></span>;
-
-<span class="reserved">export</span> <span class="keyword">default</span> JSONAPIAdapter.extend({
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> DS.JSONAPIAdapter.extend({
   <span class="key">defaultSerializer</span>: <span class="string"><span class="delimiter">'</span><span class="content">-default</span><span class="delimiter">'</span></span>
 });
 </pre></td>
@@ -509,7 +474,7 @@ Adapters. Some good places to look for Ember Data Adapters include:</p>
     <div class="footer">
   <div class="container">
     <div class="footer-info">
-      Copyright 2016
+      Copyright 2017
       <a href="http://tilde.io">Tilde Inc.</a>
       <br>
       <a href="http://emberjs.com/team">Core Team</a> |
