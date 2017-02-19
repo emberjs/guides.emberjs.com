@@ -15,6 +15,7 @@
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
 
     <link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" title="Ember.js - Blog" />
+    <link href="https://guides.emberjs.com/current/models/defining-models/" rel="canonical">
     
   </head>
 
@@ -94,7 +95,7 @@ if they leave your app and come back later (or if they refresh the page)
 should be represented by a model.</p>
 
 <p>When you want a new model for your application you need to create a new file
-under the models folder and extend from <code>Model</code>. This is more conveniently
+under the models folder and extend from <code>DS.Model</code>. This is more conveniently
 done by using one of Ember CLI&#39;s generator commands. For instance, let&#39;s create
 a <code>person</code> model:</p>
 <div class="highlight bash "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
@@ -114,12 +115,8 @@ a <code>person</code> model:</p>
 <tr>
   <td class="line-numbers"><pre>1
 2
-3
-4
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> Model from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/model</span><span class="delimiter">'</span></span>;
-
-<span class="reserved">export</span> <span class="keyword">default</span> Model.extend({
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> DS.Model.extend({
 });
 </pre></td>
 </tr></table>
@@ -128,7 +125,7 @@ a <code>person</code> model:</p>
 and <a href="../creating-updating-and-deleting-records">working with records</a> of that type.</p>
 <h2 class='anchorable-toc' id='toc_defining-attributes'>Defining Attributes</h2>
 <p>The <code>person</code> model we generated earlier didn&#39;t have any attributes. Let&#39;s
-add first and last name, as well as the birthday, using <code>attr</code>:</p>
+add first and last name, as well as the birthday, using <a href="http://emberjs.com/api/data/classes/DS.html#method_attr"><code>DS.attr</code></a>:</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
   <thead>
     <tr>
@@ -141,17 +138,11 @@ add first and last name, as well as the birthday, using <code>attr</code>:</p>
 3
 4
 5
-6
-7
-8
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> Model from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/model</span><span class="delimiter">'</span></span>;
-<span class="reserved">import</span> attr from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/attr</span><span class="delimiter">'</span></span>;
-
-<span class="reserved">export</span> <span class="keyword">default</span> Model.extend({
-  <span class="key">firstName</span>: attr(),
-  <span class="key">lastName</span>: attr(),
-  <span class="key">birthday</span>: attr()
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> DS.Model.extend({
+  <span class="key">firstName</span>: DS.attr(),
+  <span class="key">lastName</span>: DS.attr(),
+  <span class="key">birthday</span>: DS.attr()
 });
 </pre></td>
 </tr></table>
@@ -178,16 +169,10 @@ properties that combine or transform primitive attributes.</p>
 6
 7
 8
-9
-<strong>10</strong>
-11
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> Model from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/model</span><span class="delimiter">'</span></span>;
-<span class="reserved">import</span> attr from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/attr</span><span class="delimiter">'</span></span>;
-
-<span class="reserved">export</span> <span class="keyword">default</span> Model.extend({
-  <span class="key">firstName</span>: attr(),
-  <span class="key">lastName</span>: attr(),
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> DS.Model.extend({
+  <span class="key">firstName</span>: DS.attr(),
+  <span class="key">lastName</span>: DS.attr(),
 
   <span class="key">fullName</span>: Ember.computed(<span class="string"><span class="delimiter">'</span><span class="content">firstName</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">lastName</span><span class="delimiter">'</span></span>, <span class="keyword">function</span>() {
     <span class="keyword">return</span> <span class="error">`</span><span class="predefined">$</span>{<span class="local-variable">this</span>.get(<span class="string"><span class="delimiter">'</span><span class="content">firstName</span><span class="delimiter">'</span></span>)} <span class="predefined">$</span>{<span class="local-variable">this</span>.get(<span class="string"><span class="delimiter">'</span><span class="content">lastName</span><span class="delimiter">'</span></span>)}<span class="error">`</span>;
@@ -204,7 +189,7 @@ match the type you would like to use in your JavaScript code. Ember
 Data allows you to define simple serialization and deserialization
 methods for attribute types called transforms. You can specify that
 you would like a transform to run for an attribute by providing the
-transform name as the first argument to the <code>attr</code> method. Ember Data
+transform name as the first argument to the <code>DS.attr</code> method. Ember Data
 supports attribute types of <code>string</code>, <code>number</code>, <code>boolean</code>, and <code>date</code>,
 which coerce the value to the JavaScript type that matches its name.</p>
 <div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
@@ -220,18 +205,12 @@ which coerce the value to the JavaScript type that matches its name.</p>
 4
 5
 6
-7
-8
-9
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> Model from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/model</span><span class="delimiter">'</span></span>;
-<span class="reserved">import</span> attr from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/attr</span><span class="delimiter">'</span></span>;
-
-<span class="reserved">export</span> <span class="keyword">default</span> Model.extend({
-  <span class="key">name</span>: attr(<span class="string"><span class="delimiter">'</span><span class="content">string</span><span class="delimiter">'</span></span>),
-  <span class="key">age</span>: attr(<span class="string"><span class="delimiter">'</span><span class="content">number</span><span class="delimiter">'</span></span>),
-  <span class="key">admin</span>: attr(<span class="string"><span class="delimiter">'</span><span class="content">boolean</span><span class="delimiter">'</span></span>),
-  <span class="key">birthday</span>: attr(<span class="string"><span class="delimiter">'</span><span class="content">date</span><span class="delimiter">'</span></span>)
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> DS.Model.extend({
+  <span class="key">name</span>: DS.attr(<span class="string"><span class="delimiter">'</span><span class="content">string</span><span class="delimiter">'</span></span>),
+  <span class="key">age</span>: DS.attr(<span class="string"><span class="delimiter">'</span><span class="content">number</span><span class="delimiter">'</span></span>),
+  <span class="key">admin</span>: DS.attr(<span class="string"><span class="delimiter">'</span><span class="content">boolean</span><span class="delimiter">'</span></span>),
+  <span class="key">birthday</span>: DS.attr(<span class="string"><span class="delimiter">'</span><span class="content">date</span><span class="delimiter">'</span></span>)
 });
 </pre></td>
 </tr></table>
@@ -272,12 +251,8 @@ Ember Data will do no additional processing of the value.</p>
 7
 8
 9
-<strong>10</strong>
-11
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> Transform from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/transform</span><span class="delimiter">'</span></span>;
-
-<span class="reserved">export</span> <span class="keyword">default</span> Transform.extend({
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> DS.Transform.extend({
   <span class="function">deserialize</span>: <span class="keyword">function</span>(serialized) {
     <span class="keyword">return</span> serialized / <span class="integer">100</span>; <span class="comment">// returns dollars</span>
   },
@@ -304,20 +279,14 @@ reverse and converts a value to the format expected by the persistence layer.</p
   <td class="line-numbers"><pre>1
 2
 3
-4
-5
-6
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> Model from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/model</span><span class="delimiter">'</span></span>;
-<span class="reserved">import</span> attr from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/attr</span><span class="delimiter">'</span></span>;
-
-<span class="reserved">export</span> <span class="keyword">default</span> Model.extend({
-  <span class="key">spent</span>: attr(<span class="string"><span class="delimiter">'</span><span class="content">dollars</span><span class="delimiter">'</span></span>)
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> DS.Model.extend({
+  <span class="key">spent</span>: DS.attr(<span class="string"><span class="delimiter">'</span><span class="content">dollars</span><span class="delimiter">'</span></span>)
 });
 </pre></td>
 </tr></table>
 </div></div><h3 class='anchorable-toc' id='toc_options'>Options</h3>
-<p><code>attr</code> can also take a hash of options as a second parameter. At the moment
+<p><code>DS.attr</code> can also take a hash of options as a second parameter. At the moment
 the only option available is <code>defaultValue</code>, which can use a value or a function
 to set the default value of the attribute if one is not supplied.</p>
 
@@ -339,18 +308,12 @@ creation:</p>
 6
 7
 8
-9
-<strong>10</strong>
-11
 </pre></td>
-  <td class="code"><pre><span class="reserved">import</span> Model from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/model</span><span class="delimiter">'</span></span>;
-<span class="reserved">import</span> attr from <span class="string"><span class="delimiter">'</span><span class="content">ember-data/attr</span><span class="delimiter">'</span></span>;
-
-<span class="reserved">export</span> <span class="keyword">default</span> Model.extend({
-  <span class="key">username</span>: attr(<span class="string"><span class="delimiter">'</span><span class="content">string</span><span class="delimiter">'</span></span>),
-  <span class="key">email</span>: attr(<span class="string"><span class="delimiter">'</span><span class="content">string</span><span class="delimiter">'</span></span>),
-  <span class="key">verified</span>: attr(<span class="string"><span class="delimiter">'</span><span class="content">boolean</span><span class="delimiter">'</span></span>, { <span class="key">defaultValue</span>: <span class="predefined-constant">false</span> }),
-  <span class="key">createdAt</span>: attr(<span class="string"><span class="delimiter">'</span><span class="content">date</span><span class="delimiter">'</span></span>, {
+  <td class="code"><pre><span class="reserved">export</span> <span class="keyword">default</span> DS.Model.extend({
+  <span class="key">username</span>: DS.attr(<span class="string"><span class="delimiter">'</span><span class="content">string</span><span class="delimiter">'</span></span>),
+  <span class="key">email</span>: DS.attr(<span class="string"><span class="delimiter">'</span><span class="content">string</span><span class="delimiter">'</span></span>),
+  <span class="key">verified</span>: DS.attr(<span class="string"><span class="delimiter">'</span><span class="content">boolean</span><span class="delimiter">'</span></span>, { <span class="key">defaultValue</span>: <span class="predefined-constant">false</span> }),
+  <span class="key">createdAt</span>: DS.attr(<span class="string"><span class="delimiter">'</span><span class="content">date</span><span class="delimiter">'</span></span>, {
     defaultValue() { <span class="keyword">return</span> <span class="keyword">new</span> Date(); }
   })
 });
@@ -370,7 +333,7 @@ creation:</p>
     <div class="footer">
   <div class="container">
     <div class="footer-info">
-      Copyright 2016
+      Copyright 2017
       <a href="http://tilde.io">Tilde Inc.</a>
       <br>
       <a href="http://emberjs.com/team">Core Team</a> |
