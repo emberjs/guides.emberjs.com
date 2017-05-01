@@ -16,8 +16,7 @@ VERSION=<version number>
 ```
 
 _NOTE: Historically, this version number was the new one (i.e. a new release of 2.4 would have meant building 2.4
-files and putting them here). With our CD process running smoothly, we tend to only build the version before the
-release in question (i.e. when releasing 2.13, we build 2.12 and let CD build 2.13 on the fly in the guides repo)_
+files and putting them here). With our CD process running smoothly, we don't tend to refresh our old version of the guides until release. When doing the below release, we need to do these instructions twice (once for 2.12 and again for 2.13, as the current 2.12 folder will be about 5-6 weeks out of date with the "built-on-the-fly" version of the 2.12 guides)_
 
 For `<version number>` we use the following format `v<major version>.<minor version>.<patch>`, so
 `v1.10.0` is correct but `1.9.1` is not.
