@@ -21,7 +21,42 @@ files and putting them here). With our CD process running smoothly, we don't ten
 For `<version number>` we use the following format `v<major version>.<minor version>.<patch>`, so
 `v1.10.0` is correct but `1.9.1` is not.
 
-### Build the guides
+### Automatic publishing
+
+_Note: we'd love to automate this even further down the road ..._
+
+Ensure your `guides` repo is a sibling directory with this repo (`guides.emberjs.com`)
+
+Build the latest guides and commit them as an update to the old version of guides (v2.16.0 in our case):
+
+```shell
+VERSION=<version number> # v2.16.0
+sh release.sh
+```
+
+Commit your changes.
+
+Re-run with the new version number (v2.17.0 in our example):
+
+```shell
+VERSION=<version number> # v2.17.0
+sh release.sh
+```
+
+Then manually update `snapshots/_redirects` to redirect to the new current version.
+
+Then commit and push this repo:
+
+```shell
+git add --all
+git commit -m "Add snapshot for Ember.js revision $VERSION"
+git push
+```
+
+Once those changes have hit Github, rebuilding the latest Travis build of the `emberjs/guides` repo will re-deploy
+guides with the new version.
+
+### Manual publishing
 
 In the [main guides repo](https://github.com/emberjs/guides), make a branch with the version number:
 
@@ -47,13 +82,12 @@ mv guides/build guides.emberjs.com/snapshots/$VERSION
 Now, change directories into the guides site repo. Update the list of versions:
 
 ```shell
-node tasks/update-versions
+node tasks/update-versions.js
 ```
 
-_The above step swaps out some constants that are part of our built files_
+_The above step swaps out some constants that are part of our built files and updates `snapshots/version.json` with the latest versions_
 
-Now update the `snapshots/version.json` file to have a new version at the end.  You'll also
-need to update `snapshots/_redirects` to redirect to the new current version.
+You'll will also need to update `snapshots/_redirects` to redirect to the new current version.
 
 Then commit and push this repo:
 
