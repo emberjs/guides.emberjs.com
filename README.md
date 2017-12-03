@@ -53,7 +53,7 @@ git commit -m "Add snapshot for Ember.js revision $VERSION"
 git push
 ```
 
-Once those changes have hit Github, rebuilding the latest Travis build of the `emberjs/guides` repo will re-deploy
+Once those changes have hit Github, rebuild the latest Travis build of the `emberjs/guides` repo ([https://travis-ci.org/emberjs/guides](https://travis-ci.org/emberjs/guides)) which re-deploys
 guides with the new version.
 
 ### Manual publishing
