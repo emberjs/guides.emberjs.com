@@ -5,7 +5,7 @@ echo Version: $VERSION
 cd ../guides
 git checkout master
 git pull
-git checkout foo 2>/dev/null || git checkout -b foo
+git checkout $VERSION 2>/dev/null || git checkout -b $VERSION
 bundle exec middleman build
 cd ../guides.emberjs.com
 mkdir $VERSION
