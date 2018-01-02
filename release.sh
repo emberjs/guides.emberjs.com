@@ -5,10 +5,10 @@ echo Version: $VERSION
 cd ../guides
 git checkout master
 git pull
-git checkout $VERSION || git checkout -b $VERSION
+git checkout foo 2>/dev/null || git checkout -b foo
 bundle exec middleman build
 cd ../guides.emberjs.com
-mkdir v2.17.0
+mkdir $VERSION
 mv -v `pwd`/../guides/build/* `pwd`/snapshots/$VERSION
 node tasks/update-versions
 
