@@ -9,7 +9,7 @@ git checkout $VERSION 2>/dev/null || git checkout -b $VERSION
 bundle exec middleman build
 cd ../guides.emberjs.com
 mkdir $VERSION
-mv -v ../guides/build/* snapshots/$VERSION
+mv ../guides/build snapshots/$VERSION
 node tasks/update-versions
 
 # NEEDS TO UPDATE _redirects
