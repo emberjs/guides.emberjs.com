@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="theme-color" content="#e46652">
+
+    <title>Ember.js - Testing: Introduction</title>
+    <meta property="st:title" content="Testing: Introduction" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../images/favicon.png" rel="icon" type="image/png" />
+    <!--[if lte IE 7 ]><link href="../stylesheets/fonts/fontello-ie7.css" rel="stylesheet" /><![endif]-->
+    <link href="../stylesheets/application.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" rel="stylesheet">
+    
+    <!-- This TypeKit account is managed by @wifelette. Contact her with any issues. -->
+    <script src="https://use.typekit.net/stz3kpn.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+    <link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" title="Ember.js - Blog" />
+    
+  </head>
+
+  <body class="guides testing testing_index">
+
+    <!--[if lt IE 9]>
+      <script src="../javascripts/common-old-ie.js"></script>
+    <![endif]-->
+    <!--[if gte IE 9]><!-->
+      <script src="../javascripts/common-modern.js"></script>
+    <!--<![endif]-->
+
+    <header>
+<nav class="navbar navbar-inverse">
+ <div class="container">
+  <div class="navbar-header">
+   <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+   <a class="navbar-brand" href="http://emberjs.com"><img src="https://glimmer-styleguide.global.ssl.fastly.net/glimmer-styleguide/master/images/ember-logo.svg" alt="home" /></a>
+  </div>
+  <div class="collapse navbar-collapse" id="navbar-collapse">
+   <ul class="nav navbar-nav">
+    <li class="dropdown">
+     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Docs <span class="caret"></span></a>
+     <ul class="dropdown-menu">
+      <li><a href="http://emberjs.com/guides">Guides</a></li>
+      <li><a href="http://emberjs.com/api">API Reference</a></li>
+      <li role="separator" class="divider"></li>
+      <li><a href="http://emberjs.com/learn">Learn Ember</a></li>
+     </ul>
+    </li>
+    <li class="dropdown">
+     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Releases <span class="caret"></span></a>
+     <ul class="dropdown-menu">
+      <li><a href="http://emberjs.com/builds">Channels</a></li>
+      <li><a href="http://emberjs.com/builds/release">-- Stable</a></li>
+      <li><a href="http://emberjs.com/builds/beta">-- Beta</a></li>
+      <li><a href="http://emberjs.com/builds/canary">-- Canary</a></li>
+      <li role="separator" class="divider"></li>
+      <li><a href="http://emberjs.com/deprecations">Deprecations</a></li>
+      <li><a href="http://emberjs.com/statusboard">Status Board</a></li>
+     </ul>
+    </li>
+    <li><a href="http://emberjs.com/blog">Blog</a></li>
+    <li class="dropdown">
+     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Community <span class="caret"></span></a>
+     <ul class="dropdown-menu">
+      <li><a href="http://emberjs.com/community">The Ember Community</a></li>
+       <li><a href="http://emberjs.com/guidelines">Guidelines</a></li>
+       <li><a href="http://github.com/emberjs/">Contribute (Github)</a></li>
+       <li role="separator" class="divider"></li>
+       <li><a href="http://emberjs.com/community/meetups">Meetups</a></li>
+       <li><a href="http://jobs.emberjs.com/">Job Board</a></li>
+       <li role="separator" class="divider"></li>
+       <li><a href="http://emberconf.com/">Ember Conf</a></li>
+     </ul>
+     </li>
+     <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About<span class="caret"></span></a>
+      <ul class="dropdown-menu">
+       <li><a href="http://emberjs.com/team">The Team</a></li>
+       <li role="separator" class="divider"></li>
+       <li><a href="http://emberjs.com/logos">Logos</a></li>
+       <li><a href="http://emberjs.com/mascots">Mascots</a></li>
+       <li role="separator" class="divider"></li>
+       <li><a href="http://emberjs.com/ember-users">Who Uses Ember</a></li>
+       <li><a href="http://emberjs.com/sponsors">Sponsors</a></li>
+       <li role="separator" class="divider"></li>
+       <li><a href="http://emberjs.com/legal">Legal</a></li>
+       <li><a href="http://emberjs.com/security">Security</a></li>
+      </ul>
+     </li>
+   </ul>
+   <form class="navbar-form navbar-right searchbox">
+    <div class="input-group">
+      <label for="search-input" class="control-label sr-only">Search</label>
+        <input type="text"
+        class="form-control search input ds-input"
+        placeholder="Search..."
+        id="search-input"
+        role="combobox"
+        aria-expanded="false"
+        aria-owns="algolia-autocomplete-listbox-0"
+        autocorrect="off"
+        autocapitalize="none"
+        spellcheck="false"
+        />
+        <span></span>
+    </div>
+   </form>
+  </div>
+  <!-- /.navbar-collapse -->
+ </div>
+ <!-- /.container-fluid -->
+</nav>
+</header>
+
+
+    
+
+    <main class="container">
+
+      <aside class="sidebar">
+  <label for="version-select" class="visually-hidden">Guides version</label>
+  <select class="version-select" id="version-select" style="width: 100%"></select>
+
+  <input id="toc-toggle" class="toc-toggle visually-hidden" type="checkbox" />
+  <label for="toc-toggle">Table of Contents <span class="visually-hidden">toggle</span></label>
+
+  <nav class='toc-container' aria-label='table of contents'><ol class='toc-level-0 selected'><li class='toc-level-0 '><a href="#">Getting Started</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../getting-started/quick-start/">Quick Start</a></li><li class='toc-level-1 '><a href="../getting-started/">Installing Ember</a></li><li class='toc-level-1 '><a href="../getting-started/core-concepts/">Core Concepts</a></li><li class='toc-level-1 '><a href="../getting-started/js-primer/">JavaScript Primer</a></li></ol></li><li class='toc-level-0 '><a href="#">Tutorial</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../tutorial/ember-cli/">Creating Your App</a></li><li class='toc-level-1 '><a href="../tutorial/acceptance-test/">Planning Your App</a></li><li class='toc-level-1 '><a href="../tutorial/routes-and-templates/">Routes and Templates</a></li><li class='toc-level-1 '><a href="../tutorial/model-hook/">The Model Hook</a></li><li class='toc-level-1 '><a href="../tutorial/installing-addons/">Installing Addons</a></li><li class='toc-level-1 '><a href="../tutorial/simple-component/">Building a Simple Component</a></li><li class='toc-level-1 '><a href="../tutorial/hbs-helper/">Creating a Handlebars Helper</a></li><li class='toc-level-1 '><a href="../tutorial/ember-data/">Using Ember Data</a></li><li class='toc-level-1 '><a href="../tutorial/autocomplete-component/">Building a Complex Component</a></li><li class='toc-level-1 '><a href="../tutorial/service/">Services and Utilities</a></li><li class='toc-level-1 '><a href="../tutorial/subroutes/">Adding Nested Routes</a></li><li class='toc-level-1 '><a href="../tutorial/deploying/">Deploying</a></li></ol></li><li class='toc-level-0 '><a href="#">The Object Model</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../object-model/">Objects in Ember</a></li><li class='toc-level-1 '><a href="../object-model/classes-and-instances/">Classes and Instances</a></li><li class='toc-level-1 '><a href="../object-model/reopening-classes-and-instances/">Reopening Classes and Instances</a></li><li class='toc-level-1 '><a href="../object-model/computed-properties/">Computed Properties</a></li><li class='toc-level-1 '><a href="../object-model/computed-properties-and-aggregate-data/">Computed Properties and Aggregate Data</a></li><li class='toc-level-1 '><a href="../object-model/observers/">Observers</a></li><li class='toc-level-1 '><a href="../object-model/bindings/">Bindings</a></li><li class='toc-level-1 '><a href="../object-model/enumerables/">Enumerables</a></li></ol></li><li class='toc-level-0 '><a href="#">Routing</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../routing/">Introduction</a></li><li class='toc-level-1 '><a href="../routing/defining-your-routes/">Defining Your Routes</a></li><li class='toc-level-1 '><a href="../routing/specifying-a-routes-model/">Specifying a Route's Model</a></li><li class='toc-level-1 '><a href="../routing/rendering-a-template/">Rendering a Template</a></li><li class='toc-level-1 '><a href="../routing/redirection/">Redirecting</a></li><li class='toc-level-1 '><a href="../routing/preventing-and-retrying-transitions/">Preventing and Retrying Transitions</a></li><li class='toc-level-1 '><a href="../routing/loading-and-error-substates/">Loading / Error Substates</a></li><li class='toc-level-1 '><a href="../routing/query-params/">Query Parameters</a></li><li class='toc-level-1 '><a href="../routing/asynchronous-routing/">Asynchronous Routing</a></li></ol></li><li class='toc-level-0 '><a href="#">Templates</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../templates/handlebars-basics/">Handlebars Basics</a></li><li class='toc-level-1 '><a href="../templates/built-in-helpers/">Built-in Helpers</a></li><li class='toc-level-1 '><a href="../templates/conditionals/">Conditionals</a></li><li class='toc-level-1 '><a href="../templates/displaying-a-list-of-items/">Displaying a List of Items</a></li><li class='toc-level-1 '><a href="../templates/displaying-the-keys-in-an-object/">Displaying the Keys in an Object</a></li><li class='toc-level-1 '><a href="../templates/binding-element-attributes/">Binding Element Attributes</a></li><li class='toc-level-1 '><a href="../templates/links/">Links</a></li><li class='toc-level-1 '><a href="../templates/actions/">Actions</a></li><li class='toc-level-1 '><a href="../templates/input-helpers/">Input Helpers</a></li><li class='toc-level-1 '><a href="../templates/development-helpers/">Development Helpers</a></li><li class='toc-level-1 '><a href="../templates/writing-helpers/">Writing Helpers</a></li></ol></li><li class='toc-level-0 '><a href="#">Components</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../components/defining-a-component/">Defining a Component</a></li><li class='toc-level-1 '><a href="../components/the-component-lifecycle/">The Component Lifecycle</a></li><li class='toc-level-1 '><a href="../components/passing-properties-to-a-component/">Passing Properties to a Component</a></li><li class='toc-level-1 '><a href="../components/wrapping-content-in-a-component/">Wrapping Content in a Component</a></li><li class='toc-level-1 '><a href="../components/customizing-a-components-element/">Customizing a Component's Element</a></li><li class='toc-level-1 '><a href="../components/block-params/">Using Block Params</a></li><li class='toc-level-1 '><a href="../components/handling-events/">Handling Events</a></li><li class='toc-level-1 '><a href="../components/triggering-changes-with-actions/">Triggering Changes with Actions</a></li></ol></li><li class='toc-level-0 '><a href="#">Controllers</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../controllers/">Introduction</a></li></ol></li><li class='toc-level-0 '><a href="#">Models</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../models/">Introduction</a></li><li class='toc-level-1 '><a href="../models/defining-models/">Defining Models</a></li><li class='toc-level-1 '><a href="../models/finding-records/">Finding Records</a></li><li class='toc-level-1 '><a href="../models/creating-updating-and-deleting-records/">Creating, Updating and Deleting</a></li><li class='toc-level-1 '><a href="../models/relationships/">Relationships</a></li><li class='toc-level-1 '><a href="../models/pushing-records-into-the-store/">Pushing Records into the Store</a></li><li class='toc-level-1 '><a href="../models/handling-metadata/">Handling Metadata</a></li><li class='toc-level-1 '><a href="../models/customizing-adapters/">Customizing Adapters</a></li><li class='toc-level-1 '><a href="../models/customizing-serializers/">Customizing Serializers</a></li></ol></li><li class='toc-level-0 '><a href="#">Application Concerns</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../applications/applications-and-instances/">Applications and Instances</a></li><li class='toc-level-1 '><a href="../applications/dependency-injection/">Dependency Injection</a></li><li class='toc-level-1 '><a href="../applications/initializers/">Initializers</a></li><li class='toc-level-1 '><a href="../applications/services/">Services</a></li><li class='toc-level-1 '><a href="../applications/run-loop/">The Run Loop</a></li></ol></li><li class='toc-level-0 selected'><a href="#">Testing</a><ol class='toc-level-1 selected'><li class='toc-level-1 selected'><a href="./">Introduction</a></li><li class='toc-level-1 '><a href="acceptance/">Application Tests</a></li><li class='toc-level-1 '><a href="unit-testing-basics/">Testing Basics</a></li><li class='toc-level-1 '><a href="testing-components/">Testing Components</a></li><li class='toc-level-1 '><a href="testing-helpers/">Testing Helpers</a></li><li class='toc-level-1 '><a href="testing-controllers/">Testing Controllers</a></li><li class='toc-level-1 '><a href="testing-routes/">Testing Routes</a></li><li class='toc-level-1 '><a href="testing-models/">Testing Models</a></li></ol></li><li class='toc-level-0 '><a href="#">Ember Inspector</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../ember-inspector/">Introduction</a></li><li class='toc-level-1 '><a href="../ember-inspector/installation/">Installing the Inspector</a></li><li class='toc-level-1 '><a href="../ember-inspector/object-inspector/">Object Inspector</a></li><li class='toc-level-1 '><a href="../ember-inspector/view-tree/">The View Tree</a></li><li class='toc-level-1 '><a href="../ember-inspector/routes/">Inspecting Routes</a></li><li class='toc-level-1 '><a href="../ember-inspector/data/">Data Tab</a></li><li class='toc-level-1 '><a href="../ember-inspector/deprecations/">Tackling Deprecations</a></li><li class='toc-level-1 '><a href="../ember-inspector/info/">Library Info</a></li><li class='toc-level-1 '><a href="../ember-inspector/promises/">Debugging Promises</a></li><li class='toc-level-1 '><a href="../ember-inspector/container/">Inspecting Objects via the Container</a></li><li class='toc-level-1 '><a href="../ember-inspector/render-performance/">Rendering Performance</a></li><li class='toc-level-1 '><a href="../ember-inspector/troubleshooting/">Troubleshooting</a></li></ol></li><li class='toc-level-0 '><a href="#">Addons and Dependencies</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../addons-and-dependencies/managing-dependencies/">Managing Dependencies</a></li></ol></li><li class='toc-level-0 '><a href="#">Configuring Ember.js</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../configuring-ember/configuring-your-app/">Configuring Your App</a></li><li class='toc-level-1 '><a href="../configuring-ember/configuring-ember-cli/">Configuring Ember CLI</a></li><li class='toc-level-1 '><a href="../configuring-ember/handling-deprecations/">Handling Deprecations</a></li><li class='toc-level-1 '><a href="../configuring-ember/disabling-prototype-extensions/">Disabling Prototype Extensions</a></li><li class='toc-level-1 '><a href="../configuring-ember/specifying-url-type/">Specifying the URL Type</a></li><li class='toc-level-1 '><a href="../configuring-ember/embedding-applications/">Embedding Applications</a></li><li class='toc-level-1 '><a href="../configuring-ember/feature-flags/">Feature Flags</a></li><li class='toc-level-1 '><a href="../configuring-ember/build-targets/">Build targets</a></li><li class='toc-level-1 '><a href="../configuring-ember/debugging/">Debugging</a></li></ol></li><li class='toc-level-0 '><a href="#">Contributing to Ember.js</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../contributing/adding-new-features/">Adding New Features</a></li><li class='toc-level-1 '><a href="../contributing/repositories/">Repositories</a></li></ol></li><li class='toc-level-0 '><a href="#">Glossary</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../glossary/web-development/">Web Development</a></li></ol></li></ol></nav>
+
+  <a class="back-to-top" href="#">&#11014; Back to Top</a>
+</aside>
+
+
+      <article class="chapter">
+        <h1>
+          Introduction
+          <a href="https://github.com/emberjs/guides/edit/master/source/testing/index.md"
+             target="_blank" class="edit-page icon-pencil">Edit Page</a>
+        </h1>
+        <hr>
+
+        <p>Testing is a core part of the Ember framework and its development cycle.</p>
+
+<p>Let&#39;s assume you are writing an Ember application which will serve as a blog.
+This application would likely include models such as <code>user</code> and <code>post</code>.
+It would also include interactions such as <em>login</em> and <em>create post</em>.
+Let&#39;s finally assume that you would like to have <a href="http://en.wikipedia.org/wiki/Test_automation">automated tests</a> in place for your application.</p>
+
+<p>There are four different types of test setups you can choose from:</p>
+<h3 class='anchorable-toc' id='toc_application-tests'>Application Tests</h3>
+<p>Some tests will require you to test user interaction and application flow.
+In these kinds of tests, you interact with the application in the same ways that a user would, such as filling out form fields and clicking buttons. You might also want to check if the user navigates to different routes while interacting with the application.
+Application tests ensure that the interactions within a project are basically functional, the core features of a project have not regressed, and the project&#39;s goals are being met.</p>
+
+<p>In the example scenario above, some of the tests you might write are:</p>
+
+<ul>
+<li>A user is able to log in via the login form.</li>
+<li>A user is able to create a blog post.</li>
+<li>After saving a new post successfully, a user is then shown the list of prior posts.</li>
+<li>A visitor does not have access to the admin panel.</li>
+</ul>
+
+<p>For tests that require a full application setup we can use the <code>setupApplicationTest</code> helper.
+You can read more about how to create these kinds of tests in the <a href="../acceptance">Application tests</a> section.</p>
+<h3 class='anchorable-toc' id='toc_rendering-tests'>Rendering Tests</h3>
+<p>Rendering tests will verify interactions between various parts of the application,
+such as behavior between UI controls.
+Typically they require the UI to be rendered to be able to execute user interactions in the testing scenario.
+They are valuable in ensuring data and actions are properly passed between different parts of the system
+and provide confidence that parts of the system will work within the application in multiple scenarios.</p>
+
+<p>Rendering tests are especially useful for verifying the correct behavior of components and helpers.
+The component or helper interacts with the system in the same way that it will within the context of the application,
+including being rendered from a template and receiving Ember&#39;s lifecycle hooks.</p>
+
+<p>Examples of these kinds of tests are:</p>
+
+<ul>
+<li>An author&#39;s full name and date are properly displayed in a blog post.</li>
+<li>A user is prevented from typing more than 50 characters into post&#39;s title field.</li>
+<li>Submitting a post without a title displays a red validation state on the field and gives the user text indicating that the title is required.</li>
+<li>The blog post list scrolls to position a new post at the top of the viewport.</li>
+</ul>
+
+<p>We can create an isolated rendering test with the <code>setupRenderingTest</code> helper.
+You can read more about it in the <a href="../testing-components">Testing Components</a> or the <a href="../testing-helpers">Testing Helpers</a> section.</p>
+<h3 class='anchorable-toc' id='toc_container-tests'>Container Tests</h3>
+<p>Container tests are useful if you are testing a small part of your app which doesn&#39;t require user interaction to be tested
+but which requires the application&#39;s container to be setup.
+If you would like to test the functionality regarding an Ember class instance,
+e.g. a controller, service or route, you can create this kind of test to verify its behavior.</p>
+
+<p>Some specific examples of these type of tests are:</p>
+
+<ul>
+<li>A <code>fullName</code> attribute on a controller is computed by combining its <code>firstName</code> and <code>lastName</code> attributes.</li>
+<li>A serializer properly converts the blog request payload into a blog post model object.</li>
+<li>Blog dates are properly formatted through a <code>time</code> service.</li>
+</ul>
+
+<p>We can create these isolated container tests with the <code>setupTest</code> helper.
+You can read more about these type of tests in the [Testing Routes] and [Testing Controllers] section.</p>
+<h3 class='anchorable-toc' id='toc_simple-unit-tests'>Simple Unit Tests</h3>
+<p>If you would like to test an isolated, small-scoped functionality, you can create a unit test.
+Unit tests are the go-to testing type if you neither require user interactions nor an application container setup to create your test case.</p>
+
+<p>Some specific examples of these type of tests are:</p>
+
+<ul>
+<li>The return value of a <code>getFullName</code> utility combines its <code>firstName</code> and <code>lastName</code> parameters correctly.</li>
+<li>A computed property macro formats a price depending on its <code>currency</code> and <code>cents</code> dependent keys.</li>
+<li>A helper computes the current date properly.</li>
+</ul>
+
+<p>We can create these type of isolated tests without the use of any additional helpers,
+as they neither require the application&#39;s container to be setup nor any user interaction.</p>
+<h3 class='anchorable-toc' id='toc_testing-frameworks'>Testing Frameworks</h3>
+<p><a href="http://qunitjs.com/">QUnit</a> is the default testing framework for this guide, but others are supported, too through addons, e.g. <a href="https://github.com/emberjs/ember-mocha">ember-mocha</a>.</p>
+<h3 class='anchorable-toc' id='toc_testing-blueprints'>Testing Blueprints</h3>
+<p>By default whenever you are creating a new component, helper, service, or any another module in your app,
+<a href="https://ember-cli.com/generators-and-blueprints">Ember CLI</a> will automatically create a QUnit-based test file
+based on the associated testing blueprint for you.
+This blueprint will contain all the basic test setup necessary for testing the module you have just created
+and help you get started writing your first test straight away.</p>
+
+<p>Imagine we create a new <code>location</code> service by running <code>ember generate service location</code>.
+If we have a look at the newly created blueprint under <code>tests/unit/services/location-test.js</code> we&#39;ll find the following:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">tests/unit/models/some-thing-test.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+11
+12
+</pre></td>
+  <td class="code"><pre><span class="reserved">import</span> { module, test } from <span class="string"><span class="delimiter">'</span><span class="content">qunit</span><span class="delimiter">'</span></span>;
+<span class="reserved">import</span> { setupTest } from <span class="string"><span class="delimiter">'</span><span class="content">ember-qunit</span><span class="delimiter">'</span></span>;
+
+module(<span class="string"><span class="delimiter">'</span><span class="content">Unit | Service | location</span><span class="delimiter">'</span></span>, <span class="keyword">function</span>(hooks) {
+  setupTest(hooks);
+
+  <span class="comment">// Replace this with your real tests.</span>
+  test(<span class="string"><span class="delimiter">'</span><span class="content">it exists</span><span class="delimiter">'</span></span>, <span class="keyword">function</span>(assert) {
+    let service = <span class="local-variable">this</span>.owner.lookup(<span class="string"><span class="delimiter">'</span><span class="content">service:location</span><span class="delimiter">'</span></span>);
+    assert.ok(service);
+  });
+});
+</pre></td>
+</tr></table>
+</div></div>
+<p>Note how this test setup follows a nested structure.
+Each test case will be wrapped by a <a href="https://api.qunitjs.com/QUnit/module">QUnit.module</a> function
+which allows us to scope several tests into a group.
+We can now apply the same testing setup to all tests in this test group easily,
+or we can run those tests independently from the rest of the test suite.</p>
+<h3 class='anchorable-toc' id='toc_how-to-run-your-tests'>How to Run Your Tests</h3>
+<p>Run your tests with <code>ember test</code> on the command-line. You can re-run your tests on every file-change with <code>ember test --server</code>.</p>
+
+<p>Tests can also be executed when you are running a local development server (started by running <code>ember server</code>),
+at the <code>/tests</code> URI which renders the <code>tests/index.html</code> template.
+A word of caution using this approach:
+Tests run using <code>ember server</code> have the environment configuration <code>development</code>,
+whereas tests executed under <code>ember test --server</code> are run with the configuration <code>test</code>.
+This could cause differences in execution, such as which libraries are loaded and available.
+Therefore it&#39;s recommended that you use <code>ember test --server</code> for test execution.</p>
+
+<p>These commands run your tests using <a href="https://github.com/airportyh/testem">Testem</a> to make testing multiple browsers very easy.
+You can configure Testem using the <code>testem.js</code> file in your application root.</p>
+<h4 class='anchorable-toc' id='toc_choosing-the-tests-to-run'>Choosing the Tests to Run</h4>
+<p>To run a subset of your tests by title use the <code>--filter</code> option.
+Quickly test your current work <code>ember test --filter=&quot;dashboard&quot;</code>, or only run a certain type of test <code>ember test --filter=&quot;integration&quot;</code>.
+When using QUnit it is possible to exclude tests by adding an exclamation point to the beginning of the filter <code>ember test --filter=&quot;!acceptance&quot;</code>.</p>
+
+<p>You can also run a group of tests which you have scoped with a <code>module</code> before; e.g. for testing the module called <code>Unit | Service | location</code> only,
+run <code>ember test --module=&#39;Unit | Service | location&#39;</code>.</p>
+
+
+
+        
+      <footer>
+        <a class="previous-guide" href="../applications/run-loop/">The Run Loop</a> <a class="next-guide" href="acceptance/">Application Tests</a>
+      </footer>
+      
+      </article>
+    </main>
+
+    <div class="footer">
+  <div class="container">
+    <div class="footer-info">
+      Copyright 2018
+      <a href="http://tilde.io">Tilde Inc.</a>
+      <br>
+      <a href="http://emberjs.com/team">Core Team</a> |
+      <a href="http://emberjs.com/sponsors">Sponsors</a>
+      <br>
+      <a href="http://emberjs.com/security">Security</a> |
+      <a href="http://emberjs.com/legal">Legal</a> |
+      <a href="http://emberjs.com/logos">Logos</a>
+      <br>
+      <a href="http://emberjs.com/guidelines">Community Guidelines</a>
+    </div>
+
+    <div class="footer-statement">
+      Ember.js is free, open source and always will be.
+    </div>
+
+    <div class="footer-social">
+      <a href="http://twitter.com/emberjs"
+        title="Twitter">
+        <i class="icon-twitter"></i>
+      </a>
+      <a href="https://github.com/emberjs/ember.js"
+        title="GitHub">
+        <i class="icon-github"></i>
+      </a>
+      <a href="https://plus.google.com/communities/106387049790387471205"
+        title="Google+">
+        <i class="icon-gplus"></i>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+    
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+      _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+      _gaq.push(['_setAccount', 'UA-27675533-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
+</html>
