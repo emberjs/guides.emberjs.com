@@ -11,6 +11,7 @@
     <!--[if lte IE 7 ]><link href="../../stylesheets/fonts/fontello-ie7.css" rel="stylesheet" /><![endif]-->
     <link href="../../stylesheets/application.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" rel="stylesheet">
+    
     <!-- This TypeKit account is managed by @wifelette. Contact her with any issues. -->
     <script src="https://use.typekit.net/stz3kpn.js"></script>
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
@@ -28,38 +29,93 @@
       <script src="../../javascripts/common-modern.js"></script>
     <!--<![endif]-->
 
-    <header class="header">
-  <nav role="navigation" aria-label="main">
-    <ul class="header-nav container">
-      <li class="header-logo">
-        <a href="http://emberjs.com/"><span class="visually-hidden">Ember homepage</span></a>
-      </li>
-      <li>
-        <a href="http://emberjs.com/learn">Learn</a>
-      </li>
-      <li class="active" aria-label="You are here">
-        <a href="/">Guides</a>
-      </li>
-      <li>
-        <a href="http://emberjs.com/api">API</a>
-      </li>
-      <li>
-        <a href="http://emberjs.com/community">Community</a>
-      </li>
-      <li>
-        <a href="http://emberjs.com/blog">Blog</a>
-      </li>
-      <li>
-        <a href="http://emberjs.com/builds">Builds</a>
-      </li>
-
-      <li class="header-search">
-        <form>
-          <input type="text" id="search-input" class="search-input" placeholder="Search the guides"/>
-        </form>
-      </li>
-    </ul>
-  </nav>
+    <header>
+<nav class="navbar navbar-inverse">
+ <div class="container">
+  <div class="navbar-header">
+   <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+   <a class="navbar-brand" href="http://emberjs.com"><img src="https://glimmer-styleguide.global.ssl.fastly.net/glimmer-styleguide/master/images/ember-logo.svg" alt="home" /></a>
+  </div>
+  <div class="collapse navbar-collapse" id="navbar-collapse">
+   <ul class="nav navbar-nav">
+    <li class="dropdown">
+     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Docs <span class="caret"></span></a>
+     <ul class="dropdown-menu">
+      <li><a href="http://emberjs.com/guides">Guides</a></li>
+      <li><a href="http://emberjs.com/api">API Reference</a></li>
+      <li role="separator" class="divider"></li>
+      <li><a href="http://emberjs.com/learn">Learn Ember</a></li>
+     </ul>
+    </li>
+    <li class="dropdown">
+     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Releases <span class="caret"></span></a>
+     <ul class="dropdown-menu">
+      <li><a href="http://emberjs.com/builds">Channels</a></li>
+      <li><a href="http://emberjs.com/builds/release">-- Stable</a></li>
+      <li><a href="http://emberjs.com/builds/beta">-- Beta</a></li>
+      <li><a href="http://emberjs.com/builds/canary">-- Canary</a></li>
+      <li role="separator" class="divider"></li>
+      <li><a href="http://emberjs.com/deprecations">Deprecations</a></li>
+      <li><a href="http://emberjs.com/statusboard">Status Board</a></li>
+     </ul>
+    </li>
+    <li><a href="http://emberjs.com/blog">Blog</a></li>
+    <li class="dropdown">
+     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Community <span class="caret"></span></a>
+     <ul class="dropdown-menu">
+      <li><a href="http://emberjs.com/community">The Ember Community</a></li>
+       <li><a href="http://emberjs.com/guidelines">Guidelines</a></li>
+       <li><a href="http://github.com/emberjs/">Contribute (Github)</a></li>
+       <li role="separator" class="divider"></li>
+       <li><a href="http://emberjs.com/community/meetups">Meetups</a></li>
+       <li><a href="http://jobs.emberjs.com/">Job Board</a></li>
+       <li role="separator" class="divider"></li>
+       <li><a href="http://emberconf.com/">Ember Conf</a></li>
+     </ul>
+     </li>
+     <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About<span class="caret"></span></a>
+      <ul class="dropdown-menu">
+       <li><a href="http://emberjs.com/team">The Team</a></li>
+       <li role="separator" class="divider"></li>
+       <li><a href="http://emberjs.com/logos">Logos</a></li>
+       <li><a href="http://emberjs.com/mascots">Mascots</a></li>
+       <li role="separator" class="divider"></li>
+       <li><a href="http://emberjs.com/ember-users">Who Uses Ember</a></li>
+       <li><a href="http://emberjs.com/sponsors">Sponsors</a></li>
+       <li role="separator" class="divider"></li>
+       <li><a href="http://emberjs.com/legal">Legal</a></li>
+       <li><a href="http://emberjs.com/security">Security</a></li>
+      </ul>
+     </li>
+   </ul>
+   <form class="navbar-form navbar-right searchbox">
+    <div class="input-group">
+      <label for="search-input" class="control-label sr-only">Search</label>
+        <input type="text"
+        class="form-control search input ds-input"
+        placeholder="Search..."
+        id="search-input"
+        role="combobox"
+        aria-expanded="false"
+        aria-owns="algolia-autocomplete-listbox-0"
+        autocorrect="off"
+        autocapitalize="none"
+        spellcheck="false"
+        />
+        <span></span>
+    </div>
+   </form>
+  </div>
+  <!-- /.navbar-collapse -->
+ </div>
+ <!-- /.container-fluid -->
+</nav>
 </header>
 
 
@@ -169,7 +225,7 @@ with your application.</p>
 <tr>
   <td class="line-numbers"><pre>1
 </pre></td>
-  <td class="code"><pre>ENV.APP.LOG_BINDINGS = <span class="predefined-constant">true</span>
+  <td class="code"><pre>ENV.APP.LOG_BINDINGS = <span class="predefined-constant">true</span>;
 </pre></td>
 </tr></table>
 </div></div><h2 class='anchorable-toc' id='toc_miscellaneous'>Miscellaneous</h2><h4 class='anchorable-toc' id='toc_turn-on-resolver-resolution-logging'>Turn on resolver resolution logging</h4>
@@ -202,8 +258,8 @@ and which it is generating automatically for you.</p>
   <td class="line-numbers"><pre>1
 2
 </pre></td>
-  <td class="code"><pre>Ember.ENV.RAISE_ON_DEPRECATION = <span class="predefined-constant">true</span>
-Ember.ENV.LOG_STACKTRACE_ON_DEPRECATION = <span class="predefined-constant">true</span>
+  <td class="code"><pre>Ember.ENV.RAISE_ON_DEPRECATION = <span class="predefined-constant">true</span>;
+Ember.ENV.LOG_STACKTRACE_ON_DEPRECATION = <span class="predefined-constant">true</span>;
 </pre></td>
 </tr></table>
 </div></div><h4 class='anchorable-toc' id='toc_implement-an-ember-onerror-hook-to-log-all-errors-in-production'>Implement an Ember.onerror hook to log all errors in production</h4><div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>

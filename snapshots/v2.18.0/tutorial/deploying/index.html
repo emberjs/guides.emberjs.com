@@ -11,6 +11,7 @@
     <!--[if lte IE 7 ]><link href="../../stylesheets/fonts/fontello-ie7.css" rel="stylesheet" /><![endif]-->
     <link href="../../stylesheets/application.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" rel="stylesheet">
+    
     <!-- This TypeKit account is managed by @wifelette. Contact her with any issues. -->
     <script src="https://use.typekit.net/stz3kpn.js"></script>
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
@@ -28,38 +29,93 @@
       <script src="../../javascripts/common-modern.js"></script>
     <!--<![endif]-->
 
-    <header class="header">
-  <nav role="navigation" aria-label="main">
-    <ul class="header-nav container">
-      <li class="header-logo">
-        <a href="http://emberjs.com/"><span class="visually-hidden">Ember homepage</span></a>
-      </li>
-      <li>
-        <a href="http://emberjs.com/learn">Learn</a>
-      </li>
-      <li class="active" aria-label="You are here">
-        <a href="/">Guides</a>
-      </li>
-      <li>
-        <a href="http://emberjs.com/api">API</a>
-      </li>
-      <li>
-        <a href="http://emberjs.com/community">Community</a>
-      </li>
-      <li>
-        <a href="http://emberjs.com/blog">Blog</a>
-      </li>
-      <li>
-        <a href="http://emberjs.com/builds">Builds</a>
-      </li>
-
-      <li class="header-search">
-        <form>
-          <input type="text" id="search-input" class="search-input" placeholder="Search the guides"/>
-        </form>
-      </li>
-    </ul>
-  </nav>
+    <header>
+<nav class="navbar navbar-inverse">
+ <div class="container">
+  <div class="navbar-header">
+   <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+   <a class="navbar-brand" href="http://emberjs.com"><img src="https://glimmer-styleguide.global.ssl.fastly.net/glimmer-styleguide/master/images/ember-logo.svg" alt="home" /></a>
+  </div>
+  <div class="collapse navbar-collapse" id="navbar-collapse">
+   <ul class="nav navbar-nav">
+    <li class="dropdown">
+     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Docs <span class="caret"></span></a>
+     <ul class="dropdown-menu">
+      <li><a href="http://emberjs.com/guides">Guides</a></li>
+      <li><a href="http://emberjs.com/api">API Reference</a></li>
+      <li role="separator" class="divider"></li>
+      <li><a href="http://emberjs.com/learn">Learn Ember</a></li>
+     </ul>
+    </li>
+    <li class="dropdown">
+     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Releases <span class="caret"></span></a>
+     <ul class="dropdown-menu">
+      <li><a href="http://emberjs.com/builds">Channels</a></li>
+      <li><a href="http://emberjs.com/builds/release">-- Stable</a></li>
+      <li><a href="http://emberjs.com/builds/beta">-- Beta</a></li>
+      <li><a href="http://emberjs.com/builds/canary">-- Canary</a></li>
+      <li role="separator" class="divider"></li>
+      <li><a href="http://emberjs.com/deprecations">Deprecations</a></li>
+      <li><a href="http://emberjs.com/statusboard">Status Board</a></li>
+     </ul>
+    </li>
+    <li><a href="http://emberjs.com/blog">Blog</a></li>
+    <li class="dropdown">
+     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Community <span class="caret"></span></a>
+     <ul class="dropdown-menu">
+      <li><a href="http://emberjs.com/community">The Ember Community</a></li>
+       <li><a href="http://emberjs.com/guidelines">Guidelines</a></li>
+       <li><a href="http://github.com/emberjs/">Contribute (Github)</a></li>
+       <li role="separator" class="divider"></li>
+       <li><a href="http://emberjs.com/community/meetups">Meetups</a></li>
+       <li><a href="http://jobs.emberjs.com/">Job Board</a></li>
+       <li role="separator" class="divider"></li>
+       <li><a href="http://emberconf.com/">Ember Conf</a></li>
+     </ul>
+     </li>
+     <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About<span class="caret"></span></a>
+      <ul class="dropdown-menu">
+       <li><a href="http://emberjs.com/team">The Team</a></li>
+       <li role="separator" class="divider"></li>
+       <li><a href="http://emberjs.com/logos">Logos</a></li>
+       <li><a href="http://emberjs.com/mascots">Mascots</a></li>
+       <li role="separator" class="divider"></li>
+       <li><a href="http://emberjs.com/ember-users">Who Uses Ember</a></li>
+       <li><a href="http://emberjs.com/sponsors">Sponsors</a></li>
+       <li role="separator" class="divider"></li>
+       <li><a href="http://emberjs.com/legal">Legal</a></li>
+       <li><a href="http://emberjs.com/security">Security</a></li>
+      </ul>
+     </li>
+   </ul>
+   <form class="navbar-form navbar-right searchbox">
+    <div class="input-group">
+      <label for="search-input" class="control-label sr-only">Search</label>
+        <input type="text"
+        class="form-control search input ds-input"
+        placeholder="Search..."
+        id="search-input"
+        role="combobox"
+        aria-expanded="false"
+        aria-owns="algolia-autocomplete-listbox-0"
+        autocorrect="off"
+        autocapitalize="none"
+        spellcheck="false"
+        />
+        <span></span>
+    </div>
+   </form>
+  </div>
+  <!-- /.navbar-collapse -->
+ </div>
+ <!-- /.container-fluid -->
+</nav>
 </header>
 
 
@@ -91,14 +147,36 @@
         <p>To deploy an Ember application simply transfer the output from <code>ember build</code> to a web server.
 This can be done with standard Unix file transfer tools such as <code>rsync</code> or <code>scp</code>.
 There are also services that will let you deploy easily.</p>
-<h2 class='anchorable-toc' id='toc_deploying-with-scp'>Deploying with scp</h2>
-<p>You can deploy your application to any web server by copying the output from <code>ember build</code> to any web server:</p>
+<h2 class='anchorable-toc' id='toc_building-for-deployment'>Building for Deployment</h2>
+<p>Before you run <code>ember build</code> for this tutorial ensure you have the environment variable <code>GOOGLE_MAPS_API_KEY</code> set on your operating system,
+so that you can view <a href="../service">the maps we set up previously</a>.</p>
+
+<p>For many Unix shell environments you can simply provide the key in front of the of the build command, such as:</p>
+<div class="highlight shell "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre>GOOGLE_MAPS_API_KEY=&lt;your key&gt; ember build --environment=development
+</pre></td>
+</tr></table>
+</div></div>
+<p>For windows environments, type the following:</p>
 <div class="highlight shell "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
   <td class="line-numbers"><pre>1
 2
 </pre></td>
-  <td class="code"><pre>ember build
-scp -r dist/* myserver.com:/var/www/public/
+  <td class="code"><pre>set GOOGLE_MAPS_API_KEY=&lt;your key&gt;
+ember build --environment=development
+</pre></td>
+</tr></table>
+</div></div>
+<p>We use <code>--environment=development</code> here so that Mirage will continue to mock fake data.
+However, normally we would use <code>ember build --environment=production</code> which optimizes your application for production.</p>
+<h2 class='anchorable-toc' id='toc_deploying-with-scp'>Deploying with scp</h2>
+<p>You can deploy your application to any web server by copying the output from <code>ember build</code> to any web server:</p>
+<div class="highlight shell "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre>scp -r dist/* myserver.com:/var/www/public/
 </pre></td>
 </tr></table>
 </div></div><h2 class='anchorable-toc' id='toc_deploying-to-surge-sh'>Deploying to surge.sh</h2>
@@ -118,19 +196,17 @@ Note you will also need to rename index.html to 200.html to enable Ember&#39;s c
 <div class="highlight shell "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
   <td class="line-numbers"><pre>1
 2
-3
 </pre></td>
-  <td class="code"><pre>ember build --environment=development
-mv dist/index.html dist/200.html
+  <td class="code"><pre>mv dist/index.html dist/200.html
 surge dist funny-name.surge.sh
 </pre></td>
 </tr></table>
 </div></div>
-<p>We chose funny-name.surge.sh but you may use any unclaimed subdomain you like or 
+<p>We chose funny-name.surge.sh but you may use any unclaimed subdomain you like or
 use a custom domain that you own and have pointed the DNS to one of surges servers.
 If the second argument is left blank surge will prompt you with a suggested subdomain.</p>
 
-<p>To deploy to the same URL after making changes, perform the same steps, reusing 
+<p>To deploy to the same URL after making changes, perform the same steps, reusing
 the same domain as before.</p>
 <div class="highlight shell "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
   <td class="line-numbers"><pre>1
@@ -139,14 +215,14 @@ the same domain as before.</p>
 4
 </pre></td>
   <td class="code"><pre>rm -rf dist
-ember build --environment=development
+GOOGLE_MAPS_API_KEY=&lt;your key&gt; ember build --environment=development
 mv dist/index.html dist/200.html
 surge dist funny-name.surge.sh
 </pre></td>
 </tr></table>
 </div></div>
-<p>We use <code>--environment=development</code> here so that Mirage will continue to mock fake data.
-However, normally we would use <code>ember build --environment=production</code> which optimizes your application for production.</p>
+<p>Note we are building with the google maps api key as shown above for UNIX platforms.
+For windows you will need to set the variable according the example in the previous section.</p>
 <h2 class='anchorable-toc' id='toc_servers'>Servers</h2><h3 class='anchorable-toc' id='toc_apache'>Apache</h3>
 <p>On an Apache server, the rewrite engine (mod-rewrite) must be enabled in order for Ember routing to work properly.
 If you upload your dist folder, going to your main URL works,

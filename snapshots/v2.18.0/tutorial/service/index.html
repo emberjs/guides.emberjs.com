@@ -11,6 +11,7 @@
     <!--[if lte IE 7 ]><link href="../../stylesheets/fonts/fontello-ie7.css" rel="stylesheet" /><![endif]-->
     <link href="../../stylesheets/application.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" rel="stylesheet">
+    
     <!-- This TypeKit account is managed by @wifelette. Contact her with any issues. -->
     <script src="https://use.typekit.net/stz3kpn.js"></script>
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
@@ -28,38 +29,93 @@
       <script src="../../javascripts/common-modern.js"></script>
     <!--<![endif]-->
 
-    <header class="header">
-  <nav role="navigation" aria-label="main">
-    <ul class="header-nav container">
-      <li class="header-logo">
-        <a href="http://emberjs.com/"><span class="visually-hidden">Ember homepage</span></a>
-      </li>
-      <li>
-        <a href="http://emberjs.com/learn">Learn</a>
-      </li>
-      <li class="active" aria-label="You are here">
-        <a href="/">Guides</a>
-      </li>
-      <li>
-        <a href="http://emberjs.com/api">API</a>
-      </li>
-      <li>
-        <a href="http://emberjs.com/community">Community</a>
-      </li>
-      <li>
-        <a href="http://emberjs.com/blog">Blog</a>
-      </li>
-      <li>
-        <a href="http://emberjs.com/builds">Builds</a>
-      </li>
-
-      <li class="header-search">
-        <form>
-          <input type="text" id="search-input" class="search-input" placeholder="Search the guides"/>
-        </form>
-      </li>
-    </ul>
-  </nav>
+    <header>
+<nav class="navbar navbar-inverse">
+ <div class="container">
+  <div class="navbar-header">
+   <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+   <a class="navbar-brand" href="http://emberjs.com"><img src="https://glimmer-styleguide.global.ssl.fastly.net/glimmer-styleguide/master/images/ember-logo.svg" alt="home" /></a>
+  </div>
+  <div class="collapse navbar-collapse" id="navbar-collapse">
+   <ul class="nav navbar-nav">
+    <li class="dropdown">
+     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Docs <span class="caret"></span></a>
+     <ul class="dropdown-menu">
+      <li><a href="http://emberjs.com/guides">Guides</a></li>
+      <li><a href="http://emberjs.com/api">API Reference</a></li>
+      <li role="separator" class="divider"></li>
+      <li><a href="http://emberjs.com/learn">Learn Ember</a></li>
+     </ul>
+    </li>
+    <li class="dropdown">
+     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Releases <span class="caret"></span></a>
+     <ul class="dropdown-menu">
+      <li><a href="http://emberjs.com/builds">Channels</a></li>
+      <li><a href="http://emberjs.com/builds/release">-- Stable</a></li>
+      <li><a href="http://emberjs.com/builds/beta">-- Beta</a></li>
+      <li><a href="http://emberjs.com/builds/canary">-- Canary</a></li>
+      <li role="separator" class="divider"></li>
+      <li><a href="http://emberjs.com/deprecations">Deprecations</a></li>
+      <li><a href="http://emberjs.com/statusboard">Status Board</a></li>
+     </ul>
+    </li>
+    <li><a href="http://emberjs.com/blog">Blog</a></li>
+    <li class="dropdown">
+     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Community <span class="caret"></span></a>
+     <ul class="dropdown-menu">
+      <li><a href="http://emberjs.com/community">The Ember Community</a></li>
+       <li><a href="http://emberjs.com/guidelines">Guidelines</a></li>
+       <li><a href="http://github.com/emberjs/">Contribute (Github)</a></li>
+       <li role="separator" class="divider"></li>
+       <li><a href="http://emberjs.com/community/meetups">Meetups</a></li>
+       <li><a href="http://jobs.emberjs.com/">Job Board</a></li>
+       <li role="separator" class="divider"></li>
+       <li><a href="http://emberconf.com/">Ember Conf</a></li>
+     </ul>
+     </li>
+     <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About<span class="caret"></span></a>
+      <ul class="dropdown-menu">
+       <li><a href="http://emberjs.com/team">The Team</a></li>
+       <li role="separator" class="divider"></li>
+       <li><a href="http://emberjs.com/logos">Logos</a></li>
+       <li><a href="http://emberjs.com/mascots">Mascots</a></li>
+       <li role="separator" class="divider"></li>
+       <li><a href="http://emberjs.com/ember-users">Who Uses Ember</a></li>
+       <li><a href="http://emberjs.com/sponsors">Sponsors</a></li>
+       <li role="separator" class="divider"></li>
+       <li><a href="http://emberjs.com/legal">Legal</a></li>
+       <li><a href="http://emberjs.com/security">Security</a></li>
+      </ul>
+     </li>
+   </ul>
+   <form class="navbar-form navbar-right searchbox">
+    <div class="input-group">
+      <label for="search-input" class="control-label sr-only">Search</label>
+        <input type="text"
+        class="form-control search input ds-input"
+        placeholder="Search..."
+        id="search-input"
+        role="combobox"
+        aria-expanded="false"
+        aria-owns="algolia-autocomplete-listbox-0"
+        autocorrect="off"
+        autocapitalize="none"
+        spellcheck="false"
+        />
+        <span></span>
+    </div>
+   </form>
+  </div>
+  <!-- /.navbar-collapse -->
+ </div>
+ <!-- /.container-fluid -->
+</nav>
 </header>
 
 
@@ -145,71 +201,76 @@ We&#39;ll delete the unit test since we don&#39;t want to test Google code.</p>
 which makes use of <code>google.maps.Map</code> to create our map element,
 <code>google.maps.Geocoder</code> to lookup the coordinates of our location,
 and <code>google.maps.Marker</code> to pin our map based on the resolved location.</p>
-<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><?xml version="1.0"?>
+<table class="CodeRay">
   <thead>
     <tr>
       <td colspan="2">app/utils/google-maps.js</td>
     </tr>
   </thead>
 <tr>
-  <td class="line-numbers"><pre>1
-2
-3
-4
+  <td class="line-numbers"><pre><span class="highlight-line removed">1</span>
+<span class="highlight-line removed">2</span>
+<span class="highlight-line removed">3</span>
+<span class="highlight-line added">4</span>
 5
-6
+<span class="highlight-line added">6</span>
 7
-8
+<span class="highlight-line added">8</span>
 9
-<strong>10</strong>
-11
-12
+<span class="highlight-line added"><strong>10</strong></span>
+<span class="highlight-line added">11</span>
+<span class="highlight-line added">12</span>
 13
-14
-15
-16
-17
-18
+<span class="highlight-line added">14</span>
+<span class="highlight-line added">15</span>
+<span class="highlight-line added">16</span>
+<span class="highlight-line added">17</span>
+<span class="highlight-line added">18</span>
 19
-<strong>20</strong>
-21
-22
-23
-24
-25
-26
-27
-28
-</pre></td>
-  <td class="code"><pre><span class="reserved">import</span> EmberObject from <span class="string"><span class="delimiter">'</span><span class="content">@ember/object</span><span class="delimiter">'</span></span>;
+<span class="highlight-line added"><strong>20</strong></span>
+<span class="highlight-line added">21</span>
+<span class="highlight-line added">22</span>
+<span class="highlight-line added">23</span>
+<span class="highlight-line added">24</span>
+<span class="highlight-line added">25</span>
+<span class="highlight-line added">26</span>
+<span class="highlight-line added">27</span>
+<span class="highlight-line added">28</span>
+<span class="highlight-line added">29</span>
+<strong>30</strong>
+<span class="highlight-line added">31</span></pre></td>
+  <td class="code"><pre><span class="highlight-line removed"><span class="reserved">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="function">googleMaps</span>() {</span>
+<span class="highlight-line removed">  <span class="keyword">return</span> <span class="predefined-constant">true</span>;</span>
+<span class="highlight-line removed">}</span>
+<span class="highlight-line added"><span class="reserved">import</span> EmberObject from <span class="string"><span class="delimiter">'</span><span class="content">@ember/object</span><span class="delimiter">'</span></span>;</span>
 
-const google = window.google;
+<span class="highlight-line added">const google = window.google;</span>
 
-<span class="reserved">export</span> <span class="keyword">default</span> EmberObject.extend({
+<span class="highlight-line added"><span class="reserved">export</span> <span class="keyword">default</span> EmberObject.extend({</span>
 
-  init() {
-    <span class="local-variable">this</span>.set(<span class="string"><span class="delimiter">'</span><span class="content">geocoder</span><span class="delimiter">'</span></span>, <span class="keyword">new</span> google.maps.Geocoder());
-  },
+<span class="highlight-line added">  init() {</span>
+<span class="highlight-line added">    <span class="local-variable">this</span>.set(<span class="string"><span class="delimiter">'</span><span class="content">geocoder</span><span class="delimiter">'</span></span>, <span class="keyword">new</span> window.google.maps.Geocoder());</span>
+<span class="highlight-line added">  },</span>
 
-  createMap(element, location) {
-    let map = <span class="keyword">new</span> google.maps.Map(element, { <span class="key">scrollwheel</span>: <span class="predefined-constant">false</span>, <span class="key">zoom</span>: <span class="integer">10</span> });
-    <span class="local-variable">this</span>.pinLocation(location, map);
-    <span class="keyword">return</span> map;
-  },
+<span class="highlight-line added">  createMap(element, location) {</span>
+<span class="highlight-line added">    let map = <span class="keyword">new</span> google.maps.Map(element, { <span class="key">scrollwheel</span>: <span class="predefined-constant">false</span>, <span class="key">zoom</span>: <span class="integer">10</span> });</span>
+<span class="highlight-line added">    <span class="local-variable">this</span>.pinLocation(location, map);</span>
+<span class="highlight-line added">    <span class="keyword">return</span> map;</span>
+<span class="highlight-line added">  },</span>
 
-  pinLocation(location, map) {
-    <span class="local-variable">this</span>.get(<span class="string"><span class="delimiter">'</span><span class="content">geocoder</span><span class="delimiter">'</span></span>).geocode({<span class="key">address</span>: location}, (result, status) =&gt; {
-      <span class="keyword">if</span> (status === google.maps.GeocoderStatus.OK) {
-        let geometry = result[<span class="integer">0</span>].geometry.location;
-        let position = { <span class="key">lat</span>: geometry.lat(), <span class="key">lng</span>: geometry.lng() };
-        map.setCenter(position);
-        <span class="keyword">new</span> google.maps.Marker({ position, map, <span class="key">title</span>: location });
-      }
-    });
-  }
+<span class="highlight-line added">  pinLocation(location, map) {</span>
+<span class="highlight-line added">    <span class="local-variable">this</span>.get(<span class="string"><span class="delimiter">'</span><span class="content">geocoder</span><span class="delimiter">'</span></span>).geocode({<span class="key">address</span>: location}, (result, status) =&gt; {</span>
+<span class="highlight-line added">      <span class="keyword">if</span> (status === google.maps.GeocoderStatus.OK) {</span>
+<span class="highlight-line added">        let geometry = result[<span class="integer">0</span>].geometry.location;</span>
+<span class="highlight-line added">        let position = { <span class="key">lat</span>: geometry.lat(), <span class="key">lng</span>: geometry.lng() };</span>
+<span class="highlight-line added">        map.setCenter(position);</span>
+<span class="highlight-line added">        <span class="keyword">new</span> google.maps.Marker({ position, map, <span class="key">title</span>: location });</span>
+<span class="highlight-line added">      }</span>
+<span class="highlight-line added">    });</span>
+<span class="highlight-line added">  }</span>
 
-});
-</pre></td>
+<span class="highlight-line added">});</span></pre></td>
 </tr></table>
 </div></div><h3 class='anchorable-toc' id='toc_fetching-maps-with-a-service'>Fetching Maps With a Service</h3>
 <p>Now that we are able to generate a map element,
@@ -224,7 +285,7 @@ meaning it will abstract the maps API from the code that uses it,
 allowing for easier refactoring and maintenance.</li>
 <li>It is lazy-loaded, meaning it won&#39;t be initialized until it is called the first time.
 In some cases this can reduce your app&#39;s processor load and memory consumption.</li>
-<li>It is a singleton, which means there is only one instance of the service object in browser.
+<li>It is a singleton, which means there is only one instance of the service object in the browser.
 This will allow us to keep map data while the user navigates around the app,
 so that returning to a page doesn&#39;t require it to reload its maps.</li>
 </ul>
@@ -241,7 +302,8 @@ which will create the service file, as well as a unit test for it.</p>
 <p>Now implement the service as follows.
 Note that we check if a map already exists for the given location and use that one,
 otherwise we call a Google Maps utility to create one.</p>
-<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><?xml version="1.0"?>
+<table class="CodeRay">
   <thead>
     <tr>
       <td colspan="2">app/services/maps.js</td>
@@ -249,77 +311,75 @@ otherwise we call a Google Maps utility to create one.</p>
   </thead>
 <tr>
   <td class="line-numbers"><pre>1
-2
-3
+<span class="highlight-line added">2</span>
+<span class="highlight-line added">3</span>
 4
-5
+<span class="highlight-line added">5</span>
 6
 7
 8
-9
-<strong>10</strong>
-11
-12
-13
-14
-15
-16
+<span class="highlight-line added">9</span>
+<span class="highlight-line added"><strong>10</strong></span>
+<span class="highlight-line added">11</span>
+<span class="highlight-line added">12</span>
+<span class="highlight-line added">13</span>
+<span class="highlight-line added">14</span>
+<span class="highlight-line added">15</span>
+<span class="highlight-line added">16</span>
 17
-18
-19
-<strong>20</strong>
-21
-22
-23
-24
-25
-26
-27
+<span class="highlight-line added">18</span>
+<span class="highlight-line added">19</span>
+<span class="highlight-line added"><strong>20</strong></span>
+<span class="highlight-line added">21</span>
+<span class="highlight-line added">22</span>
+<span class="highlight-line added">23</span>
+<span class="highlight-line added">24</span>
+<span class="highlight-line added">25</span>
+<span class="highlight-line added">26</span>
+<span class="highlight-line added">27</span>
 28
-29
-<strong>30</strong>
-31
-32
-33
+<span class="highlight-line added">29</span>
+<span class="highlight-line added"><strong>30</strong></span>
+<span class="highlight-line added">31</span>
+<span class="highlight-line added">32</span>
+<span class="highlight-line added">33</span>
 34
-35
-</pre></td>
+35</pre></td>
   <td class="code"><pre><span class="reserved">import</span> Service from <span class="string"><span class="delimiter">'</span><span class="content">@ember/service</span><span class="delimiter">'</span></span>;
-<span class="reserved">import</span> { camelize } from <span class="string"><span class="delimiter">'</span><span class="content">@ember/string</span><span class="delimiter">'</span></span>;
-<span class="reserved">import</span> EmberObject from <span class="string"><span class="delimiter">'</span><span class="content">@ember/object</span><span class="delimiter">'</span></span>;
+<span class="highlight-line added"><span class="reserved">import</span> { camelize } from <span class="string"><span class="delimiter">'</span><span class="content">@ember/string</span><span class="delimiter">'</span></span>;</span>
+<span class="highlight-line added"><span class="reserved">import</span> EmberObject from <span class="string"><span class="delimiter">'</span><span class="content">@ember/object</span><span class="delimiter">'</span></span>;</span>
 
-<span class="reserved">import</span> MapUtil from <span class="string"><span class="delimiter">'</span><span class="content">../utils/google-maps</span><span class="delimiter">'</span></span>;
+<span class="highlight-line added"><span class="reserved">import</span> MapUtil from <span class="string"><span class="delimiter">'</span><span class="content">../utils/google-maps</span><span class="delimiter">'</span></span>;</span>
 
 <span class="reserved">export</span> <span class="keyword">default</span> Service.extend({
 
-  init() {
-    <span class="keyword">if</span> (!<span class="local-variable">this</span>.get(<span class="string"><span class="delimiter">'</span><span class="content">cachedMaps</span><span class="delimiter">'</span></span>)) {
-      <span class="local-variable">this</span>.set(<span class="string"><span class="delimiter">'</span><span class="content">cachedMaps</span><span class="delimiter">'</span></span>, EmberObject.create());
-    }
-    <span class="keyword">if</span> (!<span class="local-variable">this</span>.get(<span class="string"><span class="delimiter">'</span><span class="content">mapUtil</span><span class="delimiter">'</span></span>)) {
-      <span class="local-variable">this</span>.set(<span class="string"><span class="delimiter">'</span><span class="content">mapUtil</span><span class="delimiter">'</span></span>, MapUtil.create());
-    }
-  },
+<span class="highlight-line added">  init() {</span>
+<span class="highlight-line added">    <span class="keyword">if</span> (!<span class="local-variable">this</span>.get(<span class="string"><span class="delimiter">'</span><span class="content">cachedMaps</span><span class="delimiter">'</span></span>)) {</span>
+<span class="highlight-line added">      <span class="local-variable">this</span>.set(<span class="string"><span class="delimiter">'</span><span class="content">cachedMaps</span><span class="delimiter">'</span></span>, EmberObject.create());</span>
+<span class="highlight-line added">    }</span>
+<span class="highlight-line added">    <span class="keyword">if</span> (!<span class="local-variable">this</span>.get(<span class="string"><span class="delimiter">'</span><span class="content">mapUtil</span><span class="delimiter">'</span></span>)) {</span>
+<span class="highlight-line added">      <span class="local-variable">this</span>.set(<span class="string"><span class="delimiter">'</span><span class="content">mapUtil</span><span class="delimiter">'</span></span>, MapUtil.create());</span>
+<span class="highlight-line added">    }</span>
+<span class="highlight-line added">  },</span>
 
-  getMapElement(location) {
-    let camelizedLocation = camelize(location);
-    let element = <span class="local-variable">this</span>.get(<span class="error">`</span>cachedMaps.<span class="predefined">$</span>{camelizedLocation}<span class="error">`</span>);
-    <span class="keyword">if</span> (!element) {
-      element = <span class="local-variable">this</span>.createMapElement();
-      <span class="local-variable">this</span>.get(<span class="string"><span class="delimiter">'</span><span class="content">mapUtil</span><span class="delimiter">'</span></span>).createMap(element, location);
-      <span class="local-variable">this</span>.set(<span class="error">`</span>cachedMaps.<span class="predefined">$</span>{camelizedLocation}<span class="error">`</span>, element);
-    }
-    <span class="keyword">return</span> element;
-  },
+<span class="highlight-line added">  getMapElement(location) {</span>
+<span class="highlight-line added">    let camelizedLocation = camelize(location);</span>
+<span class="highlight-line added">    let element = <span class="local-variable">this</span>.get(<span class="error">`</span>cachedMaps.<span class="predefined">$</span>{camelizedLocation}<span class="error">`</span>);</span>
+<span class="highlight-line added">    <span class="keyword">if</span> (!element) {</span>
+<span class="highlight-line added">      element = <span class="local-variable">this</span>.createMapElement();</span>
+<span class="highlight-line added">      <span class="local-variable">this</span>.get(<span class="string"><span class="delimiter">'</span><span class="content">mapUtil</span><span class="delimiter">'</span></span>).createMap(element, location);</span>
+<span class="highlight-line added">      <span class="local-variable">this</span>.set(<span class="error">`</span>cachedMaps.<span class="predefined">$</span>{camelizedLocation}<span class="error">`</span>, element);</span>
+<span class="highlight-line added">    }</span>
+<span class="highlight-line added">    <span class="keyword">return</span> element;</span>
+<span class="highlight-line added">  },</span>
 
-  createMapElement() {
-    let element = document.createElement(<span class="string"><span class="delimiter">'</span><span class="content">div</span><span class="delimiter">'</span></span>);
-    element.className = <span class="string"><span class="delimiter">'</span><span class="content">map</span><span class="delimiter">'</span></span>;
-    <span class="keyword">return</span> element;
-  }
+<span class="highlight-line added">  createMapElement() {</span>
+<span class="highlight-line added">    let element = document.createElement(<span class="string"><span class="delimiter">'</span><span class="content">div</span><span class="delimiter">'</span></span>);</span>
+<span class="highlight-line added">    element.className = <span class="string"><span class="delimiter">'</span><span class="content">map</span><span class="delimiter">'</span></span>;</span>
+<span class="highlight-line added">    <span class="keyword">return</span> element;</span>
+<span class="highlight-line added">  }</span>
 
-});
-</pre></td>
+});</pre></td>
 </tr></table>
 </div></div><h3 class='anchorable-toc' id='toc_display-maps-with-a-component'>Display Maps With a Component</h3>
 <p>With a service and utility that render a map to a web page element,
@@ -337,17 +397,18 @@ we&#39;ll connect it to our application using a component.</p>
 
 <p>Let&#39;s start by adding a <code>div</code> element to the component template.
 This <code>div</code> will act as a place for the 3rd party map API to render the map to.</p>
-<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+<div class="highlight handlebars "><div class="ribbon"></div><div class="scroller"><?xml version="1.0"?>
+<table class="CodeRay">
   <thead>
     <tr>
       <td colspan="2">app/templates/components/location-map.hbs</td>
     </tr>
   </thead>
 <tr>
-  <td class="line-numbers"><pre>1
-</pre></td>
-  <td class="code"><pre><span class="tag">&lt;div</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">&quot;</span><span class="content">map-container</span><span class="delimiter">&quot;</span></span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span>
-</pre></td>
+  <td class="line-numbers"><pre><span class="highlight-line removed">1</span>
+<span class="highlight-line added">2</span></pre></td>
+  <td class="code"><pre><span class="highlight-line removed"><span class="inline"><span class="inline-delimiter">{{</span><span class="attribute-name">yield</span><span class="inline-delimiter">}}</span></span></span>
+<span class="highlight-line added"><span class="tag">&lt;div</span> <span class="attribute-name">class</span>=<span class="string"><span class="delimiter">"</span><span class="content">map-container</span><span class="delimiter">"</span></span><span class="tag">&gt;</span><span class="tag">&lt;/div&gt;</span></span></pre></td>
 </tr></table>
 </div></div>
 <p>Next, update the component to append the map output to the <code>div</code> element we created.</p>
@@ -361,7 +422,8 @@ Ember tries to set that property with a service matching its name.</p>
 We append the map element we get back from the service by implementing <code>didInsertElement</code>,
 which is a <a href="../../components/the-component-lifecycle/#toc_integrating-with-third-party-libraries-with-code-didinsertelement-code">component lifecycle hook</a>.
 This function runs during the component render, after the component&#39;s markup gets inserted into the page.</p>
-<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><?xml version="1.0"?>
+<table class="CodeRay">
   <thead>
     <tr>
       <td colspan="2">app/components/location-map.js</td>
@@ -369,33 +431,31 @@ This function runs during the component render, after the component&#39;s markup
   </thead>
 <tr>
   <td class="line-numbers"><pre>1
-2
+<span class="highlight-line added">2</span>
 3
 4
-5
+<span class="highlight-line added">5</span>
 6
-7
-8
-9
-<strong>10</strong>
-11
-12
-13
-</pre></td>
+<span class="highlight-line added">7</span>
+<span class="highlight-line added">8</span>
+<span class="highlight-line added">9</span>
+<span class="highlight-line added"><strong>10</strong></span>
+<span class="highlight-line added">11</span>
+<span class="highlight-line added">12</span>
+13</pre></td>
   <td class="code"><pre><span class="reserved">import</span> Component from <span class="string"><span class="delimiter">'</span><span class="content">@ember/component</span><span class="delimiter">'</span></span>;
-<span class="reserved">import</span> { inject as service } from <span class="string"><span class="delimiter">'</span><span class="content">@ember/service</span><span class="delimiter">'</span></span>;
+<span class="highlight-line added"><span class="reserved">import</span> { inject as service } from <span class="string"><span class="delimiter">'</span><span class="content">@ember/service</span><span class="delimiter">'</span></span>;</span>
 
 <span class="reserved">export</span> <span class="keyword">default</span> Component.extend({
-  <span class="key">maps</span>: service(),
+<span class="highlight-line added">  <span class="key">maps</span>: service(),</span>
 
-  didInsertElement() {
-    <span class="local-variable">this</span>._super(...<span class="local-variable">arguments</span>);
-    let location = <span class="local-variable">this</span>.get(<span class="string"><span class="delimiter">'</span><span class="content">location</span><span class="delimiter">'</span></span>);
-    let mapElement = <span class="local-variable">this</span>.get(<span class="string"><span class="delimiter">'</span><span class="content">maps</span><span class="delimiter">'</span></span>).getMapElement(location);
-    <span class="local-variable">this</span>.<span class="predefined">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">.map-container</span><span class="delimiter">'</span></span>).append(mapElement);
-  }
-});
-</pre></td>
+<span class="highlight-line added">  didInsertElement() {</span>
+<span class="highlight-line added">    <span class="local-variable">this</span>._super(...<span class="local-variable">arguments</span>);</span>
+<span class="highlight-line added">    let location = <span class="local-variable">this</span>.get(<span class="string"><span class="delimiter">'</span><span class="content">location</span><span class="delimiter">'</span></span>);</span>
+<span class="highlight-line added">    let mapElement = <span class="local-variable">this</span>.get(<span class="string"><span class="delimiter">'</span><span class="content">maps</span><span class="delimiter">'</span></span>).getMapElement(location);</span>
+<span class="highlight-line added">    <span class="local-variable">this</span>.<span class="predefined">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">.map-container</span><span class="delimiter">'</span></span>).append(mapElement);</span>
+<span class="highlight-line added">  }</span>
+});</pre></td>
 </tr></table>
 </div></div>
 <p>You may have noticed that <code>this.get(&#39;location&#39;)</code> refers to a property location we haven&#39;t defined.
@@ -470,7 +530,8 @@ On line 6 of <code>maps-test.js</code> below we create an Ember object to simula
 
 <p>To instantiate the object under test, use the <code>this.subject</code> function, passing in initial values as arguments.
 In our case we are passing in our fake map utility object in the first test, and passing a cache object for the second test.</p>
-<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><?xml version="1.0"?>
+<table class="CodeRay">
   <thead>
     <tr>
       <td colspan="2">tests/unit/services/maps-test.js</td>
@@ -478,73 +539,89 @@ In our case we are passing in our fake map utility object in the first test, and
   </thead>
 <tr>
   <td class="line-numbers"><pre>1
-2
+<span class="highlight-line added">2</span>
 3
-4
+<span class="highlight-line added">4</span>
 5
-6
-7
-8
-9
-<strong>10</strong>
-11
-12
+<span class="highlight-line added">6</span>
+<span class="highlight-line added">7</span>
+<span class="highlight-line added">8</span>
+<span class="highlight-line added">9</span>
+<span class="highlight-line added"><strong>10</strong></span>
+<span class="highlight-line added">11</span>
+<span class="highlight-line added">12</span>
 13
-14
-15
-16
-17
-18
+<span class="highlight-line removed">14</span>
+<span class="highlight-line removed">15</span>
+<span class="highlight-line removed">16</span>
+<span class="highlight-line removed">17</span>
+<span class="highlight-line added">18</span>
 19
-<strong>20</strong>
-21
-22
-23
-24
-25
-26
-27
-28
-29
-<strong>30</strong>
-31
-32
+<span class="highlight-line removed"><strong>20</strong></span>
+<span class="highlight-line removed">21</span>
+<span class="highlight-line removed">22</span>
+<span class="highlight-line removed">23</span>
+<span class="highlight-line removed">24</span>
+<span class="highlight-line added">25</span>
+<span class="highlight-line added">26</span>
+<span class="highlight-line added">27</span>
+<span class="highlight-line added">28</span>
+<span class="highlight-line added">29</span>
+<span class="highlight-line added"><strong>30</strong></span>
+<span class="highlight-line added">31</span>
+<span class="highlight-line added">32</span>
 33
-</pre></td>
+<span class="highlight-line added">34</span>
+<span class="highlight-line added">35</span>
+<span class="highlight-line added">36</span>
+<span class="highlight-line added">37</span>
+<span class="highlight-line added">38</span>
+<span class="highlight-line added">39</span>
+<span class="highlight-line added"><strong>40</strong></span>
+<span class="highlight-line added">41</span>
+<span class="highlight-line added">42</span></pre></td>
   <td class="code"><pre><span class="reserved">import</span> { moduleFor, test } from <span class="string"><span class="delimiter">'</span><span class="content">ember-qunit</span><span class="delimiter">'</span></span>;
-<span class="reserved">import</span> EmberObject from <span class="string"><span class="delimiter">'</span><span class="content">@ember/object</span><span class="delimiter">'</span></span>;
+<span class="highlight-line added"><span class="reserved">import</span> EmberObject from <span class="string"><span class="delimiter">'</span><span class="content">@ember/object</span><span class="delimiter">'</span></span>;</span>
 
-const DUMMY_ELEMENT = {};
+<span class="highlight-line added">const DUMMY_ELEMENT = {};</span>
 
-let MapUtilStub = EmberObject.extend({
-  createMap(element, location) {
-    <span class="local-variable">this</span>.assert.ok(element, <span class="string"><span class="delimiter">'</span><span class="content">createMap called with element</span><span class="delimiter">'</span></span>);
-    <span class="local-variable">this</span>.assert.ok(location, <span class="string"><span class="delimiter">'</span><span class="content">createMap called with location</span><span class="delimiter">'</span></span>);
-    <span class="keyword">return</span> DUMMY_ELEMENT;
-  }
-});
+<span class="highlight-line added">let MapUtilStub = EmberObject.extend({</span>
+<span class="highlight-line added">  createMap(element, location) {</span>
+<span class="highlight-line added">    <span class="local-variable">this</span>.assert.ok(element, <span class="string"><span class="delimiter">'</span><span class="content">createMap called with element</span><span class="delimiter">'</span></span>);</span>
+<span class="highlight-line added">    <span class="local-variable">this</span>.assert.ok(location, <span class="string"><span class="delimiter">'</span><span class="content">createMap called with location</span><span class="delimiter">'</span></span>);</span>
+<span class="highlight-line added">    <span class="keyword">return</span> DUMMY_ELEMENT;</span>
+<span class="highlight-line added">  }</span>
+<span class="highlight-line added">});</span>
 
-moduleFor(<span class="string"><span class="delimiter">'</span><span class="content">service:maps</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">Unit | Service | maps</span><span class="delimiter">'</span></span>);
+<span class="highlight-line removed">moduleFor(<span class="string"><span class="delimiter">'</span><span class="content">service:maps</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">Unit | Service | maps</span><span class="delimiter">'</span></span>, {</span>
+<span class="highlight-line removed">  <span class="comment">// Specify the other units that are required for this test.</span></span>
+<span class="highlight-line removed">  <span class="comment">// needs: ['service:foo']</span></span>
+<span class="highlight-line removed">});</span>
+<span class="highlight-line added">moduleFor(<span class="string"><span class="delimiter">'</span><span class="content">service:maps</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">Unit | Service | maps</span><span class="delimiter">'</span></span>);</span>
 
-test(<span class="string"><span class="delimiter">'</span><span class="content">should create a new map if one isnt cached for location</span><span class="delimiter">'</span></span>, <span class="keyword">function</span> (assert) {
-  assert.expect(<span class="integer">4</span>);
-  let stubMapUtil = MapUtilStub.create({ assert });
-  let mapService = <span class="local-variable">this</span>.subject({ <span class="key">mapUtil</span>: stubMapUtil });
-  let element = mapService.getMapElement(<span class="string"><span class="delimiter">'</span><span class="content">San Francisco</span><span class="delimiter">'</span></span>);
-  assert.ok(element, <span class="string"><span class="delimiter">'</span><span class="content">element exists</span><span class="delimiter">'</span></span>);
-  assert.equal(element.className, <span class="string"><span class="delimiter">'</span><span class="content">map</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">element has class name of map</span><span class="delimiter">'</span></span>);
-});
+<span class="highlight-line removed"><span class="comment">// Replace this with your real tests.</span></span>
+<span class="highlight-line removed">test(<span class="string"><span class="delimiter">'</span><span class="content">it exists</span><span class="delimiter">'</span></span>, <span class="keyword">function</span>(assert) {</span>
+<span class="highlight-line removed">  let service = <span class="local-variable">this</span>.subject();</span>
+<span class="highlight-line removed">  assert.ok(service);</span>
+<span class="highlight-line removed">});</span>
+<span class="highlight-line added">test(<span class="string"><span class="delimiter">'</span><span class="content">should create a new map if one isnt cached for location</span><span class="delimiter">'</span></span>, <span class="keyword">function</span> (assert) {</span>
+<span class="highlight-line added">  assert.expect(<span class="integer">4</span>);</span>
+<span class="highlight-line added">  let stubMapUtil = MapUtilStub.create({ assert });</span>
+<span class="highlight-line added">  let mapService = <span class="local-variable">this</span>.subject({ <span class="key">mapUtil</span>: stubMapUtil });</span>
+<span class="highlight-line added">  let element = mapService.getMapElement(<span class="string"><span class="delimiter">'</span><span class="content">San Francisco</span><span class="delimiter">'</span></span>);</span>
+<span class="highlight-line added">  assert.ok(element, <span class="string"><span class="delimiter">'</span><span class="content">element exists</span><span class="delimiter">'</span></span>);</span>
+<span class="highlight-line added">  assert.equal(element.className, <span class="string"><span class="delimiter">'</span><span class="content">map</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">element has class name of map</span><span class="delimiter">'</span></span>);</span>
+<span class="highlight-line added">});</span>
 
-test(<span class="string"><span class="delimiter">'</span><span class="content">should use existing map if one is cached for location</span><span class="delimiter">'</span></span>, <span class="keyword">function</span> (assert) {
-  assert.expect(<span class="integer">1</span>);
-  let stubCachedMaps = EmberObject.create({
-    <span class="key">sanFrancisco</span>: DUMMY_ELEMENT
-  });
-  let mapService = <span class="local-variable">this</span>.subject({ <span class="key">cachedMaps</span>: stubCachedMaps });
-  let element = mapService.getMapElement(<span class="string"><span class="delimiter">'</span><span class="content">San Francisco</span><span class="delimiter">'</span></span>);
-  assert.equal(element, DUMMY_ELEMENT, <span class="string"><span class="delimiter">'</span><span class="content">element fetched from cache</span><span class="delimiter">'</span></span>);
-});
-</pre></td>
+<span class="highlight-line added">test(<span class="string"><span class="delimiter">'</span><span class="content">should use existing map if one is cached for location</span><span class="delimiter">'</span></span>, <span class="keyword">function</span> (assert) {</span>
+<span class="highlight-line added">  assert.expect(<span class="integer">1</span>);</span>
+<span class="highlight-line added">  let stubCachedMaps = EmberObject.create({</span>
+<span class="highlight-line added">    <span class="key">sanFrancisco</span>: DUMMY_ELEMENT</span>
+<span class="highlight-line added">  });</span>
+<span class="highlight-line added">  let mapService = <span class="local-variable">this</span>.subject({ <span class="key">cachedMaps</span>: stubCachedMaps });</span>
+<span class="highlight-line added">  let element = mapService.getMapElement(<span class="string"><span class="delimiter">'</span><span class="content">San Francisco</span><span class="delimiter">'</span></span>);</span>
+<span class="highlight-line added">  assert.equal(element, DUMMY_ELEMENT, <span class="string"><span class="delimiter">'</span><span class="content">element fetched from cache</span><span class="delimiter">'</span></span>);</span>
+<span class="highlight-line added">});</span></pre></td>
 </tr></table>
 </div></div>
 <p>When the service calls <code>createMap</code> on our fake utility, we will run asserts to validate that it is called.
@@ -566,7 +643,8 @@ That way when Ember injects the map service into the component, it uses our fake
 
 <p>A stub stands in place of the real object in your application and simulates its behavior.
 In the stub service, define a method that will fetch the map based on location, called <code>getMapElement</code>.</p>
-<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><?xml version="1.0"?>
+<table class="CodeRay">
   <thead>
     <tr>
       <td colspan="2">tests/integration/components/location-map-test.js</td>
@@ -575,60 +653,60 @@ In the stub service, define a method that will fetch the map based on location, 
 <tr>
   <td class="line-numbers"><pre>1
 2
-3
+<span class="highlight-line added">3</span>
 4
-5
-6
-7
-8
-9
-<strong>10</strong>
-11
-12
+<span class="highlight-line added">5</span>
+<span class="highlight-line added">6</span>
+<span class="highlight-line added">7</span>
+<span class="highlight-line added">8</span>
+<span class="highlight-line added">9</span>
+<span class="highlight-line added"><strong>10</strong></span>
+<span class="highlight-line added">11</span>
+<span class="highlight-line added">12</span>
 13
 14
-15
-16
-17
-18
-19
-<strong>20</strong>
+<span class="highlight-line removed">15</span>
+<span class="highlight-line added">16</span>
+<span class="highlight-line added">17</span>
+<span class="highlight-line added">18</span>
+<span class="highlight-line added">19</span>
+<span class="highlight-line added"><strong>20</strong></span>
 21
 22
-23
-24
-25
-26
-27
-</pre></td>
+<span class="highlight-line added">23</span>
+<span class="highlight-line added">24</span>
+<span class="highlight-line added">25</span>
+<span class="highlight-line added">26</span>
+<span class="highlight-line added">27</span>
+<span class="highlight-line added">28</span></pre></td>
   <td class="code"><pre><span class="reserved">import</span> { moduleForComponent, test } from <span class="string"><span class="delimiter">'</span><span class="content">ember-qunit</span><span class="delimiter">'</span></span>;
 <span class="reserved">import</span> hbs from <span class="string"><span class="delimiter">'</span><span class="content">htmlbars-inline-precompile</span><span class="delimiter">'</span></span>;
-<span class="reserved">import</span> Service from <span class="string"><span class="delimiter">'</span><span class="content">@ember/service</span><span class="delimiter">'</span></span>;
+<span class="highlight-line added"><span class="reserved">import</span> Service from <span class="string"><span class="delimiter">'</span><span class="content">@ember/service</span><span class="delimiter">'</span></span>;</span>
 
-let StubMapsService = Service.extend({
-  getMapElement(location) {
-    <span class="local-variable">this</span>.set(<span class="string"><span class="delimiter">'</span><span class="content">calledWithLocation</span><span class="delimiter">'</span></span>, location);
-    <span class="comment">// We create a div here to simulate our maps service,</span>
-    <span class="comment">// which will create and then cache the map element</span>
-    <span class="keyword">return</span> document.createElement(<span class="string"><span class="delimiter">'</span><span class="content">div</span><span class="delimiter">'</span></span>);
-  }
-});
+<span class="highlight-line added">let StubMapsService = Service.extend({</span>
+<span class="highlight-line added">  getMapElement(location) {</span>
+<span class="highlight-line added">    <span class="local-variable">this</span>.set(<span class="string"><span class="delimiter">'</span><span class="content">calledWithLocation</span><span class="delimiter">'</span></span>, location);</span>
+<span class="highlight-line added">    <span class="comment">// We create a div here to simulate our maps service,</span></span>
+<span class="highlight-line added">    <span class="comment">// which will create and then cache the map element</span></span>
+<span class="highlight-line added">    <span class="keyword">return</span> document.createElement(<span class="string"><span class="delimiter">'</span><span class="content">div</span><span class="delimiter">'</span></span>);</span>
+<span class="highlight-line added">  }</span>
+<span class="highlight-line added">});</span>
 
 moduleForComponent(<span class="string"><span class="delimiter">'</span><span class="content">location-map</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">Integration | Component | location map</span><span class="delimiter">'</span></span>, {
-  <span class="key">integration</span>: <span class="predefined-constant">true</span>,
-  beforeEach() {
-    <span class="local-variable">this</span>.register(<span class="string"><span class="delimiter">'</span><span class="content">service:maps</span><span class="delimiter">'</span></span>, StubMapsService);
-    <span class="local-variable">this</span>.inject.service(<span class="string"><span class="delimiter">'</span><span class="content">maps</span><span class="delimiter">'</span></span>, { <span class="key">as</span>: <span class="string"><span class="delimiter">'</span><span class="content">mapsService</span><span class="delimiter">'</span></span> });
-  }
+<span class="highlight-line removed">  <span class="key">integration</span>: <span class="predefined-constant">true</span></span>
+<span class="highlight-line added">  integration: <span class="predefined-constant">true</span>,</span>
+<span class="highlight-line added">  beforeEach() {</span>
+<span class="highlight-line added">    <span class="local-variable">this</span>.register(<span class="string"><span class="delimiter">'</span><span class="content">service:maps</span><span class="delimiter">'</span></span>, StubMapsService);</span>
+<span class="highlight-line added">    <span class="local-variable">this</span>.inject.service(<span class="string"><span class="delimiter">'</span><span class="content">maps</span><span class="delimiter">'</span></span>, { <span class="key">as</span>: <span class="string"><span class="delimiter">'</span><span class="content">mapsService</span><span class="delimiter">'</span></span> });</span>
+<span class="highlight-line added">  }</span>
 });
 
-test(<span class="string"><span class="delimiter">'</span><span class="content">should append map element to container element</span><span class="delimiter">'</span></span>, <span class="keyword">function</span>(assert) {
-  <span class="local-variable">this</span>.set(<span class="string"><span class="delimiter">'</span><span class="content">myLocation</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">New York</span><span class="delimiter">'</span></span>);
-  <span class="local-variable">this</span>.render(hbs<span class="error">`</span>{{location-map location=myLocation}}<span class="error">`</span>);
-  assert.equal(<span class="local-variable">this</span>.<span class="predefined">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">.map-container</span><span class="delimiter">'</span></span>).children().length, <span class="integer">1</span>, <span class="string"><span class="delimiter">'</span><span class="content">the map element should be put onscreen</span><span class="delimiter">'</span></span>);
-  assert.equal(<span class="local-variable">this</span>.get(<span class="string"><span class="delimiter">'</span><span class="content">mapsService.calledWithLocation</span><span class="delimiter">'</span></span>), <span class="string"><span class="delimiter">'</span><span class="content">New York</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">a map of New York should be requested</span><span class="delimiter">'</span></span>);
-});
-</pre></td>
+<span class="highlight-line added">test(<span class="string"><span class="delimiter">'</span><span class="content">should append map element to container element</span><span class="delimiter">'</span></span>, <span class="keyword">function</span>(assert) {</span>
+<span class="highlight-line added">  <span class="local-variable">this</span>.set(<span class="string"><span class="delimiter">'</span><span class="content">myLocation</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">New York</span><span class="delimiter">'</span></span>);</span>
+<span class="highlight-line added">  <span class="local-variable">this</span>.render(hbs<span class="error">`</span>{{location-map location=myLocation}}<span class="error">`</span>);</span>
+<span class="highlight-line added">  assert.equal(<span class="local-variable">this</span>.<span class="predefined">$</span>(<span class="string"><span class="delimiter">'</span><span class="content">.map-container</span><span class="delimiter">'</span></span>).children().length, <span class="integer">1</span>, <span class="string"><span class="delimiter">'</span><span class="content">the map element should be put onscreen</span><span class="delimiter">'</span></span>);</span>
+<span class="highlight-line added">  assert.equal(<span class="local-variable">this</span>.get(<span class="string"><span class="delimiter">'</span><span class="content">mapsService.calledWithLocation</span><span class="delimiter">'</span></span>), <span class="string"><span class="delimiter">'</span><span class="content">New York</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">a map of New York should be requested</span><span class="delimiter">'</span></span>);</span>
+<span class="highlight-line added">});</span></pre></td>
 </tr></table>
 </div></div>
 <p>In the <code>beforeEach</code> function that runs before each test, we use the built-in function <code>this.register</code> to <a href="../../applications/dependency-injection/#toc_factory-registrations">register</a> our stub service in place of the maps service.
@@ -670,7 +748,7 @@ To stub these services we simply have to register a stub service that implements
 <span class="highlight-line added">14</span>
 <span class="highlight-line added">15</span>
 <span class="highlight-line added">16</span>
-<span class="highlight-line added">17</span></pre></td>
+<span class="highlight-line added"/></pre></td>
   <td class="code"><pre><span class="reserved">import</span> { test } from <span class="string"><span class="delimiter">'</span><span class="content">qunit</span><span class="delimiter">'</span></span>;
 <span class="reserved">import</span> moduleForAcceptance from <span class="string"><span class="delimiter">'</span><span class="content">super-rentals/tests/helpers/module-for-acceptance</span><span class="delimiter">'</span></span>;
 <span class="highlight-line added"><span class="reserved">import</span> Service from <span class="string"><span class="delimiter">'</span><span class="content">@ember/service</span><span class="delimiter">'</span></span>;</span>
@@ -684,10 +762,10 @@ To stub these services we simply have to register a stub service that implements
 <span class="highlight-line removed">moduleForAcceptance(<span class="string"><span class="delimiter">'</span><span class="content">Acceptance | list-rentals</span><span class="delimiter">'</span></span>);</span>
 <span class="highlight-line added">moduleForAcceptance(<span class="string"><span class="delimiter">'</span><span class="content">Acceptance | list rentals</span><span class="delimiter">'</span></span>, {</span>
 <span class="highlight-line added">  beforeEach() {</span>
-<span class="highlight-line added">    <span class="local-variable">this</span>.application.register(<span class="string"><span class="delimiter">'</span><span class="content">service:stubMaps</span><span class="delimiter">'</span></span>, StubMapsService);</span>
-<span class="highlight-line added">    <span class="local-variable">this</span>.application.inject(<span class="string"><span class="delimiter">'</span><span class="content">component:location-map</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">maps</span><span class="delimiter">'</span></span>, <span class="string"><span class="delimiter">'</span><span class="content">service:stubMaps</span><span class="delimiter">'</span></span>);</span>
+<span class="highlight-line added">    <span class="local-variable">this</span>.application.register(<span class="string"><span class="delimiter">'</span><span class="content">service:maps</span><span class="delimiter">'</span></span>, StubMapsService);</span>
 <span class="highlight-line added">  }</span>
-<span class="highlight-line added">});</span></pre></td>
+<span class="highlight-line added">});</span>
+<span class="highlight-line added"/></pre></td>
 </tr></table>
 </div></div>
 <p>What&#39;s happening here is we are adding our own stub maps service that simply creates an empty div.
