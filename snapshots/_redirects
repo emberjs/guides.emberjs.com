@@ -1,4 +1,4 @@
 # Netlify redirect system: https://www.netlify.com/docs/redirects/
 
-/               /v2.18.0/           302
-/current/*      /v2.18.0/:splat     302
+/               /v3.0.0/           302
+/current/*      /v3.0.0/:splat     302
