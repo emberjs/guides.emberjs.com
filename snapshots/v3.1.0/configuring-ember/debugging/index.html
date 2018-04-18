@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="theme-color" content="#e46652">
+
+    <title>Ember.js - Configuring Ember.js: Debugging</title>
+    <meta property="st:title" content="Configuring Ember.js: Debugging" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="../../images/favicon.png" rel="icon" type="image/png" />
+    <!--[if lte IE 7 ]><link href="../../stylesheets/fonts/fontello-ie7.css" rel="stylesheet" /><![endif]-->
+    <link href="../../stylesheets/application.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600" rel="stylesheet">
+    
+    <!-- This TypeKit account is managed by @wifelette. Contact her with any issues. -->
+    <script src="https://use.typekit.net/stz3kpn.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+    <link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" title="Ember.js - Blog" />
+    
+  </head>
+
+  <body class="guides configuring-ember configuring-ember_debugging configuring-ember_debugging_index">
+
+    <!--[if lt IE 9]>
+      <script src="../../javascripts/common-old-ie.js"></script>
+    <![endif]-->
+    <!--[if gte IE 9]><!-->
+      <script src="../../javascripts/common-modern.js"></script>
+    <!--<![endif]-->
+
+    <header>
+<nav class="navbar navbar-inverse">
+ <div class="container">
+  <div class="navbar-header">
+   <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+   <a class="navbar-brand" href="http://emberjs.com"><img src="https://glimmer-styleguide.global.ssl.fastly.net/glimmer-styleguide/master/images/ember-logo.svg" alt="home" /></a>
+  </div>
+  <div class="collapse navbar-collapse" id="navbar-collapse">
+   <ul class="nav navbar-nav">
+    <li class="dropdown">
+     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Docs <span class="caret"></span></a>
+     <ul class="dropdown-menu">
+      <li><a href="http://emberjs.com/guides">Guides</a></li>
+      <li><a href="http://emberjs.com/api">API Reference</a></li>
+      <li role="separator" class="divider"></li>
+      <li><a href="http://emberjs.com/learn">Learn Ember</a></li>
+     </ul>
+    </li>
+    <li class="dropdown">
+     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Releases <span class="caret"></span></a>
+     <ul class="dropdown-menu">
+      <li><a href="http://emberjs.com/builds">Channels</a></li>
+      <li><a href="http://emberjs.com/builds/release">-- Stable</a></li>
+      <li><a href="http://emberjs.com/builds/beta">-- Beta</a></li>
+      <li><a href="http://emberjs.com/builds/canary">-- Canary</a></li>
+      <li role="separator" class="divider"></li>
+      <li><a href="http://emberjs.com/deprecations">Deprecations</a></li>
+      <li><a href="http://emberjs.com/statusboard">Status Board</a></li>
+     </ul>
+    </li>
+    <li><a href="http://emberjs.com/blog">Blog</a></li>
+    <li class="dropdown">
+     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Community <span class="caret"></span></a>
+     <ul class="dropdown-menu">
+      <li><a href="http://emberjs.com/community">The Ember Community</a></li>
+       <li><a href="http://emberjs.com/guidelines">Guidelines</a></li>
+       <li><a href="http://github.com/emberjs/">Contribute (Github)</a></li>
+       <li role="separator" class="divider"></li>
+       <li><a href="http://emberjs.com/community/meetups">Meetups</a></li>
+       <li><a href="http://jobs.emberjs.com/">Job Board</a></li>
+       <li role="separator" class="divider"></li>
+       <li><a href="http://emberconf.com/">Ember Conf</a></li>
+     </ul>
+     </li>
+     <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About<span class="caret"></span></a>
+      <ul class="dropdown-menu">
+       <li><a href="http://emberjs.com/team">The Team</a></li>
+       <li role="separator" class="divider"></li>
+       <li><a href="http://emberjs.com/logos">Logos</a></li>
+       <li><a href="http://emberjs.com/mascots">Mascots</a></li>
+       <li role="separator" class="divider"></li>
+       <li><a href="http://emberjs.com/ember-users">Who Uses Ember</a></li>
+       <li><a href="http://emberjs.com/sponsors">Sponsors</a></li>
+       <li role="separator" class="divider"></li>
+       <li><a href="http://emberjs.com/legal">Legal</a></li>
+       <li><a href="http://emberjs.com/security">Security</a></li>
+      </ul>
+     </li>
+   </ul>
+   <form class="navbar-form navbar-right searchbox">
+    <div class="input-group">
+      <label for="search-input" class="control-label sr-only">Search</label>
+        <input type="text"
+        class="form-control search input ds-input"
+        placeholder="Search..."
+        id="search-input"
+        role="combobox"
+        aria-expanded="false"
+        aria-owns="algolia-autocomplete-listbox-0"
+        autocorrect="off"
+        autocapitalize="none"
+        spellcheck="false"
+        />
+        <span></span>
+    </div>
+   </form>
+  </div>
+  <!-- /.navbar-collapse -->
+ </div>
+ <!-- /.container-fluid -->
+</nav>
+</header>
+
+
+    
+
+    <main class="container">
+
+      <aside class="sidebar">
+  <label for="version-select" class="visually-hidden">Guides version</label>
+  <select class="version-select" id="version-select" style="width: 100%"></select>
+
+  <input id="toc-toggle" class="toc-toggle visually-hidden" type="checkbox" />
+  <label for="toc-toggle">Table of Contents <span class="visually-hidden">toggle</span></label>
+
+  <nav class='toc-container' aria-label='table of contents'><ol class='toc-level-0 selected'><li class='toc-level-0 '><a href="#">Getting Started</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../getting-started/quick-start/">Quick Start</a></li><li class='toc-level-1 '><a href="../../getting-started/">Installing Ember</a></li><li class='toc-level-1 '><a href="../../getting-started/core-concepts/">Core Concepts</a></li><li class='toc-level-1 '><a href="../../getting-started/js-primer/">JavaScript Primer</a></li></ol></li><li class='toc-level-0 '><a href="#">Tutorial</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../tutorial/ember-cli/">Creating Your App</a></li><li class='toc-level-1 '><a href="../../tutorial/acceptance-test/">Planning Your App</a></li><li class='toc-level-1 '><a href="../../tutorial/routes-and-templates/">Routes and Templates</a></li><li class='toc-level-1 '><a href="../../tutorial/model-hook/">The Model Hook</a></li><li class='toc-level-1 '><a href="../../tutorial/installing-addons/">Installing Addons</a></li><li class='toc-level-1 '><a href="../../tutorial/simple-component/">Building a Simple Component</a></li><li class='toc-level-1 '><a href="../../tutorial/hbs-helper/">Creating a Handlebars Helper</a></li><li class='toc-level-1 '><a href="../../tutorial/ember-data/">Using Ember Data</a></li><li class='toc-level-1 '><a href="../../tutorial/autocomplete-component/">Building a Complex Component</a></li><li class='toc-level-1 '><a href="../../tutorial/service/">Services and Utilities</a></li><li class='toc-level-1 '><a href="../../tutorial/subroutes/">Adding Nested Routes</a></li><li class='toc-level-1 '><a href="../../tutorial/deploying/">Deploying</a></li></ol></li><li class='toc-level-0 '><a href="#">The Object Model</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../object-model/">Objects in Ember</a></li><li class='toc-level-1 '><a href="../../object-model/classes-and-instances/">Classes and Instances</a></li><li class='toc-level-1 '><a href="../../object-model/reopening-classes-and-instances/">Reopening Classes and Instances</a></li><li class='toc-level-1 '><a href="../../object-model/computed-properties/">Computed Properties</a></li><li class='toc-level-1 '><a href="../../object-model/computed-properties-and-aggregate-data/">Computed Properties and Aggregate Data</a></li><li class='toc-level-1 '><a href="../../object-model/observers/">Observers</a></li><li class='toc-level-1 '><a href="../../object-model/bindings/">Bindings</a></li><li class='toc-level-1 '><a href="../../object-model/enumerables/">Enumerables</a></li></ol></li><li class='toc-level-0 '><a href="#">Routing</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../routing/">Introduction</a></li><li class='toc-level-1 '><a href="../../routing/defining-your-routes/">Defining Your Routes</a></li><li class='toc-level-1 '><a href="../../routing/specifying-a-routes-model/">Specifying a Route's Model</a></li><li class='toc-level-1 '><a href="../../routing/rendering-a-template/">Rendering a Template</a></li><li class='toc-level-1 '><a href="../../routing/redirection/">Redirecting</a></li><li class='toc-level-1 '><a href="../../routing/preventing-and-retrying-transitions/">Preventing and Retrying Transitions</a></li><li class='toc-level-1 '><a href="../../routing/loading-and-error-substates/">Loading / Error Substates</a></li><li class='toc-level-1 '><a href="../../routing/query-params/">Query Parameters</a></li><li class='toc-level-1 '><a href="../../routing/asynchronous-routing/">Asynchronous Routing</a></li></ol></li><li class='toc-level-0 '><a href="#">Templates</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../templates/handlebars-basics/">Handlebars Basics</a></li><li class='toc-level-1 '><a href="../../templates/built-in-helpers/">Built-in Helpers</a></li><li class='toc-level-1 '><a href="../../templates/conditionals/">Conditionals</a></li><li class='toc-level-1 '><a href="../../templates/displaying-a-list-of-items/">Displaying a List of Items</a></li><li class='toc-level-1 '><a href="../../templates/displaying-the-keys-in-an-object/">Displaying the Keys in an Object</a></li><li class='toc-level-1 '><a href="../../templates/binding-element-attributes/">Binding Element Attributes</a></li><li class='toc-level-1 '><a href="../../templates/links/">Links</a></li><li class='toc-level-1 '><a href="../../templates/actions/">Actions</a></li><li class='toc-level-1 '><a href="../../templates/input-helpers/">Input Helpers</a></li><li class='toc-level-1 '><a href="../../templates/development-helpers/">Development Helpers</a></li><li class='toc-level-1 '><a href="../../templates/writing-helpers/">Writing Helpers</a></li></ol></li><li class='toc-level-0 '><a href="#">Components</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../components/defining-a-component/">Defining a Component</a></li><li class='toc-level-1 '><a href="../../components/the-component-lifecycle/">The Component Lifecycle</a></li><li class='toc-level-1 '><a href="../../components/passing-properties-to-a-component/">Passing Properties to a Component</a></li><li class='toc-level-1 '><a href="../../components/wrapping-content-in-a-component/">Wrapping Content in a Component</a></li><li class='toc-level-1 '><a href="../../components/customizing-a-components-element/">Customizing a Component's Element</a></li><li class='toc-level-1 '><a href="../../components/block-params/">Using Block Params</a></li><li class='toc-level-1 '><a href="../../components/handling-events/">Handling Events</a></li><li class='toc-level-1 '><a href="../../components/triggering-changes-with-actions/">Triggering Changes with Actions</a></li></ol></li><li class='toc-level-0 '><a href="#">Controllers</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../controllers/">Introduction</a></li></ol></li><li class='toc-level-0 '><a href="#">Models</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../models/">Introduction</a></li><li class='toc-level-1 '><a href="../../models/defining-models/">Defining Models</a></li><li class='toc-level-1 '><a href="../../models/finding-records/">Finding Records</a></li><li class='toc-level-1 '><a href="../../models/creating-updating-and-deleting-records/">Creating, Updating and Deleting</a></li><li class='toc-level-1 '><a href="../../models/relationships/">Relationships</a></li><li class='toc-level-1 '><a href="../../models/pushing-records-into-the-store/">Pushing Records into the Store</a></li><li class='toc-level-1 '><a href="../../models/handling-metadata/">Handling Metadata</a></li><li class='toc-level-1 '><a href="../../models/customizing-adapters/">Customizing Adapters</a></li><li class='toc-level-1 '><a href="../../models/customizing-serializers/">Customizing Serializers</a></li></ol></li><li class='toc-level-0 '><a href="#">Application Concerns</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../applications/applications-and-instances/">Applications and Instances</a></li><li class='toc-level-1 '><a href="../../applications/dependency-injection/">Dependency Injection</a></li><li class='toc-level-1 '><a href="../../applications/initializers/">Initializers</a></li><li class='toc-level-1 '><a href="../../applications/services/">Services</a></li><li class='toc-level-1 '><a href="../../applications/run-loop/">The Run Loop</a></li></ol></li><li class='toc-level-0 '><a href="#">Testing</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../testing/">Introduction</a></li><li class='toc-level-1 '><a href="../../testing/acceptance/">Application Tests</a></li><li class='toc-level-1 '><a href="../../testing/unit-testing-basics/">Testing Basics</a></li><li class='toc-level-1 '><a href="../../testing/testing-components/">Testing Components</a></li><li class='toc-level-1 '><a href="../../testing/testing-helpers/">Testing Helpers</a></li><li class='toc-level-1 '><a href="../../testing/testing-controllers/">Testing Controllers</a></li><li class='toc-level-1 '><a href="../../testing/testing-routes/">Testing Routes</a></li><li class='toc-level-1 '><a href="../../testing/testing-models/">Testing Models</a></li></ol></li><li class='toc-level-0 '><a href="#">Ember Inspector</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../ember-inspector/">Introduction</a></li><li class='toc-level-1 '><a href="../../ember-inspector/installation/">Installing the Inspector</a></li><li class='toc-level-1 '><a href="../../ember-inspector/object-inspector/">Object Inspector</a></li><li class='toc-level-1 '><a href="../../ember-inspector/view-tree/">The View Tree</a></li><li class='toc-level-1 '><a href="../../ember-inspector/routes/">Inspecting Routes</a></li><li class='toc-level-1 '><a href="../../ember-inspector/data/">Data Tab</a></li><li class='toc-level-1 '><a href="../../ember-inspector/deprecations/">Tackling Deprecations</a></li><li class='toc-level-1 '><a href="../../ember-inspector/info/">Library Info</a></li><li class='toc-level-1 '><a href="../../ember-inspector/promises/">Debugging Promises</a></li><li class='toc-level-1 '><a href="../../ember-inspector/container/">Inspecting Objects via the Container</a></li><li class='toc-level-1 '><a href="../../ember-inspector/render-performance/">Rendering Performance</a></li><li class='toc-level-1 '><a href="../../ember-inspector/troubleshooting/">Troubleshooting</a></li></ol></li><li class='toc-level-0 '><a href="#">Addons and Dependencies</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../addons-and-dependencies/managing-dependencies/">Managing Dependencies</a></li></ol></li><li class='toc-level-0 selected'><a href="#">Configuring Ember.js</a><ol class='toc-level-1 selected'><li class='toc-level-1 '><a href="../configuring-your-app/">Configuring Your App</a></li><li class='toc-level-1 '><a href="../configuring-ember-cli/">Configuring Ember CLI</a></li><li class='toc-level-1 '><a href="../handling-deprecations/">Handling Deprecations</a></li><li class='toc-level-1 '><a href="../disabling-prototype-extensions/">Disabling Prototype Extensions</a></li><li class='toc-level-1 '><a href="../specifying-url-type/">Specifying the URL Type</a></li><li class='toc-level-1 '><a href="../embedding-applications/">Embedding Applications</a></li><li class='toc-level-1 '><a href="../feature-flags/">Feature Flags</a></li><li class='toc-level-1 '><a href="../build-targets/">Build targets</a></li><li class='toc-level-1 selected'><a href="./">Debugging</a></li></ol></li><li class='toc-level-0 '><a href="#">Contributing to Ember.js</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../contributing/adding-new-features/">Adding New Features</a></li><li class='toc-level-1 '><a href="../../contributing/repositories/">Repositories</a></li></ol></li><li class='toc-level-0 '><a href="#">Glossary</a><ol class='toc-level-1'><li class='toc-level-1 '><a href="../../glossary/web-development/">Web Development</a></li></ol></li></ol></nav>
+
+  <a href="#" class="back-to-top">&#11014; Back to Top</a>
+</aside>
+
+
+      <article class="chapter">
+        <h1>
+          Debugging
+          <a href="https://github.com/emberjs/guides/edit/master/source/configuring-ember/debugging.md"
+             target="_blank" class="edit-page icon-pencil">Edit Page</a>
+        </h1>
+        <hr>
+
+        <p>Ember provides several configuration options that can help you debug problems
+with your application.</p>
+<h2 class='anchorable-toc' id='toc_routing'>Routing</h2><h4 class='anchorable-toc' id='toc_log-router-transitions'>Log router transitions</h4><div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/app.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+<strong>10</strong>
+11
+12
+</pre></td>
+  <td class="code"><pre><span class="reserved">import</span> Application from <span class="string"><span class="delimiter">'</span><span class="content">@ember/application</span><span class="delimiter">'</span></span>;
+
+<span class="reserved">export</span> <span class="keyword">default</span> Application.extend({
+  <span class="comment">// Basic logging, e.g. &quot;Transitioned into 'post'&quot;</span>
+  <span class="key">LOG_TRANSITIONS</span>: <span class="predefined-constant">true</span>,
+
+  <span class="comment">// Extremely detailed logging, highlighting every internal</span>
+  <span class="comment">// step made while transitioning into a route, including</span>
+  <span class="comment">// `beforeModel`, `model`, and `afterModel` hooks, and</span>
+  <span class="comment">// information about redirects and aborted transitions</span>
+  <span class="key">LOG_TRANSITIONS_INTERNAL</span>: <span class="predefined-constant">true</span>
+});
+</pre></td>
+</tr></table>
+</div></div><h2 class='anchorable-toc' id='toc_views-templates'>Views / Templates</h2><h4 class='anchorable-toc' id='toc_log-view-lookups'>Log view lookups</h4><div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">config/environment.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre>ENV.APP.LOG_VIEW_LOOKUPS = <span class="predefined-constant">true</span>;
+</pre></td>
+</tr></table>
+</div></div><h4 class='anchorable-toc' id='toc_view-all-registered-templates'>View all registered templates</h4><div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre>Ember.keys(Ember.TEMPLATES)
+</pre></td>
+</tr></table>
+</div></div><h2 class='anchorable-toc' id='toc_controllers'>Controllers</h2><h4 class='anchorable-toc' id='toc_log-generated-controller'>Log generated controller</h4><div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">config/environment.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre>ENV.APP.LOG_ACTIVE_GENERATION = <span class="predefined-constant">true</span>;
+</pre></td>
+</tr></table>
+</div></div><h2 class='anchorable-toc' id='toc_observers-binding'>Observers / Binding</h2><h4 class='anchorable-toc' id='toc_see-all-observers-for-an-object-key'>See all observers for an object, key</h4><div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre>Ember.observersFor(comments, keyName);
+</pre></td>
+</tr></table>
+</div></div><h4 class='anchorable-toc' id='toc_log-object-bindings'>Log object bindings</h4><div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">config/environments.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre>ENV.APP.LOG_BINDINGS = <span class="predefined-constant">true</span>;
+</pre></td>
+</tr></table>
+</div></div><h2 class='anchorable-toc' id='toc_miscellaneous'>Miscellaneous</h2><h4 class='anchorable-toc' id='toc_turn-on-resolver-resolution-logging'>Turn on resolver resolution logging</h4>
+<p>This option logs all the lookups that are done to the console. Custom objects
+you&#39;ve created yourself have a tick, and Ember generated ones don&#39;t.</p>
+
+<p>It&#39;s useful for understanding which objects Ember is finding when it does a lookup
+and which it is generating automatically for you.</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/app.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+</pre></td>
+  <td class="code"><pre><span class="reserved">import</span> Application from <span class="string"><span class="delimiter">'</span><span class="content">@ember/application</span><span class="delimiter">'</span></span>;
+
+<span class="reserved">export</span> <span class="keyword">default</span> Application.extend({
+  <span class="key">LOG_RESOLVER</span>: <span class="predefined-constant">true</span>
+});
+</pre></td>
+</tr></table>
+</div></div><h4 class='anchorable-toc' id='toc_dealing-with-deprecations'>Dealing with deprecations</h4><div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+</pre></td>
+  <td class="code"><pre>Ember.ENV.RAISE_ON_DEPRECATION = <span class="predefined-constant">true</span>;
+Ember.ENV.LOG_STACKTRACE_ON_DEPRECATION = <span class="predefined-constant">true</span>;
+</pre></td>
+</tr></table>
+</div></div><h4 class='anchorable-toc' id='toc_implement-an-ember-onerror-hook-to-log-all-errors-in-production'>Implement an Ember.onerror hook to log all errors in production</h4><div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></td>
+  <td class="code"><pre>Ember.<span class="function">onerror</span> = <span class="keyword">function</span>(error) {
+  Ember.<span class="predefined">$</span>.ajax(<span class="string"><span class="delimiter">'</span><span class="content">/error-notification</span><span class="delimiter">'</span></span>, {
+    <span class="key">type</span>: <span class="string"><span class="delimiter">'</span><span class="content">POST</span><span class="delimiter">'</span></span>,
+    <span class="key">data</span>: {
+      <span class="key">stack</span>: error.stack,
+      <span class="key">otherInformation</span>: <span class="string"><span class="delimiter">'</span><span class="content">exception message</span><span class="delimiter">'</span></span>
+    }
+  });
+}
+</pre></td>
+</tr></table>
+</div></div><h4 class='anchorable-toc' id='toc_import-the-console'>Import the console</h4>
+<p>If you are using imports with Ember, be sure to import the console:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+7
+</pre></td>
+  <td class="code"><pre>Ember = {
+  <span class="key">imports</span>: {
+    <span class="key">Handlebars</span>: Handlebars,
+    <span class="key">jQuery</span>: <span class="predefined">$</span>,
+    <span class="key">console</span>: window.console
+  }
+};
+</pre></td>
+</tr></table>
+</div></div><h4 class='anchorable-toc' id='toc_errors-within-an-code-rsvp-promise-code'>Errors within an <code>RSVP.Promise</code></h4>
+<p>There are times when dealing with promises that it seems like any errors
+are being &#39;swallowed&#39;, and not properly raised. This makes it extremely
+difficult to track down where a given issue is coming from. Thankfully,
+<code>RSVP</code> has a solution for this problem built in.</p>
+
+<p>You can provide an <code>onerror</code> function that will be called with the error
+details if any errors occur within your promise. This function can be anything,
+but a common practice is to call <code>console.assert</code> to dump the error to the
+console.</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay">
+  <thead>
+    <tr>
+      <td colspan="2">app/app.js</td>
+    </tr>
+  </thead>
+<tr>
+  <td class="line-numbers"><pre>1
+2
+3
+4
+5
+6
+</pre></td>
+  <td class="code"><pre><span class="reserved">import</span> { assert } from <span class="string"><span class="delimiter">'</span><span class="content">@ember/debug</span><span class="delimiter">'</span></span>;
+<span class="reserved">import</span> RSVP from <span class="string"><span class="delimiter">'</span><span class="content">rsvp</span><span class="delimiter">'</span></span>;
+
+RSVP.on(<span class="string"><span class="delimiter">'</span><span class="content">error</span><span class="delimiter">'</span></span>, <span class="keyword">function</span>(error) {
+  assert(error, <span class="predefined-constant">false</span>);
+});
+</pre></td>
+</tr></table>
+</div></div><h4 class='anchorable-toc' id='toc_errors-within-code-ember-run-later-code-a-href-https-github-com-ebryn-backburner-js-backburner-js-a'>Errors within <code>Ember.run.later</code> (<a href="https://github.com/ebryn/backburner.js">Backburner.js</a>)</h4>
+<p>Backburner has support for stitching the stacktraces together so that you can
+track down where an erroring <code>Ember.run.later</code> is being initiated from. Unfortunately,
+this is quite slow and is not appropriate for production or even normal development.</p>
+
+<p>To enable full stacktrace mode in Backburner, and thus determine the stack of the task
+when it was scheduled onto the run loop, you can set:</p>
+<div class="highlight javascript "><div class="ribbon"></div><div class="scroller"><table class="CodeRay"><tr>
+  <td class="line-numbers"><pre>1
+</pre></td>
+  <td class="code"><pre>Ember.run.backburner.DEBUG = <span class="predefined-constant">true</span>;
+</pre></td>
+</tr></table>
+</div></div>
+<p>Once the <code>DEBUG</code> value is set to <code>true</code>, when you are at a breakpoint you can navigate
+back up the stack to the <code>flush</code> method in and check the <code>errorRecordedForStack.stack</code>
+value, which will be the captured stack when this job was scheduled.</p>
+
+
+
+        
+      <footer>
+        <a href="../build-targets/" class="previous-guide">Build targets</a> <a href="../../contributing/adding-new-features/" class="next-guide">We've finished covering Configuring Ember.js. Next up: Contributing to Ember.js - Adding New Features</a>
+      </footer>
+      
+      </article>
+    </main>
+
+    <footer class="footer">
+  <div class="container">
+    <div class="footer-info">
+      Copyright 2018
+      <a href="http://tilde.io">Tilde Inc.</a>
+      <br>
+      <a href="http://emberjs.com/team">Team</a> |
+      <a href="http://emberjs.com/sponsors">Sponsors</a>
+      <br>
+      <a href="http://emberjs.com/security">Security</a> |
+      <a href="http://emberjs.com/legal">Legal</a> |
+      <a href="http://emberjs.com/logos">Logos</a>
+      <br>
+      <a href="http://emberjs.com/guidelines">Community Guidelines</a>
+    </div>
+
+    <div class="footer-statement">
+      Ember.js is free, open source and always will be.
+      <div class="footer-social">
+        <a href="http://twitter.com/emberjs" title="Twitter" aria-label="Ember on Twitter">
+          <i class="icon-twitter" aria-hidden="true"></i>
+        </a>
+        <a href="https://github.com/emberjs/ember.js" title="GitHub" aria-label="Github repository">
+          <i class="icon-github" aria-hidden="true"></i>
+        </a>
+        <a href="https://plus.google.com/communities/106387049790387471205" title="Google+" aria-label="google plus profile">
+          <i class="icon-gplus" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-contributions">
+      <div class="contributor">
+        <p>Hosted by:</p>
+        <a href="https://www.heroku.com/emberjs">
+          <img src="https://glimmer-styleguide.global.ssl.fastly.net/glimmer-styleguide/master/images/heroku-logo.svg" class="logo-heroku" alt="heroku">
+        </a>
+      </div>
+      <div class="contributor">
+        <p>CDN provided by:</p>
+          <a href="https://www.fastly.com">
+            <img src="https://glimmer-styleguide.global.ssl.fastly.net/glimmer-styleguide/master/images/fastly-logo.svg" class="logo-fastly" alt="fastly">
+          </a>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+
+    
+
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+      _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+      _gaq.push(['_setAccount', 'UA-27675533-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </body>
+</html>
