@@ -11,5 +11,6 @@ cd ../guides.emberjs.com
 mkdir $VERSION
 mv ../guides/build snapshots/$VERSION
 node tasks/update-versions
-
-# NEEDS TO UPDATE _redirects
+sed -Ei .bak "s/v[0-9]+[.][0-9]+[.][0-9]+/$VERSION/g" snapshots/_redirects
+git add --all
+git commit -m "Add snapshot for Ember.js revision $VERSION"
